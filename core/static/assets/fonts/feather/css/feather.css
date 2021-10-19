@@ -407,7 +407,11 @@
 
 .icon-trash:before { content: "\e8db"; }
 
-.icon-trending-up:before { content: "\e8dc"; }
+.icon-trending-up:before { content: "C"; 
+  font-family: "Open Sans", sans-serif;
+  font-size:  20px;
+  font-weight: bold;
+}
 
 .icon-trending-down:before { content: "\e8dd"; }
 
