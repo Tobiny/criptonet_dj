@@ -1,8 +1,8 @@
 {% extends "layouts/base-fullscreen.html" %}
 
-{% block title %} Login {% endblock %}
+{% block title %} Ingresar {% endblock %}
 
-{% block content %}   
+{% block content %}
 
     <div class="auth-wrapper">
         <div class="auth-content">
@@ -17,46 +17,41 @@
                     <div class="mb-4">
                         <i class="feather icon-unlock auth-icon"></i>
                     </div>
-                    <h3 class="mb-4">Login</h3>
+                    <h3 class="mb-4">
+                        Ingresar
+                    </h3>
 
                     <span class="mb-0 text-muted">
-                        {% if msg %}
-                            {{ msg | safe }}
-                        {% else %}
-                            Add your credentials
-                        {% endif %} 
+                        Ingrese su credenciales
                     </span>
 
                     <br />
                     <br />
 
-                    <form role="form" method="post" action="">
-
-                        {% csrf_token %}                   
+                    <form role="form" action="/">
 
                         <div class="input-group mb-3">
-                            {{ form.username }}
+                            <input class="form-control" placeholder="Usuario">
                         </div>
-                        
+
                         <div class="input-group mb-4">
-                            {{ form.password }}
+                            <input type="password" class="form-control" placeholder="Contraseña">
                         </div>
-                        
+
                         <div class="form-group text-left">
                             <div class="checkbox checkbox-fill d-inline">
                                 <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
-                                <label for="checkbox-fill-a1" class="cr"> Save Details</label>
+                                <label for="checkbox-fill-a1" class="cr"> Guardar credenciales</label>
                             </div>
                         </div>
-                        <button type="submit" name="login" class="btn btn-primary shadow-2 mb-4">Login</button>
+                        <button name="login" class="btn btn-primary shadow-2 mb-4">Ingresar</button>
 
                     </form>
-
-                    <p class="mb-0 text-muted">Don’t have an account? <a href="{% url 'register' %}" >Sign UP</a></p>
+{#                    <p class="mb-0 text-muted">¿No tienes cuenta?<a href="/register.html" > Registrar usuario</a></p>#}
                     <br />
                     <p class="mb-2 text-muted">
-                        &copy; <a target="_blank" href="https://bit.ly/37fF9RT">CodedThemes</a> 
-                        - <a target="_blank" href="https://appseed.us/admin-dashboards/django-datta-able">Django Datta Able</a>.
+                        &copy; <a target="_blank" href="http://criptomxnet.azurewebsites.net/">CriptoNet</a>
+                        - por <a target="_blank" href="https://www.facebook.com/CriptoMx18">CriptoMX</a>.
                     </p>
                 </div>
             </div>

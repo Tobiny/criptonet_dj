@@ -14,7 +14,7 @@ from django.urls import reverse
 def index(request):
     context = {'segment': 'index'}
 
-    html_template = loader.get_template('index.html')
+    html_template = loader.get_template('panel.html')
     return HttpResponse(html_template.render(context, request))
 
 #Puestra error en caso de que no logeen
