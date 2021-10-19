@@ -73,8 +73,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'CriptoNet',
+        'USER': 'root',
+        'PASSWORD': 'Krakaposte0',
+        'HOST': '35.236.117.179',
+        'PORT': '3306',
     }
 }
 
