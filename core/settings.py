@@ -26,7 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.app'  # Enable the inner app
+    'apps.app',  # Enable the inner app
+    'djmoney',
 ]
 
 MIDDLEWARE = [
@@ -120,5 +121,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(CORE_DIR, 'core/static'),
 )
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 #############################################################
 #############################################################

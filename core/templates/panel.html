@@ -2,174 +2,51 @@
 
 {% block title %} Inicio {% endblock %}
 
-
+<!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
 
-<div class="pcoded-content">
-    <div class="pcoded-inner-content">
-        <!-- [ breadcrumb ] start -->
-        <div class="page-header">
-            <div class="page-block">
-                <div class="row align-items-center">
-                    <div class="col-md-12">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10">Tablas para mostrar vistas</h5>
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Inicio</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="javascript:">Página principal</a></li>
+                            </ul>
                         </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="panel.html"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#panel.html">Inicio</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Tablas para mostrar vistas</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- [ breadcrumb ] end -->
-        <div class="main-body">
-            <div class="page-wrapper">
-                <!-- [ Main Content ] start -->
-                <div class="row">
-                    <!-- [ basic-table ] start -->
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Tabla básica</h5>
-                                <span class="d-block m-t-5">tabla básica para realizar consultas</span>
-                            </div>
-                            <div class="card-block table-border-style">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Usuario</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Daniel</td>
-                                                <td>Torres</td>
-                                                <td>@daniel</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Raul</td>
-                                                <td>Chavez</td>
-                                                <td>@raul</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Akali</td>
-                                                <td>Jiménez</td>
-                                                <td>@akali</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+            <!-- [ breadcrumb ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Bienvenido a CriptoNet</h5>
+                                </div>
+                                <div class="card-block">
+                                    <p>"Esta página será usada para generar gráficos de todo los datos de la base"
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- [ basic-table ] end -->
-
-                    <!-- [ Hover-table ] start -->
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Tabla con hover</h5>
-                                <span class="d-block m-t-5">tabla con hover para realizar consultas</span>
-                            </div>
-                            <div class="card-block table-border-style">
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Usuario</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Daniel</td>
-                                                <td>Torres</td>
-                                                <td>@daniel</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Raul</td>
-                                                <td>Chavez</td>
-                                                <td>@raul</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Akali</td>
-                                                <td>Jiménez</td>
-                                                <td>@akali</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- [ Hover-table ] end -->
-
-                    <!-- [ stiped-table ] start -->
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Tabla intercalada</h5>
-                                <span class="d-block m-t-5">tabla intercalada para realizar consultas</span>
-                            </div>
-                            <div class="card-block table-border-style">
-                                <div class="table-responsive">
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nombre</th>
-                                                <th>Apellido</th>
-                                                <th>Usuario</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Daniel</td>
-                                                <td>Torres</td>
-                                                <td>@daniel</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Raul</td>
-                                                <td>Chavez</td>
-                                                <td>@raul</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Akali</td>
-                                                <td>Jiménez</td>
-                                                <td>@akali</td>
-                                            </tr>
-                                        </tbody>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- [ stiped-table ] end -->
+                    <!-- [ Main Content ] end -->
                 </div>
-                <!-- [ Main Content ] end -->
             </div>
         </div>
     </div>
-</div>
 
 {% endblock content %}
 

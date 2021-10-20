@@ -1,13 +1,10 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
 from django.template import loader
 from django.urls import reverse
+from .models import *
 
 
 @login_required(login_url="/login/")
@@ -17,7 +14,14 @@ def index(request):
     html_template = loader.get_template('panel.html')
     return HttpResponse(html_template.render(context, request))
 
-#Puestra error en caso de que no logeen
+
+@login_required(login_url="/login/")
+def registros_p(request):
+    productos = Producto.objects.all()
+    return render(request, "productos/registros.html", {'productos': productos})
+
+
+# Muestra error en caso de que no logeen
 @login_required(login_url="/login/")
 def pages(request):
     context = {}
