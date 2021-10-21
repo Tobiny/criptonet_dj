@@ -23,6 +23,8 @@ urlpatterns = [
     path('', views.index, name='home'),
 
     path('productos/', vistas_p, name='vistas_p'),
+    path('empleados/', vistas_e, name='vistas_e'),
+    path('servicios/', vistas_s, name='vistas_s'),
 
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),

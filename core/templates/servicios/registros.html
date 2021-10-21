@@ -15,12 +15,12 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Registros de empleados</h5>
+                            <h5 class="m-b-10">Registros de servicios</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Empleados</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Empleado de productos</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Servicios</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Empleado de servicios</a></li>
                         </ul>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5>Empleados registrados</h5>
-                                <span class="d-block m-t-5">Empleados registrados hasta la fecha</span>
+                                <span class="d-block m-t-5">Servicios registrados hasta la fecha</span>
                             </div>
                             <div class="card-block table-border-style">
                                 <div class="table-responsive">
@@ -45,15 +45,15 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Nombre</th>
-                                                <th>RFC</th>
+                                                <th>Precio</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        {% for empleado in empleados %}
+                                        {% for servicio in servicios %}
                                             <tr>
-                                                <th scope="row">{{empleado.id_empleado}}</th>
-                                                <td>{{empleado.nom}}</td>
-                                                <td>{{empleado.rfc}}</td>
+                                                <th scope="row">{{servicio.id_servicio}}</th>
+                                                <td>{{servicio.nom}}</td>
+                                                <td>{{servicio.precio}}</td>
                                             </tr>
                                         {% endfor %}
                                         </tbody>
