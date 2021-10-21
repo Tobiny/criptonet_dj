@@ -22,7 +22,7 @@ urlpatterns = [
     # The home page
     path('', views.index, name='home'),
 
-    path('productos/', registros_p, name='registrosP'),
+    path('productos/', vistas_p, name='vistas_p'),
 
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),

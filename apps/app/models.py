@@ -20,7 +20,7 @@ class Servicio(models.Model):
 
 class Venta(models.Model):
     id_venta = models.AutoField(primary_key=True)
-    id_cliente = models.ForeignKey('Producto', on_delete=models.CASCADE)
+    id_cliente = models.ForeignKey('Venta', on_delete=models.CASCADE)
     total = MoneyField(max_length=18, decimal_places=2, max_digits=16)
     fecha = models.DateField()
 

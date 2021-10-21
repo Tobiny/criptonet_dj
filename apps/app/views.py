@@ -16,9 +16,25 @@ def index(request):
 
 
 @login_required(login_url="/login/")
-def registros_p(request):
+def vistas_p(request):
     productos = Producto.objects.all()
-    return render(request, "productos/registros.html", {'productos': productos})
+    return render(request, "productos/vistas.html", {'productos': productos})
+
+def vistas_p(request):
+    productos = Producto.objects.all()
+    return render(request, "clientes/vistas.html", {'productos': productos})
+
+def vistas_p(request):
+    productos = Producto.objects.all()
+    return render(request, "mantenimientos/vistas.html", {'productos': productos})
+
+def vistas_p(request):
+    productos = Producto.objects.all()
+    return render(request, "productos/vistas.html", {'productos': productos})
+
+def vistas_p(request):
+    productos = Producto.objects.all()
+    return render(request, "productos/vistas.html", {'productos': productos})
 
 
 # Muestra error en caso de que no logeen
