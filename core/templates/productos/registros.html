@@ -40,7 +40,7 @@
                             </div>
                             <div class="card-block table-border-style">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table id="tabla-vistas" class="table table table-striped table-bordered table-sm">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -76,4 +76,14 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+<script >
+// Basic example
+$(document).ready(function () {
+$('#tabla-vistas').DataTable({
+"searching": true // false to disable search (or any other option)
+});
+$('.dataTables_length').addClass('bs-select');
+});
+</script>
+{% endblock javascripts %}
