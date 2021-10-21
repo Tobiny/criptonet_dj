@@ -20,19 +20,23 @@ def vistas_p(request):
     productos = Producto.objects.all()
     return render(request, "productos/vistas.html", {'productos': productos})
 
-def vistas_p(request):
+
+def vistas_s(request):
     productos = Producto.objects.all()
     return render(request, "clientes/vistas.html", {'productos': productos})
 
-def vistas_p(request):
+
+def vistas_m(request):
     productos = Producto.objects.all()
     return render(request, "mantenimientos/vistas.html", {'productos': productos})
 
-def vistas_p(request):
+
+def vistas_e(request):
     productos = Producto.objects.all()
     return render(request, "productos/vistas.html", {'productos': productos})
 
-def vistas_p(request):
+
+def vistas_c(request):
     productos = Producto.objects.all()
     return render(request, "productos/vistas.html", {'productos': productos})
 
