@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.fields import FloatField, DecimalField, BigAutoField
 from djmoney.models.fields import MoneyField
 
+
 # Create your models here.
 class Producto(models.Model):
     id_producto = models.CharField(max_length=14, primary_key=True)
