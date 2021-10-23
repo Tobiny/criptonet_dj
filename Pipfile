@@ -16,6 +16,8 @@ toml = "==0.10.2"
 whitenoise = "==5.3.0"
 Django = "==3.2.6"
 Unipath = "==1.1"
+form = "*"
+list-print = "*"
 
 [dev-packages]
 

@@ -43,8 +43,10 @@
                                     <table id="tabla-vistas" class="table table table-striped table-bordered table-sm">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Nombre</th>
+                                                <th>Id Producto</th>
+                                                <th>Tipo</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
                                                 <th>Precio venta</th>
                                                 <th>Existencia</th>
                                             </tr>
@@ -53,7 +55,9 @@
                                         {% for producto in productos %}
                                             <tr>
                                                 <th scope="row">{{producto.id_producto}}</th>
-                                                <td>{{producto.nom}}</td>
+                                                <td>{{producto.tipo.nom}}</td>
+                                                <td>{{producto.marca.nom}}</td>
+                                                <td>{{producto.modelo}}</td>
                                                 <td>{{producto.precio_venta}}</td>
                                                 <td>{{producto.cantidad_existente}}</td>
                                             </tr>

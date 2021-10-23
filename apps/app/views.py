@@ -1,11 +1,13 @@
+
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.template import loader
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import *
-
+from django.views import generic
 
 @login_required(login_url="/login/")
 def index(request):
@@ -15,10 +17,30 @@ def index(request):
     return HttpResponse(html_template.render(context, request))
 
 
-@login_required(login_url="/login/")
-def vistas_p(request):
-    productos = Producto.objects.all()
-    return render(request, "productos/vistas.html", {'productos': productos})
+class ProductoDetalles(generic.DetailView):
+    model = Producto
+    template_name = 'productos/producto_detalles.html'
+
+class ProductosCrear(CreateView):
+    model = Producto
+    fields = '__all__'
+    template_name = 'productos/productos_form.html'
+
+
+class ProductosUpdate(UpdateView):
+    model = Producto
+    fields = '__all__'
+
+
+class ProductosBorrar(DeleteView):
+    model = Producto
+    success_url = reverse_lazy('producto')
+
+
+class VistasProductosListas(generic.ListView):
+    model = Producto
+    context_object_name = 'lista_productos'  # your own name for the list as a template variable
+    template_name = 'productos/productos_list.html'  # Specify your own template name/location
 
 
 def vistas_s(request):
