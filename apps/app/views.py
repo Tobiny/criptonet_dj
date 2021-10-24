@@ -30,11 +30,14 @@ class ProductosCrear(CreateView):
 class ProductosUpdate(UpdateView):
     model = Producto
     fields = '__all__'
+    template_name = 'productos/producto_modificar.html'
+
 
 
 class ProductosBorrar(DeleteView):
     model = Producto
-    success_url = reverse_lazy('producto')
+    template_name = 'productos/producto_confirmar_borrado.html'
+    success_url = reverse_lazy('productos')
 
 
 class VistasProductosListas(generic.ListView):

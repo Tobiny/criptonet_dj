@@ -50,7 +50,7 @@ class Producto(models.Model):
     modelo = models.CharField(max_length=120, help_text="Ingrese el modelo del producto (p. ej. Ryzen 3600X, GeForce "
                                                         "1660 Super, etc.)")
     precio_venta = MoneyField(max_length=18, decimal_places=2, max_digits=16,
-                              help_text="Ingrese el precio del producto con su tipo de moneda.")
+                              help_text="Ingrese el precio del producto con su tipo de moneda.", default_currency='MXN')
     cantidad_existente = models.PositiveIntegerField(help_text="Ingrese la cantidad de producto a añadir o modificar.")
 
     def __str__(self):
@@ -68,7 +68,7 @@ class Producto(models.Model):
 
 class Servicio(models.Model):
     id_servicio = models.AutoField(primary_key=True)
-    precio = MoneyField(max_length=18, decimal_places=2, max_digits=16)
+    precio = MoneyField(max_length=18, decimal_places=2, max_digits=16, default_currency='MXN')
     nom = models.CharField(max_length=30)
 
     def __str__(self):

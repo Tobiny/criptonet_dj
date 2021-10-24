@@ -122,6 +122,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(CORE_DIR, 'core/static'),
 )
+CURRENCY_CHOICES = [('USD', 'USD $'), ('EUR', 'EUR €'), ('MXN', 'MXN $')]
 
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 #############################################################

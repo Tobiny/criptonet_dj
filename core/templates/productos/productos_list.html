@@ -19,7 +19,7 @@
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Productos</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'productos' %}">Productos</a></li>
                             <li class="breadcrumb-item"><a href="javascript:">Registros de productos</a></li>
                         </ul>
                     </div>
@@ -50,17 +50,29 @@
                                                 <th>Modelo</th>
                                                 <th>Precio venta</th>
                                                 <th>Existencia</th>
+                                                <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         {% for producto in lista_productos %}
                                             <tr>
-                                                <th scope="row"><a href="{{ producto.get_absolute_url }}">{{producto.id_producto}}</a></th>
+                                                <th scope="row"><a href="{{ producto.get_absolute_url }}">{{ producto.id_producto|truncatechars:8 }}</a></th>
                                                 <td>{{producto.tipo.nom}}</td>
                                                 <td>{{producto.marca.nom}}</td>
                                                 <td>{{producto.modelo}}</td>
                                                 <td>{{producto.precio_venta}}</td>
                                                 <td>{{producto.cantidad_existente}}</td>
+                                                <td>
+                                                    <button class="btn btn-info dropdown-toggle" type="button"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">Acciones
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="{{ producto.get_absolute_url }}">Ver detalles</a>
+                                                        <a class="dropdown-item" href="{{ producto.get_absolute_url|add:'modificar/' }}">Modificar</a>
+                                                        <a class="dropdown-item" href="{{ producto.get_absolute_url|add:'borrar/' }}">Eliminar</a>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         {% endfor %}
                                         </tbody>

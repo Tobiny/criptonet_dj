@@ -9,10 +9,10 @@ urlpatterns = [
     path('', views.index, name='home'),
 
     url(r'^productos/$', views.VistasProductosListas.as_view(), name='productos'),
-    url(r'^productos/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/$', views.ProductoDetalles.as_view(), name='producto_detalles'),
+    url(r'^producto/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/$', views.ProductoDetalles.as_view(), name='producto_detalles'),
     url(r'^productos/crear/$', views.ProductosCrear.as_view(), name='productos_crear'),
-    url(r'^producto/(?P<pk>\d+)/modificar/$', views.ProductosUpdate.as_view(), name='productos_modificar'),
-    url(r'^producto/(?P<pk>\d+)/borrar/$', views.ProductosBorrar.as_view(), name='productos_borrar'),
+    url(r'^producto/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/modificar/$', views.ProductosUpdate.as_view(), name='productos_modificar'),
+    url(r'^producto/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/borrar/$', views.ProductosBorrar.as_view(), name='productos_borrar'),
 
     path('empleados/', vistas_e, name='vistas_e'),
     path('servicios/', vistas_s, name='vistas_s'),
