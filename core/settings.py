@@ -29,9 +29,7 @@ INSTALLED_APPS = [
     'apps.app',  # Enable the inner app
     'djmoney',
     'widget_tweaks',
-    'crispy_forms',
 ]
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
