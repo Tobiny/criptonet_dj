@@ -10,11 +10,11 @@
       <jdbc-url>jdbc:mysql://35.236.117.179:3306/CriptoNet</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="@localhost" uuid="1002dbba-f1b4-42df-a467-0994b8a0b708">
-      <driver-ref>mysql.8</driver-ref>
+    <data-source source="LOCAL" name="@localhost [2]" uuid="0700403e-d52c-4c4c-a41f-c5007bacd754">
+      <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://localhost</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

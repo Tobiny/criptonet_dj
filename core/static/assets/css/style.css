@@ -1,25 +1,3 @@
-/**======================================================================
-=========================================================================
-Template Name: Datta Able Admin Template
-Author: Codedthemes
-supports: https://codedthemes.support-hub.io/
-File: style.css
-=========================================================================
-=========================================================================
-  == Table of Contents==
-	- Generic classes
-		-	Margin, Padding, Font class, text align, position, floating, overflow, background class, text color, display class, boarder class
-	- Theme Elements
-		-	Accordion, Button, tabs, typography, buttons, box shadow, Lable & Badges, Alert, Pagination, Breadcumb, Cards, Collapse,
-        -   Carousel, Grid, Progress, Model, tooltip, popover, Datepicker, Gridstack, lightbox, notification, Nestable, pnotify, rating,
-        -   Rangeslider, Slider, Syntax Highlighter, Tour, Treeview, Toolbar, Session Timeout, Session idle Timeout, offline, Animation
-    - Forms
-        -   Forms Elements, Advance Form Control, Validation, Masking, Wizard, Picker, Select
-	- Pages
-		-   Chat, authentication, Maintenance, Maps, Landingpage messages, task, Todo, Notes, Charts, Icons, Gallery, Editors,
-        -   Invoice, Full Calender, File Upload,
-=================================================================================
-=================================================================================== */
 /*
     description Of variables for build for theme layouts
         1) menu-caption-color
@@ -51,6 +29,7 @@ File: style.css
 ==========================  **/
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600");
 @import url("../plugins/bootstrap/css/bootstrap.min.css");
+@import url("../plugins/bootstrap/css/dataTables.bootstrap4.min.css");
 @import url("../fonts/feather/css/feather.css");
 @import url("../plugins/jquery-scrollbar/css/jquery.scrollbar.min.css");
 @import url("../fonts/datta/datta-icon.css");

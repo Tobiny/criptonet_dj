@@ -1,4 +1,3 @@
-
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
@@ -8,6 +7,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import *
 from django.views import generic
+
 
 @login_required(login_url="/login/")
 def index(request):
@@ -21,6 +21,7 @@ class ProductoDetalles(generic.DetailView):
     model = Producto
     template_name = 'productos/producto_detalles.html'
 
+
 class ProductosCrear(CreateView):
     model = Producto
     fields = '__all__'
@@ -31,7 +32,6 @@ class ProductosUpdate(UpdateView):
     model = Producto
     fields = '__all__'
     template_name = 'productos/producto_modificar.html'
-
 
 
 class ProductosBorrar(DeleteView):
@@ -46,9 +46,10 @@ class VistasProductosListas(generic.ListView):
     template_name = 'productos/productos_list.html'  # Specify your own template name/location
 
 
-def vistas_s(request):
-    servicios = Servicio.objects.all()
-    return render(request, "servicios/registros.html", {'servicios': servicios})
+class VistasServiciosListas(generic.ListView):
+    model = Servicio
+    context_object_name = 'lista_servicios'  # your own name for the list as a template variable
+    template_name = 'servicios/servicios_lista.html'  # Specify your own template name/location
 
 
 def vistas_e(request):

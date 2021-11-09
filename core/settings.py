@@ -13,9 +13,9 @@ SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # load production server from .env
-ALLOWED_HOSTS = ['criptomxnet.azurewebsites.net', 
+ALLOWED_HOSTS = ['criptomxnet.azurewebsites.net',
                  '127.0.0.1',
-                ]
+                 ]
 
 # Application definition
 
@@ -100,11 +100,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+LANGUAGE_CODE = 'es-AR'
 USE_I18N = True
+
+
+TIME_ZONE = 'America/mexico_city'
+
 
 USE_L10N = True
 
@@ -124,6 +125,6 @@ STATICFILES_DIRS = (
 )
 CURRENCY_CHOICES = [('USD', 'USD $'), ('EUR', 'EUR €'), ('MXN', 'MXN $')]
 
-DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 #############################################################
 #############################################################

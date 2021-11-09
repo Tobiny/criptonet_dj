@@ -13,5 +13,3 @@ admin.site.register(DetalleMatenimiento)
 admin.site.register(DetalleVenta)
 admin.site.register(Cliente)
 admin.site.register(Empleado)
-
-
