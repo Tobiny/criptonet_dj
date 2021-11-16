@@ -2,7 +2,6 @@
 
 {% block title %} Registros de Productos {% endblock %}
 
-<!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
@@ -15,12 +14,12 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Registros de productos</h5>
+                            <h5 class="m-b-10">Registros de servicios</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="{% url 'productos' %}">Productos</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Registros de productos</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'servicios' %}">Servicios</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Registros de servicios</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,41 +34,35 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Productos registrados</h5>
-                                <span class="d-block m-t-5">Productos registrados hasta la fecha</span>
+                                <h5>Servicios registrados</h5>
+                                <span class="d-block m-t-5">Servicios registrados hasta la fecha</span>
                             </div>
-                            {% if lista_productos %}
+                            {% if lista_servicios %}
                                 <div class="card-block table-border-style">
                                     <table id="tabla-vistas" class="table table table-striped table-bordered table-sm">
                                         <thead>
                                             <tr>
-                                                <th>Id Producto</th>
-                                                <th>Tipo</th>
-                                                <th>Marca</th>
-                                                <th>Modelo</th>
-                                                <th>Precio venta</th>
-                                                <th>Existencia</th>
+                                                <th>Id del Servicio</th>
+                                                <th>Nombre del servicio</th>
+                                                <th>Precio del servicio</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        {% for producto in lista_productos %}
+                                        {% for servicios in lista_servicios %}
                                             <tr>
-                                                <th scope="row"><a href="{{ producto.get_absolute_url }}">{{ producto.id_producto|truncatechars:8 }}</a></th>
-                                                <td>{{producto.tipo.nom}}</td>
-                                                <td>{{producto.marca.nom}}</td>
-                                                <td>{{producto.modelo}}</td>
-                                                <td>{{producto.precio_venta}}</td>
-                                                <td>{{producto.cantidad_existente}}</td>
+                                                <th scope="row"><a href="{{ servicios.get_absolute_url }}">{{ servicios.id_servicio }}</a></th>
+                                                <td>{{servicios.nom}}</td>
+                                                <td>{{servicios.precio}}</td>
                                                 <td>
                                                     <button class="btn btn-info dropdown-toggle" type="button"
                                                             data-toggle="dropdown" aria-haspopup="true"
                                                             aria-expanded="false">Acciones
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="{{ producto.get_absolute_url }}">Ver detalles</a>
-                                                        <a class="dropdown-item" href="{{ producto.get_absolute_url|add:'modificar/' }}">Modificar</a>
-                                                        <a class="dropdown-item" href="{{ producto.get_absolute_url|add:'borrar/' }}">Eliminar</a>
+                                                        <a class="dropdown-item" href="{{ servicios.get_absolute_url }}">Ver detalles</a>
+                                                        <a class="dropdown-item" href="{{ servicios.get_absolute_url|add:'modificar/' }}">Modificar</a>
+                                                        <a class="dropdown-item" href="{{ servicios.get_absolute_url|add:'borrar/' }}">Eliminar</a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -109,13 +102,9 @@
         // Basic example
         $(document).ready(function () {
             $('#tabla-vistas').DataTable({
-                "rowReorder": true,
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-                },
-                "searching": true, // false to disable search (or any other option)
-
+                "searching": true
             });
+            $('.dataTables_length').addClass('bs-select');
         });
     </script>
 {% endblock javascripts %}

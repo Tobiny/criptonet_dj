@@ -1,0 +1,127 @@
+{% extends "layouts/base.html" %}
+{% load widget_tweaks %}
+{% load custom_template_tags %}
+{% block title %} Registros de Productos {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Registros de productos</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="{% url 'productos' %}">Productos</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Registros de productos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- [ Main Content ] start -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Añadir un producto</h5>
+                            </div>
+                            <div class="card-body">
+                                <h5>Ingrese los datos del producto</h5>
+                                <hr>
+                                <form method="post" novalidate>
+                                    {% csrf_token %}
+                                    {% for field in form.hidden_fields %}
+                                        <div class="form-group">
+                                            {{ field.label_tag }}
+                                            {% if form.is_bound %}
+                                                {% if field.errors %}
+                                                    {% render_field field class="form-control is-invalid" %}
+                                                    {% for error in field.errors %}
+                                                        <div class="invalid-feedback">
+                                                            {{ error }}
+                                                        </div>
+                                                    {% endfor %}
+                                                {% else %}
+                                                    {% render_field field class="form-control is-valid" %}
+                                                {% endif %}
+                                            {% else %}
+                                                {% render_field field class="form-control" %}
+                                            {% endif %}
+                                            {% if field.help_text %}
+                                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                    {% if form.non_field_errors %}
+                                        <div class="alert alert-danger" role="alert">
+                                            {% for error in form.non_field_errors %}
+                                                {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                    {% with True as first %}
+                                    {% for field in form.visible_fields %}
+                                        <div class="form-group">
+                                            {{ field.label_tag }}
+                                            {% if form.is_bound %}
+                                                {% if field.errors %}
+                                                    {% render_field field class="form-control is-invalid" %}
+                                                    {% for error in field.errors %}
+                                                        <div class="invalid-feedback">
+                                                            {{ error }}
+                                                        </div>
+                                                    {% endfor %}
+                                                {% else %}
+                                                    {% render_field field class="form-control is-valid" %}
+                                                {% endif %}
+                                            {% elif first %}
+                                                {% render_field field|attr:"readonly:True" class="form-control"  %}
+                                                {% setvar False as first %}
+                                            {% else %}
+                                                {% render_field field class="form-control" %}
+                                            {% endif %}
+                                            {% if field.help_text %}
+                                                <small class="form-text text-muted">{{ field.help_text }}</small>
+                                            {% endif %}
+                                        </div>
+                                    {% endfor %}
+                                    {% endwith %}
+                                    <button type="submit" class="btn btn-primary">Agregar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+    <script>
+        // Basic example
+        $(document).ready(function () {
+            $('#tabla-vistas').DataTable({
+                "searching": true // false to disable search (or any other option)
+            });
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
+{% endblock javascripts %}

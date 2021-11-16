@@ -2,7 +2,6 @@ import uuid
 
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models import UniqueConstraint
 from django.urls import reverse
 from djmoney.models.fields import MoneyField
 
@@ -19,31 +18,43 @@ class Empleado(models.Model):
         """
         return '%s' % self.nom
 
+
 class Marca(models.Model):
     id_modelo = models.CharField(primary_key=True, max_length=3, help_text="Ingrese la id la marca (p, ej. NVD, AMD,"
                                                                            "etc.)")
     nom = models.CharField(max_length=200,
                            help_text="Ingrese la marca (p. ej. AMD,Nvidia, etc)")
+
     def __str__(self):
         """
         String para representar el Objeto del Modelo
         """
         return '%s' % self.nom
+
 
 class TipoProducto(models.Model):
     id_tipo = models.CharField(primary_key=True, max_length=3, help_text="Ingrese la id tipo de producto (p, ej. TV, "
                                                                          "PRO)")
     nom = models.CharField(max_length=200,
                            help_text="Ingrese el tipo de producto (p. ej. Tarjeta de video, Procesador etc.)")
+
     def __str__(self):
         """
         String para representar el Objeto del Modelo
         """
-        return '%s' % self.nom
+        return '%s' % self.id_tipo
+
+    def get_absolute_url(self):
+        """
+        Devuelve el URL a una instancia particular de Producto
+        """
+        return reverse('tipo_detalles', args=[str(self.id_tipo)])
+
 
 class Producto(models.Model):
-    id_producto = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único generado para este producto "
-                                                                                   "particular en toda la tienda")
+    id_producto = models.UUIDField(primary_key=True, default=uuid.uuid4,
+                                   help_text="ID único generado para este producto "
+                                             "particular en toda la tienda")
 
     tipo = models.ForeignKey(TipoProducto, on_delete=models.CASCADE, help_text="Seleccione el tipo de producto.")
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE, help_text="Seleccione la marca del producto.")
@@ -57,13 +68,14 @@ class Producto(models.Model):
         """
         String para representar el Objeto del Modelo
         """
-        return '%s-(%s)' % (self.id_producto[:4],self.modelo)
+        return '%s-(%s)' % (self.id_producto[:4], self.modelo)
 
     def get_absolute_url(self):
         """
         Devuelve el URL a una instancia particular de Producto
         """
         return reverse('producto_detalles', args=[str(self.id_producto)])
+
 
 
 class Servicio(models.Model):
@@ -78,24 +90,26 @@ class Servicio(models.Model):
         return '%s' % (self.nom)
 
 
-
 class Mantenimiento(models.Model):
     id_manten = models.AutoField(primary_key=True)
     fecha = models.DateField()
     observaciones = models.TextField(help_text="Ingrese las observaciones del mantenimiento")
     tipo_minero = models.CharField(max_length=20, null=True)
     total = MoneyField(max_length=18, decimal_places=2, max_digits=16)
+
     def __str__(self):
         """
         String para representar el Objeto del Modelo
         """
         return '%s - %s' % (self.id_manten, self.fecha)
 
+
 class DetalleMatenimiento(models.Model):
     id_servicio = models.ForeignKey('Servicio', on_delete=models.CASCADE)
     id_manten = models.ForeignKey('Mantenimiento', on_delete=models.CASCADE)
     cantidad = models.PositiveIntegerField()
     subtotal = MoneyField(max_length=18, decimal_places=2, max_digits=16)
+
     def __str__(self):
         """
         String para representar el Objeto del Modelo
@@ -109,11 +123,13 @@ class DetalleVenta(models.Model):
     id_manten = models.ForeignKey('Mantenimiento', on_delete=models.SET_NULL, null=True, blank=True)
     cantidad = models.IntegerField()
     subtotal = MoneyField(max_length=18, decimal_places=2, max_digits=16)
+
     def __str__(self):
         """
         String para representar el Objeto del Modelo
         """
         return '%s - %s' % (self.id_venta.id_venta, self.id_venta.fecha)
+
 
 class Cliente(models.Model):
     id_cliente = models.AutoField(primary_key=True)
@@ -131,11 +147,13 @@ class Cliente(models.Model):
         """
         return '%s - %s' % (self.nom, self.rfc[:5])
 
+
 class Venta(models.Model):
     id_venta = models.AutoField(primary_key=True)
     id_cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
     total = MoneyField(max_length=18, decimal_places=2, max_digits=16)
     fecha = models.DateField()
+
     def __str__(self):
         """
         String para representar el Objeto del Modelo
