@@ -14,6 +14,15 @@
             <div class="navbar-content scroll-div">
                 <ul class="nav pcoded-inner-navbar">
                     <li class="nav-item pcoded-menu-caption">
+                        <label>Usuario</label>
+                    </li>
+                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project"
+                        class="nav-item">
+                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">{{ user.get_username }}</span></a>
+
+                    </li>
+
+                    <li class="nav-item pcoded-menu-caption">
                         <label>Navegación</label>
                     </li>
                     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
@@ -86,8 +95,11 @@
                     </li>
 
                     <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
-                        <a href="" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Respaldos</span></a>
-
+                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Respaldos</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class=""><a href="{% url 'export' %}" class="">Exportar base</a></li>
+                            <li class=""><a href="{% url 'import' %}" class="">Importar base</a></li>
+                        </ul>
                     </li>
 
                     <li class="nav-item pcoded-menu-caption">

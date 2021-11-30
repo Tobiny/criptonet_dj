@@ -18,6 +18,7 @@ Django = "==3.2.6"
 Unipath = "==1.1"
 form = "*"
 list-print = "*"
+self = "*"
 
 [dev-packages]
 

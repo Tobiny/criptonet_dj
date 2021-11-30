@@ -77,7 +77,6 @@ class Producto(models.Model):
         return reverse('producto_detalles', args=[str(self.id_producto)])
 
 
-
 class Servicio(models.Model):
     id_servicio = models.AutoField(primary_key=True)
     precio = MoneyField(max_length=18, decimal_places=2, max_digits=16, default_currency='MXN')

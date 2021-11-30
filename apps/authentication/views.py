@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, SignUpForm
@@ -25,6 +26,11 @@ def login_view(request):
     return render(request, "accounts/login.html", {"form": form, "msg": msg})
 
 
+def editor_usuarios(user):
+    return user.groups.filter(name='Editor de usuarios').exists()
+
+@login_required
+@user_passes_test(editor_usuarios)
 def register_user(request):
     msg = None
     success = False

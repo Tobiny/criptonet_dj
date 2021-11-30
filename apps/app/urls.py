@@ -58,6 +58,8 @@ urlpatterns = [
     url(r'^servicio/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/borrar/$', views.ServiciosBorrar.as_view(), name='servicios_borrar'),
     url(r'^servicio/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/borrar/$', views.ServiciosBorrar.as_view(), name='servicios_borrar'),
 
+    path('exportar', views.export, name='export'),
+    path('importar', views.importar, name='import'),
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 ]

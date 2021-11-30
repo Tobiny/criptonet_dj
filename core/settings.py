@@ -12,9 +12,7 @@ SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # load production server from .env
-ALLOWED_HOSTS = ['criptomxnet.azurewebsites.net',
-                 '127.0.0.1',
-                 ]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -29,6 +27,7 @@ INSTALLED_APPS = [
     'djmoney',
     'widget_tweaks',
 ]
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -40,7 +39,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 ROOT_URLCONF = 'core.urls'
 LOGIN_REDIRECT_URL = "home"  # Route defined in app/urls.py
@@ -68,13 +66,14 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'CriptoNet',
-        'USER': 'root',
-        'PASSWORD': 'Krakaposte0',
-        'HOST': '35.236.117.179',
+        'NAME': 'u758168200_criptonet',
+        'USER': 'u758168200_criptoadmin',
+        'PASSWORD': 'Kr4kaposteo',
+        'HOST': '212.1.208.201',
         'PORT': '3306',
     }
 }
@@ -103,9 +102,11 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'es-AR'
 USE_I18N = True
 
+import _locale
+
+_locale._getdefaultlocale = (lambda *args: ['es_MX', 'utf8'])
 
 TIME_ZONE = 'America/mexico_city'
-
 
 USE_L10N = True
 
