@@ -56,8 +56,8 @@
                                         {% for producto in lista_productos %}
                                             <tr>
                                                 <th scope="row"><a href="{{ producto.get_absolute_url }}">{{ producto.id_producto|truncatechars:8 }}</a></th>
-                                                <td>{{producto.tipo.nom}}</td>
-                                                <td>{{producto.marca.nom}}</td>
+                                                <td>{{producto.tipo.nombre}}</td>
+                                                <td>{{producto.marca.nombre}}</td>
                                                 <td>{{producto.modelo}}</td>
                                                 <td>{{producto.precio_venta}}</td>
                                                 <td>{{producto.cantidad_existente}}</td>

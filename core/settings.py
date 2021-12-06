@@ -75,6 +75,7 @@ DATABASES = {
         'PASSWORD': 'Kr4kaposteo',
         'HOST': '212.1.208.201',
         'PORT': '3306',
+        'ATOMIC_REQUESTS': True,
     }
 }
 

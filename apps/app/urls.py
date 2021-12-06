@@ -16,16 +16,16 @@ urlpatterns = [
     url(r'^producto/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/borrar/$', views.ProductosBorrar.as_view(), name='productos_borrar'),
     #Tipos de productos
     url(r'^tipos/$', views.VistasTiposProductos.as_view(), name='tipos'),
-    url(r'^tipo_producto/(?P<pk>[A-Za-z]{3})/$', views.TipoDetalles.as_view(), name='tipo_detalles'),
+    url(r'^tipo_producto/(?P<pk>[A-Za-z0-9]{3})/$', views.TipoDetalles.as_view(), name='tipo_detalles'),
     url(r'^tipo_producto/crear/$', views.TiposCrear.as_view(), name='tipos_crear'),
-    url(r'^tipo_producto/(?P<pk>[A-Za-z]{3})/modificar/$', views.TiposUpdate.as_view(), name='tipos_modificar'),
-    url(r'^tipo_producto/(?P<pk>[A-Za-z]{3})/borrar/$', views.TiposBorrar.as_view(), name='tipos_borrar'),
+    url(r'^tipo_producto/(?P<pk>[A-Za-z0-9]{3})/modificar/$', views.TiposUpdate.as_view(), name='tipos_modificar'),
+    url(r'^tipo_producto/(?P<pk>[A-Za-z0-9]{3})/borrar/$', views.TiposBorrar.as_view(), name='tipos_borrar'),
     #Marcas
     url(r'^marcas/$', views.VistasMarcas.as_view(), name='marcas'),
-    url(r'^marca/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/$', views.MarcaDetalles.as_view(), name='marca_detalles'),
+    url(r'^marca/(?P<pk>[A-Za-z0-9]{3})/$', views.MarcaDetalles.as_view(), name='marca_detalles'),
     url(r'^marca/crear/$', views.MarcasCrear.as_view(), name='marcas_crear'),
-    url(r'^marca/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/modificar/$', views.MarcasUpdate.as_view(), name='marcas_modificar'),
-    url(r'^marca/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/borrar/$', views.MarcasBorrar.as_view(), name='marcas_borrar'),
+    url(r'^marca/(?P<pk>[A-Za-z0-9]{3})/modificar/$', views.MarcasUpdate.as_view(), name='marcas_modificar'),
+    url(r'^marca/(?P<pk>[A-Za-z0-9]{3})/borrar/$', views.MarcasBorrar.as_view(), name='marcas_borrar'),
     #Empleados
     url(r'^empleados/$', views.VistasEmpleados.as_view(), name='empleados'),
     url(r'^empleado/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/$', views.EmpleadoDetalles.as_view(), name='empleado_detalles'),

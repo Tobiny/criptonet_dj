@@ -100,6 +100,7 @@ class ServiciosDetalles(UserPassesTestMixin, generic.DetailView):
 
 
 # Creación
+
 class ProductosCrear(UserPassesTestMixin, CreateView):
     model = Producto
     fields = '__all__'
@@ -174,7 +175,7 @@ class ServiciosCrear(UserPassesTestMixin, CreateView):
 
 # Modificaciones
 
-class ProductosUpdate(PermissionRequiredMixin, UpdateView):
+class ProductosUpdate(UserPassesTestMixin, UpdateView):
     model = Producto
     fields = '__all__'
     template_name = 'productos/modify.html'
@@ -258,7 +259,7 @@ class ProductosBorrar(UserPassesTestMixin, DeleteView):
 
 class TiposBorrar(UserPassesTestMixin, DeleteView):
     model = TipoProducto
-    template_name = 'productos/confirm.html'
+    template_name = 'tipo_productos/confirm.html'
     success_url = reverse_lazy('tipos')
 
     def test_func(self):
@@ -267,7 +268,7 @@ class TiposBorrar(UserPassesTestMixin, DeleteView):
 
 class MarcasBorrar(UserPassesTestMixin, DeleteView):
     model = Marca
-    template_name = 'productos/confirm.html'
+    template_name = 'marcas/confirm.html'
     success_url = reverse_lazy('marcas')
 
     def test_func(self):
@@ -276,7 +277,7 @@ class MarcasBorrar(UserPassesTestMixin, DeleteView):
 
 class ClientesBorrar(UserPassesTestMixin, DeleteView):
     model = Cliente
-    template_name = 'productos/confirm.html'
+    template_name = 'clientes/confirm.html'
     success_url = reverse_lazy('clientes')
 
     def test_func(self):
@@ -285,7 +286,7 @@ class ClientesBorrar(UserPassesTestMixin, DeleteView):
 
 class EmpleadosBorrar(UserPassesTestMixin, DeleteView):
     model = Empleado
-    template_name = 'productos/confirm.html'
+    template_name = 'empleados/confirm.html'
     success_url = reverse_lazy('empleados')
 
     def test_func(self):
@@ -294,7 +295,7 @@ class EmpleadosBorrar(UserPassesTestMixin, DeleteView):
 
 class MantenimientosBorrar(UserPassesTestMixin, DeleteView):
     model = Mantenimiento
-    template_name = 'productos/confirm.html'
+    template_name = 'mantenimientos/confirm.html'
     success_url = reverse_lazy('mantenimientos')
 
     def test_func(self):
@@ -303,7 +304,7 @@ class MantenimientosBorrar(UserPassesTestMixin, DeleteView):
 
 class VentasBorrar(UserPassesTestMixin, DeleteView):
     model = Venta
-    template_name = 'productos/confirm.html'
+    template_name = 'ventas/confirm.html'
     success_url = reverse_lazy('ventas')
 
     def test_func(self):

@@ -1,7 +1,7 @@
 {% extends "layouts/base.html" %}
 {% load widget_tweaks %}
 {% load custom_template_tags %}
-{% block title %} Registros de Productos {% endblock %}
+{% block title %} Registros de Marcas {% endblock %}
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -16,13 +16,13 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Registros de productos</h5>
+                            <h5 class="m-b-10">Registros de marcas</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{% url 'productos' %}">Productos</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Registros de productos</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'marcas' %}">Marcas</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Registros de marcas</a></li>
                         </ul>
                     </div>
                 </div>
@@ -36,10 +36,10 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Añadir un producto</h5>
+                                <h5>Añadir una marca</h5>
                             </div>
                             <div class="card-body">
-                                <h5>Ingrese los datos del producto</h5>
+                                <h5>Ingrese los datos de la marca</h5>
                                 <hr>
                                 <form method="post" novalidate>
                                     {% csrf_token %}
@@ -72,7 +72,7 @@
                                             {% endfor %}
                                         </div>
                                     {% endif %}
-                                    {% with True as first %}
+                                    {% with False as first %}
                                     {% for field in form.visible_fields %}
                                         <div class="form-group">
                                             {{ field.label_tag }}
