@@ -1,14 +1,17 @@
 from django import template
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.http import HttpResponse
-from tablib import Dataset
+from django import forms
+
+from .form import ProductoForm, InvoiceForm, ClientSelectForm
 from .models import *
 
 
@@ -18,6 +21,101 @@ def index(request):
 
     html_template = loader.get_template('panel.html')
     return HttpResponse(html_template.render(context, request))
+
+
+@login_required(login_url="/login/")
+def dashboard(request):
+    clients = Cliente.objects.all().count()
+    invoices = Recibo.objects.all().count()
+    paidInvoices = Recibo.objects.filter(status='PAGADO').count()
+
+    context = {}
+    context['clients'] = clients
+    context['invoices'] = invoices
+    context['paidInvoices'] = paidInvoices
+    return render(request, 'panel.html', context)
+
+@login_required
+def invoices(request):
+    context = {}
+    invoices = Invoice.objects.all()
+    context['invoices'] = invoices
+
+    return render(request, 'recibo/invoices.html', context)
+
+
+@login_required
+def createInvoice(request):
+    #create a blank invoice ....
+    number = 'INV-'+str(uuid4()).split('-')[1]
+    newInvoice = Recibo.objects.create(number=number)
+    newInvoice.save()
+
+    inv = Recibo.objects.get(number=number)
+    return redirect('create-build-invoice', slug=inv.slug)
+
+
+
+
+def createBuildInvoice(request, slug):
+    #fetch that invoice
+    try:
+        invoice = Recibo.objects.get(slug=slug)
+        pass
+    except:
+        messages.error(request, 'Something went wrong')
+        return redirect('invoices')
+
+    #fetch all the products - related to this invoice
+    products = Producto.objects.filter(invoice=invoice)
+
+
+    context = {}
+    context['invoice'] = invoice
+    context['products'] = products
+
+    if request.method == 'GET':
+        prod_form  = ProductoForm()
+        inv_form = InvoiceForm(instance=invoice)
+        client_form = ClientSelectForm(initial_client=invoice.client)
+        context['prod_form'] = prod_form
+        context['inv_form'] = inv_form
+        context['client_form'] = client_form
+        return render(request, 'recibo/create-invoice.html', context)
+
+    if request.method == 'POST':
+        prod_form  = ProductoForm(request.POST)
+        inv_form = InvoiceForm(request.POST, instance=invoice)
+        client_form = ClientSelectForm(request.POST, initial_client=invoice.client, instance=invoice)
+
+        if prod_form.is_valid():
+            obj = prod_form.save(commit=False)
+            obj.invoice = invoice
+            obj.save()
+
+            messages.success(request, "Invoice product added succesfully")
+            return redirect('create-build-invoice', slug=slug)
+        elif inv_form.is_valid and 'paymentTerms' in request.POST:
+            inv_form.save()
+
+            messages.success(request, "Invoice updated succesfully")
+            return redirect('create-build-invoice', slug=slug)
+        elif client_form.is_valid() and 'client' in request.POST:
+
+            client_form.save()
+            messages.success(request, "Client added to invoice succesfully")
+            return redirect('create-build-invoice', slug=slug)
+        else:
+            context['prod_form'] = prod_form
+            context['inv_form'] = inv_form
+            context['client_form'] = client_form
+            messages.error(request,"Problem processing your request")
+            return render(request, 'recibo/create-invoice.html', context)
+
+
+    return render(request, 'recibo/create-invoice.html', context)
+
+
 
 
 def export(request):
@@ -92,8 +190,8 @@ class VentasDetalles(UserPassesTestMixin, generic.DetailView):
 
 
 class ServiciosDetalles(UserPassesTestMixin, generic.DetailView):
-    model = Venta
-    template_name = 'ventas/details.html'
+    model = Servicio
+    template_name = 'servicios/details.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de servicios").exists()
@@ -155,9 +253,17 @@ class VentasCrear(UserPassesTestMixin, CreateView):
         return self.request.user.groups.filter(name="Editor de ventas").exists()
 
 
+class MantenimientosForm(forms.ModelForm):
+    class Meta:
+        model = Mantenimiento
+        fields = '__all__'
+        widgets = {
+            'fecha': forms.DateInput(attrs={'type': 'date'})
+        }
+
+
 class MantenimientosCrear(UserPassesTestMixin, CreateView):
-    model = Producto
-    fields = '__all__'
+    form_class = MantenimientosForm
     template_name = 'mantenimientos/form.html'
 
     def test_func(self):
@@ -358,7 +464,7 @@ class VistasMantenimientos(UserPassesTestMixin, generic.ListView):
 
 
 class VistasVentas(UserPassesTestMixin, generic.ListView):
-    model = Venta
+    model = DetalleVenta
     context_object_name = 'lista_ventas'  # your own name for the list as a template variable
     template_name = 'ventas/list.html'  # Specify your own template name/location
 
@@ -391,21 +497,6 @@ class VistasServicios(UserPassesTestMixin, generic.ListView):
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de servicios").exists()
-
-
-def vistas_e(request):
-    empleados = Empleado.objects.all()
-    return render(request, "empleados/registros.html", {'empleados': empleados})
-
-
-def vistas_m(request):
-    mantenimientos = Producto.objects.all()
-    return render(request, "mantenimientos/vistas.html", {'mantenimientos': mantenimientos})
-
-
-def vistas_c(request):
-    clientes = Producto.objects.all()
-    return render(request, "clientes/vistas.html", {'clientes': clientes})
 
 
 @login_required(login_url="/login/")

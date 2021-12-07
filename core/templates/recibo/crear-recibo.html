@@ -1,7 +1,8 @@
 {% extends "layouts/base.html" %}
 {% load widget_tweaks %}
+{% load crispy_forms_tags %}
 {% load custom_template_tags %}
-{% block title %} Registros de Empleados {% endblock %}
+{% block title %} Crear Recibo {% endblock %}
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -16,13 +17,13 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Registros de empelados</h5>
+                            <h5 class="m-b-10">Registros de ventas</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{% url 'empleados' %}">Empleados</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Registros de empleados</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}">Recibos</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Registros de ventas</a></li>
                         </ul>
                     </div>
                 </div>
@@ -36,10 +37,10 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Añadir un empleado</h5>
+                                <h5>Realizar una venta</h5>
                             </div>
                             <div class="card-body">
-                                <h5>Ingrese los datos del empleado</h5>
+                                <h5>Ingrese los datos de la venta</h5>
                                 <hr>
                                 <form method="post" novalidate>
                                     {% csrf_token %}

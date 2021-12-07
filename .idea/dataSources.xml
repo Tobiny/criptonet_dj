@@ -22,11 +22,11 @@
       <jdbc-url>jdbc:mysql://192.168.0.102:3306/criptonet</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="u758168200_criptonet@sql654.main-hosting.eu" uuid="60085f1f-43bf-488c-a00a-9d3494e3e185">
+    <data-source source="LOCAL" name="u758168200_criptonet@212.1.208.201" uuid="60085f1f-43bf-488c-a00a-9d3494e3e185">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://sql654.main-hosting.eu/u758168200_criptonet</jdbc-url>
+      <jdbc-url>jdbc:mysql://212.1.208.201:3306/u758168200_criptonet</jdbc-url>
       <vm-options>&quot;-Djdk.tls.disabledAlgorithms=SSLv3, TLSv1, RC4, DES, MD5withRSA, DH keySize &lt; 1024, EC keySize &lt; 224, 3DES_EDE_CBC, anon, NULL, include jdk.disabled.namedCurves&quot;</vm-options>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>

@@ -1,7 +1,7 @@
 {% extends "layouts/base.html" %}
 {% load widget_tweaks %}
 {% load custom_template_tags %}
-{% block title %} Modificar Producto {% endblock %}
+{% block title %} Modificar Cliente {% endblock %}
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -16,13 +16,13 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Modificar {{ producto.modelo }}</h5>
+                            <h5 class="m-b-10">Modificar {{ cliente.nombre }}</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{% url 'productos' %}">Productos</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Modificar {{ producto.modelo }}</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'clientes' %}">Clientes</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Modificar {{ cliente.nombre }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Modificación {{ producto.modelo }}</h5>
+                                <h5>Modificación del cliente {{ cliente.nombre }}</h5>
                             </div>
                             <div class="card-body">
                                 <h5>Ingrese sus nuevos datos</h5>
@@ -73,7 +73,7 @@
                                             {% endfor %}
                                         </div>
                                     {% endif %}
-                                    {% with True as first %}
+                                    {% with False as first %}
                                     {% for field in form.visible_fields %}
                                         <div class="form-group">
                                             {{ field.label_tag }}

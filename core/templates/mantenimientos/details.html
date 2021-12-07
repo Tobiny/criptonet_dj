@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} {{ producto.modelo }} {% endblock %}
+{% block title %} Mantenimiento: {{ mantenimiento.id_manten }} {% endblock %}
 
 {% block stylesheets %}{% endblock stylesheets %}
 
@@ -14,12 +14,12 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">{{ producto.modelo }}</h5>
+                                        <h5 class="m-b-10">Mantenimiento: {{ mantenimiento.id_manten }}</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="{% url 'productos' %}">Productos</a></li>
-                                        <li class="breadcrumb-item"><a href="">{{ producto.modelo }}</a></li>
+                                        <li class="breadcrumb-item"><a href="{% url 'mantenimientos' %}">Mantenimientos</a></li>
+                                        <li class="breadcrumb-item"><a href="">Mantenimiento: {{ mantenimiento.id_manten }}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -34,22 +34,21 @@
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Producto: {{ producto.modelo }}</h5>
+                                            <h5>Mantenimiento: {{ mantenimiento.id_manten }}</h5>
                                         </div>
                                         <div class="card-body">
-                                            <h3>ID de Producto</h3>
-                                            <p class="text-muted mb-4">{{ producto.id_producto }}</p>
-                                            <h3>Tipo de Producto</h3>
-                                            <p class="text-muted mb-4">{{ producto.tipo }}</p>
-                                            <h3>Marca del Producto</h3>
-                                            <p class="text-muted mb-4">{{ producto.marca }}</p>
-                                            <h3>Modelo del Producto</h3>
-                                            <p class="text-muted mb-4">{{ producto.modelo }}</p>
-                                            <h3>Precio del Producto</h3>
-                                            <p class="text-muted mb-4">{{ producto.precio_venta }}</p>
-                                            <h3>Cantidad actual</h3>
-                                            <p class="text-muted mb-4">{{ producto.cantidad_existente }}</p>
-
+                                            <h3>ID del Mantenimiento</h3>
+                                            <p class="text-muted mb-4">{{ mantenimiento.id_manten }}</p>
+                                            <h3>ID del Servicio</h3>
+                                            <p class="text-muted mb-4">{{ mantenimiento.id_servicio.id_servicio }}</p>
+                                            <h3>Nombre del Servicio</h3>
+                                            <p class="text-muted mb-4">{{ mantenimiento.id_servicio.nombre }}</p>
+                                            <h3>Fecha del Mantenimiento</h3>
+                                            <p class="text-muted mb-4">{{ mantenimiento.fecha }}</p>
+                                            <h3>Observaciones</h3>
+                                            <p class="text-muted mb-4">{{ mantenimiento.observaciones }}</p>
+                                            <h3>Total</h3>
+                                            <p class="text-muted mb-4">{{ mantenimiento.total }}</p>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>

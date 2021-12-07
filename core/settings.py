@@ -100,12 +100,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'es-AR'
+LANGUAGE_CODE = 'es-MX'
 USE_I18N = True
 
 import _locale
 
-_locale._getdefaultlocale = (lambda *args: ['es_MX', 'utf8'])
+_locale._getdefaultlocale = (lambda *args: ['es_MX', 'latin-1'])
 
 TIME_ZONE = 'America/mexico_city'
 
