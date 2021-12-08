@@ -6,7 +6,7 @@ from apps.app.views import *
 urlpatterns = [
 
     # The home page
-    path('inicio', views.index, name='home'),
+    path('', views.index, name='home'),
 
     # Productos
     url(r'^productos/$', views.VistasProductosListas.as_view(), name='productos'),

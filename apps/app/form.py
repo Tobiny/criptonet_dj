@@ -12,7 +12,13 @@ from apps.app.models import *
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = ['title', 'descripcion', 'cantidad', 'precio', 'recibo']
+        fields = ['title', 'descripcion', 'cantidad', 'precio', ]
+
+
+class ProductoDetallesForm(forms.ModelForm):
+    class Meta:
+        model = DetalleProducto
+        fields = ['producto','cantidad']
 
 
 class InvoiceForm(forms.ModelForm):
@@ -57,13 +63,13 @@ class InvoiceForm(forms.ModelForm):
         self.helper.layout = Layout(
             Row(
                 Column('title', css_class='form-group col-md-6'),
-                Column('dueDate', css_class='form-group col-md-6'),
+                Column('fechaPago', css_class='form-group col-md-6'),
                 css_class='form-row'),
             Row(
-                Column('paymentTerms', css_class='form-group col-md-6'),
-                Column('status', css_class='form-group col-md-6'),
+                Column('terminosPago', css_class='form-group col-md-6'),
+                Column('estado', css_class='form-group col-md-6'),
                 css_class='form-row'),
-            'notes',
+            'notas',
 
             Submit('submit', ' EDIT INVOICE '))
 

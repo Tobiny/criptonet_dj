@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'apps.app',  # Enable the inner app
     'djmoney',
     'widget_tweaks',
+    'crispy_forms',
 ]
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 

@@ -11,7 +11,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django import forms
 
-from .form import ProductoForm, InvoiceForm, ClientSelectForm
+from .form import ProductoForm, InvoiceForm, ClientSelectForm, ProductoDetallesForm
 from .models import *
 
 
@@ -35,10 +35,11 @@ def dashboard(request):
     context['paidInvoices'] = paidInvoices
     return render(request, 'panel.html', context)
 
+
 @login_required
 def invoices(request):
     context = {}
-    invoices = Invoice.objects.all()
+    invoices = Recibo.objects.all()
     context['invoices'] = invoices
 
     return render(request, 'recibo/invoices.html', context)
@@ -46,19 +47,17 @@ def invoices(request):
 
 @login_required
 def createInvoice(request):
-    #create a blank invoice ....
-    number = 'INV-'+str(uuid4()).split('-')[1]
-    newInvoice = Recibo.objects.create(number=number)
+    # create a blank invoice ....
+    numero = 'INV-' + str(uuid4()).split('-')[1]
+    newInvoice = Recibo.objects.create(numero=numero)
     newInvoice.save()
 
-    inv = Recibo.objects.get(number=number)
+    inv = Recibo.objects.get(numero=numero)
     return redirect('create-build-invoice', slug=inv.slug)
 
 
-
-
 def createBuildInvoice(request, slug):
-    #fetch that invoice
+    # fetch that invoice
     try:
         invoice = Recibo.objects.get(slug=slug)
         pass
@@ -66,56 +65,238 @@ def createBuildInvoice(request, slug):
         messages.error(request, 'Something went wrong')
         return redirect('invoices')
 
-    #fetch all the products - related to this invoice
-    products = Producto.objects.filter(invoice=invoice)
-
+    # fetch all the products - related to this invoice
+    products = DetalleProducto.objects.filter(recibo=invoice)
 
     context = {}
     context['invoice'] = invoice
     context['products'] = products
 
     if request.method == 'GET':
-        prod_form  = ProductoForm()
+        prod_form = ProductoDetallesForm()
         inv_form = InvoiceForm(instance=invoice)
-        client_form = ClientSelectForm(initial_client=invoice.client)
+        client_form = ClientSelectForm(initial_client=invoice.cliente)
         context['prod_form'] = prod_form
         context['inv_form'] = inv_form
         context['client_form'] = client_form
-        return render(request, 'recibo/create-invoice.html', context)
+        return render(request, 'recibo/create_invoce.html', context)
 
     if request.method == 'POST':
-        prod_form  = ProductoForm(request.POST)
+        prod_form = ProductoDetallesForm(request.POST)
         inv_form = InvoiceForm(request.POST, instance=invoice)
-        client_form = ClientSelectForm(request.POST, initial_client=invoice.client, instance=invoice)
+        client_form = ClientSelectForm(request.POST, initial_client=invoice.cliente, instance=invoice)
 
         if prod_form.is_valid():
             obj = prod_form.save(commit=False)
-            obj.invoice = invoice
+            obj.recibo = invoice
             obj.save()
 
-            messages.success(request, "Invoice product added succesfully")
+            messages.success(request, "Producto agregado con exito", extra_tags='alert-success')
             return redirect('create-build-invoice', slug=slug)
         elif inv_form.is_valid and 'paymentTerms' in request.POST:
             inv_form.save()
 
-            messages.success(request, "Invoice updated succesfully")
+            messages.success(request, "Recibo actualizado con exito", extra_tags='alert-success')
             return redirect('create-build-invoice', slug=slug)
         elif client_form.is_valid() and 'client' in request.POST:
 
             client_form.save()
-            messages.success(request, "Client added to invoice succesfully")
+            messages.success(request, "Cliente añadido exitosamente", extra_tags='alert-success')
             return redirect('create-build-invoice', slug=slug)
         else:
             context['prod_form'] = prod_form
             context['inv_form'] = inv_form
             context['client_form'] = client_form
-            messages.error(request,"Problem processing your request")
-            return render(request, 'recibo/create-invoice.html', context)
+            if not prod_form.is_valid():
+                messages.error(request, "Problema con los datos del producto añadido, verifíquelo", extra_tags='alert-danger')
+            else:
+                messages.error(request, "Problema procesando la transacción, ingreselo de nuevo", extra_tags='alert-danger')
+            return render(request, 'recibo/create_invoce.html', context)
+
+    return render(request, 'recibo/create_invoce.html', context)
 
 
-    return render(request, 'recibo/create-invoice.html', context)
+def viewPDFInvoice(request, slug):
+    # fetch that invoice
+    try:
+        invoice = Invoice.objects.get(slug=slug)
+        pass
+    except:
+        messages.error(request, 'Something went wrong')
+        return redirect('invoices')
+
+    # fetch all the products - related to this invoice
+    products = Product.objects.filter(invoice=invoice)
+
+    # Get Client Settings
+    p_settings = Settings.objects.get(clientName='Skolo Online Learning')
+
+    # Calculate the Invoice Total
+    invoiceCurrency = ''
+    invoiceTotal = 0.0
+    if len(products) > 0:
+        for x in products:
+            y = float(x.quantity) * float(x.price)
+            invoiceTotal += y
+            invoiceCurrency = x.currency
+
+    context = {}
+    context['invoice'] = invoice
+    context['products'] = products
+    context['p_settings'] = p_settings
+    context['invoiceTotal'] = "{:.2f}".format(invoiceTotal)
+    context['invoiceCurrency'] = invoiceCurrency
+
+    return render(request, 'invoice/invoice-template.html', context)
 
 
+def viewDocumentInvoice(request, slug):
+    # fetch that invoice
+    try:
+        invoice = Invoice.objects.get(slug=slug)
+        pass
+    except:
+        messages.error(request, 'Something went wrong')
+        return redirect('invoices')
+
+    # fetch all the products - related to this invoice
+    products = Product.objects.filter(invoice=invoice)
+
+    # Get Client Settings
+    p_settings = Settings.objects.get(clientName='Skolo Online Learning')
+
+    # Calculate the Invoice Total
+    invoiceTotal = 0.0
+    if len(products) > 0:
+        for x in products:
+            y = float(x.quantity) * float(x.price)
+            invoiceTotal += y
+
+    context = {}
+    context['invoice'] = invoice
+    context['products'] = products
+    context['p_settings'] = p_settings
+    context['invoiceTotal'] = "{:.2f}".format(invoiceTotal)
+
+    # The name of your PDF file
+    filename = '{}.pdf'.format(invoice.uniqueId)
+
+    # HTML FIle to be converted to PDF - inside your Django directory
+    template = get_template('invoice/pdf-template.html')
+
+    # Render the HTML
+    html = template.render(context)
+
+    # Options - Very Important [Don't forget this]
+    options = {
+        'encoding': 'UTF-8',
+        'javascript-delay': '10',  # Optional
+        'enable-local-file-access': None,  # To be able to access CSS
+        'page-size': 'A4',
+        'custom-header': [
+            ('Accept-Encoding', 'gzip')
+        ],
+    }
+    # Javascript delay is optional
+
+    # Remember that location to wkhtmltopdf
+    config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
+
+    # IF you have CSS to add to template
+    css1 = os.path.join(settings.CSS_LOCATION, 'assets', 'css', 'bootstrap.min.css')
+    css2 = os.path.join(settings.CSS_LOCATION, 'assets', 'css', 'dashboard.css')
+
+    # Create the file
+    file_content = pdfkit.from_string(html, False, configuration=config, options=options)
+
+    # Create the HTTP Response
+    response = HttpResponse(file_content, content_type='application/pdf')
+    response['Content-Disposition'] = 'inline; filename = {}'.format(filename)
+
+    # Return
+    return response
+
+
+def emailDocumentInvoice(request, slug):
+    # fetch that invoice
+    try:
+        invoice = Invoice.objects.get(slug=slug)
+        pass
+    except:
+        messages.error(request, 'Something went wrong')
+        return redirect('invoices')
+
+    # fetch all the products - related to this invoice
+    products = Product.objects.filter(invoice=invoice)
+
+    # Get Client Settings
+    p_settings = Settings.objects.get(clientName='Skolo Online Learning')
+
+    # Calculate the Invoice Total
+    invoiceTotal = 0.0
+    if len(products) > 0:
+        for x in products:
+            y = float(x.quantity) * float(x.price)
+            invoiceTotal += y
+
+    context = {}
+    context['invoice'] = invoice
+    context['products'] = products
+    context['p_settings'] = p_settings
+    context['invoiceTotal'] = "{:.2f}".format(invoiceTotal)
+
+    # The name of your PDF file
+    filename = '{}.pdf'.format(invoice.uniqueId)
+
+    # HTML FIle to be converted to PDF - inside your Django directory
+    template = get_template('invoice/pdf-template.html')
+
+    # Render the HTML
+    html = template.render(context)
+
+    # Options - Very Important [Don't forget this]
+    options = {
+        'encoding': 'UTF-8',
+        'javascript-delay': '1000',  # Optional
+        'enable-local-file-access': None,  # To be able to access CSS
+        'page-size': 'A4',
+        'custom-header': [
+            ('Accept-Encoding', 'gzip')
+        ],
+    }
+    # Javascript delay is optional
+
+    # Remember that location to wkhtmltopdf
+    config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
+
+    # Saving the File
+    filepath = os.path.join(settings.MEDIA_ROOT, 'client_invoices')
+    os.makedirs(filepath, exist_ok=True)
+    pdf_save_path = filepath + filename
+    # Save the PDF
+    pdfkit.from_string(html, pdf_save_path, configuration=config, options=options)
+
+    # send the emails to client
+    to_email = invoice.client.emailAddress
+    from_client = p_settings.clientName
+    emailInvoiceClient(to_email, from_client, pdf_save_path)
+
+    invoice.status = 'EMAIL_SENT'
+    invoice.save()
+
+    # Email was send, redirect back to view - invoice
+    messages.success(request, "Email sent to the client succesfully")
+    return redirect('create-build-invoice', slug=slug)
+
+
+def deleteInvoice(request, slug):
+    try:
+        Invoice.objects.get(slug=slug).delete()
+    except:
+        messages.error(request, 'Something went wrong')
+        return redirect('invoices')
+
+    return redirect('invoices')
 
 
 def export(request):

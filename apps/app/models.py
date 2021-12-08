@@ -1,6 +1,7 @@
 from uuid import uuid4
 
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator, MinValueValidator
 from django.db import models
 from django.forms import DateInput
@@ -132,12 +133,6 @@ class Mantenimiento(models.Model):
         return reverse('mantenimiento_detalles', args=[str(self.id_manten)])
 
 
-class CantidadDeProductos(models.Model):
-    producto = models.ForeignKey('Producto', on_delete=models.CASCADE),
-    detalle_venta = models.ForeignKey('DetalleVenta', on_delete=models.CASCADE),
-    cantidad = models.IntegerField()
-
-
 class DetalleVenta(models.Model):
     productos = models.ForeignKey('Producto', on_delete=models.SET_NULL, null=True, blank=True)
     id_venta = models.ForeignKey('Venta', on_delete=models.CASCADE)
@@ -266,6 +261,7 @@ class Recibo(models.Model):
     def get_absolute_url(self):
         return reverse('invoice-detail', kwargs={'slug': self.slug})
 
+
     def save(self, *args, **kwargs):
         if self.fecha_creacion is None:
             self.fecha_creacion = timezone.localtime(timezone.now())
@@ -283,17 +279,11 @@ class Producto(models.Model):
     title = models.CharField(null=True, blank=True, max_length=100)
     descripcion = models.TextField(null=True, blank=True)
     cantidad = models.FloatField(null=True, blank=True)
+    tipo_producto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE, default='Sin tipo')
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='Sin marca')
     precio = MoneyField(max_length=30, decimal_places=3, max_digits=27,
-                          default_currency='MXN')
-
-    # Related Fields
-    recibo = models.ForeignKey(Recibo, blank=True, null=True, on_delete=models.CASCADE)
-
-    # Utility fields
+                        default_currency='MXN')
     uniqueId = models.CharField(null=True, blank=True, max_length=100)
-    slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
-    date_created = models.DateTimeField(blank=True, null=True)
-    last_updated = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return '{} {}'.format(self.title, self.uniqueId)
@@ -302,16 +292,50 @@ class Producto(models.Model):
         return reverse('product-detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
-        if self.date_created is None:
-            self.date_created = timezone.localtime(timezone.now())
         if self.uniqueId is None:
             self.uniqueId = str(uuid4()).split('-')[4]
             self.slug = slugify('{} {}'.format(self.title, self.uniqueId))
 
         self.slug = slugify('{} {}'.format(self.title, self.uniqueId))
-        self.last_updated = timezone.localtime(timezone.now())
 
         super(Producto, self).save(*args, **kwargs)
+
+
+class DetalleProducto(models.Model):
+    # Related Fields
+    producto = models.ForeignKey(Producto, blank=True, null=True, on_delete=models.CASCADE)
+    recibo = models.ForeignKey(Recibo, blank=True, null=True, on_delete=models.CASCADE)
+    cantidad = models.FloatField(null=False)
+    # Utility fields
+    uniqueId = models.CharField(null=True, blank=True, max_length=100)
+    slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
+    date_created = models.DateTimeField(blank=True, null=True)
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return '{}'.format(self.uniqueId)
+
+    def get_absolute_url(self):
+        return reverse('venta-detail', kwargs={'slug': self.slug})
+
+    def clean(self):
+        # Don't allow draft entries to have a pub_date.
+        if self.producto.cantidad < self.cantidad:
+            raise ValidationError({'cantidad': ('La cantidad de productos a comprar debe ser menor a la que hay en '
+                                                'inventario')})
+
+    def save(self, *args, **kwargs):
+        if self.date_created is None:
+            self.date_created = timezone.localtime(timezone.now())
+        if self.uniqueId is None:
+            self.uniqueId = str(uuid4()).split('-')[4]
+            self.slug = slugify('{} {}'.format(self.producto.title, self.uniqueId))
+
+        self.slug = slugify('{} {}'.format(self.producto.title, self.uniqueId))
+        self.last_updated = timezone.localtime(timezone.now())
+
+        super(DetalleProducto, self).save(*args, **kwargs)
+
 
 
 class Settings(models.Model):
