@@ -1,4 +1,5 @@
 {% extends "layouts/base.html" %}
+{% load crispy_forms_filters %}
 {% load widget_tweaks %}
 {% load crispy_forms_tags %}
 {% load custom_template_tags %}
@@ -47,9 +48,9 @@
 
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <h5 class="card-title">Add Products to your invoice
+
                                             <button href="#addProductModal" type="button" class="btn btn-link" data-bs-toggle="modal"> ADD PRODUCT </button>
-                                        </h5>
+
 
                                         {% if products|length > 0 %}
                                             <div class="table-responsive">
@@ -57,11 +58,11 @@
                                                     <thead>
                                                     <tr>
 
-                                                        <th>Title</th>
+                                                        <th>Modelo</th>
                                                         <th>Description</th>
-                                                        <th>Quantity</th>
-                                                        <th>Price</th>
-                                                        <th>Related Invoice</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Subtotal</th>
+                                                        <th>Recibo</th>
 
                                                     </tr>
                                                     </thead>
@@ -69,11 +70,11 @@
 
                                                     {% for product in products %}
                                                         <tr>
-                                                            <td>{{product.title}}</td>
-                                                            <td>{{product.description}}</td>
-                                                            <td>{{product.quantity}}</td>
-                                                            <td>{{product.currency}} {{product.price}}</td>
-                                                            <td>{{product.invoice.number}}</td>
+                                                            <td>{{product.producto.model}}</td>
+                                                            <td>{{product.producto.descripcion}}</td>
+                                                            <td>{{product.cantidad}}</td>
+                                                            <td>{{product.subtotal}}</td>
+                                                            <td>{{product.recibo.numero}}</td>
                                                         </tr>
                                                     {% endfor %}
 

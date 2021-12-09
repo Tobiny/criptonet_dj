@@ -45,7 +45,8 @@
                                             <tr>
                                                 <th>ID de cliente</th>
                                                 <th>Nombre</th>
-                                                <th>Correo</th>
+                                                <th>N&uacute;mero de tel&eacute;fono</th>
+                                                <th>Estado</th>
                                                 <th>RFC</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -53,10 +54,11 @@
                                         <tbody>
                                         {% for cliente in lista_clientes %}
                                             <tr>
-                                                <th scope="row"><a href="{{ cliente.get_absolute_url }}">{{ cliente.id_cliente }}</a></th>
-                                                <td>{{cliente.nombre}}</td>
-                                                <td>{{cliente.mail}}</td>
-                                                <td>{{cliente.RFC|truncatechars:5}}</td>
+                                                <th scope="row"><a href="{{ cliente.get_absolute_url }}">{{ cliente.uniqueId|truncatechars:14 }}</a></th>
+                                                <td>{{cliente.nombreCliente}}</td>
+                                                <td>{{cliente.numTelefono}}</td>
+                                                <td>{{cliente.estado}}</td>
+                                                <td>{{cliente.rfcCliente|truncatechars:5}}</td>
                                                 <td>
                                                     <button class="btn btn-info dropdown-toggle" type="button"
                                                             data-toggle="dropdown" aria-haspopup="true"

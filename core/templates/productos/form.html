@@ -72,7 +72,7 @@
                                             {% endfor %}
                                         </div>
                                     {% endif %}
-                                    {% with True as first %}
+                                    {% with False as first %}
                                     {% for field in form.visible_fields %}
                                         <div class="form-group">
                                             {{ field.label_tag }}

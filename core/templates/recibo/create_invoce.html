@@ -18,13 +18,13 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Registros de ventas</h5>
+                            <h5 class="m-b-10">Recibo de ventas</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
                             </li>
                             <li class="breadcrumb-item"><a href="{% url 'invoices' %}">Recibos</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Registros de ventas</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Recibos de ventas</a></li>
                         </ul>
                     </div>
                 </div>
@@ -59,11 +59,12 @@
                                                     <thead>
                                                     <tr>
 
-                                                        <th>Title</th>
-                                                        <th>Description</th>
-                                                        <th>Quantity</th>
-                                                        <th>Price</th>
-                                                        <th>Related Invoice</th>
+                                                        <th>Modelo</th>
+                                                        <th>Descripción</th>
+                                                        <th>Cantidad a comprar</th>
+                                                        <th>Precio por unidad</th>
+                                                        <th>Subtotal</th>
+                                                        <th>Recibo</th>
 
                                                     </tr>
                                                     </thead>
@@ -71,10 +72,11 @@
 
                                                     {% for product in products %}
                                                         <tr>
-                                                            <td>{{product.producto.title}}</td>
+                                                            <td>{{product.producto.modelo }}</td>
                                                             <td>{{product.producto.descripcion}}</td>
-                                                            <td>{{product.producto.cantidad}}</td>
+                                                            <td>{{product.cantidad}}</td>
                                                             <td>{{product.producto.precio}} </td>
+                                                            <td>{{product.subtotal}} </td>
                                                             <td>{{product.recibo.numero}}</td>
                                                         </tr>
                                                     {% endfor %}
@@ -100,9 +102,9 @@
 
                                     </div>
                                     <div class="col-lg-6">
-                                        <h5 class="card-title"> Select Client to Add </h5>
+                                        <h5 class="card-title"> Seleccione su cliente </h5>
                                         <br>
-                                        <h5 class="card-title"> Current Client: <span class="badge bg-success">{{invoice.cliente.nombreCliente}}</span> </h5>
+                                        <h5 class="card-title"> Cliente actual: <span class="badge bg-success">{{invoice.client.nombreCliente}}</span> </h5>
                                         <br>
 
                                         <div class="mb-5">
@@ -111,20 +113,16 @@
 
                                                 {{client_form|crispy}}
 
-                                                <button type="submit" class="btn btn-primary">ADD CLIENT</button>
+                                                <button type="submit" class="btn btn-primary">AÑADIR CLIENTE</button>
                                             </form>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-lg-4">
-                                                <a href="{% url 'view-pdf-invoice' invoice.slug %}"><button class="btn btn-info text-white"> VIEW CLIENT INVOICE </button></a>
+                                                <a href="{% url 'view-pdf-invoice' invoice.slug %}"><button class="btn btn-info text-white"> VER EL RECIBO DEL CLIENTE </button></a>
                                             </div>
-                                            <div class="col-lg-4">
-                                                <a href="{% url 'view-document-invoice' invoice.slug %}"><button class="btn btn-success text-white"> VIEW PDF INVOICE </button></a>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <a href="{% url 'email-document-invoice' invoice.slug %}"><button class="btn btn-warning text-white"> EMAIL CLIENT INVOICE </button></a>
-                                            </div>
+
+
                                         </div>
 
 

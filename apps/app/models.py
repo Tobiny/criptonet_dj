@@ -133,27 +133,7 @@ class Mantenimiento(models.Model):
         return reverse('mantenimiento_detalles', args=[str(self.id_manten)])
 
 
-class DetalleVenta(models.Model):
-    productos = models.ForeignKey('Producto', on_delete=models.SET_NULL, null=True, blank=True)
-    id_venta = models.ForeignKey('Venta', on_delete=models.CASCADE)
-    id_manten = models.ForeignKey('Mantenimiento', on_delete=models.SET_NULL, null=True, blank=True)
-    cantidad = models.IntegerField()
-    subtotal = MoneyField(max_length=18, decimal_places=2, max_digits=16)
-
-    def __str__(self):
-        """
-        String para representar el Objeto del Modelo
-        """
-        return '%s - %s' % (self.id_venta.id_venta, self.id_venta.fecha)
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de Producto
-        """
-        return reverse('mantenimiento_detalles', args=[str(self.id_venta)])
-
-
-class Cliente(models.Model):
+class Client(models.Model):
     ESTADOS = [
         ("Aguascalientes'", "Aguascalientes"),
         ("Baja California", "Baja California"),
@@ -190,64 +170,74 @@ class Cliente(models.Model):
     ]
 
     # Basic Fields.
-    nombreCliente = models.CharField(null=True, blank=True, max_length=200)
-    domicilio = models.CharField(null=True, blank=True, max_length=200)
-    estado = models.CharField(choices=ESTADOS, blank=True, default="Jalisco", max_length=100)
-    codigoPostal = models.CharField(null=True, blank=True, max_length=10)
-    numTelefono = models.CharField(null=True, blank=True, max_length=100)
-    dirEmail = models.CharField(null=True, blank=True, max_length=100)
-    rfcCliente = models.CharField(null=True, blank=True, max_length=100, validators=[RegexValidator(
+    nombreCliente = models.CharField(null=True, blank=True, max_length=200, help_text="Ingrese el nombre del cliente",
+                                     verbose_name='Nombre del '
+                                                  'Cliente')
+    domicilio = models.CharField(null=True, blank=True, max_length=200, help_text="Ingrese el domicilio del cliente",
+                                 verbose_name='Domicilio del '
+                                              'Cliente')
+    estado = models.CharField(choices=ESTADOS, blank=True, default="Jalisco", max_length=100,
+                              help_text="Ingrese el estado", verbose_name='Estado'
+                              )
+    codigoPostal = models.CharField(null=True, blank=True, max_length=10,
+                                    help_text="Ingrese el codigo postal del cliente", verbose_name='Codigo Postal del '
+                                                                                                   'Cliente')
+    numTelefono = models.CharField(null=True, blank=True, max_length=100,
+                                   help_text="Ingrese el número de teléfono del cliente", verbose_name='Número de '
+                                                                                                       'Teléfono')
+    dirEmail = models.EmailField(null=True, blank=True, max_length=100,
+                                 help_text="Ingrese la dirección de correo del cliente", verbose_name='Email del '
+                                                                                                      'Cliente')
+    rfcCliente = models.CharField(null=True, blank=True, max_length=13, validators=[RegexValidator(
         regex='^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))((-)?([A-Z\d]{3}))?$',
         message='El RFC deberá tener el formato que la Servicio de Administración Tributaria valida',
         code='invalid_RFC2'), ])
 
     # Utility fields
-    uniqueId = models.CharField(null=True, blank=True, max_length=100)
-    slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
-    date_created = models.DateTimeField(blank=True, null=True)
-    last_updated = models.DateTimeField(blank=True, null=True)
+    uniqueId = models.UUIDField(primary_key=True, editable=False, verbose_name='ID del Cliente', default=uuid4,
+                                help_text="ID único generado para este cliente "
+                                          "particular en toda la tienda")
+    slug = models.SlugField(max_length=500, unique=True, blank=True, null=True, editable=False)
+    date_created = models.DateTimeField(blank=True, null=True, editable=False)
+    last_updated = models.DateTimeField(blank=True, null=True, editable=False)
 
     def __str__(self):
         return '{} {} {}'.format(self.nombreCliente, self.estado, self.uniqueId)
 
     def get_absolute_url(self):
-        return reverse('client-detail', kwargs={'slug': self.slug})
+        return reverse('cliente_detalles', args=[str(self.uniqueId)])
 
     def save(self, *args, **kwargs):
         if self.date_created is None:
             self.date_created = timezone.localtime(timezone.now())
-        if self.uniqueId is None:
-            self.uniqueId = str(uuid4()).split('-')[4]
-            self.slug = slugify('{} {} {}'.format(self.nombreCliente, self.estado, self.uniqueId))
 
-        self.slug = slugify('{} {} {}'.format(self.nombreCliente, self.estado, self.uniqueId))
+        temp = str(uuid4()).split('-')[4]
+        self.slug = slugify('{} {} {}'.format(self.nombreCliente, self.estado, temp))
         self.last_updated = timezone.localtime(timezone.now())
 
-        super(Cliente, self).save(*args, **kwargs)
+        super(Client, self).save(*args, **kwargs)
 
 
 class Recibo(models.Model):
-    TERMS = [
-        ('14 días', '14 días'),
-        ('30 días', '30 días'),
-        ('60 días', '60 días'),
-    ]
-
     STATUS = [
         ('ACTUAL', 'ACTUAL'),
         ('NO PAGADO', 'NO PAGADO'),
         ('PAGADO', 'PAGADO'),
     ]
 
-    title = models.CharField(null=True, blank=True, max_length=100)
+    title = models.CharField(null=True, blank=True, max_length=100, help_text="Ingrese el título del recibo",
+                             verbose_name='Título del '
+                                          'Recibo')
     numero = models.CharField(null=True, blank=True, max_length=100)
     fechaPago = models.DateField(null=True, blank=True)
-    terminosPago = models.CharField(choices=TERMS, default='14 days', max_length=100)
+
     estado = models.CharField(choices=STATUS, default='CURRENT', max_length=100)
     notas = models.TextField(null=True, blank=True)
+    total = MoneyField(max_length=30, default=0, decimal_places=3, max_digits=27,
+                       default_currency='MXN')
 
     # RELATED fields
-    cliente = models.ForeignKey(Cliente, blank=True, null=True, on_delete=models.SET_NULL)
+    client = models.ForeignKey(Client, blank=True, null=True, on_delete=models.SET_NULL)
 
     # Utility fields
     uniqueId = models.CharField(null=True, blank=True, max_length=100)
@@ -258,9 +248,11 @@ class Recibo(models.Model):
     def __str__(self):
         return '{} {}'.format(self.numero, self.uniqueId)
 
+    def actualizar_total(self, x):
+        self.total = self.total + (x)
+
     def get_absolute_url(self):
         return reverse('invoice-detail', kwargs={'slug': self.slug})
-
 
     def save(self, *args, **kwargs):
         if self.fecha_creacion is None:
@@ -274,29 +266,50 @@ class Recibo(models.Model):
 
         super(Recibo, self).save(*args, **kwargs)
 
+    def delete(self, *args, **kwargs):
+        print("culo")
+        super(Recibo, self).delete(*args, **kwargs)
+
 
 class Producto(models.Model):
-    title = models.CharField(null=True, blank=True, max_length=100)
-    descripcion = models.TextField(null=True, blank=True)
-    cantidad = models.FloatField(null=True, blank=True)
-    tipo_producto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE, default='Sin tipo')
-    marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='Sin marca')
+    modelo = models.CharField(null=True, blank=True, max_length=100, verbose_name='Modelo del producto',
+                              help_text='Ingrese el modelo del producto')
+    descripcion = models.TextField(null=True, blank=True, help_text="Ingrese la descripcion del producto",
+                                   verbose_name='Descripcion'
+                                                'del producto')
+    cantidad = models.FloatField(null=True, blank=True,
+                                 help_text="Ingrese la cantidad de productos en existencia/añadir",
+                                 verbose_name='Cantidad de '
+                                              'Productos en Existencia')
+    tipo_producto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE,
+                                      help_text="Seleccione el tipo de producto", verbose_name='Tipo de producto'
+                                      , default='Sin tipo')
+    marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='Sin marca',
+                              help_text="Ingrese la marca del producto", verbose_name='Marca del '
+                                                                                      'Producto')
     precio = MoneyField(max_length=30, decimal_places=3, max_digits=27,
-                        default_currency='MXN')
-    uniqueId = models.CharField(null=True, blank=True, max_length=100)
+                        default_currency='MXN', help_text="Ingrese el precio del producto", verbose_name='Precio del '
+                                                                                                         'Producto')
+
+    uniqueId = models.UUIDField(primary_key=True, editable=False, verbose_name='ID de Producto', default=uuid4,
+                                help_text="ID único generado para este producto "
+                                          "particular en toda la tienda")
+    slug = models.SlugField(max_length=500, unique=True, blank=True, null=True, editable=False)
 
     def __str__(self):
-        return '{} {}'.format(self.title, self.uniqueId)
+        return '{} {}'.format(self.modelo, self.uniqueId)
+
+    def sumar(self, x):
+        self.cantidad += x
+
+    def restar(self, x):
+        self.cantidad = self.cantidad - x
 
     def get_absolute_url(self):
-        return reverse('product-detail', kwargs={'slug': self.slug})
+        return reverse('producto_detalles', args=[str(self.uniqueId)])
 
     def save(self, *args, **kwargs):
-        if self.uniqueId is None:
-            self.uniqueId = str(uuid4()).split('-')[4]
-            self.slug = slugify('{} {}'.format(self.title, self.uniqueId))
-
-        self.slug = slugify('{} {}'.format(self.title, self.uniqueId))
+        self.slug = slugify('{} {}'.format(self.marca.id_marca, self.uniqueId))
 
         super(Producto, self).save(*args, **kwargs)
 
@@ -304,13 +317,16 @@ class Producto(models.Model):
 class DetalleProducto(models.Model):
     # Related Fields
     producto = models.ForeignKey(Producto, blank=True, null=True, on_delete=models.CASCADE)
-    recibo = models.ForeignKey(Recibo, blank=True, null=True, on_delete=models.CASCADE)
+    recibo = models.ForeignKey(Recibo, on_delete=models.CASCADE, blank=True, null=True)
     cantidad = models.FloatField(null=False)
+    subtotal = MoneyField(max_length=30, decimal_places=3, max_digits=27,
+                          default_currency='MXN')
     # Utility fields
     uniqueId = models.CharField(null=True, blank=True, max_length=100)
     slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
     date_created = models.DateTimeField(blank=True, null=True)
     last_updated = models.DateTimeField(blank=True, null=True)
+    creacion = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return '{}'.format(self.uniqueId)
@@ -318,105 +334,28 @@ class DetalleProducto(models.Model):
     def get_absolute_url(self):
         return reverse('venta-detail', kwargs={'slug': self.slug})
 
-    def clean(self):
-        # Don't allow draft entries to have a pub_date.
-        if self.producto.cantidad < self.cantidad:
-            raise ValidationError({'cantidad': ('La cantidad de productos a comprar debe ser menor a la que hay en '
-                                                'inventario')})
-
     def save(self, *args, **kwargs):
         if self.date_created is None:
             self.date_created = timezone.localtime(timezone.now())
         if self.uniqueId is None:
             self.uniqueId = str(uuid4()).split('-')[4]
-            self.slug = slugify('{} {}'.format(self.producto.title, self.uniqueId))
+            self.slug = slugify('{} {}'.format(self.producto.modelo, self.uniqueId))
 
-        self.slug = slugify('{} {}'.format(self.producto.title, self.uniqueId))
+        self.slug = slugify('{} {}'.format(self.producto.modelo, self.uniqueId))
         self.last_updated = timezone.localtime(timezone.now())
+        self.subtotal = self.cantidad * self.producto.precio
 
+        if self.creacion is None:
+            creacion = 1
+            productos = Producto.objects.get(
+                uniqueId=self.producto.uniqueId
+            )
+            productos.restar(self.cantidad)
+
+            recibos = Recibo.objects.get(
+                slug=self.recibo.slug
+            )
+            recibos.actualizar_total(self.subtotal)
+            recibos.save()
+            productos.save()
         super(DetalleProducto, self).save(*args, **kwargs)
-
-
-
-class Settings(models.Model):
-    ESTADOS = [
-        ("Aguascalientes'", "Aguascalientes"),
-        ("Baja California", "Baja California"),
-        ("Baja California Sur", "Baja California Sur"),
-        ("Campeche", "Campeche"),
-        ("Chiapas", "Chiapas"),
-        ("Chihuahua", "Chihuahua"),
-        ("Ciudad de México", "Ciudad de México"),
-        ("Coahuila", "Coahuila"),
-        ("Colima", "Colima"),
-        ("Durango", "Durango"),
-        ("Guanajuato", "Guanajuato"),
-        ("Guerrero", "Guerrero"),
-        ("Hidalgo", "Hidalgo"),
-        ("Jalisco", "Jalisco"),
-        ("México", "México"),
-        ("Michoacán", "Michoacán"),
-        ("Morelos", "Morelos"),
-        ("Nayarit", "Nayarit"),
-        ("Nuevo León", "Nuevo León"),
-        ("Oaxaca", "Oaxaca"),
-        ("Puebla", "Puebla"),
-        ("Querétaro", "Querétaro"),
-        ("Quintana Roo", "Quintana Roo"),
-        ("San Luis Potosí", "San Luis Potosí"),
-        ("Sinaloa", "Sinaloa"),
-        ("Sonora", "Sonora"),
-        ("Tabasco", "Tabasco"),
-        ("Tamaulipas", "Tamaulipas"),
-        ("Tlaxcala", "Tlaxcala"),
-        ("Veracruz", "Veracruz"),
-        ("Yucatán", "Yucatán"),
-        ("Zacatecas", "Zacatecas"),
-    ]
-
-    # Basic Fields
-    clientName = models.CharField(null=True, blank=True, max_length=200)
-    addressLine1 = models.CharField(null=True, blank=True, max_length=200)
-    province = models.CharField(choices=ESTADOS, blank=True, max_length=100)
-    postalCode = models.CharField(null=True, blank=True, max_length=10)
-    phoneNumber = models.CharField(null=True, blank=True, max_length=100)
-    emailAddress = models.CharField(null=True, blank=True, max_length=100)
-    taxNumber = models.CharField(null=True, blank=True, max_length=100)
-
-    # Utility fields
-    uniqueId = models.CharField(null=True, blank=True, max_length=100)
-    slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
-    date_created = models.DateTimeField(blank=True, null=True)
-    last_updated = models.DateTimeField(blank=True, null=True)
-
-    def __str__(self):
-        return '{} {} {}'.format(self.clientName, self.province, self.uniqueId)
-
-    def get_absolute_url(self):
-        return reverse('settings-detail', kwargs={'slug': self.slug})
-
-    def save(self, *args, **kwargs):
-        if self.date_created is None:
-            self.date_created = timezone.localtime(timezone.now())
-        if self.uniqueId is None:
-            self.uniqueId = str(uuid4()).split('-')[4]
-            self.slug = slugify('{} {} {}'.format(self.clientName, self.province, self.uniqueId))
-
-        self.slug = slugify('{} {} {}'.format(self.clientName, self.province, self.uniqueId))
-        self.last_updated = timezone.localtime(timezone.now())
-
-        super(Settings, self).save(*args, **kwargs)
-
-
-class Venta(models.Model):
-    id_venta = models.AutoField(primary_key=True, verbose_name='ID Venta')
-    id_empleado = models.ForeignKey('Empleado', on_delete=models.CASCADE)
-    id_cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
-    total = MoneyField(max_length=18, decimal_places=2, max_digits=16)
-    fecha = models.DateField()
-
-    def __str__(self):
-        """
-        String para representar el Objeto del Modelo
-        """
-        return '%s - %s' % (self.id_venta, self.id_cliente.nombre)

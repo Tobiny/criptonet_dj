@@ -16,13 +16,13 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Modificar {{ cliente.nombre }}</h5>
+                            <h5 class="m-b-10">Modificar {{ cliente.slug }}</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
                             </li>
                             <li class="breadcrumb-item"><a href="{% url 'clientes' %}">Clientes</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Modificar {{ cliente.nombre }}</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Modificar {{ cliente.slug }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Modificación del cliente {{ cliente.nombre }}</h5>
+                                <h5>Modificación del cliente {{ cliente.nombreCliente }}</h5>
                             </div>
                             <div class="card-body">
                                 <h5>Ingrese sus nuevos datos</h5>

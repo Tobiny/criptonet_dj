@@ -9,6 +9,9 @@ urlpatterns = [
     path('', views.index, name='home'),
 
     # Productos
+
+
+
     url(r'^productos/$', views.VistasProductosListas.as_view(), name='productos'),
     url(r'^producto/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/$',
         views.ProductoDetalles.as_view(), name='producto_detalles'),
@@ -36,30 +39,15 @@ urlpatterns = [
     url(r'^empleado/(?P<pk>\d+)/modificar/$', views.EmpleadosUpdate.as_view(), name='empleados_modificar'),
     url(r'^empleado/(?P<pk>\d+)/borrar/$', views.EmpleadosBorrar.as_view(), name='empleados_borrar'),
     # Mantenimientos
-    url(r'^mantenimientos/$', views.VistasMantenimientos.as_view(), name='mantenimientos'),
-    url(r'^mantenimiento/(?P<pk>\d+)/$', views.MantenimientoDetalles.as_view(), name='mantenimiento_detalles'),
-    url(r'^mantenimiento/crear/$', views.MantenimientosCrear.as_view(), name='mantenimientos_crear'),
-    url(r'^mantenimiento/(?P<pk>\d+)/modificar/$', views.MantenimientosUpdtate.as_view(),
-        name='mantenimientos_modificar'),
-    url(r'^mantenimiento/(?P<pk>\d+)/borrar/$', views.MantenimientosBorrar.as_view(), name='mantenimientos_borrar'),
+
     # Clientes
     url(r'^clientes/$', views.VistasClientes.as_view(), name='clientes'),
-    url(r'^cliente/(?P<pk>\d+)/$', views.ClienteDetalles.as_view(), name='cliente_detalles'),
+    url(r'^cliente/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/$', views.ClienteDetalles.as_view(), name='cliente_detalles'),
     url(r'^cliente/crear/$', views.ClientesCrear.as_view(), name='clientes_crear'),
-    url(r'^cliente/(?P<pk>\d+)/modificar/$', views.ClientesUpdate.as_view(), name='clientes_modificar'),
-    url(r'^cliente/(?P<pk>\d+)/borrar/$', views.ClientesBorrar.as_view(), name='clientes_borrar'),
-    # Ventas
-    url(r'^ventas/$', views.VistasVentas.as_view(), name='ventas'),
-    url(r'^venta/(?P<pk>\d+)/$', views.VentasDetalles.as_view(), name='venta_detalles'),
-    url(r'^venta/crear/$', views.VentasCrear.as_view(), name='ventas_crear'),
-    url(r'^venta/(?P<pk>\d+)/modificar/$', views.VentasUpdate.as_view(), name='ventas_modificar'),
-    url(r'^venta/(?P<pk>\d+)/borrar/$', views.VentasBorrar.as_view(), name='ventas_borrar'),
-    # Servicos
-    url(r'^servicios/$', views.VistasServicios.as_view(), name='servicios'),
-    url(r'^servicio/(?P<pk>\d+)/$', views.ServiciosDetalles.as_view(), name='servicio_detalles'),
-    url(r'^servicio/crear/$', views.ServiciosCrear.as_view(), name='servicios_crear'),
-    url(r'^servicio/(?P<pk>\d+)/modificar/$', views.ServiciosUpdate.as_view(), name='servicios_modificar'),
-    url(r'^servicio/(?P<pk>\d+)/borrar/$', views.ServiciosBorrar.as_view(), name='servicios_borrar'),
+    url(r'^cliente/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/modificar/$', views.ClientesUpdate.as_view(), name='clientes_modificar'),
+    url(r'^cliente/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/borrar/$', views.ClientesBorrar.as_view(), name='clientes_borrar'),
+
+
     path('invoices',views.invoices, name='invoices'),
     # Create URL Paths
     path('invoices/create', views.createInvoice, name='create-invoice'),
@@ -71,7 +59,7 @@ urlpatterns = [
     # PDF and EMAIL Paths
     path('invoices/view-pdf/<slug:slug>', views.viewPDFInvoice, name='view-pdf-invoice'),
     path('invoices/view-document/<slug:slug>', views.viewDocumentInvoice, name='view-document-invoice'),
-    path('invoices/email-document/<slug:slug>', views.emailDocumentInvoice, name='email-document-invoice'),
+
 
     path('exportar', views.export, name='export'),
     path('importar', views.importar, name='import'),
