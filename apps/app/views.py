@@ -11,6 +11,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django import forms
+from django.db import connection
 
 import pdfkit
 from django.template.loader import get_template
@@ -23,9 +24,20 @@ from .models import *
 @login_required(login_url="/login/")
 def index(request):
     context = {'segment': 'index'}
+    clients = Client.objects.all().count()
+    invoices = Recibo.objects.all().count()
+    paidInvoices = Recibo.objects.filter(estado='PAGADO').count()
+
+    context = {}
+    context['clients'] = clients
+    context['invoices'] = invoices
+    context['paidInvoices'] = paidInvoices
 
     html_template = loader.get_template('panel.html')
     return HttpResponse(html_template.render(context, request))
+
+
+
 
 
 @login_required(login_url="/login/")
@@ -100,7 +112,6 @@ def createBuildInvoice(request, slug):
             return redirect('create-build-invoice', slug=slug)
         elif inv_form.is_valid and 'estado' in request.POST:
             inv_form.save()
-
             messages.success(request, "Recibo actualizado con exito", extra_tags='alert-success')
             return redirect('create-build-invoice', slug=slug)
         elif client_form.is_valid() and 'client' in request.POST:
