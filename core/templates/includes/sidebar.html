@@ -36,22 +36,25 @@
                     <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Productos</span></a>
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="{% url 'productos' %}" class="">Vistas</a></li>
                             <li class=""><a href="{% url 'productos_crear' %}" class="">Añadir</a></li>
+                            <li class=""><a href="{% url 'productos' %}" class="">Vistas</a></li>
+
                         </ul>
                     </li>
                      <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Tipo de productos</span></a>
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="{% url 'tipos' %}" class="">Vistas</a></li>
                             <li class=""><a href="{% url 'tipos_crear' %}" class="">Añadir</a></li>
+                            <li class=""><a href="{% url 'tipos' %}" class="">Vistas</a></li>
+
                         </ul>
                     </li>
                      <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-grid"></i></span><span class="pcoded-mtext">Marcas</span></a>
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="{% url 'marcas' %}" class="">Vistas</a></li>
                             <li class=""><a href="{% url 'marcas_crear' %}" class="">Añadir</a></li>
+                            <li class=""><a href="{% url 'marcas' %}" class="">Vistas</a></li>
+
                         </ul>
                     </li>
                     {% comment %}<li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
@@ -61,18 +64,19 @@
                             <li class=""><a href="{% url 'servicios_crear' %}" class="">Añadir</a></li>
                         </ul>
                     </li>{% endcomment %}
-                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+ {% comment %}                   <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-headphones"></i></span><span class="pcoded-mtext">Empleados</span></a>
                         <ul class="pcoded-submenu">
                             <li class=""><a href="{% url 'empleados' %}" class="">Vistas</a></li>
                             <li class=""><a href="{% url 'empleados_crear' %}" class="">Añadir</a></li>
                         </ul>
-                    </li>
+                    </li>{% endcomment %}
                     <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Clientes</span></a>
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="{% url 'clientes' %}" class="">Vistas</a></li>
                             <li class=""><a href="{% url 'clientes_crear' %}" class="">Añadir</a></li>
+                            <li class=""><a href="{% url 'clientes' %}" class="">Vistas</a></li>
+
                         </ul>
                     </li>
                      {% comment %}<li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
@@ -82,15 +86,15 @@
                             <li class=""><a href="{% url 'mantenimientos_crear' %}" class="">Añadir</a></li>
                         </ul>
                     </li>{% endcomment %}
-                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+{% comment %}                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span><span class="pcoded-mtext">Ventas</span></a>
                         <ul class="pcoded-submenu">
                             <li class=""><a href="{% url 'invoices' %}" class="">Vistas</a></li>
                             <li class=""><a href="{% url 'create-invoice' %}" class="">Añadir</a></li>
                         </ul>
-                    </li>
+                    </li>{% endcomment %}
 
-                    <li class="nav-item pcoded-menu-caption">
+{% comment %}                    <li class="nav-item pcoded-menu-caption">
                         <label>Respaldos</label>
                     </li>
 
@@ -100,7 +104,7 @@
                             <li class=""><a href="{% url 'export' %}" class="">Exportar base</a></li>
                             <li class=""><a href="{% url 'import' %}" class="">Importar base</a></li>
                         </ul>
-                    </li>
+                    </li>{% endcomment %}
 
                     <li class="nav-item pcoded-menu-caption">
                         <label>Usuarios</label>

@@ -274,9 +274,9 @@ class Recibo(models.Model):
 class Producto(models.Model):
     modelo = models.CharField(null=True, blank=True, max_length=100, verbose_name='Modelo del producto',
                               help_text='Ingrese el modelo del producto')
-    descripcion = models.TextField(null=True, blank=True, help_text="Ingrese la descripcion del producto",
-                                   verbose_name='Descripcion'
-                                                'del producto')
+    descripcion = models.TextField(null=True, blank=True, help_text="Ingrese la descripción del producto",
+                                   verbose_name='Descripción'
+                                                ' del producto')
     cantidad = models.FloatField(null=True, blank=True,
                                  help_text="Ingrese la cantidad de productos en existencia/añadir",
                                  verbose_name='Cantidad de '

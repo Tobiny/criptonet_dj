@@ -71,10 +71,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'criptonet',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'NAME': 'u966471212_criptonet',
+        'USER': 'u966471212_admin',
+        'PASSWORD': 'Kato4_CricOs_$iPJ',
+        'HOST': '109.106.251.202',
         'PORT': '3306',
         'ATOMIC_REQUESTS': True,
     }

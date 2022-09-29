@@ -43,13 +43,14 @@ def index(request):
 @login_required(login_url="/login/")
 def dashboard(request):
     clients = Client.objects.all().count()
+    clients = Client.objects.all().count()
     invoices = Recibo.objects.all().count()
     paidInvoices = Recibo.objects.filter(status='PAGADO').count()
 
     context = {}
     context['clients'] = clients
-    context['invoices'] = invoices
-    context['paidInvoices'] = paidInvoices
+    #context['invoices'] = invoices
+    #context['paidInvoices'] = paidInvoices
     return render(request, 'panel.html', context)
 
 
