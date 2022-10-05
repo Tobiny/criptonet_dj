@@ -1,14 +1,14 @@
 from uuid import uuid4
 
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator, MinValueValidator
 from django.db import models
-from django.forms import DateInput
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
 from djmoney.models.fields import MoneyField
+from djmoney.models.validators import MaxMoneyValidator, MinMoneyValidator
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 # Create your models here.
@@ -16,10 +16,8 @@ class Empleado(models.Model):
     id_empleado = models.AutoField(primary_key=True, verbose_name='ID Empleado')
     nombre = models.CharField(max_length=50, help_text="Ingrese el nombre del empleado", verbose_name='Nombre del '
                                                                                                       'Empleado')
-    rfc = models.CharField(max_length=13, verbose_name='RFC', help_text='12-13 caracteres <a '
-                                                                        'href="https://www.sat.gob.mx/consultas/44083 '
-                                                                        '/consulta-tu-informacion-fiscal '
-                                                                        '"> consulta tu RFC</a>',
+    rfc = models.CharField(max_length=13, verbose_name='RFC',
+                           help_text='12-13 caracteres <a href="https://www.sat.gob.mx/consultas/44083/consulta-tu-informacion-fiscal"> consulta tu RFC</a>',
                            validators=[RegexValidator(
                                regex='^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))((-)?([A-Z\d]{3}))?$',
                                message='El RFC deberá tener el formato que la Servicio de Administración Tributaria valida',
@@ -170,19 +168,19 @@ class Client(models.Model):
     ]
 
     # Basic Fields.
-    nombreCliente = models.CharField(null=True, blank=True, max_length=200, help_text="Ingrese el nombre del cliente",
+    nombreCliente = models.CharField(null=True, blank=True, max_length=50, help_text="Ingrese el nombre del cliente",
                                      verbose_name='Nombre del '
                                                   'Cliente')
-    domicilio = models.CharField(null=True, blank=True, max_length=200, help_text="Ingrese el domicilio del cliente",
+    domicilio = models.CharField(null=True, blank=True, max_length=50, help_text="Ingrese el domicilio del cliente",
                                  verbose_name='Domicilio del '
                                               'Cliente')
-    estado = models.CharField(choices=ESTADOS, blank=True, default="Jalisco", max_length=100,
+    estado = models.CharField(choices=ESTADOS, blank=True, default="Jalisco", max_length=20,
                               help_text="Ingrese el estado", verbose_name='Estado'
                               )
-    codigoPostal = models.CharField(null=True, blank=True, max_length=10,
+    codigoPostal = models.CharField(null=True, blank=True, max_length=5,
                                     help_text="Ingrese el codigo postal del cliente", verbose_name='Codigo Postal del '
                                                                                                    'Cliente')
-    numTelefono = models.CharField(null=True, blank=True, max_length=100,
+    numTelefono = models.CharField(null=True, blank=True, max_length=10,
                                    help_text="Ingrese el número de teléfono del cliente", verbose_name='Número de '
                                                                                                        'Teléfono')
     dirEmail = models.EmailField(null=True, blank=True, max_length=100,
@@ -267,29 +265,29 @@ class Recibo(models.Model):
         super(Recibo, self).save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        print("culo")
         super(Recibo, self).delete(*args, **kwargs)
 
 
 class Producto(models.Model):
-    modelo = models.CharField(null=True, blank=True, max_length=100, verbose_name='Modelo del producto',
+    modelo = models.CharField(null=True, blank=True, max_length=40, verbose_name='Modelo del producto',
                               help_text='Ingrese el modelo del producto')
     descripcion = models.TextField(null=True, blank=True, help_text="Ingrese la descripción del producto",
                                    verbose_name='Descripción'
-                                                ' del producto')
+                                                ' del producto', max_length=200)
     cantidad = models.FloatField(null=True, blank=True,
                                  help_text="Ingrese la cantidad de productos en existencia/añadir",
                                  verbose_name='Cantidad de '
-                                              'Productos en Existencia')
+                                              'Productos en Existencia', max_length=6)
     tipo_producto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE,
                                       help_text="Seleccione el tipo de producto", verbose_name='Tipo de producto'
                                       , default='Sin tipo')
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='Sin marca',
                               help_text="Ingrese la marca del producto", verbose_name='Marca del '
                                                                                       'Producto')
-    precio = MoneyField(max_length=30, decimal_places=3, max_digits=27,
-                        default_currency='MXN', help_text="Ingrese el precio del producto", verbose_name='Precio del '
-                                                                                                         'Producto')
+    precio = MoneyField(max_length=9, decimal_places=3, max_digits=6,
+                        default_currency='MXN', help_text="Ingrese el precio del producto",
+                        verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
+                                                                        MaxMoneyValidator(999999), ])
 
     uniqueId = models.UUIDField(primary_key=True, editable=False, verbose_name='ID de Producto', default=uuid4,
                                 help_text="ID único generado para este producto "

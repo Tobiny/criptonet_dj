@@ -1,9 +1,11 @@
+from django.forms import DateInput
 from importlib._common import _
 
 from django import forms
 from django.core.exceptions import ValidationError
 # Form Layout from Crispy Forms
 from crispy_forms.helper import FormHelper
+from phonenumber_field.modelfields import PhoneNumberField
 from crispy_forms.layout import Layout, Submit, Row, Column
 
 from apps.app.models import *
@@ -16,14 +18,12 @@ class ProductoForm(forms.ModelForm):
 
 
 class ProductoDetallesForm(forms.ModelForm):
-
     class Meta:
         model = DetalleProducto
         fields = ['producto', 'cantidad']
 
 
 class InvoiceForm(forms.ModelForm):
-
     STATUS_OPTIONS = [
         ('ACTUAL', 'ACTUAL'),
         ('NO PAGADO', 'NO PAGADO'),
@@ -47,7 +47,8 @@ class InvoiceForm(forms.ModelForm):
     fechaPago = forms.DateTimeField(
         required=True,
         label='Fecha de pago',
-        widget=DateInput(format='%d/%m/%Y', attrs={'class': 'form-control mb-3','placeholder':'Selecciona la fecha','type': 'date' }), )
+        widget=DateInput(format='%d/%m/%Y',
+                         attrs={'class': 'form-control mb-3', 'placeholder': 'Selecciona la fecha', 'type': 'date'}), )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -60,7 +61,7 @@ class InvoiceForm(forms.ModelForm):
             Row(
                 Column('estado', css_class='form-group col-md-6'),
                 css_class='form-row'),
-                'notas',
+            'notas',
 
             Submit('submit', ' EDITAR RECIBO '))
 
@@ -71,30 +72,28 @@ class InvoiceForm(forms.ModelForm):
             'fechaPago': DateInput()
         }
 
+
 class ClientSelectForm(forms.ModelForm):
 
-    def __init__(self,*args,**kwargs):
+    def __init__(self, *args, **kwargs):
         self.initial_client = kwargs.pop('initial_client')
         self.CLIENT_LIST = Client.objects.all()
         self.CLIENT_CHOICES = [('-----', '--Selecciona al cliente--')]
-
 
         for client in self.CLIENT_LIST:
             d_t = (client.uniqueId, client.nombreCliente)
             self.CLIENT_CHOICES.append(d_t)
 
-
-        super(ClientSelectForm,self).__init__(*args,**kwargs)
+        super(ClientSelectForm, self).__init__(*args, **kwargs)
 
         self.fields['client'] = forms.ChoiceField(
-                                        label='Selecciona el cliente',
-                                        choices = self.CLIENT_CHOICES,
-                                        widget=forms.Select(attrs={'class': 'form-control mb-3'}),)
+            label='Selecciona el cliente',
+            choices=self.CLIENT_CHOICES,
+            widget=forms.Select(attrs={'class': 'form-control mb-3'}), )
 
     class Meta:
         model = Recibo
         fields = ['client']
-
 
     def clean_client(self):
         c_client = self.cleaned_data['client']
