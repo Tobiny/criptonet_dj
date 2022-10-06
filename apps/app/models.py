@@ -5,6 +5,7 @@ from django.core.validators import RegexValidator, MinValueValidator
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from djmoney.models.fields import MoneyField
 from djmoney.models.validators import MaxMoneyValidator, MinMoneyValidator
@@ -15,11 +16,14 @@ from phonenumber_field.modelfields import PhoneNumberField
 class Empleado(models.Model):
     id_empleado = models.AutoField(primary_key=True, verbose_name='ID Empleado')
     nombre = models.CharField(max_length=50, help_text="Ingrese el nombre del empleado", verbose_name='Nombre del '
-                                                                                                      'Empleado')
+                                                                                                      'Empleado',validators=[RegexValidator(
+                               regex='^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$',
+                               message='El nombre ingresado no es válido, revise sus espacios o sintaxis',
+                               code='invalid_nombre'), ])
     rfc = models.CharField(max_length=13, verbose_name='RFC',
-                           help_text='12-13 caracteres <a href="https://www.sat.gob.mx/consultas/44083/consulta-tu-informacion-fiscal"> consulta tu RFC</a>',
+                           help_text=mark_safe('12-13 caracteres <a href="https://www.sat.gob.mx/consultas/44083/consulta-tu-informacion-fiscal"> consulta tu RFC</a>'),
                            validators=[RegexValidator(
-                               regex='^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))((-)?([A-Z\d]{3}))?$',
+                               regex='^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$',
                                message='El RFC deberá tener el formato que la Servicio de Administración Tributaria valida',
                                code='invalid_RFC'), ])
 
@@ -269,25 +273,29 @@ class Recibo(models.Model):
 
 
 class Producto(models.Model):
-    modelo = models.CharField(null=True, blank=True, max_length=40, verbose_name='Modelo del producto',
+    modelo = models.CharField(null=True, blank=True, max_length=70, verbose_name='Modelo del producto',
                               help_text='Ingrese el modelo del producto')
     descripcion = models.TextField(null=True, blank=True, help_text="Ingrese la descripción del producto",
                                    verbose_name='Descripción'
-                                                ' del producto', max_length=200)
+                                                ' del producto', max_length=250,
+
+                                   )
     cantidad = models.FloatField(null=True, blank=True,
                                  help_text="Ingrese la cantidad de productos en existencia/añadir",
                                  verbose_name='Cantidad de '
-                                              'Productos en Existencia', max_length=6)
+                                              'Productos en Existencia', max_length=6, default=0)
     tipo_producto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE,
                                       help_text="Seleccione el tipo de producto", verbose_name='Tipo de producto'
                                       , default='Sin tipo')
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='Sin marca',
                               help_text="Ingrese la marca del producto", verbose_name='Marca del '
                                                                                       'Producto')
-    precio = MoneyField(max_length=9, decimal_places=3, max_digits=6,
+    precio = MoneyField(decimal_places=2, max_digits=9, max_length=9,
                         default_currency='MXN', help_text="Ingrese el precio del producto",
                         verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
-                                                                        MaxMoneyValidator(999999), ])
+                                                                        MaxMoneyValidator(999999), RegexValidator(
+                '[0-9]{1,6}([.][0-9]{1,2})?',
+                message="Cantidad de dígitos superada")])
 
     uniqueId = models.UUIDField(primary_key=True, editable=False, verbose_name='ID de Producto', default=uuid4,
                                 help_text="ID único generado para este producto "

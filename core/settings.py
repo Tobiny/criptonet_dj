@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     'djmoney',
     'widget_tweaks',
     'crispy_forms',
-    'phonenumber_field',
 ]
 IMPORT_EXPORT_USE_TRANSACTIONS = True
 

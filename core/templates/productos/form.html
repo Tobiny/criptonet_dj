@@ -72,7 +72,7 @@
                                             {% endfor %}
                                         </div>
                                     {% endif %}
-                                    {% with 0 as n %}
+
                                     {% with False as first %}
                                     {% for field in form.visible_fields %}
                                         {% setvar forloop.counter as n %}
@@ -94,9 +94,9 @@
                                                 {% render_field field|attr:"readonly:True" class="form-control"  %}
                                                 {% setvar False as first %}
                                             {% elif n == 1 %}
-                                                {% render_field field data-filter='(^[A-Z][a-zA-ZÀ-ÖØ-öø-ÿ0-9]*[,|.]?(\\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+[,|.]?))*)' class="form-control"  %}
+                                                {% render_field field data-filter='^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control"  %}
                                             {% elif n == 2 %}
-                                                {% render_field field data-filter='(^[A-Z][a-zA-ZÀ-ÖØ-öø-ÿ0-9]*[,|.]?(\\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+[,|.]?))*)' class="form-control"  %}
+                                                {% render_field field data-filter='^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control"  %}
                                             {% else %}
                                                 {% render_field field class="form-control" %}
                                             {% endif %}
@@ -107,7 +107,6 @@
 
                                         </div>
                                     {% endfor %}
-                                    {% endwith %}
                                     {% endwith %}
                                     <button type="submit" class="btn btn-primary">Agregar</button>
                                 </form>
@@ -126,13 +125,6 @@
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
     <script>
-        // Basic example
-        $(document).ready(function () {
-            $('#tabla-vistas').DataTable({
-                "searching": true // false to disable search (or any other option)
-            });
-            $('.dataTables_length').addClass('bs-select');
-        });
         var inputs = document.querySelectorAll('input[data-filter]');
         var inputs2 = document.querySelectorAll('textarea[data-filter]');
         for (var i = 0; i < inputs.length; i++) {
@@ -181,6 +173,5 @@
                 state.end = textarea.selectionEnd;
             });
         }
-
     </script>
 {% endblock javascripts %}

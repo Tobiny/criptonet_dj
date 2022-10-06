@@ -74,6 +74,7 @@
                                     {% endif %}
                                     {% with False as first %}
                                     {% for field in form.visible_fields %}
+                                        {% setvar forloop.counter as n %}
                                         <div class="form-group">
                                             {{ field.label_tag }}
                                             {% if form.is_bound %}
@@ -90,6 +91,10 @@
                                             {% elif first %}
                                                 {% render_field field|attr:"readonly:True" class="form-control"  %}
                                                 {% setvar False as first %}
+                                            {% elif n == 1 %}
+                                                {% render_field field data-filter='^[ÁÉÍÓÚA-Z][a-záéíóú]*(\s?([ÁÉÍÓÚA-Z][a-záéíóú]*)*){2,5}$' class="form-control"  %}
+                                            {% elif n == 2 %}
+                                                {% render_field field class="form-control"  %}
                                             {% else %}
                                                 {% render_field field class="form-control" %}
                                             {% endif %}
@@ -116,12 +121,31 @@
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
     <script>
-        // Basic example
-        $(document).ready(function () {
-            $('#tabla-vistas').DataTable({
-                "searching": true // false to disable search (or any other option)
+        var inputs = document.querySelectorAll('input[data-filter]');
+
+        for (var i = 0; i < inputs.length; i++) {
+            var input = inputs[i];
+            var state = {
+                value: input.value,
+                start: input.selectionStart,
+                end: input.selectionEnd,
+                pattern: RegExp('^' + input.dataset.filter + '$')
+            };
+
+            input.addEventListener('input', function (event) {
+                if (state.pattern.test(input.value)) {
+                    state.value = input.value;
+                } else {
+                    input.value = state.value;
+                    input.setSelectionRange(state.start, state.end);
+                }
             });
-            $('.dataTables_length').addClass('bs-select');
-        });
+
+            input.addEventListener('keydown', function (event) {
+                state.start = input.selectionStart;
+                state.end = input.selectionEnd;
+            });
+        }
+
     </script>
 {% endblock javascripts %}
