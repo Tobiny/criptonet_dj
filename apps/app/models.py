@@ -17,7 +17,7 @@ class Empleado(models.Model):
     id_empleado = models.AutoField(primary_key=True, verbose_name='ID Empleado')
     nombre = models.CharField(max_length=50, help_text="Ingrese el nombre del empleado", verbose_name='Nombre del '
                                                                                                       'Empleado',validators=[RegexValidator(
-                               regex='^[ÁÉÍÓÚA-Z][a-záéíóú]+(\s+[ÁÉÍÓÚA-Z]?[a-záéíóú]+)*$',
+                               regex='^[ÁÉÍÓÚA-Z][a-záéíóú]*(\s[ÁÉÍÓÚA-Z][a-záéíóú]*)*',
                                message='El nombre ingresado no es válido, revise sus espacios o sintaxis',
                                code='invalid_nombre'), ])
     rfc = models.CharField(max_length=13, verbose_name='RFC',
@@ -86,41 +86,12 @@ class TipoProducto(models.Model):
         return reverse('tipo_detalles', args=[str(self.id_tipo)])
 
 
-class Servicio(models.Model):
-    id_servicio = models.AutoField(primary_key=True, verbose_name='ID de Servicio')
-    precio = MoneyField(verbose_name='Precio del Servicio', max_length=18, decimal_places=2, max_digits=16,
-                        default_currency='MXN',
-                        help_text="Ingrese el costo del servicio")
-    nombre = models.CharField(max_length=30, help_text="Ingrese el nombre del servicio.", verbose_name='Nombre del '
-                                                                                                       'Servicio')
-
-    def __str__(self):
-        """
-        String para representar el Objeto del Modelo
-        """
-        return '%s - %s' % (self.nombre, self.precio)
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de Producto
-        """
-        return reverse('servicio_detalles', args=[str(self.id_servicio)])
-
-
 class Mantenimiento(models.Model):
     id_manten = models.AutoField(primary_key=True, verbose_name='ID del Mantenimiento')
-    id_servicio = models.ForeignKey('Servicio', on_delete=models.CASCADE, null=False)
-
-    cantidad_servicios = models.IntegerField('Cantidad de servicios', validators=[MinValueValidator(1)])
-    fecha = models.DateField(verbose_name='Fecha del Mantenimiento')
-    observaciones = models.TextField(help_text="Ingrese las observaciones del mantenimiento",
+    fechaIngreso = models.DateField(verbose_name='Fecha del Mantenimiento')
+    fechaTermina = models.DateField(verbose_name='Fecha del Mantenimiento')
+    descripcion = models.TextField(help_text="Ingrese las observaciones del mantenimiento",
                                      verbose_name='Observaciones')
-
-    total = MoneyField(max_length=18, decimal_places=2, max_digits=16, verbose_name='Total', editable=False)
-
-    def save(self, *args, **kwargs):
-        self.total = self.id_servicio.precio * self.cantidad_servicios
-        super(Mantenimiento, self).save(*args, **kwargs)
 
     def __str__(self):
         """
@@ -174,26 +145,40 @@ class Client(models.Model):
     # Basic Fields.
     nombreCliente = models.CharField(null=True, blank=True, max_length=50, help_text="Ingrese el nombre del cliente",
                                      verbose_name='Nombre del '
-                                                  'Cliente')
+                                                  'Cliente', validators=[RegexValidator(
+                               regex='^[ÁÉÍÓÚA-Z][a-záéíóú]*(\s[ÁÉÍÓÚA-Z][a-záéíóú]*)*',
+                               message='El nombre ingresado no es válido, revise sus espacios o sintaxis',
+                               code='invalid_nombre')])
     domicilio = models.CharField(null=True, blank=True, max_length=50, help_text="Ingrese el domicilio del cliente",
                                  verbose_name='Domicilio del '
                                               'Cliente')
     estado = models.CharField(choices=ESTADOS, blank=True, default="Jalisco", max_length=20,
                               help_text="Ingrese el estado", verbose_name='Estado'
                               )
-    codigoPostal = models.CharField(null=True, blank=True, max_length=5,
+    codigoPostal = models.IntegerField(null=True, blank=True, max_length=5,
                                     help_text="Ingrese el codigo postal del cliente", verbose_name='Codigo Postal del '
-                                                                                                   'Cliente')
+                                                                                                   'Cliente',
+                                       validators=[RegexValidator(
+                                           regex='\d{5}',
+                                           message='Código postal inválido',
+                                           code='invalid_PC'), ])
+
     numTelefono = models.CharField(null=True, blank=True, max_length=10,
                                    help_text="Ingrese el número de teléfono del cliente", verbose_name='Número de '
-                                                                                                       'Teléfono')
+                                                                                                       'Teléfono',validators=[RegexValidator(
+                               regex='(\(\d{3}\)[.-]?|\d{3}[.-]?)?\d{3}[.-]?\d{4}',
+                               message='El número es inválido.',
+                               code='invalid_number'), ])
     dirEmail = models.EmailField(null=True, blank=True, max_length=100,
                                  help_text="Ingrese la dirección de correo del cliente", verbose_name='Email del '
-                                                                                                      'Cliente')
+                                                                                                      'Cliente', validators=[RegexValidator(
+                               regex='^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$',
+                               message='El correo es inválido.',
+                               code='invalid_email'), ])
     rfcCliente = models.CharField(null=True, blank=True, max_length=13, validators=[RegexValidator(
-        regex='^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))((-)?([A-Z\d]{3}))?$',
-        message='El RFC deberá tener el formato que la Servicio de Administración Tributaria valida',
-        code='invalid_RFC2'), ])
+                               regex='^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$',
+                               message='El RFC deberá tener el formato que la Servicio de Administración Tributaria valida',
+                               code='invalid_RFC'), ])
 
     # Utility fields
     uniqueId = models.UUIDField(primary_key=True, editable=False, verbose_name='ID del Cliente', default=uuid4,
