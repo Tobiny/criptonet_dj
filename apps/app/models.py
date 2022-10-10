@@ -172,7 +172,7 @@ class Client(models.Model):
     dirEmail = models.EmailField(null=True, blank=True, max_length=100,
                                  help_text="Ingrese la dirección de correo del cliente", verbose_name='Email del '
                                                                                                       'Cliente', validators=[RegexValidator(
-                               regex='^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$',
+                               regex='[a-z0-9]+@[a-z]+\.[a-z]{2,3}',
                                message='El correo es inválido.',
                                code='invalid_email'), ])
     rfcCliente = models.CharField(null=True, blank=True, max_length=13, validators=[RegexValidator(
