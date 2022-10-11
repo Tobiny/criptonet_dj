@@ -25,7 +25,7 @@ class ProductoDetallesForm(forms.ModelForm):
 
 class InvoiceForm(forms.ModelForm):
     STATUS_OPTIONS = [
-        ('ACTUAL', 'ACTUAL'),
+        ('OTRO', 'OTRO'),
         ('NO PAGADO', 'NO PAGADO'),
         ('PAGADO', 'PAGADO'),
     ]
