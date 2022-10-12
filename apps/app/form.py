@@ -62,8 +62,7 @@ class InvoiceForm(forms.ModelForm):
                 Column('estado', css_class='form-group col-md-6'),
                 css_class='form-row'),
             'notas',
-
-            Submit('submit', ' EDITAR RECIBO '))
+        )
 
     class Meta:
         model = Recibo
@@ -71,6 +70,18 @@ class InvoiceForm(forms.ModelForm):
         widgets = {
             'fechaPago': DateInput()
         }
+
+class SaleItemForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['producto'].queryset = Producto.objects.filter(cantidad_gte=1)
+        self.fields['producto'].widget.attrs.update({'class': 'textinput form-control setprice stock', 'required': 'true'})
+        self.fields['cantidad'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '0', 'required': 'true'})
+        self.fields['subtotal'].widget.attrs.update({'class': 'textinput form-control setprice price', 'min': '0', 'required': 'true'})
+    class Meta:
+        model = DetalleProducto
+        fields = ['producto', 'cantidad', 'subtotal']
+
 
 
 class ClientSelectForm(forms.ModelForm):

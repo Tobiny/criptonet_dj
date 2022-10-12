@@ -241,6 +241,16 @@ class Recibo(models.Model):
     def get_absolute_url(self):
         return reverse('invoice-detail', kwargs={'slug': self.slug})
 
+    def get_items_list(self):
+        return DetalleProducto.objects.filter(recibo=self)
+
+    def get_total_price(self):
+        saleitems = DetalleProducto.objects.filter(recibo=self)
+        total = 0
+        for item in saleitems:
+            total += item.preciototal
+        return total
+
     def save(self, *args, **kwargs):
         if self.fecha_creacion is None:
             self.fecha_creacion = timezone.localtime(timezone.now())
@@ -312,6 +322,8 @@ class DetalleProducto(models.Model):
     cantidad = models.FloatField(null=False)
     subtotal = MoneyField(max_length=30, decimal_places=3, max_digits=27,
                           default_currency='MXN')
+    preciototal = MoneyField(max_length=30, decimal_places=3, max_digits=27,
+                          default_currency='MXN')
     # Utility fields
     uniqueId = models.CharField(null=True, blank=True, max_length=100)
     slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
@@ -334,19 +346,4 @@ class DetalleProducto(models.Model):
 
         self.slug = slugify('{} {}'.format(self.producto.modelo, self.uniqueId))
         self.last_updated = timezone.localtime(timezone.now())
-        self.subtotal = self.cantidad * self.producto.precio
-
-        if self.creacion is None:
-            creacion = 1
-            productos = Producto.objects.get(
-                uniqueId=self.producto.uniqueId
-            )
-            productos.restar(self.cantidad)
-
-            recibos = Recibo.objects.get(
-                slug=self.recibo.slug
-            )
-            recibos.actualizar_total(self.subtotal)
-            recibos.save()
-            productos.save()
         super(DetalleProducto, self).save(*args, **kwargs)
