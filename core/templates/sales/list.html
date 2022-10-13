@@ -43,7 +43,7 @@
                                     <table id="tabla-vistas" class="table table table-striped table-bordered table-sm">
                                         <thead>
                                             <tr>
-                                                <th>Id Producto</th>
+                                                <th>ID del Producto</th>
                                                 <th>Tipo</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
@@ -55,12 +55,12 @@
                                         <tbody>
                                         {% for producto in lista_productos %}
                                             <tr>
-                                                <th scope="row"><a href="{{ producto.get_absolute_url }}">{{ producto.id_producto|truncatechars:8 }}</a></th>
-                                                <td>{{producto.tipo.nom}}</td>
-                                                <td>{{producto.marca.nom}}</td>
+                                                <th scope="row"><a href="{{ producto.get_absolute_url }}">{{ producto.slug|truncatechars:12 }}</a></th>
+                                                <td>{{producto.tipo_producto.nombre}}</td>
+                                                <td>{{producto.marca.nombre}}</td>
                                                 <td>{{producto.modelo}}</td>
-                                                <td>{{producto.precio_venta}}</td>
-                                                <td>{{producto.cantidad_existente}}</td>
+                                                <td>{{producto.precio}}</td>
+                                                <td>{{producto.cantidad}}</td>
                                                 <td>
                                                     <button class="btn btn-info dropdown-toggle" type="button"
                                                             data-toggle="dropdown" aria-haspopup="true"

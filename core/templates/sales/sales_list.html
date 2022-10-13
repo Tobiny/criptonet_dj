@@ -1,0 +1,200 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Registros de Productos {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Registros de productos</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="{% url 'productos' %}">Productos</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:">Registros de productos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+                        <!-- [ basic-table ] start -->
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Productos registrados</h5>
+                                    <span class="d-block m-t-5">Productos registrados hasta la fecha</span>
+                                </div>
+                                <table class="table table-css table-bordered table-hover">
+
+                                    <thead class="thead-dark align-middle">
+                                    <tr><!-- Log on to codeastro.com for more projects -->
+                                        <th width="10%">Bill No.</th>
+                                        <th width="15%">Customer</th>
+                                        <th width="15%">Stocks Sold</th>
+                                        <th width="10%">Quantity Sold</th>
+                                        <th width="10%">Total Sold Price</th>
+                                        <th width="15%">Date</th>
+                                        <th width="25%">Actions</th>
+                                    </tr>
+                                    </thead>
+
+                                    {% if bills %}
+
+                                        <tbody>
+                                        {% for sale in bills %}
+                                            <tr><!-- Log on to codeastro.com for more projects -->
+                                                <td class="align-middle"><p>{{ sale.billno }}</p></td>
+                                                <td class=""> {{ sale.name }} <br> <small style="color: #909494">Ph No
+                                                    : {{ sale.phone }}</small></td>
+                                                <td class="align-middle">{% for item in sale.get_items_list %}
+                                                    {{ item.stock.name }} <br> {% endfor %}</td>
+                                                <td class="align-middle">{% for item in sale.get_items_list %}
+                                                    {{ item.quantity }} <br> {% endfor %}</td>
+                                                <td class="align-middle">${{ sale.get_total_price }}</td>
+                                                <td class="align-middle">{{ sale.time.date }}</td>
+                                                <td class="align-middle"><a href="{% url 'sale-bill' sale.billno %}"
+                                                                            class="btn btn-secondary btn-sm">View
+                                                    Bill</a> <a href="{% url 'delete-sale' sale.pk %}"
+                                                                class="btn btn-danger btn-sm">Delete Bill</a></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+
+                                        </table>
+
+                                        <div class="align-middle"><!-- Log on to codeastro.com for more projects -->
+                                            {% if is_paginated %}
+
+                                                {% if page_obj.has_previous %}
+                                                    <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                                                    <a class="btn btn-outline-info mb-4"
+                                                       href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                                {% endif %}
+
+                                                {% for num in page_obj.paginator.page_range %}
+                                                    {% if page_obj.number == num %}
+                                                        <a class="btn btn-info mb-4"
+                                                           href="?page={{ num }}">{{ num }}</a>
+                                                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                                        <a class="btn btn-outline-info mb-4"
+                                                           href="?page={{ num }}">{{ num }}</a>
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                                {% if page_obj.has_next %}
+                                                    <a class="btn btn-outline-info mb-4"
+                                                       href="?page={{ page_obj.next_page_number }}">Next</a>
+                                                    <a class="btn btn-outline-info mb-4"
+                                                       href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                                                {% endif %}
+
+                                            {% endif %}
+                                        </div>
+
+                                    {% else %}
+
+                                        <tbody></tbody>  <!-- Log on to codeastro.com for more projects -->
+                                        </table>
+
+                                        <br><br><br><br><br><br><br><br>
+                                        <div style="color: #575757; font-style: bold; font-size: 1.5rem; text-align: center;">
+                                            The records are empty. Please try adding some.
+                                        </div>
+
+                                    {% endif %}
+                                {% comment %}{% if lista_productos %}
+                                <div class="card-block table-border-style">
+                                    <table id="tabla-vistas" class="table table table-striped table-bordered table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>ID del Producto</th>
+                                                <th>Tipo</th>
+                                                <th>Marca</th>
+                                                <th>Modelo</th>
+                                                <th>Precio venta</th>
+                                                <th>Existencia</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for producto in lista_productos %}
+                                            <tr>
+                                                <th scope="row"><a href="{{ producto.get_absolute_url }}">{{ producto.slug|truncatechars:12 }}</a></th>
+                                                <td>{{producto.tipo_producto.nombre}}</td>
+                                                <td>{{producto.marca.nombre}}</td>
+                                                <td>{{producto.modelo}}</td>
+                                                <td>{{producto.precio}}</td>
+                                                <td>{{producto.cantidad}}</td>
+                                                <td>
+                                                    <button class="btn btn-info dropdown-toggle" type="button"
+                                                            data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">Acciones
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="{{ producto.get_absolute_url }}">Ver detalles</a>
+                                                        <a class="dropdown-item" href="{{ producto.get_absolute_url|add:'modificar/' }}">Modificar</a>
+                                                        <a class="dropdown-item" href="{{ producto.get_absolute_url|add:'borrar/' }}">Eliminar</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                            </div>
+                            {% else %}
+                                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="24" fill="currentColor"
+                                         class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16"
+                                         role="img" aria-label="Warning:">
+                                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                                    </svg>
+                                    <div>
+                                        No existen registros de productos
+                                    </div>
+                                </div>
+                            {% endif %}{% endcomment %}
+
+                            </div>
+                        </div>
+                        <!-- [ basic-table ] end -->
+
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+    <script>
+        // Basic example
+        $(document).ready(function () {
+            $('#tabla-vistas').DataTable({
+                "rowReorder": true,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                },
+                "searching": true, // false to disable search (or any other option)
+
+            });
+        });
+    </script>
+{% endblock javascripts %}

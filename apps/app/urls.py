@@ -47,6 +47,10 @@ urlpatterns = [
     url(r'^cliente/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/modificar/$', views.ClientesUpdate.as_view(), name='clientes_modificar'),
     url(r'^cliente/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/borrar/$', views.ClientesBorrar.as_view(), name='clientes_borrar'),
 
+    path('sales/', views.SaleView.as_view(), name='sales-list'),
+    path('sales/new', views.SaleCreateView.as_view(), name='new-sale'),
+    path('sales/<pk>/delete', views.SaleDeleteView.as_view(), name='delete-sale'),
+    path("sales/<billno>", views.SaleBillView.as_view(), name="sale-bill"),
 
     path('invoices',views.invoices, name='invoices'),
     # Create URL Paths

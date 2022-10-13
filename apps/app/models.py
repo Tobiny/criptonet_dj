@@ -12,6 +12,44 @@ from djmoney.models.validators import MaxMoneyValidator, MinMoneyValidator
 from phonenumber_field.modelfields import PhoneNumberField
 
 
+class Stock(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=30, unique=True)
+    quantity = models.IntegerField(default=1)
+    is_deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
+# contains the sale bills made
+class SaleBill(models.Model):
+    billno = models.AutoField(primary_key=True)
+    time = models.DateTimeField(auto_now=True)
+
+    name = models.CharField(max_length=150)
+    phone = models.CharField(max_length=12)
+    address = models.CharField(max_length=200)
+    email = models.EmailField(max_length=254)
+    gstin = models.CharField(max_length=15)
+
+    def __str__(self):
+        return "Bill no: " + str(self.billno)
+
+    def get_items_list(self):
+        return SaleItem.objects.filter(billno=self)
+
+    def get_total_price(self):
+        saleitems = SaleItem.objects.filter(billno=self)
+        total = 0
+        for item in saleitems:
+            total += item.totalprice
+        return total
+
+
+# contains the sale stocks made
+
+
 # Create your models here.
 class Empleado(models.Model):
     id_empleado = models.AutoField(primary_key=True, verbose_name='ID Empleado')
@@ -97,7 +135,7 @@ class Mantenimiento(models.Model):
         """
         String para representar el Objeto del Modelo
         """
-        return '%s - %s' % (self.id_manten, self.fecha)
+        return '%s - %s' % (self.id_manten, self.fechaIngreso)
 
     def get_absolute_url(self):
         """
@@ -321,9 +359,9 @@ class DetalleProducto(models.Model):
     recibo = models.ForeignKey(Recibo, on_delete=models.CASCADE, blank=True, null=True)
     cantidad = models.FloatField(null=False)
     subtotal = MoneyField(max_length=30, decimal_places=3, max_digits=27,
-                          default_currency='MXN')
+                          default_currency='MXN', default=0)
     preciototal = MoneyField(max_length=30, decimal_places=3, max_digits=27,
-                          default_currency='MXN')
+                          default_currency='MXN', default=0)
     # Utility fields
     uniqueId = models.CharField(null=True, blank=True, max_length=100)
     slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
@@ -347,3 +385,33 @@ class DetalleProducto(models.Model):
         self.slug = slugify('{} {}'.format(self.producto.modelo, self.uniqueId))
         self.last_updated = timezone.localtime(timezone.now())
         super(DetalleProducto, self).save(*args, **kwargs)
+
+class SaleItem(models.Model):
+    billno = models.ForeignKey(SaleBill, on_delete=models.CASCADE, related_name='salebillno')
+    stock = models.ForeignKey(Producto, on_delete=models.CASCADE, related_name='saleitem')
+    quantity = models.IntegerField(default=1)
+    perprice = models.IntegerField(default=1)
+    totalprice = models.IntegerField(default=1)
+
+    def __str__(self):
+        return "Bill no: " + str(self.billno.billno) + ", Item = " + self.stock.modelo
+
+
+# contains the other details in the sales bill
+class SaleBillDetails(models.Model):
+    billno = models.ForeignKey(SaleBill, on_delete=models.CASCADE, related_name='saledetailsbillno')
+
+    eway = models.CharField(max_length=50, blank=True, null=True)
+    veh = models.CharField(max_length=50, blank=True, null=True)
+    destination = models.CharField(max_length=50, blank=True, null=True)
+    po = models.CharField(max_length=50, blank=True, null=True)
+
+    cgst = models.CharField(max_length=50, blank=True, null=True)
+    sgst = models.CharField(max_length=50, blank=True, null=True)
+    igst = models.CharField(max_length=50, blank=True, null=True)
+    cess = models.CharField(max_length=50, blank=True, null=True)
+    tcs = models.CharField(max_length=50, blank=True, null=True)
+    total = models.CharField(max_length=50, blank=True, null=True)
+
+    def __str__(self):
+        return "Bill no: " + str(self.billno.billno)

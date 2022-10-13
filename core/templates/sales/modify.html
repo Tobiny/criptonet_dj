@@ -73,9 +73,11 @@
                                             {% endfor %}
                                         </div>
                                     {% endif %}
-                                    {% with True as first %}
+                                    {% with False as first %}
                                     {% for field in form.visible_fields %}
+                                        {% setvar forloop.counter as n %}
                                         <div class="form-group">
+                                        {% if n != 3 %}
                                             {{ field.label_tag }}
                                             {% if form.is_bound %}
                                                 {% if field.errors %}
@@ -91,16 +93,22 @@
                                             {% elif first %}
                                                 {% render_field field|attr:"readonly:True" class="form-control"  %}
                                                 {% setvar False as first %}
+                                            {% elif n == 1 %}
+                                                {% render_field field data-filter='^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control"  %}
+                                            {% elif n == 2 %}
+                                                {% render_field field data-filter='^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control"  %}
                                             {% else %}
                                                 {% render_field field class="form-control" %}
                                             {% endif %}
                                             {% if field.help_text %}
                                                 <small class="form-text text-muted">{{ field.help_text }}</small>
                                             {% endif %}
+                                        {% endif %}
+
                                         </div>
                                     {% endfor %}
                                     {% endwith %}
-                                    <button type="submit" class="btn btn-primary">Agregar</button>
+                                    <button type="submit" class="btn btn-primary">Modificar</button>
                                 </form>
                             </div>
                         </div>
@@ -112,16 +120,55 @@
     </div> </div>
 
 {% endblock content %}
-
-<!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
     <script>
-        // Basic example
-        $(document).ready(function () {
-            $('#tabla-vistas').DataTable({
-                "searching": true // false to disable search (or any other option)
+        var inputs = document.querySelectorAll('input[data-filter]');
+        var inputs2 = document.querySelectorAll('textarea[data-filter]');
+        for (var i = 0; i < inputs.length; i++) {
+            var input = inputs[i];
+            var state = {
+                value: input.value,
+                start: input.selectionStart,
+                end: input.selectionEnd,
+                pattern: RegExp('^' + input.dataset.filter + '$')
+            };
+
+            input.addEventListener('input', function (event) {
+                if (state.pattern.test(input.value)) {
+                    state.value = input.value;
+                } else {
+                    input.value = state.value;
+                    input.setSelectionRange(state.start, state.end);
+                }
             });
-            $('.dataTables_length').addClass('bs-select');
-        });
+
+            input.addEventListener('keydown', function (event) {
+                state.start = input.selectionStart;
+                state.end = input.selectionEnd;
+            });
+        }
+        for (var i = 0; i < inputs2.length; i++) {
+            var textarea = inputs2[i];
+            var state = {
+                value: textarea.value,
+                start: textarea.selectionStart,
+                end: textarea.selectionEnd,
+                pattern: RegExp('^' + textarea.dataset.filter + '$')
+            };
+
+            textarea.addEventListener('input', function (event) {
+                if (state.pattern.test(textarea.value)) {
+                    state.value = textarea.value;
+                } else {
+                    textarea.value = state.value;
+                    textarea.setSelectionRange(state.start, state.end);
+                }
+            });
+
+            textarea.addEventListener('keydown', function (event) {
+                state.start = textarea.selectionStart;
+                state.end = textarea.selectionEnd;
+            });
+        }
     </script>
 {% endblock javascripts %}
