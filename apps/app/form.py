@@ -80,13 +80,13 @@ class InvoiceForm(forms.ModelForm):
 class SaleItemForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['producto'].queryset = Producto.objects.filter(cantidad__gte=0)
-        self.fields['producto'].widget.attrs.update({'class': 'textinput form-control setprice stock', 'required': 'true'})
-        self.fields['cantidad'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '0', 'required': 'true'})
-        self.fields['subtotal'].widget.attrs.update({'class': 'textinput form-control setprice price', 'min': '0', 'required': 'true'})
+        self.fields['stocks'].queryset = Producto.objects.filter(cantidad__gte=0)
+        self.fields['stocks'].widget.attrs.update({'class': 'textinput form-control setprice stock', 'required': 'true'})
+        self.fields['quantity'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '0', 'required': 'true'})
+        self.fields['perprice'].widget.attrs.update({'class': 'textinput form-control setprice price', 'min': '0', 'required': 'true'})
     class Meta:
-        model = DetalleProducto
-        fields = ['producto', 'cantidad', 'subtotal']
+        model = SaleItem
+        fields = ['stock', 'quantity', 'perprice']
 
 
 

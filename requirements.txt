@@ -18,3 +18,5 @@ django-crispy-forms==1.13.0
 mssql-django==1.0
 pdfkit==1.00
 django-phonenumber-field
+python-decouple
+django-filter

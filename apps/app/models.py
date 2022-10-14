@@ -47,8 +47,6 @@ class SaleBill(models.Model):
         return total
 
 
-# contains the sale stocks made
-
 
 # Create your models here.
 class Empleado(models.Model):
@@ -313,7 +311,7 @@ class Producto(models.Model):
                                                 ' del producto', max_length=250,
 
                                    )
-    cantidad = models.FloatField(null=True, blank=True,
+    cantidad = models.IntegerField(null=True, blank=True,
                                  help_text="Ingrese la cantidad de productos en existencia/añadir",
                                  verbose_name='Cantidad de '
                                               'Productos en Existencia', max_length=6, default=0)
@@ -386,6 +384,8 @@ class DetalleProducto(models.Model):
         self.last_updated = timezone.localtime(timezone.now())
         super(DetalleProducto, self).save(*args, **kwargs)
 
+
+
 class SaleItem(models.Model):
     billno = models.ForeignKey(SaleBill, on_delete=models.CASCADE, related_name='salebillno')
     stock = models.ForeignKey(Producto, on_delete=models.CASCADE, related_name='saleitem')
@@ -395,7 +395,6 @@ class SaleItem(models.Model):
 
     def __str__(self):
         return "Bill no: " + str(self.billno.billno) + ", Item = " + self.stock.modelo
-
 
 # contains the other details in the sales bill
 class SaleBillDetails(models.Model):

@@ -543,12 +543,12 @@ class SaleView(ListView):
     paginate_by = 10
 
 
-# used to generate a bill object and save items
+# used fto generate a bill object and save items
 class SaleCreateView(View):
     template_name = "sales/new_sale.html"
 
     def get(self, request):
-        form = SaleForm(request.GET or None)
+        form = SaleForm(request.GET or None) #para el cliente
         formset = SaleItemFormset(request.GET or None)  # renders an empty formset
         stocks = Producto.objects.filter(cantidad__gte=0)
         context = {
@@ -573,11 +573,11 @@ class SaleCreateView(View):
                 billitem = form.save(commit=False)
                 billitem.billno = billobj  # links the bill object to the items
                 # gets the stock item
-                stock = get_object_or_404(Stock, name=billitem.stock.name)
+                stock = get_object_or_404(Producto, modelo=billitem.stock.modelo)
                 # calculates the total price
                 billitem.totalprice = billitem.perprice * billitem.quantity
                 # updates quantity in stock db
-                stock.quantity -= billitem.quantity
+                stock.cantidad -= billitem.quantity
                 # saves bill item and stock
                 stock.save()
                 billitem.save()
