@@ -548,22 +548,23 @@ class SaleCreateView(View):
     template_name = "sales/new_sale.html"
 
     def get(self, request):
-        form = SaleForm(request.GET or None) #para el cliente
+        client_form = ClientSelectForm(initial_client=SaleBill.cliente) #para el cliente
         formset = SaleItemFormset(request.GET or None)  # renders an empty formset
         stocks = Producto.objects.filter(cantidad__gte=0)
         context = {
-            'form': form,
+            'client_form': client_form,
             'formset': formset,
             'stocks': stocks
         }
         return render(request, self.template_name, context)
 
     def post(self, request):
-        form = SaleForm(request.POST)
+
+        client_form = ClientSelectForm(request.POST, initial_client=SaleBill.cliente, instance=SaleBill)
         formset = SaleItemFormset(request.POST)  # recieves a post method for the formset
-        if form.is_valid() and formset.is_valid():
+        if client_form.is_valid() and formset.is_valid():
             # saves bill
-            billobj = form.save(commit=False)
+            billobj = client_form.save(commit=False)
             billobj.save()
             # create bill details object
             billdetailsobj = SaleBillDetails(billno=billobj)
@@ -583,10 +584,10 @@ class SaleCreateView(View):
                 billitem.save()
             messages.success(request, "Sold items have been registered successfully")
             return redirect('sale-bill', billno=billobj.billno)
-        form = SaleForm(request.GET or None)
+        form = client_form(request.GET or None)
         formset = SaleItemFormset(request.GET or None)
         context = {
-            'form': form,
+            'form': client_form,
             'formset': formset,
         }
         return render(request, self.template_name, context)
@@ -652,3 +653,59 @@ class SaleBillView(View):
             'bill_base': self.bill_base,
         }
         return render(request, self.template_name, context)
+
+    def createBuildInvoice(request, slug):
+        # fetch that invoice
+        try:
+            recibo = Recibo.objects.get(slug=slug)
+            pass
+        except:
+            messages.error(request, 'Something went wrong')
+            return redirect('invoices')
+
+        # fetch all the products - related to this invoice
+        products = DetalleProducto.objects.filter(recibo=recibo)
+
+        context = {}
+        context['invoice'] = recibo
+        context['products'] = products
+
+        if request.method == 'GET':
+            prod_form = ProductoDetallesForm()
+            inv_form = InvoiceForm(instance=recibo)
+            client_form = ClientSelectForm(initial_client=recibo.client)
+            context['prod_form'] = prod_form
+            context['inv_form'] = inv_form
+            context['client_form'] = client_form
+            return render(request, 'recibo/create_invoce.html', context)
+
+        if request.method == 'POST':
+            prod_form = ProductoDetallesForm(request.POST)
+            inv_form = InvoiceForm(request.POST, instance=recibo)
+            client_form = ClientSelectForm(request.POST, initial_client=recibo.client, instance=recibo)
+
+            if prod_form.is_valid():
+                obj = prod_form.save(commit=False)
+                obj.recibo = recibo
+                obj.save()
+
+                messages.success(request, "Producto agregado con exito", extra_tags='alert-success')
+                return redirect('create-build-invoice', slug=slug)
+            elif inv_form.is_valid and 'estado' in request.POST:
+                inv_form.save()
+                messages.success(request, "Recibo actualizado con exito", extra_tags='alert-success')
+                return redirect('create-build-invoice', slug=slug)
+            elif client_form.is_valid() and 'client' in request.POST:
+
+                client_form.save()
+                messages.success(request, "Cliente añadido exitosamente", extra_tags='alert-success')
+                return redirect('create-build-invoice', slug=slug)
+            else:
+                context['prod_form'] = prod_form
+                context['inv_form'] = inv_form
+                context['client_form'] = client_form
+                messages.error(request, "Problema procesando la transacción, ingreselo de nuevo",
+                               extra_tags='alert-danger')
+                return render(request, 'recibo/create_invoce.html', context)
+
+        return render(request, 'recibo/create_invoce.html', context)

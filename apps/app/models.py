@@ -22,29 +22,6 @@ class Stock(models.Model):
         return self.name
 
 
-# contains the sale bills made
-class SaleBill(models.Model):
-    billno = models.AutoField(primary_key=True)
-    time = models.DateTimeField(auto_now=True)
-
-    name = models.CharField(max_length=150)
-    phone = models.CharField(max_length=12)
-    address = models.CharField(max_length=200)
-    email = models.EmailField(max_length=254)
-    gstin = models.CharField(max_length=15)
-
-    def __str__(self):
-        return "Bill no: " + str(self.billno)
-
-    def get_items_list(self):
-        return SaleItem.objects.filter(billno=self)
-
-    def get_total_price(self):
-        saleitems = SaleItem.objects.filter(billno=self)
-        total = 0
-        for item in saleitems:
-            total += item.totalprice
-        return total
 
 
 
@@ -240,6 +217,25 @@ class Client(models.Model):
 
         super(Client, self).save(*args, **kwargs)
 
+# contains the sale bills made
+class SaleBill(models.Model):
+    billno = models.AutoField(primary_key=True)
+    time = models.DateTimeField(auto_now=True)
+    cliente = models.ForeignKey(Client, blank=True, null=True, on_delete=models.SET_NULL)
+
+    def __str__(self):
+        return "Bill no: " + str(self.billno)
+
+    def get_items_list(self):
+        return SaleItem.objects.filter(billno=self)
+
+    def get_total_price(self):
+        saleitems = SaleItem.objects.filter(billno=self)
+        total = 0
+        for item in saleitems:
+            total += item.totalprice
+        return total
+
 
 class Recibo(models.Model):
     STATUS = [
@@ -321,10 +317,17 @@ class Producto(models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='Sin marca',
                               help_text="Ingrese la marca del producto", verbose_name='Marca del '
                                                                                       'Producto')
-    precio = MoneyField(decimal_places=2, max_digits=9, max_length=9,
+    precioCompra = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
                         default_currency='MXN', help_text="Ingrese el precio del producto",
                         verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
                                                                         MaxMoneyValidator(999999), RegexValidator(
+                '[0-9]{1,6}([.][0-9]{1,2})?',
+                message="Cantidad de dígitos superada")])
+
+    precioVenta = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
+                              default_currency='MXN', help_text="Ingrese el precio del producto",
+                              verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
+                                                                              MaxMoneyValidator(999999), RegexValidator(
                 '[0-9]{1,6}([.][0-9]{1,2})?',
                 message="Cantidad de dígitos superada")])
 

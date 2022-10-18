@@ -20,7 +20,7 @@ from apps.app.models import *
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = ['modelo', 'descripcion', 'cantidad', 'precio', ]
+        fields = ['modelo', 'descripcion', 'cantidad', 'precioVenta','precioCompra' ]
 
 
 class ProductoDetallesForm(forms.ModelForm):
@@ -77,16 +77,6 @@ class InvoiceForm(forms.ModelForm):
             'fechaPago': DateInput()
         }
 
-class SaleItemForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['stocks'].queryset = Producto.objects.filter(cantidad__gte=0)
-        self.fields['stocks'].widget.attrs.update({'class': 'textinput form-control setprice stock', 'required': 'true'})
-        self.fields['quantity'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '0', 'required': 'true'})
-        self.fields['perprice'].widget.attrs.update({'class': 'textinput form-control setprice price', 'min': '0', 'required': 'true'})
-    class Meta:
-        model = SaleItem
-        fields = ['stock', 'quantity', 'perprice']
 
 
 
@@ -109,8 +99,8 @@ class ClientSelectForm(forms.ModelForm):
             widget=forms.Select(attrs={'class': 'form-control mb-3'}), )
 
     class Meta:
-        model = Recibo
-        fields = ['client']
+        model = SaleBill
+        fields = ['cliente']
 
     def clean_client(self):
         c_client = self.cleaned_data['client']
@@ -131,26 +121,6 @@ class StockForm(forms.ModelForm):
         model = Producto
         fields = ['descripcion', 'cantidad']
 
-# form used to get customer details
-class SaleForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'class': 'textinput form-control', 'pattern' : '[a-zA-Z\s]{1,50}', 'title' : 'Alphabets and Spaces only', 'required': 'true'})
-        self.fields['phone'].widget.attrs.update({'class': 'textinput form-control', 'maxlength': '10', 'pattern' : '[0-9]{10}', 'title' : 'Numbers only', 'required': 'true'})
-        self.fields['email'].widget.attrs.update({'class': 'textinput form-control'})
-        self.fields['gstin'].widget.attrs.update({'class': 'textinput form-control', 'maxlength': '15', 'pattern' : '[A-Z0-9]{15}', 'title' : 'GSTIN Format Required'})
-    class Meta:
-        model = SaleBill
-        fields = ['name', 'phone', 'address', 'email', 'gstin']
-        widgets = {
-            'address' : forms.Textarea(
-                attrs = {
-                    'class' : 'textinput form-control',
-                    'rows'  : '4'
-                }
-            )
-        }
-
 # form used to render a single stock item form
 class SaleItemForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -158,7 +128,7 @@ class SaleItemForm(forms.ModelForm):
         self.fields['stock'].queryset = Producto.objects.filter(cantidad__gte=0)
         self.fields['stock'].widget.attrs.update({'class': 'textinput form-control setprice stock', 'required': 'true'})
         self.fields['quantity'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '0', 'required': 'true'})
-        self.fields['perprice'].widget.attrs.update({'class': 'textinput form-control setprice price', 'min': '0', 'required': 'true'})
+        self.fields['perprice'].widget.attrs.update({'class': 'textinput form-control setprice price', 'readonly':'true','min': '0', 'required': 'true'})
     class Meta:
         model = SaleItem
         fields = ['stock', 'quantity', 'perprice']
