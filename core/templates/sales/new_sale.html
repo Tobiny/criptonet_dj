@@ -50,82 +50,82 @@
                                         <div class="panel-body">
 
 
-                                       <div class="col-lg-6">
-                                        <h5 class="card-title"> Selecciona un cliente </h5>
+                                            <div class="col-lg-6">
+                                                <h5 class="card-title"> Selecciona un cliente </h5>
 
-                                        <div class="mb-5">
-                                            <form class="" action="#" method="post">
-                                                {% csrf_token %}
-                                                {{client_form|crispy}}
-
-                                            </form>
-                                        </div>
-
-
-
-
-                                    </div>
-
-
-                                        <br>
-
-                                        <div class="panel panel-default">
-
-                                            {{ formset.management_form }}
-
-                                            <div class="panel-heading panel-heading-text">Detalles del producto</div>
-
-                                            <div id="stockitem">
-                                                <div class="panel-body">
-                                                    {% for iform in formset %}
-                                                        <div class="row form-row">
-                                                            <div class="form-group col-md-6">
-                                                                {{ iform.stock.errors }}
-                                                                <label class="panel-body-text">Productos:</label>
-                                                                {{ iform.stock }}
-                                                            </div>
-                                                            <div class="form-group col-md-2">
-                                                                <label class="panel-body-text">Precio de venta:</label>
-                                                                {{ iform.perprice }}
-                                                            </div>
-                                                            <div class="form-group col-md-1">
-                                                                {{ iform.quantity.errors }}
-                                                                <label class="panel-body-text">Cantidad:</label>
-                                                                {{ iform.quantity }}
-                                                            </div>
-                                                            <div class="form-group col-md-2">
-                                                                <label class="panel-body-text">Subtotal:</label>
-                                                                <input type="text"
-                                                                       class="textinput form-control totalprice"
-                                                                       value="1" disabled required>
-                                                            </div>
-                                                            <div class="form-group col-md-1">
-                                                                <label class="panel-body-text"
-                                                                       style="color: #000">.</label>
-                                                                <button class="form-control btn btn-danger remove-form-row">
-                                                                    -
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    {% endfor %}
-                                                    <div style="text-align: right;">
-                                                        <a href="#" class="add-form-row">+ Añadir producto</a>
-                                                    </div>
+                                                <div class="mb-5">
+                                                    <form class="" action="#" method="post">
+                                                        {% csrf_token %}
+                                                        {{ client_form|crispy }}
+                                                    </form>
                                                 </div>
+
+
                                             </div>
 
 
                                             <br>
 
-                                            <div class="align-middle">
-                                                <button type="submit" class="btn btn-success">Añair venta</button>
-                                                <a href="{% url 'sales-list' %}" class="btn btn-secondary">Cancelar</a>
+                                            <div class="panel panel-default">
+
+                                                {{ formset.management_form }}
+
+                                                <div class="panel-heading panel-heading-text">Detalles del producto
+                                                </div>
+
+                                                <div id="stockitem">
+                                                    <div class="panel-body">
+                                                        {% for iform in formset %}
+                                                            <div class="row form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    {{ iform.stock.errors }}
+                                                                    <label class="panel-body-text">Productos:</label>
+                                                                    {{ iform.stock }}
+                                                                </div>
+                                                                <div class="form-group col-md-2">
+                                                                    <label class="panel-body-text">Precio de
+                                                                        venta:</label>
+                                                                    {{ iform.perprice }}
+                                                                </div>
+                                                                <div class="form-group col-md-1">
+                                                                    {{ iform.quantity.errors }}
+                                                                    <label class="panel-body-text">Cantidad:</label>
+                                                                    {{ iform.quantity }}
+                                                                </div>
+                                                                <div class="form-group col-md-2">
+                                                                    <label class="panel-body-text">Subtotal:</label>
+                                                                    <input type="text"
+                                                                           class="textinput form-control totalprice"
+                                                                           value="1" disabled required>
+                                                                </div>
+                                                                <div class="form-group col-md-1">
+                                                                    <label class="panel-body-text"
+                                                                           style="color: #000">.</label>
+                                                                    <button class="form-control btn btn-danger remove-form-row">
+                                                                        -
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                        <div style="text-align: right;">
+                                                            <a href="#" class="add-form-row">+ Añadir producto</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <br>
+
+                                                <div class="align-middle">
+                                                    <button type="submit" class="btn btn-success">Añair venta</button>
+                                                    <a href="{% url 'sales-list' %}"
+                                                       class="btn btn-secondary">Cancelar</a>
+                                                </div>
+
                                             </div>
 
                                         </div>
-
                                     </form>
-
 
 
                                     <!-- Log on to codeastro.com for more projects -->
@@ -214,58 +214,58 @@
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
-{#    <script>#}
-{#        var inputs = document.querySelectorAll('input[data-filter]');#}
-{#        var inputs2 = document.querySelectorAll('textarea[data-filter]');#}
-{#        for (var i = 0; i < inputs.length; i++) {#}
-{#            var input = inputs[i];#}
-{#            var state = {#}
-{#                value: input.value,#}
-{#                start: input.selectionStart,#}
-{#                end: input.selectionEnd,#}
-{#                pattern: RegExp('^' + input.dataset.filter + '$')#}
-{#            };#}
-{##}
-{#            input.addEventListener('input', function (event) {#}
-{#                if (state.pattern.test(input.value)) {#}
-{#                    state.value = input.value;#}
-{#                } else {#}
-{#                    input.value = state.value;#}
-{#                    input.setSelectionRange(state.start, state.end);#}
-{#                }#}
-{#            });#}
-{##}
-{#            input.addEventListener('keydown', function (event) {#}
-{#                state.start = input.selectionStart;#}
-{#                state.end = input.selectionEnd;#}
-{#            });#}
-{#        }#}
-{#        for (var i = 0; i < inputs2.length; i++) {#}
-{#            var textarea = inputs2[i];#}
-{#            var state = {#}
-{#                value: textarea.value,#}
-{#                start: textarea.selectionStart,#}
-{#                end: textarea.selectionEnd,#}
-{#                pattern: RegExp('^' + textarea.dataset.filter + '$')#}
-{#            };#}
-{##}
-{#            textarea.addEventListener('input', function (event) {#}
-{#                if (state.pattern.test(textarea.value)) {#}
-{#                    state.value = textarea.value;#}
-{#                } else {#}
-{#                    textarea.value = state.value;#}
-{#                    textarea.setSelectionRange(state.start, state.end);#}
-{#                }#}
-{#            });#}
-{##}
-{#            textarea.addEventListener('keydown', function (event) {#}
-{#                state.start = textarea.selectionStart;#}
-{#                state.end = textarea.selectionEnd;#}
-{#            });#}
-{#        }#}
-{#    </script>#}
-<script type="text/javascript" src="{% static 'js/sweetalert2.all.min.js' %}"></script>
-<script type="text/javascript">
+    {#    <script>#}
+    {#        var inputs = document.querySelectorAll('input[data-filter]');#}
+    {#        var inputs2 = document.querySelectorAll('textarea[data-filter]');#}
+    {#        for (var i = 0; i < inputs.length; i++) {#}
+    {#            var input = inputs[i];#}
+    {#            var state = {#}
+    {#                value: input.value,#}
+    {#                start: input.selectionStart,#}
+    {#                end: input.selectionEnd,#}
+    {#                pattern: RegExp('^' + input.dataset.filter + '$')#}
+    {#            };#}
+    {##}
+    {#            input.addEventListener('input', function (event) {#}
+    {#                if (state.pattern.test(input.value)) {#}
+    {#                    state.value = input.value;#}
+    {#                } else {#}
+    {#                    input.value = state.value;#}
+    {#                    input.setSelectionRange(state.start, state.end);#}
+    {#                }#}
+    {#            });#}
+    {##}
+    {#            input.addEventListener('keydown', function (event) {#}
+    {#                state.start = input.selectionStart;#}
+    {#                state.end = input.selectionEnd;#}
+    {#            });#}
+    {#        }#}
+    {#        for (var i = 0; i < inputs2.length; i++) {#}
+    {#            var textarea = inputs2[i];#}
+    {#            var state = {#}
+    {#                value: textarea.value,#}
+    {#                start: textarea.selectionStart,#}
+    {#                end: textarea.selectionEnd,#}
+    {#                pattern: RegExp('^' + textarea.dataset.filter + '$')#}
+    {#            };#}
+    {##}
+    {#            textarea.addEventListener('input', function (event) {#}
+    {#                if (state.pattern.test(textarea.value)) {#}
+    {#                    state.value = textarea.value;#}
+    {#                } else {#}
+    {#                    textarea.value = state.value;#}
+    {#                    textarea.setSelectionRange(state.start, state.end);#}
+    {#                }#}
+    {#            });#}
+    {##}
+    {#            textarea.addEventListener('keydown', function (event) {#}
+    {#                state.start = textarea.selectionStart;#}
+    {#                state.end = textarea.selectionEnd;#}
+    {#            });#}
+    {#        }#}
+    {#    </script>#}
+    <script type="text/javascript" src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+    <script type="text/javascript">
 
         function updateElementIndex(el, prefix, ndx) {
             var id_regex = new RegExp('(' + prefix + '-\\d+)');
@@ -345,7 +345,7 @@
                 {% if not forloop.first %},{% endif %}
                 {
                     pk: "{{ stock.pk }}",
-                    precio_venta : "{{ stock.precioVenta.amount }}",
+                    precio_venta: "{{ stock.precioVenta.amount }}",
                     quantity: {{ stock.cantidad }}
                 }
             {% endfor %}
@@ -370,7 +370,18 @@
                 if (stock === pk) {
                     perprice = stocks[i].precio_venta.replace(',', '.');
                     element.parents('.form-row').find('.price').val(perprice);
+                    if (quantity < 0) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error...',
+                            text: 'No se aceptan números negativos',
+                            footer: 'Revise el campo'
+                        })
+                        quantity = 0
 
+                        element.parents('.form-row').find('.quantity').val(0);
+                        element.parents('.form-row').find('.totalprice').val(0);
+                    }
                     //checks if ordered stock is more than available stock
                     if (quantity > squantity) {
                         quantity = quantity - 1;
@@ -384,7 +395,7 @@
                             })
 
                             //Sets quantity to 0 as failsafe for when the total no of item forms are 1
-                            element.parents('.form-row').find('.quantity').val(0);
+                            element.parents('.form-row').find('.quantity').val(1);
                             deleteForm('form', element);
                         } else {
                             element.parents('.form-row').find('.quantity').val(squantity - 1);
