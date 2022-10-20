@@ -566,7 +566,9 @@ class SaleCreateView(View):
             for form in formset:  # for loop to save each individual form as its own object
                 # false saves the item and links bill to the item
                 billitem = form.save(commit=False)
+
                 billitem.billno = billobj  # links the bill object to the items
+
                 # gets the stock item
                 stock = get_object_or_404(Producto, modelo=billitem.stock.modelo)
                 # calculates the total price
@@ -578,12 +580,13 @@ class SaleCreateView(View):
                 billitem.save()
             messages.success(request, "Sold items have been registered successfully")
             return redirect('sale-bill', billno=billobj.billno)
-        form = ReciboForm(request.GET or None)
+        recibo_form = ReciboForm(request.GET or None)
         formset = SaleItemFormset(request.GET or None)
         context = {
             'recibo_form': recibo_form,
             'formset': formset,
         }
+        return render(request, self.template_name, context)
         return render(request, self.template_name, context)
 
 
@@ -597,7 +600,7 @@ class SaleDeleteView(SuccessMessageMixin, DeleteView):
         self.object = self.get_object()
         items = SaleItem.objects.filter(billno=self.object.billno)
         for item in items:
-            stock = get_object_or_404(Stock, name=item.stock.name)
+            stock = get_object_or_404(Producto, modelo=item.stock.modelo)
             if stock.is_deleted == False:
                 stock.quantity += item.quantity
                 stock.save()

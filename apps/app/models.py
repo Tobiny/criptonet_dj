@@ -9,7 +9,6 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from djmoney.models.fields import MoneyField
 from djmoney.models.validators import MaxMoneyValidator, MinMoneyValidator
-from phonenumber_field.modelfields import PhoneNumberField
 
 
 
