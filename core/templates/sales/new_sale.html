@@ -53,11 +53,8 @@
                                             <div class="col-lg-6">
                                                 <h5 class="card-title"> Selecciona un cliente </h5>
 
-                                                <div class="mb-5">
-                                                    <form class="" action="#" method="post">
-                                                        {% csrf_token %}
-                                                        {{ client_form|crispy }}
-                                                    </form>
+                                                <div class="mb-8">
+                                                        {{ recibo_form }}
                                                 </div>
 
 

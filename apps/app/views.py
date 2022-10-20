@@ -1,18 +1,13 @@
-import django_filters
 from django import template
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
 from django.template import loader
 import os
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django import forms
-from django.db import connection
 
 import pdfkit
 from django.template.loader import get_template
@@ -31,8 +26,6 @@ ListView,
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from .models import Stock
-from .form import StockForm
 
 
 @login_required(login_url="/login/")
@@ -543,16 +536,17 @@ class SaleView(ListView):
     paginate_by = 10
 
 
+
 # used fto generate a bill object and save items
 class SaleCreateView(View):
     template_name = "sales/new_sale.html"
 
     def get(self, request):
-        client_form = ClientSelectForm(initial_client=SaleBill.cliente) #para el cliente
+        recibo_form = ReciboForm(request.GET or None) #para el cliente
         formset = SaleItemFormset(request.GET or None)  # renders an empty formset
         stocks = Producto.objects.filter(cantidad__gte=0)
         context = {
-            'client_form': client_form,
+            'recibo_form': recibo_form,
             'formset': formset,
             'stocks': stocks
         }
@@ -560,11 +554,11 @@ class SaleCreateView(View):
 
     def post(self, request):
 
-        client_form = ClientSelectForm(request.POST, initial_client=SaleBill.cliente, instance=SaleBill)
+        recibo_form = ReciboForm(request.POST)
         formset = SaleItemFormset(request.POST)  # recieves a post method for the formset
-        if client_form.is_valid() and formset.is_valid():
+        if recibo_form.is_valid() and formset.is_valid():
             # saves bill
-            billobj = client_form.save(commit=False)
+            billobj = recibo_form.save(commit=False)
             billobj.save()
             # create bill details object
             billdetailsobj = SaleBillDetails(billno=billobj)
@@ -584,10 +578,10 @@ class SaleCreateView(View):
                 billitem.save()
             messages.success(request, "Sold items have been registered successfully")
             return redirect('sale-bill', billno=billobj.billno)
-        form = client_form(request.GET or None)
+        form = ReciboForm(request.GET or None)
         formset = SaleItemFormset(request.GET or None)
         context = {
-            'form': client_form,
+            'recibo_form': recibo_form,
             'formset': formset,
         }
         return render(request, self.template_name, context)

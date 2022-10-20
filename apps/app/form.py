@@ -9,7 +9,7 @@ from crispy_forms.helper import FormHelper
 from phonenumber_field.modelfields import PhoneNumberField
 from crispy_forms.layout import Layout, Submit, Row, Column
 
-from .models import Stock, Producto
+from .models import Producto
 
 
 
@@ -27,6 +27,8 @@ class ProductoDetallesForm(forms.ModelForm):
     class Meta:
         model = DetalleProducto
         fields = ['producto', 'cantidad']
+
+
 
 
 class InvoiceForm(forms.ModelForm):
@@ -109,17 +111,16 @@ class ClientSelectForm(forms.ModelForm):
         else:
             return Client.objects.get(uniqueId=c_client)
 
-
-
-class StockForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):                                                        # used to set css classes to the various fields
-        super().__init__(*args, **kwargs)
-        self.fields['name'].widget.attrs.update({'class': 'textinput form-control'})
-        self.fields['quantity'].widget.attrs.update({'class': 'textinput form-control', 'min': '0'})
-
+class ReciboForm(forms.ModelForm):
     class Meta:
-        model = Producto
-        fields = ['descripcion', 'cantidad']
+        model = SaleBill
+        fields = ['cliente', 'notas']
+
+        widgets = {
+            'cliente': forms.Select(attrs={'class': 'form-control', 'id': 'supplier'}),
+            'notas': forms.TextInput(attrs={'class': 'form-control', 'id': 'design'}),
+        }
+
 
 # form used to render a single stock item form
 class SaleItemForm(forms.ModelForm):
