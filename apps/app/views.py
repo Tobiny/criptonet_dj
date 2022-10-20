@@ -553,9 +553,12 @@ class SaleCreateView(View):
         return render(request, self.template_name, context)
 
     def post(self, request):
-
         recibo_form = ReciboForm(request.POST)
+        print(recibo_form.is_valid())
+
         formset = SaleItemFormset(request.POST)  # recieves a post method for the formset
+        print(formset)
+        print(formset.is_valid())
         if recibo_form.is_valid() and formset.is_valid():
             # saves bill
             billobj = recibo_form.save(commit=False)
@@ -578,7 +581,7 @@ class SaleCreateView(View):
                 # saves bill item and stock
                 stock.save()
                 billitem.save()
-            messages.success(request, "Sold items have been registered successfully")
+            messages.success(request, "Los articulos vendidos han sido vendidos correctamente")
             return redirect('sale-bill', billno=billobj.billno)
         recibo_form = ReciboForm(request.GET or None)
         formset = SaleItemFormset(request.GET or None)
@@ -586,7 +589,6 @@ class SaleCreateView(View):
             'recibo_form': recibo_form,
             'formset': formset,
         }
-        return render(request, self.template_name, context)
         return render(request, self.template_name, context)
 
 

@@ -114,7 +114,7 @@
                                                 <br>
 
                                                 <div class="align-middle">
-                                                    <button type="submit" class="btn btn-success">Añair venta</button>
+                                                    <button type="submit" class="btn btn-success">Añadir venta</button>
                                                     <a href="{% url 'sales-list' %}"
                                                        class="btn btn-secondary">Cancelar</a>
                                                 </div>
@@ -279,7 +279,7 @@
             var newElement = $(selector).clone(true);
             //var total = $('#id_' + prefix + '-TOTAL_FORMS').val();
             newElement.find(':input:not([type=button]):not([type=submit]):not([type=reset])').each(function () {
-                var name = $(this).attr('modelo')
+                var name = $(this).attr('name')
                 if (name) {
                     name = name.replace('-' + (total - 1) + '-', '-' + total + '-');
                     var id = 'id_' + name;

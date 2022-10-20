@@ -76,6 +76,7 @@ DATABASES = {
         'PASSWORD': 'Kato4_CricOs_$iPJ',
         'HOST': '109.106.251.202',
         'PORT': '3306',
+
         'ATOMIC_REQUESTS': True,
     }
 }

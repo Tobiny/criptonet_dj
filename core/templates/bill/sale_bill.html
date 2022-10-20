@@ -45,15 +45,15 @@
                     <tbody>
 
                         <tr style="height: 1px;">
-                            <td> <p style="text-align: center;">TAX INVOICE - SALE</p> </td>
+                            <td> <p style="text-align: center;">RECIBO DE VENTA</p> </td>
                         </tr>
 
                         <tr style="text-align: center;">
                             <td >
-                                <span style="font-size: 350%;">DJANGOIMS</span> <br>
-                                <span style="font-size: 120%; font-weight: bold;">DEALERS IN : Products</span> <br>
-                                <span style="font-weight: bold;">REGD ADDRESS :</span> 971 Center Street<br>Umatilla, OR 97882<br>
-                                <span style="font-weight: bold;">EMAIL : djangoims@mail.com</span> <br><br>
+                                <span style="font-size: 350%;">CriptoNET</span> <br>
+                                <span style="font-size: 120%; font-weight: bold;">Distribuidora de CriptoMX</span> <br>
+                                <span style="font-weight: bold;">Domicilio fiscal:</span> Juarez #34, Colonia Centro 49000<br>Cd. Guzmán, Jalisco, México<br>
+                                <span style="font-weight: bold;">EMAIL : criptomx3@mail.com</span> <br><br>
                             </td>
                         </tr>
 
@@ -62,16 +62,16 @@
                             <table class="outer-box" style="width: 800px; margin-left: auto; margin-right: auto;">
                                 <tbody>
                                     <tr>
-                                        <td class="inner-box" style="text-align: center; font-weight: bold;" colspan="3">GSTIN NO - 123456789CASTR0</td>
+                                        <td class="inner-box" style="text-align: center; font-weight: bold;" colspan="3">RFC - CRM050522IJ7</td>
                                     </tr>
                                     <tr>
-                                        <td class="inner-box" style="width: 50%; font-weight: bold;">&nbsp;NAME OF CONSIGNEE / BUYER</td>
-                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;INVOICE NO</td>
+                                        <td class="inner-box" style="width: 50%; font-weight: bold;">&nbsp;NOMBRE DEL CLIENTE</td>
+                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;NÚMERO DE RECIBO</td>
                                         <td class="inner-box" style="width: 25%;">&nbsp;{{ bill.billno }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="inner-box" style="width: 50%;">&nbsp;{{ bill.name }}</td>
-                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;DATE</td>
+                                        <td class="inner-box" style="width: 50%;">&nbsp;{{ bill.cliente.nombreCliente }}</td>
+                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;FECHA</td>
                                         <td class="inner-box" style="width: 25%;">&nbsp;{{ bill.time.date }}</td>
                                     </tr>
                                     <tr>
