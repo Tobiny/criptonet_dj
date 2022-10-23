@@ -23,7 +23,7 @@
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{% url 'productos' %}">ventas</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'sales-list' %}">Ventas</a></li>
                                 <li class="breadcrumb-item"><a href="javascript:">Registros de ventas</a></li>
                             </ul>
                         </div>
@@ -38,7 +38,7 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Añadir un producto</h5>
+                                    <h5>Añadir una venta</h5>
                                 </div>
                                 <div class="card-body">
                                     <form method="post" class="panel panel-default">
@@ -46,80 +46,81 @@
                                         {% csrf_token %}
                                         {{ form.non_field_errors }}
 
-                                        <div class="panel-heading panel-heading-text">Detalles del Cliente</div>
+
                                         <div class="panel-body">
 
 
-                                            <div class="col-lg-6">
-                                                <h5 class="card-title"> Selecciona un cliente </h5>
+                                            <div class="col-lg-12">
+                                                <h5 class="card-title"> Ingrese los datos </h5>
 
                                                 <div class="mb-8">
-                                                        {{ recibo_form }}
+                                                    {{ recibo_form }}
                                                 </div>
 
+                                                <div class="panel panel-default">
+
+                                                    {{ formset.management_form }}
+
+                                                    <div class="panel-heading panel-heading-text">Detalles de la venta
+                                                    </div>
+                                                    <br>
+                                                    <div id="stockitem">
+                                                        <div class="panel-body">
+                                                            {% for iform in formset %}
+                                                                <div class="row form-row">
+                                                                    <div class="form-group col-md-6">
+                                                                        {{ iform.stock.errors }}
+                                                                        <label class="panel-body-text">Productos:</label>
+                                                                        {{ iform.stock }}
+                                                                    </div>
+                                                                    <div class="form-group col-md-2">
+                                                                        <label class="panel-body-text">Precio de
+                                                                            venta:</label>
+                                                                        {{ iform.perprice }}
+                                                                    </div>
+                                                                    <div class="form-group col-md-1">
+                                                                        {{ iform.quantity.errors }}
+                                                                        <label class="panel-body-text">Cantidad:</label>
+                                                                        {{ iform.quantity }}
+                                                                    </div>
+                                                                    <div class="form-group col-md-2">
+                                                                        <label class="panel-body-text">Subtotal:</label>
+                                                                        <input type="text"
+                                                                               class="textinput form-control totalprice"
+                                                                               value="1" disabled required>
+                                                                    </div>
+                                                                    <div class="form-group col-md-1">
+                                                                        <label class="panel-body-text"
+                                                                               style="color: #000">.</label>
+                                                                        <button class="form-control btn btn-danger remove-form-row">
+                                                                            -
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            {% endfor %}
+                                                            <div style="text-align: right;">
+                                                                <a href="#" class="add-form-row">+ Añadir producto</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <br>
+
+                                                    <div class="align-middle">
+                                                        <button type="submit" class="btn btn-success">Añadir venta
+                                                        </button>
+                                                        <a href="{% url 'sales-list' %}"
+                                                           class="btn btn-secondary">Cancelar</a>
+                                                    </div>
+
+                                                </div>
 
                                             </div>
 
 
                                             <br>
 
-                                            <div class="panel panel-default">
-
-                                                {{ formset.management_form }}
-
-                                                <div class="panel-heading panel-heading-text">Detalles del producto
-                                                </div>
-
-                                                <div id="stockitem">
-                                                    <div class="panel-body">
-                                                        {% for iform in formset %}
-                                                            <div class="row form-row">
-                                                                <div class="form-group col-md-6">
-                                                                    {{ iform.stock.errors }}
-                                                                    <label class="panel-body-text">Productos:</label>
-                                                                    {{ iform.stock }}
-                                                                </div>
-                                                                <div class="form-group col-md-2">
-                                                                    <label class="panel-body-text">Precio de
-                                                                        venta:</label>
-                                                                    {{ iform.perprice }}
-                                                                </div>
-                                                                <div class="form-group col-md-1">
-                                                                    {{ iform.quantity.errors }}
-                                                                    <label class="panel-body-text">Cantidad:</label>
-                                                                    {{ iform.quantity }}
-                                                                </div>
-                                                                <div class="form-group col-md-2">
-                                                                    <label class="panel-body-text">Subtotal:</label>
-                                                                    <input type="text"
-                                                                           class="textinput form-control totalprice"
-                                                                           value="1" disabled required>
-                                                                </div>
-                                                                <div class="form-group col-md-1">
-                                                                    <label class="panel-body-text"
-                                                                           style="color: #000">.</label>
-                                                                    <button class="form-control btn btn-danger remove-form-row">
-                                                                        -
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        {% endfor %}
-                                                        <div style="text-align: right;">
-                                                            <a href="#" class="add-form-row">+ Añadir producto</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <br>
-
-                                                <div class="align-middle">
-                                                    <button type="submit" class="btn btn-success">Añadir venta</button>
-                                                    <a href="{% url 'sales-list' %}"
-                                                       class="btn btn-secondary">Cancelar</a>
-                                                </div>
-
-                                            </div>
 
                                         </div>
                                     </form>

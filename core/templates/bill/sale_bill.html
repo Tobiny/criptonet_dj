@@ -75,22 +75,21 @@
                                         <td class="inner-box" style="width: 25%;">&nbsp;{{ bill.time.date }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="inner-box" style="width: 50%;" rowspan="3">{{ bill.address|linebreaks }}</td>
-                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;EWAY NO</td>
-                                        <td class="inner-box align-middle" style="width: 25%;"> <input type="text" name="eway" class="align-middle" style="border: 0; overflow: hidden;" value="{% if billdetails.eway %}{{ billdetails.eway }}{% endif %}"> </td>
+                                        <td class="inner-box" style="width: 50%;" >{{ bill.cliente.domicilio|linebreaks }}</td>
+                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;RFC Cliente</td>
+                                        <td class="inner-box" style="width: 25%;"> {{ bill.cliente.rfcCliente }} </td>
                                     </tr>
                                     <tr>
-                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;VEH NO</td>
-                                        <td class="inner-box align-middle" style="width: 25%;"> <input type="text" name="veh" class="align-middle" style="border: 0; overflow: hidden;" value="{% if billdetails.veh %}{{ billdetails.veh }}{% endif %}"> </td>
+                                        <td class="inner-box" style="width: 25%;"></td>
+                                        <td class="inner-box" style="width: 25%; font-weight: bold;"></td>
+                                        <td class="inner-box align-middle" style="width: 25%;"> </td>
                                     </tr>
                                     <tr>
-                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;DESTINATION</td>
+                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;DETALLES DE LA VENTA</td>
                                         <td class="inner-box align-middle" style="width: 25%;"> <input type="text" name="destination" class="align-middle" style="border: 0; overflow: hidden;" value="{% if billdetails.destination %}{{ billdetails.destination }}{% endif %}"> </td>
                                     </tr>
                                     <tr>
-                                        <td class="inner-box" style="font-weight: bold;">&nbsp;GSTIN No : {{ bill.gstin }} </td>
-                                        <td class="inner-box" style="width: 25%; font-weight: bold;">&nbsp;PO NO &amp; DATE</td>
-                                        <td class="inner-box align-middle" style="width: 25%;"> <input type="text" name="po" class="align-middle" style="border: 0; overflow: hidden;" value="{% if billdetails.po %}{{ billdetails.po }}{% endif %}"> </td>
+
                                     </tr>
                                 </tbody>
                             </table>
@@ -102,23 +101,20 @@
                             <table class="outer-box" style="width: 800px; margin-left: auto; margin-right: auto;">
                                 <tbody>
                                     <tr>
-                                        <td class="inner-box" style="width: 5%; font-weight: bold; text-align: center;">&nbsp;SL</td>
-                                        <td class="inner-box" style="width: 30%; font-weight: bold; text-align: center;">GOODS</td>
-                                        <td class="inner-box" style="width: 12%; font-weight: bold; text-align: center;">&nbsp;HSN/SAC</td>
-                                        <td class="inner-box" style="width: 12%; font-weight: bold; text-align: center;">QTY MTS</td>
-                                        <td class="inner-box" style="width: 12%; font-weight: bold; text-align: center;">RATE PMT</td>
-                                        <td class="inner-box" style="width: 12%; font-weight: bold; text-align: center;">AMOUNT $</td>
-                                        <td class="inner-box" style="width: 5%; font-weight: bold; text-align: center;">PS</td>
+                                        <td class="inner-box" style="width: 5%; font-weight: bold; text-align: center;">NO.</td>
+                                        <td class="inner-box" style="width: 30%; font-weight: bold; text-align: center;">PRODUCTO</td>
+                                        <td class="inner-box" style="width: 12%; font-weight: bold; text-align: center;">CANTIDAD</td>
+                                        <td class="inner-box" style="width: 12%; font-weight: bold; text-align: center;">PRECIO PRODUCTO</td>
+                                        <td class="inner-box" style="width: 12%; font-weight: bold; text-align: center;">SUBTOTAL</td>
+
                                     </tr>
                                     {% for item in items %}
                                         <tr style="height: auto;">
-                                            <td class="inner-box" style="width: 5%;">&nbsp; {{ forloop.counter }}</td>
-                                            <td class="inner-box" style="width: 30%;">&nbsp; {{ item.stock.name }}</td>
-                                            <td class="inner-box" style="width: 12%;"></td>
-                                            <td class="inner-box" style="width: 12%;">&nbsp; {{ item.quantity }}</td>
-                                            <td class="inner-box" style="width: 12%;">&nbsp; {{ item.perprice }}</td>
-                                            <td class="inner-box" style="width: 12%;">&nbsp;{{ item.totalprice }}</td>
-                                            <td class="inner-box" style="width: 5%;">&nbsp;0</td>
+                                            <td class="inner-box" style="width: 5%;text-align: center;">&nbsp; {{ forloop.counter }}</td>
+                                            <td class="inner-box" style="width: 30%;text-align: center;">&nbsp; {{ item.stock.modelo }}</td>
+                                            <td class="inner-box" style="width: 12%;text-align: center;">&nbsp; {{ item.quantity }}</td>
+                                            <td class="inner-box" style="width: 12%;text-align: center;">&nbsp; ${{ item.perprice }}</td>
+                                            <td class="inner-box" style="width: 12%;text-align: center;">&nbsp;${{ item.totalprice }}</td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
@@ -130,48 +126,14 @@
                             <td>
                             <table class="outer-box inner-box" style="width: 800px; margin-left: auto; margin-right: auto;">
                                 <tbody>
+
                                     <tr>
-                                        <td class="inner-box" style="width: 35%; text-align: center;" rowspan="6">
-                                            <p> <span style="font-weight: bold;">BANK DETAILS <br> CodeAstro</span> <br>
-                                                WestView Bank <br> AC NO-54A7 6S31 4T85 0RO3 <br> IFSC CODE - ABCD 010 0110 <br> CS BRANCH <br> PH NO - 541-010-0400</p>
-                                        </td>
-                                        <td class="inner-box" style="width: 30%; font-weight: bold;">&nbsp;CGST @ 2.5%</td>
-                                        <td class="inner-box align-middle" style="width: 30%;">&nbsp; <input type="text" name="cgst" class="align-middle" pattern="[0-9]+\.[0-9]+" style="border: 0; overflow: hidden;" value="{% if billdetails.cgst %}{{ billdetails.cgst }}{% endif %}"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="inner-box" style="font-weight: bold;">&nbsp;SGST @ 2.5%</td>
-                                        <td class="inner-box align-middle">&nbsp; <input type="text" name="sgst" class="align-middle" pattern="[0-9]+\.[0-9]+" style="border: 0; overflow: hidden;" value="{% if billdetails.sgst %}{{ billdetails.sgst }}{% endif %}"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="inner-box" style="font-weight: bold;">&nbsp;IGST @ 5% </td>
-                                        <td class="inner-box align-middle">&nbsp; <input type="text" name="igst" class="align-middle" pattern="[0-9]+\.[0-9]+" style="border: 0; overflow: hidden;" value="{% if billdetails.igst %}{{ billdetails.igst }}{% endif %}"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="inner-box" style="font-weight: bold;">&nbsp;CESS @ 400/PMT </td>
-                                        <td class="inner-box align-middle">&nbsp; <input type="text" name="cess" class="align-middle" pattern="[0-9]+\.[0-9]+" style="border: 0; overflow: hidden;" value="{% if billdetails.cess %}{{ billdetails.cess }}{% endif %}"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="inner-box" style="font-weight: bold;">&nbsp;TCS @ 1%</td>
-                                        <td class="inner-box align-middle">&nbsp; <input type="text" name="tcs" class="align-middle" pattern="[0-9]+\.[0-9]+" style="border: 0; overflow: hidden;" value="{% if billdetails.tcs %}{{ billdetails.tcs }}{% endif %}"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="inner-box" style="font-weight: bold;">&nbsp;TOTAL</td>
-                                        <td class="inner-box align-middle">&nbsp; <input type="text" name="total" class="align-middle" pattern="[0-9]+\.[0-9]+" style="border: 0; overflow: hidden;" value="{% if billdetails.total %}{{ billdetails.total }}{% endif %}"> </td>
+                                        <td class="inner-box" style="width: 68%"></td>
+                                        <td class="inner-box" style="font-weight: bold; width: 16%; text-align: center;" >&nbsp;TOTAL DE LA VENTA</td>
+                                        <td class="inner-box align-middle" style="width: 16%; text-align: center;">&nbsp; ${{ bill.get_total_price }} </td>
                                     </tr>
                                 </tbody>
                             </table>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="text-align: right;">
-                                <span style="font-weight: bold;">FOR COMPANY <br><br><br><br> Signature</span>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="text-align: center;">
-                                <!-- FINAL TEXT -->
                             </td>
                         </tr>
 
@@ -187,9 +149,9 @@
         <br><br>
 
         <div class="wrapper">
-            <button class="center btn btn-primary" onclick="printpage('printArea')">Print</button>
-            <button class="center btn btn-success" type="submit">Save Draft</button>
-            <a href="{% url 'sales-list' %}" class="btn center btn-secondary">Go Back</a>
+            <button class="center btn btn-primary" onclick="printpage('printArea')">Imprimir</button>
+            <button hidden class="center btn btn-success" type="submit">Save Draft</button>
+            <a href="{% url 'sales-list' %}" class="btn center btn-secondary">Volver</a>
         </div>
 
     </form>

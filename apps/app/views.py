@@ -596,18 +596,19 @@ class SaleCreateView(View):
 class SaleDeleteView(SuccessMessageMixin, DeleteView):
     model = SaleBill
     template_name = "sales/delete_sale.html"
-    success_url = '/transactions/sales'
-
+    success_url = reverse_lazy('sales-list')
     def delete(self, *args, **kwargs):
         self.object = self.get_object()
         items = SaleItem.objects.filter(billno=self.object.billno)
         for item in items:
             stock = get_object_or_404(Producto, modelo=item.stock.modelo)
-            if stock.is_deleted == False:
-                stock.quantity += item.quantity
-                stock.save()
-        messages.success(self.request, "Sale bill has been deleted successfully")
+            stock.cantidad += item.quantity
+            stock.save()
+        messages.success(self.request, "La venta ha sido borrada exitosamente")
+
         return super(SaleDeleteView, self).delete(*args, **kwargs)
+
+
 
 
 # used to display the purchase bill object
