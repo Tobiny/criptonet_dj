@@ -52,6 +52,11 @@ urlpatterns = [
     path('sales/<pk>/delete', views.SaleDeleteView.as_view(), name='delete-sale'),
     path("sales/<billno>", views.SaleBillView.as_view(), name="sale-bill"),
 
+    path('compras/', views.CompraView.as_view(), name='compras'),
+    path('compras/nueva/<pk>', views.CompraCreateView.as_view(), name='compras_crear'),
+    path('compras/<pk>/borrar', views.CompraDeleteView.as_view(), name='compras_borrar'),
+    path("compras/<billno>", views.ReciboCompraView.as_view(), name="recibo_compra"),
+
     path('invoices',views.invoices, name='invoices'),
     # Create URL Paths
     path('invoices/create', views.createInvoice, name='create-invoice'),

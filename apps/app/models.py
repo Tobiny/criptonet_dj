@@ -11,20 +11,18 @@ from djmoney.models.fields import MoneyField
 from djmoney.models.validators import MaxMoneyValidator, MinMoneyValidator
 
 
-
-
-
-
 # Create your models here.
 class Empleado(models.Model):
     id_empleado = models.AutoField(primary_key=True, verbose_name='ID Empleado')
     nombre = models.CharField(max_length=50, help_text="Ingrese el nombre del empleado", verbose_name='Nombre del '
-                                                                                                      'Empleado',validators=[RegexValidator(
-                               regex='^[ÁÉÍÓÚA-Z][a-záéíóú]*(\s[ÁÉÍÓÚA-Z][a-záéíóú]*)*',
-                               message='El nombre ingresado no es válido, revise sus espacios o sintaxis',
-                               code='invalid_nombre'), ])
+                                                                                                      'Empleado',
+                              validators=[RegexValidator(
+                                  regex='^[ÁÉÍÓÚA-Z][a-záéíóú]*(\s[ÁÉÍÓÚA-Z][a-záéíóú]*)*',
+                                  message='El nombre ingresado no es válido, revise sus espacios o sintaxis',
+                                  code='invalid_nombre'), ])
     rfc = models.CharField(max_length=13, verbose_name='RFC',
-                           help_text=mark_safe('12-13 caracteres <a href="https://www.sat.gob.mx/consultas/44083/consulta-tu-informacion-fiscal"> consulta tu RFC</a>'),
+                           help_text=mark_safe(
+                               '12-13 caracteres <a href="https://www.sat.gob.mx/consultas/44083/consulta-tu-informacion-fiscal"> consulta tu RFC</a>'),
                            validators=[RegexValidator(
                                regex='^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$',
                                message='El RFC deberá tener el formato que la Servicio de Administración Tributaria valida',
@@ -94,7 +92,7 @@ class Mantenimiento(models.Model):
     fechaIngreso = models.DateField(verbose_name='Fecha del Mantenimiento')
     fechaTermina = models.DateField(verbose_name='Fecha del Mantenimiento')
     descripcion = models.TextField(help_text="Ingrese las observaciones del mantenimiento",
-                                     verbose_name='Observaciones')
+                                   verbose_name='Observaciones')
 
     def __str__(self):
         """
@@ -149,9 +147,9 @@ class Client(models.Model):
     nombreCliente = models.CharField(null=True, blank=True, max_length=50, help_text="Ingrese el nombre del cliente",
                                      verbose_name='Nombre del '
                                                   'Cliente', validators=[RegexValidator(
-                               regex='^[ÁÉÍÓÚA-Z][a-záéíóú]*(\s[ÁÉÍÓÚA-Z][a-záéíóú]*)*',
-                               message='El nombre ingresado no es válido, revise sus espacios o sintaxis',
-                               code='invalid_nombre')])
+            regex='^[ÁÉÍÓÚA-Z][a-záéíóú]*(\s[ÁÉÍÓÚA-Z][a-záéíóú]*)*',
+            message='El nombre ingresado no es válido, revise sus espacios o sintaxis',
+            code='invalid_nombre')])
     domicilio = models.CharField(null=True, blank=True, max_length=50, help_text="Ingrese el domicilio del cliente",
                                  verbose_name='Domicilio del '
                                               'Cliente')
@@ -159,8 +157,9 @@ class Client(models.Model):
                               help_text="Ingrese el estado", verbose_name='Estado'
                               )
     codigoPostal = models.IntegerField(null=True, blank=True, max_length=5,
-                                    help_text="Ingrese el codigo postal del cliente", verbose_name='Codigo Postal del '
-                                                                                                   'Cliente',
+                                       help_text="Ingrese el codigo postal del cliente",
+                                       verbose_name='Codigo Postal del '
+                                                    'Cliente',
                                        validators=[RegexValidator(
                                            regex='\d{5}',
                                            message='Código postal inválido',
@@ -168,20 +167,22 @@ class Client(models.Model):
 
     numTelefono = models.CharField(null=True, blank=True, max_length=10,
                                    help_text="Ingrese el número de teléfono del cliente", verbose_name='Número de '
-                                                                                                       'Teléfono',validators=[RegexValidator(
-                               regex='(\(\d{3}\)[.-]?|\d{3}[.-]?)?\d{3}[.-]?\d{4}',
-                               message='El número es inválido.',
-                               code='invalid_number'), ])
+                                                                                                       'Teléfono',
+                                   validators=[RegexValidator(
+                                       regex='(\(\d{3}\)[.-]?|\d{3}[.-]?)?\d{3}[.-]?\d{4}',
+                                       message='El número es inválido.',
+                                       code='invalid_number'), ])
     dirEmail = models.EmailField(null=True, blank=True, max_length=100,
                                  help_text="Ingrese la dirección de correo del cliente", verbose_name='Email del '
-                                                                                                      'Cliente', validators=[RegexValidator(
-                               regex='[a-z0-9]+@[a-z]+\.[a-z]{2,3}',
-                               message='El correo es inválido.',
-                               code='invalid_email'), ])
+                                                                                                      'Cliente',
+                                 validators=[RegexValidator(
+                                     regex='[a-z0-9]+@[a-z]+\.[a-z]{2,3}',
+                                     message='El correo es inválido.',
+                                     code='invalid_email'), ])
     rfcCliente = models.CharField(null=True, blank=True, max_length=13, validators=[RegexValidator(
-                               regex='^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$',
-                               message='El RFC deberá tener el formato que la Servicio de Administración Tributaria valida',
-                               code='invalid_RFC'), ])
+        regex='^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$',
+        message='El RFC deberá tener el formato que la Servicio de Administración Tributaria valida',
+        code='invalid_RFC'), ])
 
     # Utility fields
     uniqueId = models.UUIDField(primary_key=True, editable=False, verbose_name='ID del Cliente', default=uuid4,
@@ -206,6 +207,7 @@ class Client(models.Model):
         self.last_updated = timezone.localtime(timezone.now())
 
         super(Client, self).save(*args, **kwargs)
+
 
 # contains the sale bills made
 class SaleBill(models.Model):
@@ -299,9 +301,9 @@ class Producto(models.Model):
 
                                    )
     cantidad = models.IntegerField(null=True, blank=True,
-                                 help_text="Ingrese la cantidad de productos en existencia/añadir",
-                                 verbose_name='Cantidad de '
-                                              'Productos en Existencia', max_length=6, default=0)
+                                   help_text="Ingrese la cantidad de productos en existencia/añadir",
+                                   verbose_name='Cantidad de '
+                                                'Productos en Existencia', max_length=6, default=0)
     tipo_producto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE,
                                       help_text="Seleccione el tipo de producto", verbose_name='Tipo de producto'
                                       , default='Sin tipo')
@@ -309,16 +311,16 @@ class Producto(models.Model):
                               help_text="Ingrese la marca del producto", verbose_name='Marca del '
                                                                                       'Producto')
     precioCompra = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
-                        default_currency='MXN', help_text="Ingrese el precio del producto",
-                        verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
-                                                                        MaxMoneyValidator(999999), RegexValidator(
+                              default_currency='MXN', help_text="Ingrese el precio del producto",
+                              verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
+                                                                              MaxMoneyValidator(999999), RegexValidator(
                 '[0-9]{1,6}([.][0-9]{1,2})?',
                 message="Cantidad de dígitos superada")])
 
     precioVenta = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
-                              default_currency='MXN', help_text="Ingrese el precio del producto",
-                              verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
-                                                                              MaxMoneyValidator(999999), RegexValidator(
+                             default_currency='MXN', help_text="Ingrese el precio del producto",
+                             verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
+                                                                             MaxMoneyValidator(999999), RegexValidator(
                 '[0-9]{1,6}([.][0-9]{1,2})?',
                 message="Cantidad de dígitos superada")])
 
@@ -353,7 +355,7 @@ class DetalleProducto(models.Model):
     subtotal = MoneyField(max_length=30, decimal_places=3, max_digits=27,
                           default_currency='MXN', default=0)
     preciototal = MoneyField(max_length=30, decimal_places=3, max_digits=27,
-                          default_currency='MXN', default=0)
+                             default_currency='MXN', default=0)
     # Utility fields
     uniqueId = models.CharField(null=True, blank=True, max_length=100)
     slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
@@ -379,7 +381,6 @@ class DetalleProducto(models.Model):
         super(DetalleProducto, self).save(*args, **kwargs)
 
 
-
 class SaleItem(models.Model):
     billno = models.ForeignKey(SaleBill, on_delete=models.CASCADE, related_name='salebillno')
     stock = models.ForeignKey(Producto, on_delete=models.CASCADE, related_name='saleitem')
@@ -389,6 +390,7 @@ class SaleItem(models.Model):
 
     def __str__(self):
         return "Bill no: " + str(self.billno.billno) + ", Item = " + self.stock.modelo
+
 
 # contains the other details in the sales bill
 class SaleBillDetails(models.Model):
@@ -408,3 +410,34 @@ class SaleBillDetails(models.Model):
 
     def __str__(self):
         return "Bill no: " + str(self.billno.billno)
+
+
+# contains the purchase bills made
+class ReciboCompra(models.Model):
+    billno = models.AutoField(primary_key=True)
+    time = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "Bill no: " + str(self.billno)
+
+    def get_items_list(self):
+        return Compras.objects.filter(billno=self)
+
+    def get_total_price(self):
+        articuloscomprados = Compras.objects.filter(billno=self)
+        total = 0
+        for item in articuloscomprados:
+            total += item.totalprice
+        return total
+
+
+# contains the purchase stocks made
+class Compras(models.Model):
+    billno = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, related_name='purchasebillno')
+    stock = models.ForeignKey(Producto, on_delete=models.CASCADE, related_name='purchaseitem')
+    quantity = models.IntegerField(default=1)
+    perprice = models.IntegerField(default=1)
+    totalprice = models.IntegerField(default=1)
+
+    def __str__(self):
+        return "Bill no: " + str(self.billno.billno) + ", Item = " + self.stock.name

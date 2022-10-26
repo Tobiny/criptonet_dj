@@ -8,14 +8,11 @@ import os
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
 import pdfkit
 from django.template.loader import get_template
-
 from core import settings
 from .form import *
 from .models import *
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import (
 ListView,
@@ -23,7 +20,6 @@ ListView,
     CreateView,
     UpdateView
 )
-from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 
@@ -709,3 +705,44 @@ class SaleBillView(View):
                 return render(request, 'recibo/create_invoce.html', context)
 
         return render(request, 'recibo/create_invoce.html', context)
+
+
+class PurchaseCreateView(View):
+    template_name = 'compras/nueva_compra.html'
+
+    def get(self, request, pk):
+        formset = ComprasFormset(request.GET or None)                      # renders an empty formset                     # gets the supplier object
+        context = {
+            'formset'   : formset,
+        }                                                                       # sends the supplier and formset as context
+        return render(request, self.template_name, context)
+
+    def post(self, request, pk):
+        formset = ComprasFormset(request.POST)                             # recieves a post method for the formset
+        if formset.is_valid():
+            # saves bill
+            billobj = ReciboCompra()                        # a new object of class 'PurchaseBill' is created with supplier field set to 'supplierobj'
+            billobj.save()                                                      # saves object into the db
+            # create bill details object
+            billdetailsobj = PurchaseBillDetails(billno=billobj)
+            billdetailsobj.save()
+            for form in formset:                                                # for loop to save each individual form as its own object
+                # false saves the item and links bill to the item
+                billitem = form.save(commit=False)
+                billitem.billno = billobj                                       # links the bill object to the items
+                # gets the stock item
+                stock = get_object_or_404(Producto, name=billitem.stock.name)       # gets the item
+                # calculates the total price
+                billitem.totalprice = billitem.perprice * billitem.quantity
+                # updates quantity in stock db
+                stock.quantity += billitem.quantity                              # updates quantity
+                # saves bill item and stock
+                stock.save()
+                billitem.save()
+            messages.success(request, "Purchased items have been registered successfully")
+            return redirect('purchase-bill', billno=billobj.billno)
+        formset = ComprasForm(request.GET or None)
+        context = {
+            'formset'   : formset,
+        }
+        return render(request, self.template_name, context)

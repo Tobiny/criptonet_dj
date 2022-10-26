@@ -1,5 +1,6 @@
 import django_filters
 from django.forms import DateInput, formset_factory
+from django.views import View
 from importlib._common import _
 
 from django import forms
@@ -142,3 +143,19 @@ class SaleDetailsForm(forms.ModelForm):
     class Meta:
         model = SaleBillDetails
         fields = ['eway','veh', 'destination', 'po', 'cgst', 'sgst', 'igst', 'cess', 'tcs', 'total']
+
+
+# form used to render a single stock item form
+class ComprasForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['stock'].queryset = Producto.objects.filter(cantidad__gte=0)
+        self.fields['stock'].widget.attrs.update({'class': 'textinput form-control setprice stock', 'required': 'true'})
+        self.fields['quantity'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '0', 'required': 'true'})
+        self.fields['perprice'].widget.attrs.update({'class': 'textinput form-control setprice price', 'readonly':'true','min': '0', 'required': 'true'})
+    class Meta:
+        model = Compras
+        fields = ['stock', 'quantity', 'perprice']
+
+# formset used to render multiple 'ComprasForm'
+ComprasFormset = formset_factory(ComprasForm, extra=1)
