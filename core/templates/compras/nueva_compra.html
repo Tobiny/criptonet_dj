@@ -368,19 +368,19 @@
             var perprice = element.parents('.form-row').find('.price').val();
             console.log(perprice, precioven)
 
-{#           {% comment %} if (perprice > precioven && precioven != 1){#}
-{#                Swal.fire({#}
-{#                            icon: 'warning',#}
-{#                            title: 'Advertencia...',#}
-{#                            text: 'El precio de venta es menor al precio de compra.',#}
-{#                            footer: 'Revise los campos correspondientes'#}
-{#                        })#}
-{#            }{% endcomment %}#}
-            if (quantity < 0) {
+            if (element.parents('.form-row').find('.price').val() >  element.parents('.form-row').find('.pricesale').val()){
+                Swal.fire({
+                            icon: 'warning',
+                            title: 'Advertencia...',
+                            text: 'El precio de venta es menor al precio de compra.',
+                            footer: 'Revise los campos correspondientes'
+                        })
+            }
+            if (quantity <= 0) {
                 Swal.fire({
                             icon: 'error',
                             title: 'Error...',
-                            text: 'No se aceptan números negativos como cantidad',
+                            text: 'No se aceptan números negativos o cero como cantidad',
                             footer: 'Revise el campo'
                         })
                         quantity = 1
@@ -388,21 +388,21 @@
                         element.parents('.form-row').find('.quantity').val(1);
                         element.parents('.form-row').find('.totalprice').val(0);
             }
-            if (precioven < 0) {
+            if (precioven <= 0) {
                 Swal.fire({
                             icon: 'error',
                             title: 'Error...',
-                            text: 'No se aceptan números negativos como precio de venta',
+                            text: 'No se aceptan números negativos o cero como precio de venta',
                             footer: 'Revise el campo'
                         })
                         precioven = 1
-                        element.parents('.form-row').find('.pricesale').val(precioven);
+                        {#element.parents('.form-row').find('.pricesale').val(precioven);#}
             }
-            if (perprice < 0) {
+            if (perprice <= 0) {
                 Swal.fire({
                             icon: 'error',
                             title: 'Error...',
-                            text: 'No se aceptan números negativos como precio de compra',
+                            text: 'No se aceptan números negativos o cero como precio de compra',
                             footer: 'Revise el campo'
                         })
                         perprice = 1

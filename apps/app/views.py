@@ -15,7 +15,7 @@ from .form import *
 from .models import *
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import (
-ListView,
+    ListView,
     View,
     CreateView,
     UpdateView
@@ -40,9 +40,6 @@ def index(request):
     return HttpResponse(html_template.render(context, request))
 
 
-
-
-
 @login_required(login_url="/login/")
 def dashboard(request):
     clients = Client.objects.all().count()
@@ -52,8 +49,8 @@ def dashboard(request):
 
     context = {}
     context['clients'] = clients
-    #context['invoices'] = invoices
-    #context['paidInvoices'] = paidInvoices
+    # context['invoices'] = invoices
+    # context['paidInvoices'] = paidInvoices
     return render(request, 'panel.html', context)
 
 
@@ -281,8 +278,6 @@ class ClienteDetalles(UserPassesTestMixin, generic.DetailView):
         return self.request.user.groups.filter(name="Editor de clientes").exists()
 
 
-
-
 # Creación
 
 class ProductosCrear(UserPassesTestMixin, CreateView):
@@ -328,9 +323,6 @@ class ClientesCrear(UserPassesTestMixin, CreateView):
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de clientes").exists()
-
-
-
 
 
 # Modificaciones
@@ -380,9 +372,6 @@ class ClientesUpdate(UserPassesTestMixin, UpdateView):
         return self.request.user.groups.filter(name="Editor de clientes").exists()
 
 
-
-
-
 # Borrados
 class ProductosBorrar(UserPassesTestMixin, DeleteView):
     model = Producto
@@ -429,7 +418,6 @@ class EmpleadosBorrar(UserPassesTestMixin, DeleteView):
         return self.request.user.groups.filter(name="Editor de empleados").exists()
 
 
-
 # Vistas
 class VistasProductosListas(UserPassesTestMixin, generic.ListView):
     model = Producto
@@ -456,7 +444,6 @@ class VistasMarcas(UserPassesTestMixin, generic.ListView):
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de marcas").exists()
-
 
 
 class VistasClientes(UserPassesTestMixin, generic.ListView):
@@ -532,13 +519,12 @@ class SaleView(ListView):
     paginate_by = 10
 
 
-
 # used fto generate a bill object and save items
 class SaleCreateView(View):
     template_name = "sales/new_sale.html"
 
     def get(self, request):
-        recibo_form = ReciboForm(request.GET or None) #para el cliente
+        recibo_form = ReciboForm(request.GET or None)  # para el cliente
         formset = SaleItemFormset(request.GET or None)  # renders an empty formset
         stocks = Producto.objects.filter(cantidad__gte=0)
         context = {
@@ -589,6 +575,7 @@ class SaleDeleteView(SuccessMessageMixin, DeleteView):
     model = SaleBill
     template_name = "sales/delete_sale.html"
     success_url = reverse_lazy('sales-list')
+
     def delete(self, *args, **kwargs):
         self.object = self.get_object()
         items = SaleItem.objects.filter(billno=self.object.billno)
@@ -599,8 +586,6 @@ class SaleDeleteView(SuccessMessageMixin, DeleteView):
         messages.success(self.request, "La venta ha sido borrada exitosamente")
 
         return super(SaleDeleteView, self).delete(*args, **kwargs)
-
-
 
 
 # used to display the purchase bill object
@@ -702,6 +687,7 @@ class SaleBillView(View):
 
         return render(request, 'recibo/create_invoce.html', context)
 
+
 # shows the list of bills of all purchases
 class ComprasView(ListView):
     model = ReciboCompra
@@ -711,40 +697,41 @@ class ComprasView(ListView):
     paginate_by = 10
 
 
-
 class ComprasCreateView(View):
     template_name = 'compras/nueva_compra.html'
 
     def get(self, request):
         recibo_form = ReciboComprasForm(request.GET or None)
-        formset = ComprasFormset(request.GET or None)                      # renders an empty formset                     # gets the supplier object
+        formset = ComprasFormset(
+            request.GET or None)  # renders an empty formset                     # gets the supplier object
         context = {
             'recibo_form': recibo_form,
-            'formset'   : formset,
-        }                                                                       # sends the supplier and formset as context
+            'formset': formset,
+        }  # sends the supplier and formset as context
         return render(request, self.template_name, context)
 
     def post(self, request):
         recibo_form = ReciboComprasForm(request.POST)
-        formset = ComprasFormset(request.POST)                             # recieves a post method for the formset
+        formset = ComprasFormset(request.POST)  # recieves a post method for the formset
         if formset.is_valid() and recibo_form.is_valid():
 
             # saves bill
-            recibobj = recibo_form.save(commit=False)                        # a new object of class 'PurchaseBill' is created with supplier field set to 'supplierobj'
-            recibobj.save()                                                      # saves object into the db
+            recibobj = recibo_form.save(
+                commit=False)  # a new object of class 'PurchaseBill' is created with supplier field set to 'supplierobj'
+            recibobj.save()  # saves object into the db
             # create bill details object
             billdetailsobj = DetallesReciboCompra(billno=recibobj)
             billdetailsobj.save()
-            for form in formset:                                                # for loop to save each individual form as its own object
+            for form in formset:  # for loop to save each individual form as its own object
                 # false saves the item and links bill to the item
                 billitem = form.save(commit=False)
-                billitem.billno = recibobj                                       # links the bill object to the items
+                billitem.billno = recibobj  # links the bill object to the items
                 # gets the stock item
-                stock = get_object_or_404(Producto, modelo=billitem.stock.modelo)       # gets the item
+                stock = get_object_or_404(Producto, modelo=billitem.stock.modelo)  # gets the item
                 # calculates the total price
                 billitem.totalprice = billitem.preciocompra * billitem.quantity
                 # updates quantity in stock db
-                stock.cantidad += billitem.quantity                              # updates quantity
+                stock.cantidad += billitem.quantity  # updates quantity
                 stock.precioVenta = billitem.precioventa
                 stock.precioCompra = billitem.preciocompra
                 # saves bill item and stock
@@ -756,7 +743,7 @@ class ComprasCreateView(View):
         formset = ComprasForm(request.GET or None)
         context = {
             'recibo_form': recibo_form,
-            'formset'   : formset,
+            'formset': formset,
         }
         return render(request, self.template_name, context)
 
