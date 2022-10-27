@@ -550,11 +550,7 @@ class SaleCreateView(View):
 
     def post(self, request):
         recibo_form = ReciboForm(request.POST)
-        print(recibo_form.is_valid())
-
         formset = SaleItemFormset(request.POST)  # recieves a post method for the formset
-        print(formset)
-        print(formset.is_valid())
         if recibo_form.is_valid() and formset.is_valid():
             # saves bill
             billobj = recibo_form.save(commit=False)
@@ -706,43 +702,119 @@ class SaleBillView(View):
 
         return render(request, 'recibo/create_invoce.html', context)
 
+# shows the list of bills of all purchases
+class ComprasView(ListView):
+    model = ReciboCompra
+    template_name = "compras/compras.html"
+    context_object_name = 'bills'
+    ordering = ['-time']
+    paginate_by = 10
+
+
 
 class ComprasCreateView(View):
     template_name = 'compras/nueva_compra.html'
 
-    def get(self, request, pk):
+    def get(self, request):
+        recibo_form = ReciboComprasForm(request.GET or None)
         formset = ComprasFormset(request.GET or None)                      # renders an empty formset                     # gets the supplier object
         context = {
+            'recibo_form': recibo_form,
             'formset'   : formset,
         }                                                                       # sends the supplier and formset as context
         return render(request, self.template_name, context)
 
-    def post(self, request, pk):
+    def post(self, request):
+        recibo_form = ReciboComprasForm(request.POST)
         formset = ComprasFormset(request.POST)                             # recieves a post method for the formset
-        if formset.is_valid():
+        if formset.is_valid() and recibo_form.is_valid():
+
             # saves bill
-            recibobj = ReciboCompra()                        # a new object of class 'PurchaseBill' is created with supplier field set to 'supplierobj'
+            recibobj = recibo_form.save(commit=False)                        # a new object of class 'PurchaseBill' is created with supplier field set to 'supplierobj'
             recibobj.save()                                                      # saves object into the db
             # create bill details object
-            billdetailsobj = PurchaseBillDetails(billno=recibobj)
+            billdetailsobj = DetallesReciboCompra(billno=recibobj)
             billdetailsobj.save()
             for form in formset:                                                # for loop to save each individual form as its own object
                 # false saves the item and links bill to the item
                 billitem = form.save(commit=False)
                 billitem.billno = recibobj                                       # links the bill object to the items
                 # gets the stock item
-                stock = get_object_or_404(Producto, name=billitem.stock.name)       # gets the item
+                stock = get_object_or_404(Producto, modelo=billitem.stock.modelo)       # gets the item
                 # calculates the total price
-                billitem.totalprice = billitem.perprice * billitem.quantity
+                billitem.totalprice = billitem.preciocompra * billitem.quantity
                 # updates quantity in stock db
-                stock.quantity += billitem.quantity                              # updates quantity
+                stock.cantidad += billitem.quantity                              # updates quantity
+                stock.precioVenta = billitem.precioventa
+                stock.precioCompra = billitem.preciocompra
                 # saves bill item and stock
                 stock.save()
                 billitem.save()
-            messages.success(request, "Purchased items have been registered successfully")
-            return redirect('purchase-bill', billno=recibobj.billno)
+            messages.success(request, "Artículos comprados han sido registrados exitosamente")
+            return redirect('recibo_compra', billno=recibobj.billno)
+        recibo_form = ReciboComprasForm(request.GET or None)
         formset = ComprasForm(request.GET or None)
         context = {
+            'recibo_form': recibo_form,
             'formset'   : formset,
+        }
+        return render(request, self.template_name, context)
+
+
+# used to delete a bill object
+class ComprasBorrarView(SuccessMessageMixin, DeleteView):
+    model = ReciboCompra
+    template_name = "compras/borrar_compra.html"
+    success_url = reverse_lazy('compras')
+
+    def delete(self, *args, **kwargs):
+        self.object = self.get_object()
+        items = Compras.objects.filter(billno=self.object.billno)
+        for item in items:
+            stock = get_object_or_404(Producto, modelo=item.stock.modelo)
+            stock.cantidad -= item.quantity
+            stock.save()
+        messages.success(self.request, "Recibo de compra ha sido borrado exitosamente")
+        return super(ComprasBorrarView, self).delete(*args, **kwargs)
+
+
+# used to display the purchase bill object
+class ReciboComprasView(View):
+    model = ReciboCompra
+    template_name = "bill/purchase_bill.html"
+    bill_base = "bill/bill_base.html"
+
+    def get(self, request, billno):
+        context = {
+            'bill': ReciboCompra.objects.get(billno=billno),
+            'items': Compras.objects.filter(billno=billno),
+            'billdetails': DetallesReciboCompra.objects.get(billno=billno),
+            'bill_base': self.bill_base,
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, billno):
+        form = DetallesReciboCompra(request.POST)
+        if form.is_valid():
+            billdetailsobj = DetallesReciboCompra.objects.get(billno=billno)
+
+            billdetailsobj.eway = request.POST.get("eway")
+            billdetailsobj.veh = request.POST.get("veh")
+            billdetailsobj.destination = request.POST.get("destination")
+            billdetailsobj.po = request.POST.get("po")
+            billdetailsobj.cgst = request.POST.get("cgst")
+            billdetailsobj.sgst = request.POST.get("sgst")
+            billdetailsobj.igst = request.POST.get("igst")
+            billdetailsobj.cess = request.POST.get("cess")
+            billdetailsobj.tcs = request.POST.get("tcs")
+            billdetailsobj.total = request.POST.get("total")
+
+            billdetailsobj.save()
+            messages.success(request, "Bill details have been modified successfully")
+        context = {
+            'bill': ReciboCompra.objects.get(billno=billno),
+            'items': Compras.objects.filter(billno=billno),
+            'billdetails': DetallesReciboCompra.objects.get(billno=billno),
+            'bill_base': self.bill_base,
         }
         return render(request, self.template_name, context)

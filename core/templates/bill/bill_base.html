@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags --><!-- Log on to codeastro.com for more projects -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/bootstrap.min.css' %}">
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <!-- Main CSS, then Sidebar CSS, Bill CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sidebar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bill.css' %}">
+    
+    <title>IMS - {% block title %}Title Missing{% endblock title %}</title>
+
+</head>
+
+<body class="bg">
+
+    <main id="wrapper">
+    
+        <nav id="sidebar">
+            
+            <div class="sidebar-header">
+                <a class="navbar-brand titlefont mr-4" href="{% url 'home' %}"><h3>IMS-Django</h3></a>
+            </div>
+
+
+            {% comment %}
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="#" class="sidebar-button nav-button">Button</a>
+                </li>
+                <li>
+                    <a href="#" class="sidebar-text">Link</a>
+                </li><!-- Log on to codeastro.com for more projects -->
+            </ul>
+            {% endcomment %}
+
+        </nav>
+    
+        <div id="content" class="bg-white">
+
+            <div class="row">
+                <div class="col-md-12">
+                                    
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}"> {{ message }} </div>
+                        {% endfor %}
+                    {% endif %}
+                    
+                    <div class="container">
+                        {% block content %}{% endblock content %}
+                    </div><!-- Log on to codeastro.com for more projects -->
+                    
+                </div>
+            </div>
+            <br>
+
+        </div>
+    
+    </main>    
+        <!-- Log on to codeastro.com for more projects -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'bootstrap/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'bootstrap/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>

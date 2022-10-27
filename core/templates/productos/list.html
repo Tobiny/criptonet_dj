@@ -47,7 +47,8 @@
                                                 <th>Tipo</th>
                                                 <th>Marca</th>
                                                 <th>Modelo</th>
-                                                <th>Precio venta</th>
+                                                <th>Precio de compra</th>
+                                                <th>Precio de venta</th>
                                                 <th>Existencia</th>
                                                 <th>Acciones</th>
                                             </tr>
@@ -59,7 +60,9 @@
                                                 <td>{{producto.tipo_producto.nombre}}</td>
                                                 <td>{{producto.marca.nombre}}</td>
                                                 <td>{{producto.modelo}}</td>
+                                                <td>{{producto.precioCompra}}</td>
                                                 <td>{{producto.precioVenta}}</td>
+
                                                 <td>{{producto.cantidad}}</td>
                                                 <td>
                                                     <button class="btn btn-info dropdown-toggle" type="button"

@@ -415,10 +415,11 @@ class SaleBillDetails(models.Model):
 # contains the purchase bills made
 class ReciboCompra(models.Model):
     billno = models.AutoField(primary_key=True)
+    notas = models.TextField(null=True, blank=True, help_text="Ingrese algún mensaje de ayuda para un mejor control")
     time = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "Bill no: " + str(self.billno)
+        return "Número de recibo: " + str(self.billno)
 
     def get_items_list(self):
         return Compras.objects.filter(billno=self)
@@ -435,9 +436,45 @@ class ReciboCompra(models.Model):
 class Compras(models.Model):
     billno = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, related_name='purchasebillno')
     stock = models.ForeignKey(Producto, on_delete=models.CASCADE, related_name='purchaseitem')
-    quantity = models.IntegerField(default=1)
-    perprice = models.IntegerField(default=1)
-    totalprice = models.IntegerField(default=1)
+    quantity = models.IntegerField(default=1, help_text="Ingrese la cantidad de productos a comprar")
+    preciocompra = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=1,
+                              default_currency='MXN', help_text="Ingrese el precio del producto",
+                              verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
+                                                                              MaxMoneyValidator(999999), RegexValidator(
+                '[0-9]{1,6}([.][0-9]{1,2})?',
+                message="Cantidad de dígitos superada")])
+    precioventa = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=1,
+                             default_currency='MXN', help_text="Ingrese el precio del producto",
+                             verbose_name='Precio del Producto', validators=[MinMoneyValidator(0),
+                                                                             MaxMoneyValidator(999999), RegexValidator(
+                '[0-9]{1,6}([.][0-9]{1,2})?',
+                message="Cantidad de dígitos superada")])
+    totalprice = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
+                             default_currency='MXN', help_text="Ingrese el precio del producto",
+                             verbose_name='Precio total', validators=[MinMoneyValidator(0),
+                                                                             MaxMoneyValidator(999999), RegexValidator(
+                '[0-9]{1,6}([.][0-9]{1,2})?',
+                message="Cantidad de dígitos superada")])
 
     def __str__(self):
-        return "Bill no: " + str(self.billno.billno) + ", Item = " + self.stock.name
+        return "Número de recibo " + str(self.billno.billno) + ", Artículo = " + self.stock.name
+
+
+# contains the other details in the purchases bill
+class DetallesReciboCompra(models.Model):
+    billno = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, related_name='purchasedetailsbillno')
+
+    eway = models.CharField(max_length=50, blank=True, null=True)
+    veh = models.CharField(max_length=50, blank=True, null=True)
+    destino = models.CharField(max_length=50, blank=True, null=True)
+    po = models.CharField(max_length=50, blank=True, null=True)
+
+    cgst = models.CharField(max_length=50, blank=True, null=True)
+    sgst = models.CharField(max_length=50, blank=True, null=True)
+    igst = models.CharField(max_length=50, blank=True, null=True)
+    cess = models.CharField(max_length=50, blank=True, null=True)
+    tcs = models.CharField(max_length=50, blank=True, null=True)
+    total = models.CharField(max_length=50, blank=True, null=True)
+
+    def __str__(self):
+        return "Número de recibo: " + str(self.billno.billno)

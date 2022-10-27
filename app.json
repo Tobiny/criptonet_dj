@@ -1,0 +1,458 @@
+[
+{
+  "model": "app.empleado",
+  "pk": 1,
+  "fields": {
+    "nombre": "Guillermo Moreno Rivera",
+    "rfc": "VATL900113MW8"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "NVD",
+  "fields": {
+    "nombre": "Nvidia Corporation."
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "TAR",
+  "fields": {
+    "nombre": "Tarjeta de Video."
+  }
+},
+{
+  "model": "app.client",
+  "pk": "0cd1545e-587f-4fe1-8a87-cd1209d76054",
+  "fields": {
+    "nombreCliente": "Ana Paula Medina Rodriguez",
+    "domicilio": "Zeus #2",
+    "estado": "Jalisco",
+    "codigoPostal": 49092,
+    "numTelefono": "3418784883",
+    "dirEmail": "apmr1203@gmail.com",
+    "rfcCliente": "MOM9810152F8",
+    "slug": "ana-paula-medina-rodriguez-jalisco-ba4aab8fd91f",
+    "date_created": "2022-10-23T02:10:57.186Z",
+    "last_updated": "2022-10-23T02:10:58.322Z"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "43e459aa-48ba-402b-907a-191e4b5ffabc",
+  "fields": {
+    "nombreCliente": "Luis Fernando Chávez Jiménez",
+    "domicilio": "Rosario Castellanos #20 Col. Escritores",
+    "estado": "Jalisco",
+    "codigoPostal": 49019,
+    "numTelefono": "3411110005",
+    "dirEmail": "fernandochajim@gmail.com",
+    "rfcCliente": "BAAZ640128QB9",
+    "slug": "luis-fernando-chavez-jimenez-jalisco-9affcc77559b",
+    "date_created": "2022-10-10T02:10:01.868Z",
+    "last_updated": "2022-10-10T02:10:01.926Z"
+  }
+},
+{
+  "model": "app.salebill",
+  "pk": 18,
+  "fields": {
+    "time": "2022-10-23T03:10:45.435Z",
+    "cliente": "0cd1545e-587f-4fe1-8a87-cd1209d76054",
+    "notas": "Hermosa, bien hermosa, descuento por hermosa, preciosa"
+  }
+},
+{
+  "model": "app.salebill",
+  "pk": 19,
+  "fields": {
+    "time": "2022-10-27T07:21:42.923Z",
+    "cliente": "43e459aa-48ba-402b-907a-191e4b5ffabc",
+    "notas": "Notas de la compra, etc, etc."
+  }
+},
+{
+  "model": "app.recibo",
+  "pk": 4,
+  "fields": {
+    "title": null,
+    "numero": "INV-167b",
+    "fechaPago": null,
+    "estado": "CURRENT",
+    "notas": null,
+    "total_currency": "MXN",
+    "total": "799950.000",
+    "client": "43e459aa-48ba-402b-907a-191e4b5ffabc",
+    "uniqueId": "dc1ffe68da8f",
+    "slug": "inv-167b-dc1ffe68da8f",
+    "fecha_creacion": "2022-10-11T12:21:28.760Z",
+    "ultima_actualizacion": "2022-10-11T12:22:04.802Z"
+  }
+},
+{
+  "model": "app.recibo",
+  "pk": 5,
+  "fields": {
+    "title": null,
+    "numero": "INV-8501",
+    "fechaPago": null,
+    "estado": "CURRENT",
+    "notas": null,
+    "total_currency": "MXN",
+    "total": "0.000",
+    "client": null,
+    "uniqueId": "b1e85f2dfd77",
+    "slug": "inv-8501-b1e85f2dfd77",
+    "fecha_creacion": "2022-10-11T12:29:06.073Z",
+    "ultima_actualizacion": "2022-10-11T12:29:06.275Z"
+  }
+},
+{
+  "model": "app.recibo",
+  "pk": 6,
+  "fields": {
+    "title": null,
+    "numero": "INV-e61f",
+    "fechaPago": null,
+    "estado": "CURRENT",
+    "notas": null,
+    "total_currency": "MXN",
+    "total": "319980000.000",
+    "client": "43e459aa-48ba-402b-907a-191e4b5ffabc",
+    "uniqueId": "d953b4203c18",
+    "slug": "inv-e61f-d953b4203c18",
+    "fecha_creacion": "2022-10-11T12:43:04.106Z",
+    "ultima_actualizacion": "2022-10-11T12:45:32.171Z"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+  "fields": {
+    "modelo": "Zotac GeForce RTX 2090",
+    "descripcion": "Descripción del modelo.",
+    "cantidad": 131,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "10000.01",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "8589.66",
+    "slug": "nvd-10d33fea-1fc8-4bb5-9fdf-4a41695d52cf"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
+  "fields": {
+    "modelo": "Ryzen 9 5950X",
+    "descripcion": "Procesador.",
+    "cantidad": 110,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "9999.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "12309.00",
+    "slug": "nvd-9fb3bda8-8e15-435a-adcb-126f1f5a39fb"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c349a826-77c8-4ae3-9325-93d14b3f3139",
+  "fields": {
+    "modelo": "NVIDIA GeForce RTX 3080",
+    "descripcion": "Tarjeta gráfica NVIDIA GeForce RTF 3080",
+    "cantidad": 90,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "7669.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "8099.00",
+    "slug": "nvd-c349a826-77c8-4ae3-9325-93d14b3f3139"
+  }
+},
+{
+  "model": "app.detalleproducto",
+  "pk": 3,
+  "fields": {
+    "producto": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "recibo": 4,
+    "cantidad": 50.0,
+    "subtotal_currency": "MXN",
+    "subtotal": "799950.000",
+    "preciototal_currency": "MXN",
+    "preciototal": "0.000",
+    "uniqueId": "3c939a5026da",
+    "slug": "zotac-geforce-rtx-2090-3c939a5026da",
+    "date_created": "2022-10-11T12:21:47.394Z",
+    "last_updated": "2022-10-11T12:21:47.395Z",
+    "creacion": null
+  }
+},
+{
+  "model": "app.detalleproducto",
+  "pk": 4,
+  "fields": {
+    "producto": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "recibo": 6,
+    "cantidad": 20000.0,
+    "subtotal_currency": "MXN",
+    "subtotal": "319980000.000",
+    "preciototal_currency": "MXN",
+    "preciototal": "0.000",
+    "uniqueId": "e4e99e17ae58",
+    "slug": "zotac-geforce-rtx-2090-e4e99e17ae58",
+    "date_created": "2022-10-11T12:43:37.791Z",
+    "last_updated": "2022-10-11T12:43:37.792Z",
+    "creacion": null
+  }
+},
+{
+  "model": "app.saleitem",
+  "pk": 22,
+  "fields": {
+    "billno": 18,
+    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
+    "quantity": 100,
+    "perprice": 9759.0,
+    "totalprice": 975900.0
+  }
+},
+{
+  "model": "app.saleitem",
+  "pk": 23,
+  "fields": {
+    "billno": 19,
+    "stock": "c349a826-77c8-4ae3-9325-93d14b3f3139",
+    "quantity": 10,
+    "perprice": 8099.0,
+    "totalprice": 80990.0
+  }
+},
+{
+  "model": "app.salebilldetails",
+  "pk": 18,
+  "fields": {
+    "billno": 18,
+    "eway": null,
+    "veh": null,
+    "destination": null,
+    "po": null,
+    "cgst": null,
+    "sgst": null,
+    "igst": null,
+    "cess": null,
+    "tcs": null,
+    "total": null
+  }
+},
+{
+  "model": "app.salebilldetails",
+  "pk": 19,
+  "fields": {
+    "billno": 19,
+    "eway": null,
+    "veh": null,
+    "destination": null,
+    "po": null,
+    "cgst": null,
+    "sgst": null,
+    "igst": null,
+    "cess": null,
+    "tcs": null,
+    "total": null
+  }
+},
+{
+  "model": "app.recibocompra",
+  "pk": 10,
+  "fields": {
+    "notas": "Notas",
+    "time": "2022-10-27T06:13:02.680Z"
+  }
+},
+{
+  "model": "app.recibocompra",
+  "pk": 11,
+  "fields": {
+    "notas": "Notas",
+    "time": "2022-10-27T06:13:44.277Z"
+  }
+},
+{
+  "model": "app.recibocompra",
+  "pk": 12,
+  "fields": {
+    "notas": "Notas de la compra, etc, etc.",
+    "time": "2022-10-27T06:15:19.718Z"
+  }
+},
+{
+  "model": "app.recibocompra",
+  "pk": 13,
+  "fields": {
+    "notas": "Notas de la compra, etc, etc.",
+    "time": "2022-10-27T06:54:16.431Z"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 3,
+  "fields": {
+    "billno": 10,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 4,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "10000.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "1000.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "40000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 4,
+  "fields": {
+    "billno": 10,
+    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
+    "quantity": 10,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "15400.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "14540.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "154000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 5,
+  "fields": {
+    "billno": 11,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 3,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "10000.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "12000.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "30000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 6,
+  "fields": {
+    "billno": 12,
+    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
+    "quantity": 100,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "15999.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "17899.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "1599900.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 7,
+  "fields": {
+    "billno": 12,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 14,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "14788.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "19999.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "207032.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 8,
+  "fields": {
+    "billno": 13,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 10,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "10000.01",
+    "precioventa_currency": "MXN",
+    "precioventa": "8589.66",
+    "totalprice_currency": "MXN",
+    "totalprice": "100000.10"
+  }
+},
+{
+  "model": "app.detallesrecibocompra",
+  "pk": 10,
+  "fields": {
+    "billno": 10,
+    "eway": null,
+    "veh": null,
+    "destino": null,
+    "po": null,
+    "cgst": null,
+    "sgst": null,
+    "igst": null,
+    "cess": null,
+    "tcs": null,
+    "total": null
+  }
+},
+{
+  "model": "app.detallesrecibocompra",
+  "pk": 11,
+  "fields": {
+    "billno": 11,
+    "eway": null,
+    "veh": null,
+    "destino": null,
+    "po": null,
+    "cgst": null,
+    "sgst": null,
+    "igst": null,
+    "cess": null,
+    "tcs": null,
+    "total": null
+  }
+},
+{
+  "model": "app.detallesrecibocompra",
+  "pk": 12,
+  "fields": {
+    "billno": 12,
+    "eway": null,
+    "veh": null,
+    "destino": null,
+    "po": null,
+    "cgst": null,
+    "sgst": null,
+    "igst": null,
+    "cess": null,
+    "tcs": null,
+    "total": null
+  }
+},
+{
+  "model": "app.detallesrecibocompra",
+  "pk": 13,
+  "fields": {
+    "billno": 13,
+    "eway": null,
+    "veh": null,
+    "destino": null,
+    "po": null,
+    "cgst": null,
+    "sgst": null,
+    "igst": null,
+    "cess": null,
+    "tcs": null,
+    "total": null
+  }
+}
+]

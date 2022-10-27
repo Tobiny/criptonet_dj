@@ -144,17 +144,30 @@ class SaleDetailsForm(forms.ModelForm):
         fields = ['eway','veh', 'destination', 'po', 'cgst', 'sgst', 'igst', 'cess', 'tcs', 'total']
 
 
+
+class ReciboComprasForm(forms.ModelForm):
+    class Meta:
+        model = ReciboCompra
+        fields = ['notas']
+
+        widgets = {
+            'notas': forms.TextInput(attrs={'class': 'form-control', 'id': 'design'}),
+        }
+
+
 # form used to render a single stock item form
 class ComprasForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['stock'].queryset = Producto.objects.filter(cantidad__gte=0)
+        self.fields['stock'].queryset = Producto.objects.all()
         self.fields['stock'].widget.attrs.update({'class': 'textinput form-control setprice stock', 'required': 'true'})
-        self.fields['quantity'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '0', 'required': 'true'})
-        self.fields['perprice'].widget.attrs.update({'class': 'textinput form-control setprice price', 'readonly':'true','min': '0', 'required': 'true'})
+        self.fields['quantity'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '1', 'required': 'true'})
+        self.fields['preciocompra'].widget.attrs.update({'class': 'textinput form-control setprice price','min': '1', 'required': 'true'})
+        self.fields['precioventa'].widget.attrs.update({'class': 'textinput form-control setprice pricesale','min': '1', 'required': 'true'})
     class Meta:
         model = Compras
-        fields = ['stock', 'quantity', 'perprice']
+        fields = ['stock', 'quantity', 'preciocompra','precioventa']
 
 # formset used to render multiple 'ComprasForm'
 ComprasFormset = formset_factory(ComprasForm, extra=1)
+
