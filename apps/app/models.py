@@ -457,7 +457,7 @@ class Compras(models.Model):
                 message="Cantidad de dígitos superada")])
 
     def __str__(self):
-        return "Número de recibo " + str(self.billno.billno) + ", Artículo = " + self.stock.name
+        return "Número de recibo " + str(self.billno.billno) + ", Artículo = " + self.stock.modelo
 
 
 # contains the other details in the purchases bill

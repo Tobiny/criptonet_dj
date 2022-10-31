@@ -72,7 +72,7 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item" href="{% url 'recibo_compra' sale.billno %}" class="btn btn-secondary btn-sm">Ver Compra</a>
-
+                                                        <a class="dropdown-item" href="{% url 'compras_modificar' sale.billno %}" class="btn btn-secondary btn-sm">Ver Compra</a>
                                                         <a class="dropdown-item" href="{% url 'compras_borrar' sale.pk %}" class="btn btn-danger btn-sm">Borrar</a>
                                                     </div>
                                                     </td>

@@ -43,7 +43,6 @@ def index(request):
 @login_required(login_url="/login/")
 def dashboard(request):
     clients = Client.objects.all().count()
-    clients = Client.objects.all().count()
     invoices = Recibo.objects.all().count()
     paidInvoices = Recibo.objects.filter(status='PAGADO').count()
 
@@ -544,7 +543,9 @@ class SaleCreateView(View):
             # create bill details object
             billdetailsobj = SaleBillDetails(billno=billobj)
             billdetailsobj.save()
+            print(formset)
             for form in formset:  # for loop to save each individual form as its own object
+                print(form)
                 # false saves the item and links bill to the item
                 billitem = form.save(commit=False)
 
@@ -724,6 +725,62 @@ class ComprasCreateView(View):
             billdetailsobj.save()
             for form in formset:  # for loop to save each individual form as its own object
                 # false saves the item and links bill to the item
+                billitem = form.save(commit=False)
+                billitem.billno = recibobj  # links the bill object to the items
+                # gets the stock item
+                stock = get_object_or_404(Producto, modelo=billitem.stock.modelo)  # gets the item
+                # calculates the total price
+                billitem.totalprice = billitem.preciocompra * billitem.quantity
+                # updates quantity in stock db
+                stock.cantidad += billitem.quantity  # updates quantity
+                stock.precioVenta = billitem.precioventa
+                stock.precioCompra = billitem.preciocompra
+                # saves bill item and stock
+                stock.save()
+                billitem.save()
+            messages.success(request, "Artículos comprados han sido registrados exitosamente")
+            return redirect('recibo_compra', billno=recibobj.billno)
+        recibo_form = ReciboComprasForm(request.GET or None)
+        formset = ComprasForm(request.GET or None)
+        context = {
+            'recibo_form': recibo_form,
+            'formset': formset,
+        }
+        return render(request, self.template_name, context)
+
+
+class ComprasModificarView(View):
+    template_name = 'compras/nueva_compra.html'
+
+    def get(self, request, billno):
+        recibo = ReciboCompra.objects.get(billno=billno)
+        productos = Compras.objects.filter(billno=billno)
+        recibo_form = ReciboComprasForm(instance=recibo)
+        datos = []
+        for producto in productos:
+            datos.append({'stock': producto.stock, 'quantity': producto.quantity, 'preciocompra': producto.preciocompra,
+                          'precioventa': producto.precioventa})
+        formset = ComprasFormset(initial=datos)  # renders an empty formset
+        context = {
+            'recibo': recibo,
+            'productos': productos,
+            'recibo_form': recibo_form,
+            'formset': formset,
+        }  # sends the supplier and formset as context
+        return render(request, self.template_name, context)
+
+    def post(self, request, billno):
+        recibo = ReciboCompra.objects.get(billno=billno)
+        recibo_form = ReciboComprasForm(request.POST, instance=recibo)
+        formset = ComprasFormset(request.POST)  # recieves a post method for the formset
+        if formset.is_valid() and recibo_form.is_valid():
+            recibobj = recibo_form.save(commit=False)
+            # create bill details object
+            billdetailsobj = DetallesReciboCompra(billno=recibobj)
+
+            for form in formset:  # for loop to save each individual form as its own object
+                # false saves the item and links bill to the item
+
                 billitem = form.save(commit=False)
                 billitem.billno = recibobj  # links the bill object to the items
                 # gets the stock item

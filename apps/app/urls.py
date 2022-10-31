@@ -54,6 +54,7 @@ urlpatterns = [
 
     path('compras/', views.ComprasView.as_view(), name='compras'),
     path('compras/nueva_compra', views.ComprasCreateView.as_view(), name='compras_crear'),
+    path('compras/editar_compra/<billno>', views.ComprasModificarView.as_view(), name='compras_modificar'),
     path('compras/<pk>/borrar', views.ComprasBorrarView.as_view(), name='compras_borrar'),
     path("compras/<billno>", views.ReciboComprasView.as_view(), name="recibo_compra"),
 
