@@ -227,7 +227,7 @@ def deleteInvoice(request, slug):
 
 def export(request):
     sysout = sys.stdout
-    sys.stdout = open('app.json', 'w')
+    sys.stdout = open('app.json', 'w', encoding="utf-8")
     call_command('dumpdata', 'app', format='json', indent=2)
     sys.stdout = sysout
     return index(request)

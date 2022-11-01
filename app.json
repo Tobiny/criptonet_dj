@@ -25,7 +25,7 @@
   "model": "app.tipoproducto",
   "pk": "PAS",
   "fields": {
-    "nombre": "Pasta tÈrmica."
+    "nombre": "Pasta t√©rmica."
   }
 },
 {
@@ -55,7 +55,7 @@
   "model": "app.client",
   "pk": "43e459aa-48ba-402b-907a-191e4b5ffabc",
   "fields": {
-    "nombreCliente": "Luis Fernando Ch·vez JimÈnez",
+    "nombreCliente": "Luis Fernando Ch√°vez Jim√©nez",
     "domicilio": "Rosario Castellanos #20 Col. Escritores",
     "estado": "Jalisco",
     "codigoPostal": 49019,
@@ -144,7 +144,7 @@
   "pk": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
   "fields": {
     "modelo": "Zotac GeForce RTX 2090",
-    "descripcion": "DescripciÛn del modelo.",
+    "descripcion": "Descripci√≥n del modelo.",
     "cantidad": 810,
     "tipo_producto": "TAR",
     "marca": "NVD",
@@ -176,7 +176,7 @@
   "pk": "b39d3fee-73a1-410f-85f2-4a906aaa4a8a",
   "fields": {
     "modelo": "ASUS AMD Radeon RX 6900 XT Gaming, 16GB",
-    "descripcion": "DescripciÛn de 3080, 12GB.",
+    "descripcion": "Descripci√≥n de 3080, 12GB.",
     "cantidad": 0,
     "tipo_producto": "TAR",
     "marca": "AMD",
@@ -192,7 +192,7 @@
   "pk": "c349a826-77c8-4ae3-9325-93d14b3f3139",
   "fields": {
     "modelo": "NVIDIA GeForce RTX 3080",
-    "descripcion": "Tarjeta gr·fica NVIDIA GeForce RTF 3080",
+    "descripcion": "Tarjeta gr√°fica NVIDIA GeForce RTF 3080",
     "cantidad": 90,
     "tipo_producto": "TAR",
     "marca": "NVD",
