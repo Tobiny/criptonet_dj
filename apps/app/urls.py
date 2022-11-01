@@ -71,6 +71,12 @@ urlpatterns = [
     path('invoices/view-pdf/<slug:slug>', views.viewPDFInvoice, name='view-pdf-invoice'),
     path('invoices/view-document/<slug:slug>', views.viewDocumentInvoice, name='view-document-invoice'),
 
+    #Reportes
+    path('reportes_prod', views.reportes_productos, name='rep_productos'),
+    path('reportes_client', views.reportes_clientes, name='rep_clientes'),
+    path('reportes_comp', views.reportes_compras, name='rep_compras'),
+    path('reportes_vent', views.reportes_ventas, name='rep_ventas'),
+    path('data', views.reportes_datos, name='datos_reportes'),
 
     path('exportar', views.export, name='export'),
     path('importar', views.importar, name='import'),

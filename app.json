@@ -9,9 +9,23 @@
 },
 {
   "model": "app.marca",
+  "pk": "AMD",
+  "fields": {
+    "nombre": "Advanced Micro Devices, Inc."
+  }
+},
+{
+  "model": "app.marca",
   "pk": "NVD",
   "fields": {
     "nombre": "Nvidia Corporation."
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "PAS",
+  "fields": {
+    "nombre": "Pasta térmica."
   }
 },
 {
@@ -55,20 +69,20 @@
 },
 {
   "model": "app.salebill",
-  "pk": 18,
-  "fields": {
-    "time": "2022-10-23T03:10:45.435Z",
-    "cliente": "0cd1545e-587f-4fe1-8a87-cd1209d76054",
-    "notas": "Hermosa, bien hermosa, descuento por hermosa, preciosa"
-  }
-},
-{
-  "model": "app.salebill",
   "pk": 19,
   "fields": {
     "time": "2022-10-27T07:21:42.923Z",
     "cliente": "43e459aa-48ba-402b-907a-191e4b5ffabc",
     "notas": "Notas de la compra, etc, etc."
+  }
+},
+{
+  "model": "app.salebill",
+  "pk": 22,
+  "fields": {
+    "time": "2022-10-31T01:13:35.164Z",
+    "cliente": "43e459aa-48ba-402b-907a-191e4b5ffabc",
+    "notas": "Notas notas."
   }
 },
 {
@@ -131,13 +145,13 @@
   "fields": {
     "modelo": "Zotac GeForce RTX 2090",
     "descripcion": "Descripción del modelo.",
-    "cantidad": 131,
+    "cantidad": 810,
     "tipo_producto": "TAR",
     "marca": "NVD",
     "precioCompra_currency": "MXN",
-    "precioCompra": "10000.01",
+    "precioCompra": "10000.00",
     "precioVenta_currency": "MXN",
-    "precioVenta": "8589.66",
+    "precioVenta": "12000.00",
     "slug": "nvd-10d33fea-1fc8-4bb5-9fdf-4a41695d52cf"
   }
 },
@@ -147,14 +161,30 @@
   "fields": {
     "modelo": "Ryzen 9 5950X",
     "descripcion": "Procesador.",
-    "cantidad": 110,
+    "cantidad": 109,
     "tipo_producto": "TAR",
     "marca": "NVD",
     "precioCompra_currency": "MXN",
-    "precioCompra": "9999.00",
+    "precioCompra": "10000.00",
     "precioVenta_currency": "MXN",
-    "precioVenta": "12309.00",
+    "precioVenta": "15000.00",
     "slug": "nvd-9fb3bda8-8e15-435a-adcb-126f1f5a39fb"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b39d3fee-73a1-410f-85f2-4a906aaa4a8a",
+  "fields": {
+    "modelo": "ASUS AMD Radeon RX 6900 XT Gaming, 16GB",
+    "descripcion": "Descripción de 3080, 12GB.",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-b39d3fee-73a1-410f-85f2-4a906aaa4a8a"
   }
 },
 {
@@ -167,9 +197,9 @@
     "tipo_producto": "TAR",
     "marca": "NVD",
     "precioCompra_currency": "MXN",
-    "precioCompra": "7669.00",
+    "precioCompra": "18500.00",
     "precioVenta_currency": "MXN",
-    "precioVenta": "8099.00",
+    "precioVenta": "15000.00",
     "slug": "nvd-c349a826-77c8-4ae3-9325-93d14b3f3139"
   }
 },
@@ -211,17 +241,6 @@
 },
 {
   "model": "app.saleitem",
-  "pk": 22,
-  "fields": {
-    "billno": 18,
-    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
-    "quantity": 100,
-    "perprice": 9759.0,
-    "totalprice": 975900.0
-  }
-},
-{
-  "model": "app.saleitem",
   "pk": 23,
   "fields": {
     "billno": 19,
@@ -232,10 +251,32 @@
   }
 },
 {
-  "model": "app.salebilldetails",
-  "pk": 18,
+  "model": "app.saleitem",
+  "pk": 27,
   "fields": {
-    "billno": 18,
+    "billno": 22,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 1,
+    "perprice": 36.0,
+    "totalprice": 36.0
+  }
+},
+{
+  "model": "app.saleitem",
+  "pk": 28,
+  "fields": {
+    "billno": 22,
+    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
+    "quantity": 2,
+    "perprice": 1.0,
+    "totalprice": 2.0
+  }
+},
+{
+  "model": "app.salebilldetails",
+  "pk": 19,
+  "fields": {
+    "billno": 19,
     "eway": null,
     "veh": null,
     "destination": null,
@@ -250,9 +291,9 @@
 },
 {
   "model": "app.salebilldetails",
-  "pk": 19,
+  "pk": 22,
   "fields": {
-    "billno": 19,
+    "billno": 22,
     "eway": null,
     "veh": null,
     "destination": null,
@@ -283,18 +324,10 @@
 },
 {
   "model": "app.recibocompra",
-  "pk": 12,
+  "pk": 21,
   "fields": {
-    "notas": "Notas de la compra, etc, etc.",
-    "time": "2022-10-27T06:15:19.718Z"
-  }
-},
-{
-  "model": "app.recibocompra",
-  "pk": 13,
-  "fields": {
-    "notas": "Notas de la compra, etc, etc.",
-    "time": "2022-10-27T06:54:16.431Z"
+    "notas": "Pruebas",
+    "time": "2022-10-31T02:43:36.018Z"
   }
 },
 {
@@ -344,47 +377,152 @@
 },
 {
   "model": "app.compras",
-  "pk": 6,
+  "pk": 23,
   "fields": {
-    "billno": 12,
-    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
+    "billno": 21,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
     "quantity": 100,
     "preciocompra_currency": "MXN",
-    "preciocompra": "15999.00",
+    "preciocompra": "4000.00",
     "precioventa_currency": "MXN",
-    "precioventa": "17899.00",
+    "precioventa": "4500.00",
     "totalprice_currency": "MXN",
-    "totalprice": "1599900.00"
+    "totalprice": "400000.00"
   }
 },
 {
   "model": "app.compras",
-  "pk": 7,
+  "pk": 24,
   "fields": {
-    "billno": 12,
+    "billno": 21,
     "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 14,
+    "quantity": 100,
     "preciocompra_currency": "MXN",
-    "preciocompra": "14788.00",
+    "preciocompra": "4000.00",
     "precioventa_currency": "MXN",
-    "precioventa": "19999.00",
+    "precioventa": "4500.00",
     "totalprice_currency": "MXN",
-    "totalprice": "207032.00"
+    "totalprice": "400000.00"
   }
 },
 {
   "model": "app.compras",
-  "pk": 8,
+  "pk": 25,
   "fields": {
-    "billno": 13,
+    "billno": 21,
     "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 10,
+    "quantity": 100,
     "preciocompra_currency": "MXN",
-    "preciocompra": "10000.01",
+    "preciocompra": "4000.00",
     "precioventa_currency": "MXN",
-    "precioventa": "8589.66",
+    "precioventa": "4500.00",
     "totalprice_currency": "MXN",
-    "totalprice": "100000.10"
+    "totalprice": "400000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 26,
+  "fields": {
+    "billno": 21,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 100,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "4000.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "4500.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "400000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 27,
+  "fields": {
+    "billno": 21,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 1,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "1000.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "1500.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "1000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 28,
+  "fields": {
+    "billno": 21,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 100,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "4000.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "4500.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "400000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 29,
+  "fields": {
+    "billno": 21,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 100,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "4000.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "4500.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "400000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 30,
+  "fields": {
+    "billno": 21,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 100,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "1000.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "1500.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "100000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 31,
+  "fields": {
+    "billno": 11,
+    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
+    "quantity": 3,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "10000.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "12000.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "30000.00"
+  }
+},
+{
+  "model": "app.compras",
+  "pk": 32,
+  "fields": {
+    "billno": 11,
+    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
+    "quantity": 1,
+    "preciocompra_currency": "MXN",
+    "preciocompra": "10000.00",
+    "precioventa_currency": "MXN",
+    "precioventa": "15000.00",
+    "totalprice_currency": "MXN",
+    "totalprice": "10000.00"
   }
 },
 {
@@ -423,26 +561,9 @@
 },
 {
   "model": "app.detallesrecibocompra",
-  "pk": 12,
+  "pk": 23,
   "fields": {
-    "billno": 12,
-    "eway": null,
-    "veh": null,
-    "destino": null,
-    "po": null,
-    "cgst": null,
-    "sgst": null,
-    "igst": null,
-    "cess": null,
-    "tcs": null,
-    "total": null
-  }
-},
-{
-  "model": "app.detallesrecibocompra",
-  "pk": 13,
-  "fields": {
-    "billno": 13,
+    "billno": 21,
     "eway": null,
     "veh": null,
     "destino": null,

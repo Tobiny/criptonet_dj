@@ -11,7 +11,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import pdfkit
 from django.template.loader import get_template
 from core import settings
+from .filters import ProductosFilter
 from .form import *
+from django.core import serializers
+from django.http import JsonResponse
 from .models import *
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import (
@@ -862,3 +865,43 @@ class ReciboComprasView(View):
             'bill_base': self.bill_base,
         }
         return render(request, self.template_name, context)
+
+
+
+def reportes_datos(request):
+    dataset = Producto.objects.all()
+    data = serializers.serialize('json', dataset)
+    return JsonResponse(data, safe=False)
+
+def reportes_pivot(request):
+    return render(request, 'reportes/reportes.html', {})
+
+def reportes_productos(request):
+    productos = Producto.objects.all()
+    productos_filter = ProductosFilter(request.GET, queryset=productos)
+    context = {
+        'productos_filter': productos_filter
+    }
+    return render(request, 'reportes/reportes_prod.html', context)
+
+def reportes_clientes(request):
+    clientes = Client.objects.all()
+    context = {
+        'lista_clientes': clientes
+    }
+    return render(request, 'reportes/reportes_clientes.html', context)
+
+
+def reportes_ventas(request):
+    ventas = SaleBill.objects.all()
+    context = {
+        'bills': ventas
+    }
+    return render(request, 'reportes/reportes_ventas.html', context)
+
+def reportes_compras(request):
+    compras = ReciboCompra.objects.all()
+    context = {
+        'bills': compras
+    }
+    return render(request, 'reportes/reportes_compras.html', context)
