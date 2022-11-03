@@ -116,8 +116,9 @@ TIME_ZONE = 'America/mexico_city'
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
+DATE_FORMAT = "d-m-Y"
 #############################################################
 # SRC: https://devcenter.heroku.com/articles/django-assets
 

@@ -76,6 +76,7 @@ urlpatterns = [
     path('reportes_client', views.reportes_clientes, name='rep_clientes'),
     path('reportes_comp', views.reportes_compras, name='rep_compras'),
     path('reportes_vent', views.reportes_ventas, name='rep_ventas'),
+    path('reportes', views.reportes_pivot, name='reportes'),
     path('data', views.reportes_datos, name='datos_reportes'),
 
     path('exportar', views.export, name='export'),

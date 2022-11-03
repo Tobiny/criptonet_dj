@@ -886,9 +886,11 @@ def reportes_productos(request):
 
 def reportes_clientes(request):
     clientes = Client.objects.all()
+
     context = {
         'lista_clientes': clientes
     }
+
     return render(request, 'reportes/reportes_clientes.html', context)
 
 
@@ -900,8 +902,22 @@ def reportes_ventas(request):
     return render(request, 'reportes/reportes_ventas.html', context)
 
 def reportes_compras(request):
-    compras = ReciboCompra.objects.all()
+    queryset = ReciboCompra.objects.all()
+    form = ReportesComprasFilter(request.POST or None)
+
     context = {
-        'bills': compras
+        'queryset': queryset,
+        'form': form
     }
+    if request.method == 'POST':
+        queryset = ReciboCompra.objects.filter(
+            time__range=[form['fecha_inicial'].value(), form['fecha_final'].value()]
+            # time__range=["2022-10-27", "2022-10-28"]
+        )
+        context = {
+            'queryset': queryset,
+            'form': form
+        }
+
+
     return render(request, 'reportes/reportes_compras.html', context)

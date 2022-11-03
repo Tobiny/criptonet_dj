@@ -171,3 +171,9 @@ class ComprasForm(forms.ModelForm):
 # formset used to render multiple 'ComprasForm'
 ComprasFormset = formset_factory(ComprasForm, extra=1)
 
+class ReportesComprasFilter(forms.ModelForm):
+    fecha_inicial = forms.DateTimeField(required=False, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}))
+    fecha_final = forms.DateTimeField(required=False, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}))
+    class Meta:
+        model = ReciboCompra
+        fields = ['fecha_inicial', 'fecha_final']

@@ -512,7 +512,7 @@ p.text-muted {
   color: #fff;
   padding: 0.1875rem 0.3125rem;
   border-radius: 2px;
-  white-space: nowrap;
+  white-space: normal;
   font-size: 11px;
   margin: 0 4px;
 }

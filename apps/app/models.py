@@ -193,7 +193,7 @@ class Client(models.Model):
     last_updated = models.DateTimeField(blank=True, null=True, editable=False)
 
     def __str__(self):
-        return '{} {} {}'.format(self.nombreCliente, self.estado, self.uniqueId)
+        return '{} {}'.format(self.nombreCliente, self.rfcCliente)
 
     def get_absolute_url(self):
         return reverse('cliente_detalles', args=[str(self.uniqueId)])

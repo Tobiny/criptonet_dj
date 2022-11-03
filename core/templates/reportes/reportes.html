@@ -4,6 +4,7 @@
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}
+<link href="https://cdn.webdatarocks.com/latest/webdatarocks.min.css" rel="stylesheet"/>
 {% endblock stylesheets %}
 
 {% block content %}
@@ -46,7 +47,8 @@
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
 
-
+    <script src="https://cdn.webdatarocks.com/latest/webdatarocks.toolbar.min.js"></script>
+    <script src="https://cdn.webdatarocks.com/latest/webdatarocks.js"></script>
     <script>
         function processData(dataset) {
     var result = []
@@ -58,9 +60,9 @@ $.ajax({
     url: $("#pivot-table-container").attr("data-url"),
     dataType: 'json',
     success: function(data) {
-        new Flexmonster({
+        new WebDataRocks({
             container: "#pivot-table-container",
-            componentFolder: "https://cdn.flexmonster.com/",
+            componentFolder: "https://cdn.wedatarocks.com/",
             width: "100%",
             height: 430,
             toolbar: true,
@@ -72,7 +74,7 @@ $.ajax({
                 slice: {}
             }
         });
-        new Flexmonster({
+        new WebDataRocks({
             container: "#pivot-chart-container",
             componentFolder: "https://cdn.flexmonster.com/",
             width: "100%",

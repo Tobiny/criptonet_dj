@@ -44,7 +44,7 @@
                                 </div>
                                 {% if productos_filter.qs %}
                                     <div class="card-block table-border-style">
-                                        <table id="tabla-vistas" class="table table-striped table-bordered table-sm nowrap">
+                                        <table id="tabla-vistas" class="table table-striped table-bordered table-sm nowrap" style="width:100%; table-layout:fixed; page-break-after: always;">
                                             <thead>
                                             <tr>
                                                 <th >ID del Producto</th>
@@ -160,7 +160,7 @@
         var tfConfig = {
             base_path: '/static/assets/js/tablefilter/',
             alternate_rows: true,
-
+            filters_row_index: 1,
             loader: true,
             status_bar: false,
             mark_active_columns: {

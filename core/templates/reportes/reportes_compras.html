@@ -6,7 +6,8 @@
 {% block title %} Reportes de compras {% endblock %}
 
 <!-- Specific CSS goes HERE -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">{% endblock stylesheets %}
 
 {% block content %}
 
@@ -14,42 +15,89 @@
         <div class="pcoded-inner-content">
             <!-- [ breadcrumb ] start -->
             <div class="page-header">
-            <div class="page-block">
-                <div class="row align-items-center">
-                    <div class="col-md-12">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10">Reportes de compras</h5>
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Reportes de compras</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="{% url 'compras' %}">Compras</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:">Reportes de compras</a></li>
+                            </ul>
                         </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="{% url 'compras' %}">Compras</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Reportes de compras</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
             <!-- [ breadcrumb ] end -->
             <div class="main-body">
                 <div class="page-wrapper">
                     <!-- [ Main Content ] start -->
                     <div class="row">
                         <!-- [ basic-table ] start -->
-                         <div class="col-xl-12">
+                        <div class="col-xl-12">
                             <div class="card">
+
+
                                 <div class="card-header">
                                     <h5>Compras registradas</h5>
                                     <span class="d-block m-t-5">Compras registradas hasta la fecha</span>
                                 </div>
-                                {% if bills %}
+
+
+
                                     <div class="card-block table-border-style">
+                                        <h5>Rango de fechas
+                                        </h5>
+                                        <hr>
+
+                                            <form method="POST" action="" class="row">
+                                                {% csrf_token %}
+                                                {% for field in form %}
+                                                    <div class="col-md-6">
+                                                     <div class="form-group">
+                                                     {{ field.label }}
+                                                     {{ field }}
+                                                     {{ field.help_text }}
+                                                     </div>
+                                                     </div>
+
+                                                {% endfor %}
+                                            <div class="col-md-6">
+                                                <input type="submit"  class="btn btn-primary" value="Filtrar">
+                                                 </div>
+                                            </form>
+{#                                            <div class="col-md-6">#}
+{##}
+{#                                                <div class="form-group">#}
+{#                                                    <label>Fecha inicial</label>#}
+{#                                                    <input type="" class="form-control datepicker" id="min" name="min"#}
+{#                                                           placeholder="Ingrese la fecha">#}
+{#                                                    <small class="form-text text-muted">Ingrese la fecha de#}
+{#                                                        inicio</small>#}
+{#                                                </div>#}
+{##}
+{#                                            </div>#}
+{#                                            <div class="col-md-6">#}
+{##}
+{#                                                <label>Fecha final</label>#}
+{#                                                <input type="" class="form-control datepicker" id="max" name="max"#}
+{#                                                       placeholder="Ingrese la fecha">#}
+{#                                                <small class="form-text text-muted">Ingrese la fecha de término</small>#}
+{##}
+{#                                            </div>#}
+
+                                        <hr>
+                                     {% if queryset %}
                                         <table id="tabla-vistas"
-                                               class="table table table-striped table-bordered table-sm" style="width:100%; table-layout:fixed; page-break-after: always;">
+                                               class="table table table-striped table-bordered table-sm"
+                                               style="width:100%; table-layout:fixed; page-break-after: always;">
                                             <thead>
                                             <tr>
-                                                <th width="10%">No. compra</th>
+                                                <th width="10%"># Compra</th>
                                                 <th width="15%">Notas</th>
-
                                                 <th width="15%">Productos Comprados</th>
                                                 <th width="10%">Cantidad Comprada</th>
                                                 <th width="10%">Total</th>
@@ -58,8 +106,8 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for sale in bills %}
-                                                <tr >
+                                            {% for sale in queryset %}
+                                                <tr>
                                                     <td class="align-middle"><p>{{ sale.billno }}</p></td>
                                                     <td style="" class=""> {{ sale.notas }}</td>
                                                     <td class="align-middle">{% for item in sale.get_items_list %}
@@ -68,6 +116,7 @@
                                                         {{ item.quantity }} <br> {% endfor %}</td>
                                                     <td class="align-middle">${{ sale.get_total_price }}</td>
                                                     <td class="align-middle">{{ sale.time.date }}</td>
+{#                                                    <td class="align-middle">{{ sale.time.date|date:"Y-m-d" }}</td>#}
                                                 </tr>
                                             {% endfor %}
                                             </tbody>
@@ -110,12 +159,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+<script type="application/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 
     <script>
+
         // Basic example
         $(document).ready(function () {
-            $('#tabla-vistas').DataTable({
+
+            var table = $('#tabla-vistas').DataTable({
                 dom: 'Bfrtip',
                 "rowReorder": true,
                 buttons: [
@@ -125,7 +180,7 @@
                             columns: ':visible',
                             rows: ':visible'
                         },
-                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5' },
+                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5'},
                     },
                     {
                         extend: 'csvHtml5',
@@ -133,7 +188,7 @@
                             columns: ':visible',
                             rows: ':visible'
                         },
-                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5' },
+                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5'},
                     },
                     {
                         extend: 'pdfHtml5',
@@ -141,7 +196,7 @@
                             columns: ':visible',
                             rows: ':visible'
                         },
-                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5' },
+                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5'},
                     },
 
                 ],
@@ -151,18 +206,63 @@
                 "searching": false, // false to disable search (or any other option)
 
             });
+            // Refilter the table
+
+// I instantiate the two datepickers here, instead of all at once like before.
+// I also changed the dateFormat to match the format of the dates in the data table.
+            $("#min").datepicker({
+                "dateFormat": "yy-mm-dd",
+                "onSelect": function (date) {  // This handler kicks off the filtering.
+                    minDateFilter = new Date(date).getTime();
+                    table.draw(); // Redraw the table with the filtered data.
+                }
+            }).keyup(function () {
+                minDateFilter = new Date(this.value).getTime();
+                table.draw();
+            });
+
+            $("#max").datepicker({
+                "dateFormat": "yy-mm-dd",
+                "onSelect": function (date) {
+                    maxDateFilter = new Date(date).getTime();
+                    table.draw();
+                }
+            }).keyup(function () {
+                maxDateFilter = new Date(this.value).getTime();
+                table.draw();
+            });
+
+            $.fn.dataTableExt.afnFiltering.push(
+                function (oSettings, aData, iDataIndex) {
+                    if (typeof aData._date == 'undefined') {
+                        aData._date = new Date(aData[5]).getTime(); // Your date column is 3, hence aData[3].
+                    }
+
+                    if (minDateFilter && !isNaN(minDateFilter)) {
+                        if (aData._date < minDateFilter) {
+                            return false;
+                        }
+                    }
+
+                    if (maxDateFilter && !isNaN(maxDateFilter)) {
+                        if (aData._date > maxDateFilter) {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+                );
         });
 
     </script>
     <script>
 
 
-
-
         var tfConfig = {
             base_path: '/static/assets/js/tablefilter/',
             alternate_rows: true,
-
+            filters_row_index: 1,
             loader: true,
             status_bar: false,
             mark_active_columns: {
@@ -175,7 +275,7 @@
 
             col_types: [
                 'number', 'string', 'string',
-                'number', 'number', 'number',
+                'number', {type: 'formatted-number', decimal: ',', thousands: '.'}, 'number',
             ],
 
             clear_filter_text: 'Sin filtro',
