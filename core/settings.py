@@ -112,7 +112,7 @@ import _locale
 
 _locale._getdefaultlocale = (lambda *args: ['es_MX'])
 
-TIME_ZONE = 'America/mexico_city'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_L10N = True
 
