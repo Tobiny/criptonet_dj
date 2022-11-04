@@ -69,26 +69,6 @@
                                                 <input type="submit"  class="btn btn-primary" value="Filtrar">
                                                  </div>
                                             </form>
-{#                                            <div class="col-md-6">#}
-{##}
-{#                                                <div class="form-group">#}
-{#                                                    <label>Fecha inicial</label>#}
-{#                                                    <input type="" class="form-control datepicker" id="min" name="min"#}
-{#                                                           placeholder="Ingrese la fecha">#}
-{#                                                    <small class="form-text text-muted">Ingrese la fecha de#}
-{#                                                        inicio</small>#}
-{#                                                </div>#}
-{##}
-{#                                            </div>#}
-{#                                            <div class="col-md-6">#}
-{##}
-{#                                                <label>Fecha final</label>#}
-{#                                                <input type="" class="form-control datepicker" id="max" name="max"#}
-{#                                                       placeholder="Ingrese la fecha">#}
-{#                                                <small class="form-text text-muted">Ingrese la fecha de término</small>#}
-{##}
-{#                                            </div>#}
-
                                         <hr>
                                      {% if queryset %}
                                         <table id="tabla-vistas"
@@ -206,59 +186,10 @@
                 "searching": false, // false to disable search (or any other option)
 
             });
-            // Refilter the table
-
-// I instantiate the two datepickers here, instead of all at once like before.
-// I also changed the dateFormat to match the format of the dates in the data table.
-            $("#min").datepicker({
-                "dateFormat": "yy-mm-dd",
-                "onSelect": function (date) {  // This handler kicks off the filtering.
-                    minDateFilter = new Date(date).getTime();
-                    table.draw(); // Redraw the table with the filtered data.
-                }
-            }).keyup(function () {
-                minDateFilter = new Date(this.value).getTime();
-                table.draw();
-            });
-
-            $("#max").datepicker({
-                "dateFormat": "yy-mm-dd",
-                "onSelect": function (date) {
-                    maxDateFilter = new Date(date).getTime();
-                    table.draw();
-                }
-            }).keyup(function () {
-                maxDateFilter = new Date(this.value).getTime();
-                table.draw();
-            });
-
-            $.fn.dataTableExt.afnFiltering.push(
-                function (oSettings, aData, iDataIndex) {
-                    if (typeof aData._date == 'undefined') {
-                        aData._date = new Date(aData[5]).getTime(); // Your date column is 3, hence aData[3].
-                    }
-
-                    if (minDateFilter && !isNaN(minDateFilter)) {
-                        if (aData._date < minDateFilter) {
-                            return false;
-                        }
-                    }
-
-                    if (maxDateFilter && !isNaN(maxDateFilter)) {
-                        if (aData._date > maxDateFilter) {
-                            return false;
-                        }
-                    }
-
-                    return true;
-                }
-                );
         });
 
     </script>
     <script>
-
-
         var tfConfig = {
             base_path: '/static/assets/js/tablefilter/',
             alternate_rows: true,

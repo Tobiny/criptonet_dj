@@ -47,8 +47,8 @@
     "dirEmail": "apmr1203@gmail.com",
     "rfcCliente": "MOM9810152F8",
     "slug": "ana-paula-medina-rodriguez-jalisco-ba4aab8fd91f",
-    "date_created": "2022-10-23T02:10:57.186Z",
-    "last_updated": "2022-10-23T02:10:58.322Z"
+    "date_created": "2022-10-23T02:10:57.186",
+    "last_updated": "2022-10-23T02:10:58.322"
   }
 },
 {
@@ -63,15 +63,15 @@
     "dirEmail": "fernandochajim@gmail.com",
     "rfcCliente": "BAAZ640128QB9",
     "slug": "luis-fernando-chavez-jimenez-jalisco-9affcc77559b",
-    "date_created": "2022-10-10T02:10:01.868Z",
-    "last_updated": "2022-10-10T02:10:01.926Z"
+    "date_created": "2022-10-10T02:10:01.868",
+    "last_updated": "2022-10-10T02:10:01.926"
   }
 },
 {
   "model": "app.salebill",
   "pk": 19,
   "fields": {
-    "time": "2022-10-27T07:21:42.923Z",
+    "time": "2022-10-27T07:21:42.923",
     "cliente": "43e459aa-48ba-402b-907a-191e4b5ffabc",
     "notas": "Notas de la compra, etc, etc."
   }
@@ -80,7 +80,7 @@
   "model": "app.salebill",
   "pk": 22,
   "fields": {
-    "time": "2022-10-31T01:13:35.164Z",
+    "time": "2022-10-31T01:13:35.164",
     "cliente": "43e459aa-48ba-402b-907a-191e4b5ffabc",
     "notas": "Notas notas."
   }
@@ -99,8 +99,8 @@
     "client": "43e459aa-48ba-402b-907a-191e4b5ffabc",
     "uniqueId": "dc1ffe68da8f",
     "slug": "inv-167b-dc1ffe68da8f",
-    "fecha_creacion": "2022-10-11T12:21:28.760Z",
-    "ultima_actualizacion": "2022-10-11T12:22:04.802Z"
+    "fecha_creacion": "2022-10-11T12:21:28.760",
+    "ultima_actualizacion": "2022-10-11T12:22:04.802"
   }
 },
 {
@@ -117,8 +117,8 @@
     "client": null,
     "uniqueId": "b1e85f2dfd77",
     "slug": "inv-8501-b1e85f2dfd77",
-    "fecha_creacion": "2022-10-11T12:29:06.073Z",
-    "ultima_actualizacion": "2022-10-11T12:29:06.275Z"
+    "fecha_creacion": "2022-10-11T12:29:06.073",
+    "ultima_actualizacion": "2022-10-11T12:29:06.275"
   }
 },
 {
@@ -135,8 +135,8 @@
     "client": "43e459aa-48ba-402b-907a-191e4b5ffabc",
     "uniqueId": "d953b4203c18",
     "slug": "inv-e61f-d953b4203c18",
-    "fecha_creacion": "2022-10-11T12:43:04.106Z",
-    "ultima_actualizacion": "2022-10-11T12:45:32.171Z"
+    "fecha_creacion": "2022-10-11T12:43:04.106",
+    "ultima_actualizacion": "2022-10-11T12:45:32.171"
   }
 },
 {
@@ -216,8 +216,8 @@
     "preciototal": "0.000",
     "uniqueId": "3c939a5026da",
     "slug": "zotac-geforce-rtx-2090-3c939a5026da",
-    "date_created": "2022-10-11T12:21:47.394Z",
-    "last_updated": "2022-10-11T12:21:47.395Z",
+    "date_created": "2022-10-11T12:21:47.394",
+    "last_updated": "2022-10-11T12:21:47.395",
     "creacion": null
   }
 },
@@ -234,8 +234,8 @@
     "preciototal": "0.000",
     "uniqueId": "e4e99e17ae58",
     "slug": "zotac-geforce-rtx-2090-e4e99e17ae58",
-    "date_created": "2022-10-11T12:43:37.791Z",
-    "last_updated": "2022-10-11T12:43:37.792Z",
+    "date_created": "2022-10-11T12:43:37.791",
+    "last_updated": "2022-10-11T12:43:37.792",
     "creacion": null
   }
 },
@@ -311,7 +311,7 @@
   "pk": 10,
   "fields": {
     "notas": "Notas",
-    "time": "2022-10-27T06:13:02.680Z"
+    "time": "2022-10-27T06:13:02.680"
   }
 },
 {
@@ -319,7 +319,7 @@
   "pk": 11,
   "fields": {
     "notas": "Notas",
-    "time": "2022-10-27T06:13:44.277Z"
+    "time": "2022-10-27T06:13:44.277"
   }
 },
 {
@@ -327,7 +327,7 @@
   "pk": 21,
   "fields": {
     "notas": "Pruebas",
-    "time": "2022-10-31T02:43:36.018Z"
+    "time": "2022-10-31T02:43:36.018"
   }
 },
 {
