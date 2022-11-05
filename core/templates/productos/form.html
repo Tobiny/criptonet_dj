@@ -125,8 +125,9 @@
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
     <script>
-        var inputs = document.querySelectorAll('input[data-filter]');
-        var inputs2 = document.querySelectorAll('textarea[data-filter]');
+        var inputs = document.querySelectorAll('#id_modelo[data-filter]');
+        var inputs2 = document.querySelectorAll('#id_descripcion[data-filter]');
+        var inputs3 = document.querySelectorAll('#id_precioCompra_0[data-filter]');
         for (var i = 0; i < inputs.length; i++) {
             var input = inputs[i];
             var state = {
@@ -150,8 +151,32 @@
                 state.end = input.selectionEnd;
             });
         }
-        for (var i = 0; i < inputs2.length; i++) {
+        for (var i = 0; i < inputs3.length; i++) {
             var textarea = inputs2[i];
+            var state = {
+                value: textarea.value,
+                start: textarea.selectionStart,
+                end: textarea.selectionEnd,
+                pattern: RegExp('^' + textarea.dataset.filter + '$')
+            };
+
+            textarea.addEventListener('input', function (event) {
+                if (state.pattern.test(textarea.value)) {
+                    state.value = textarea.value;
+                } else {
+                    textarea.value = state.value;
+                    textarea.setSelectionRange(state.start, state.end);
+                }
+            });
+
+            textarea.addEventListener('keydown', function (event) {
+                state.start = textarea.selectionStart;
+                state.end = textarea.selectionEnd;
+            });
+        }
+
+        for (var i = 0; i < inputs3.length; i++) {
+            var textarea = inputs3[i];
             var state = {
                 value: textarea.value,
                 start: textarea.selectionStart,

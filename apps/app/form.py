@@ -172,8 +172,8 @@ class ComprasForm(forms.ModelForm):
 ComprasFormset = formset_factory(ComprasForm, extra=1)
 
 class ReportesComprasFilter(forms.ModelForm):
-    fecha_inicial = forms.DateTimeField(required=False, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese el número de teléfono del cliente")
-    fecha_final = forms.DateTimeField(required=False, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}))
+    fecha_inicial = forms.DateTimeField(required=False, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
+    fecha_final = forms.DateTimeField(required=False, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
     class Meta:
         model = ReciboCompra
         fields = ['fecha_inicial', 'fecha_final']
