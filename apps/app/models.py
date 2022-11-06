@@ -87,10 +87,9 @@ class TipoProducto(models.Model):
         return reverse('tipo_detalles', args=[str(self.id_tipo)])
 
 
-class Mantenimiento(models.Model):
+class Mantenimientos(models.Model):
     id_manten = models.AutoField(primary_key=True, verbose_name='ID del Mantenimiento')
-    fechaIngreso = models.DateField(verbose_name='Fecha del Mantenimiento')
-    fechaTermina = models.DateField(verbose_name='Fecha del Mantenimiento')
+    fecha = models.DateTimeField(null=True, blank=True, auto_now_add=False, verbose_name='Fecha del Mantenimiento', help_text="Ingrese la fecha de mantenimiento")
     descripcion = models.TextField(help_text="Ingrese las observaciones del mantenimiento",
                                    verbose_name='Observaciones')
 
@@ -104,7 +103,7 @@ class Mantenimiento(models.Model):
         """
         Devuelve el URL a una instancia particular de Producto
         """
-        return reverse('mantenimiento_detalles', args=[str(self.id_manten)])
+        return reverse('mantenimientos_detalles', args=[str(self.id_manten)])
 
 
 class Client(models.Model):

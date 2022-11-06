@@ -6,6 +6,6 @@ from apps.app.models import *
 admin.site.register(Producto)
 admin.site.register(TipoProducto)
 admin.site.register(Marca)
-admin.site.register(Mantenimiento)
+admin.site.register(Mantenimientos)
 admin.site.register(Client)
 admin.site.register(Empleado)

@@ -240,9 +240,18 @@ def importar(request):
 
 # Detalles
 
+
+
 class ProductoDetalles(UserPassesTestMixin, generic.DetailView):
     model = Producto
     template_name = 'productos/details.html'
+
+    def test_func(self):
+        return self.request.user.groups.filter(name="Editor de productos").exists()
+
+class MantenimientosDetalles(UserPassesTestMixin, generic.DetailView):
+    model = Mantenimientos
+    template_name = 'mantenimientos/details.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de productos").exists()
@@ -284,7 +293,7 @@ class ClienteDetalles(UserPassesTestMixin, generic.DetailView):
 
 class ProductosCrear(UserPassesTestMixin, CreateView):
     model = Producto
-    fields = '__all__'
+    fields = ['modelo', 'descripcion', 'tipo_producto', 'marca']
     template_name = 'productos/form.html'
 
     def test_func(self):
@@ -307,6 +316,15 @@ class MarcasCrear(UserPassesTestMixin, CreateView):
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de marcas").exists()
+
+class MantenimientosCrear(UserPassesTestMixin, CreateView):
+    model = Mantenimientos
+    fields = ['fecha', 'descripcion']
+    template_name = 'mantenimientos/form.html'
+
+    def test_func(self):
+        return self.request.user.groups.filter(name="Editor de mantenimientos").exists()
+
 
 
 class EmpleadosCrear(UserPassesTestMixin, CreateView):
@@ -331,7 +349,7 @@ class ClientesCrear(UserPassesTestMixin, CreateView):
 
 class ProductosUpdate(UserPassesTestMixin, UpdateView):
     model = Producto
-    fields = '__all__'
+    fields = ['modelo', 'descripcion', 'tipo_producto', 'marca']
     template_name = 'productos/modify.html'
 
     def test_func(self):
@@ -342,6 +360,14 @@ class TiposUpdate(UserPassesTestMixin, UpdateView):
     model = TipoProducto
     fields = '__all__'
     template_name = 'tipo_productos/modify.html'
+
+    def test_func(self):
+        return self.request.user.groups.filter(name="Editor de tipos").exists()
+
+class MantenimientosUpdate(UserPassesTestMixin, UpdateView):
+    model = Mantenimientos
+    fields = '__all__'
+    template_name = 'mantenimientos/modify.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de tipos").exists()
@@ -379,6 +405,14 @@ class ProductosBorrar(UserPassesTestMixin, DeleteView):
     model = Producto
     template_name = 'productos/confirm.html'
     success_url = reverse_lazy('productos')
+
+    def test_func(self):
+        return self.request.user.groups.filter(name="Editor de productos").exists()
+
+class MantenimientosBorrar(UserPassesTestMixin, DeleteView):
+    model = Mantenimientos
+    template_name = 'mantenimientos/confirm.html'
+    success_url = reverse_lazy('mantenimientos')
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de productos").exists()
@@ -434,6 +468,14 @@ class VistasTiposProductos(UserPassesTestMixin, generic.ListView):
     model = TipoProducto
     context_object_name = 'lista_tipos'  # your own name for the list as a template variable
     template_name = 'tipo_productos/list.html'  # Specify your own template name/location
+
+    def test_func(self):
+        return self.request.user.groups.filter(name="Editor de tipos").exists()
+
+class VistasMantenimientos(UserPassesTestMixin, generic.ListView):
+    model = Mantenimientos
+    context_object_name = 'lista_mantenimientos'  # your own name for the list as a template variable
+    template_name = 'mantenimientos/list.html'  # Specify your own template name/location
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de tipos").exists()
@@ -867,14 +909,15 @@ class ReciboComprasView(View):
         return render(request, self.template_name, context)
 
 
-
 def reportes_datos(request):
     dataset = Producto.objects.all()
     data = serializers.serialize('json', dataset)
     return JsonResponse(data, safe=False)
 
+
 def reportes_pivot(request):
     return render(request, 'reportes/reportes.html', {})
+
 
 def reportes_productos(request):
     productos = Producto.objects.all()
@@ -883,6 +926,7 @@ def reportes_productos(request):
         'productos_filter': productos_filter
     }
     return render(request, 'reportes/reportes_prod.html', context)
+
 
 def reportes_clientes(request):
     clientes = Client.objects.all()
@@ -901,6 +945,7 @@ def reportes_ventas(request):
     }
     return render(request, 'reportes/reportes_ventas.html', context)
 
+
 def reportes_compras(request):
     queryset = ReciboCompra.objects.all()
     form = ReportesComprasFilter(request.POST or None)
@@ -918,6 +963,5 @@ def reportes_compras(request):
             'queryset': queryset,
             'form': form
         }
-
 
     return render(request, 'reportes/reportes_compras.html', context)

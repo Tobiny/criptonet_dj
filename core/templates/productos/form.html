@@ -77,7 +77,7 @@
                                     {% for field in form.visible_fields %}
                                         {% setvar forloop.counter as n %}
                                         <div class="form-group">
-                                        {% if n != 3 %}
+
                                             {{ field.label_tag }}
                                             {% if form.is_bound %}
                                                 {% if field.errors %}
@@ -103,7 +103,6 @@
                                             {% if field.help_text %}
                                                 <small class="form-text text-muted">{{ field.help_text }}</small>
                                             {% endif %}
-                                        {% endif %}
 
                                         </div>
                                     {% endfor %}
@@ -127,7 +126,6 @@
     <script>
         var inputs = document.querySelectorAll('#id_modelo[data-filter]');
         var inputs2 = document.querySelectorAll('#id_descripcion[data-filter]');
-        var inputs3 = document.querySelectorAll('#id_precioCompra_0[data-filter]');
         for (var i = 0; i < inputs.length; i++) {
             var input = inputs[i];
             var state = {
@@ -151,7 +149,7 @@
                 state.end = input.selectionEnd;
             });
         }
-        for (var i = 0; i < inputs3.length; i++) {
+        for (var i = 0; i < inputs2.length; i++) {
             var textarea = inputs2[i];
             var state = {
                 value: textarea.value,
@@ -175,28 +173,5 @@
             });
         }
 
-        for (var i = 0; i < inputs3.length; i++) {
-            var textarea = inputs3[i];
-            var state = {
-                value: textarea.value,
-                start: textarea.selectionStart,
-                end: textarea.selectionEnd,
-                pattern: RegExp('^' + textarea.dataset.filter + '$')
-            };
-
-            textarea.addEventListener('input', function (event) {
-                if (state.pattern.test(textarea.value)) {
-                    state.value = textarea.value;
-                } else {
-                    textarea.value = state.value;
-                    textarea.setSelectionRange(state.start, state.end);
-                }
-            });
-
-            textarea.addEventListener('keydown', function (event) {
-                state.start = textarea.selectionStart;
-                state.end = textarea.selectionEnd;
-            });
-        }
     </script>
 {% endblock javascripts %}

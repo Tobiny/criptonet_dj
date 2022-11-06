@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Mantenimiento: {{ mantenimiento.id_manten }} {% endblock %}
+{% block title %} Mantenimiento: {{ mantenimientos.id_manten }} {% endblock %}
 
 {% block stylesheets %}{% endblock stylesheets %}
 
@@ -14,12 +14,12 @@
                             <div class="row align-items-center">
                                 <div class="col-md-12">
                                     <div class="page-header-title">
-                                        <h5 class="m-b-10">Mantenimiento: {{ mantenimiento.id_manten }}</h5>
+                                        <h5 class="m-b-10">Mantenimiento: {{ mantenimientos.id_manten }}</h5>
                                     </div>
                                     <ul class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
                                         <li class="breadcrumb-item"><a href="{% url 'mantenimientos' %}">Mantenimientos</a></li>
-                                        <li class="breadcrumb-item"><a href="">Mantenimiento: {{ mantenimiento.id_manten }}</a></li>
+                                        <li class="breadcrumb-item"><a href="">Mantenimiento: {{ mantenimientos.id_manten }}</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -34,22 +34,16 @@
                                 <div class="col-sm-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Mantenimiento: {{ mantenimiento.id_manten }}</h5>
+                                            <h5>Mantenimiento: {{ mantenimientos.id_manten }}</h5>
                                         </div>
                                         <div class="card-body">
                                             <h3>ID del Mantenimiento</h3>
-                                            <p class="text-muted mb-4">{{ mantenimiento.id_manten }}</p>
-                                            <h3>ID del Servicio</h3>
-                                            <p class="text-muted mb-4">{{ mantenimiento.id_servicio.id_servicio }}</p>
-                                            <h3>Nombre del Servicio</h3>
-                                            <p class="text-muted mb-4">{{ mantenimiento.id_servicio.nombre }}</p>
-                                            <h3>Fecha del Mantenimiento</h3>
-                                            <p class="text-muted mb-4">{{ mantenimiento.fecha }}</p>
-                                            <h3>Observaciones</h3>
-                                            <p class="text-muted mb-4">{{ mantenimiento.observaciones }}</p>
-                                            <h3>Total</h3>
-                                            <p class="text-muted mb-4">{{ mantenimiento.total }}</p>
-                                            <div class="clearfix"></div>
+                                            <p class="text-muted mb-4">{{ mantenimientos.id_manten }}</p>
+                                            <h3>Fecha de mantenimiento</h3>
+                                            <p class="text-muted mb-4">{{ mantenimientos.fecha }}</p>
+                                            <h3>Descripción</h3>
+                                            <p class="text-muted mb-4">{{ mantenimientos.descripcion }}</p>
+
                                         </div>
                                     </div>
                                 </div>

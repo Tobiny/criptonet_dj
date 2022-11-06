@@ -73,8 +73,10 @@
                                             {% endfor %}
                                         </div>
                                     {% endif %}
-                                    {% with True as first %}
+                                    {% with False as first %}
+
                                     {% for field in form.visible_fields %}
+                                        {% setvar forloop.counter as n %}
                                         <div class="form-group">
                                             {{ field.label_tag }}
                                             {% if form.is_bound %}
@@ -91,8 +93,11 @@
                                             {% elif first %}
                                                 {% render_field field|attr:"readonly:True" class="form-control"  %}
                                                 {% setvar False as first %}
+                                            {% elif n == 1 %}
+                                                {% render_field field class="form-control" type='date' %}
                                             {% else %}
                                                 {% render_field field class="form-control" %}
+
                                             {% endif %}
                                             {% if field.help_text %}
                                                 <small class="form-text text-muted">{{ field.help_text }}</small>

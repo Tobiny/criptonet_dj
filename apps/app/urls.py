@@ -2,6 +2,7 @@ from django.conf.urls import url
 from django.urls import path, re_path
 from apps.app import views
 from apps.app.views import *
+from django.contrib import admin
 
 urlpatterns = [
 
@@ -59,6 +60,12 @@ urlpatterns = [
     path("compras/<billno>", views.ReciboComprasView.as_view(), name="recibo_compra"),
 
 
+    url(r'^mantenimientos/$', views.VistasMantenimientos.as_view(), name='mantenimientos'),
+    url(r'^mantenimientos/(?P<pk>\d+)/$', views.MantenimientosDetalles.as_view(), name='mantenimientos_detalles'),
+    url(r'^mantenimientos/crear/$', views.MantenimientosCrear.as_view(), name='mantenimientos_crear'),
+    url(r'^mantenimientos/(?P<pk>\d+)/modificar/$', views.MantenimientosUpdate.as_view(), name='mantenimientos_modificar'),
+    url(r'^mantenimientos/(?P<pk>\d+)/borrar/$', views.MantenimientosBorrar.as_view(), name='mantenimientos_borrar'),
+
     path('invoices',views.invoices, name='invoices'),
     # Create URL Paths
     path('invoices/create', views.createInvoice, name='create-invoice'),
@@ -83,4 +90,5 @@ urlpatterns = [
     path('importar', views.importar, name='import'),
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
+path('admin/', admin.site.urls, name='admin-site'),  # Django admin route
 ]

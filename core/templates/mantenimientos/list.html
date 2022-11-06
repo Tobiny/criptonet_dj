@@ -44,9 +44,9 @@
                                         <thead>
                                             <tr>
                                                 <th>Id del Mantenimiento</th>
-                                                <th>Id del Servicio</th>
+
                                                 <th>Fecha</th>
-                                                <th>Total</th>
+                                                <th>Descripción</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -54,9 +54,8 @@
                                         {% for mantenimiento in lista_mantenimientos %}
                                             <tr>
                                                 <th scope="row"><a href="{{ mantenimiento.get_absolute_url }}">{{ mantenimiento.id_manten }}</a></th>
-                                                <td>{{mantenimiento.id_servicio.id_servicio}}</td>
                                                 <td>{{mantenimiento.fecha}}</td>
-                                                <td>{{mantenimiento.total}}</td>
+                                                <td>{{mantenimiento.descripcion}}</td>
                                                 <td>
                                                     <button class="btn btn-info dropdown-toggle" type="button"
                                                             data-toggle="dropdown" aria-haspopup="true"

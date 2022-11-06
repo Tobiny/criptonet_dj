@@ -177,3 +177,4 @@ class ReportesComprasFilter(forms.ModelForm):
     class Meta:
         model = ReciboCompra
         fields = ['fecha_inicial', 'fecha_final']
+

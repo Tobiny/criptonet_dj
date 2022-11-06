@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/core/templates/bill/sale_bill.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/compras/compras.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/compras/list.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/templates/mantenimientos/details.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/templates/mantenimientos/list.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/recibo/invoice-template.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/reportes/reportes.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/reportes/reportes_clientes.html" charset="UTF-8" />

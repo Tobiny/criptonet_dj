@@ -77,7 +77,6 @@
                                     {% for field in form.visible_fields %}
                                         {% setvar forloop.counter as n %}
                                         <div class="form-group">
-                                        {% if n != 3 %}
                                             {{ field.label_tag }}
                                             {% if form.is_bound %}
                                                 {% if field.errors %}
@@ -103,7 +102,6 @@
                                             {% if field.help_text %}
                                                 <small class="form-text text-muted">{{ field.help_text }}</small>
                                             {% endif %}
-                                        {% endif %}
 
                                         </div>
                                     {% endfor %}
