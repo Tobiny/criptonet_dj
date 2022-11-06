@@ -92,9 +92,9 @@
                                                 {% render_field field|attr:"readonly:True" class="form-control"  %}
                                                 {% setvar False as first %}
                                             {% elif n == 1 %}
-                                                {% render_field field data-filter='^[A-Z][A-Z\d]{0,2}$' class="form-control id1" %}
+                                                {% render_field field data-filter='^$|^[A-Z][A-Z\d]{0,2}$' class="form-control" %}
                                             {% elif n == 2 %}
-                                                {% render_field field data-filter='^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control id2" %}
+                                                {% render_field field data-filter='^$|^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control" %}
                                             {% else %}
                                                 {% render_field field class="form-control" %}
                                             {% endif %}
@@ -121,7 +121,7 @@
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
     <script>
-        var inputs = document.querySelectorAll('.id2[data-filter]');
+        var inputs = document.querySelectorAll('#id_id_tipo[data-filter]');
         for (var i = 0; i < inputs.length; i++) {
             var input = inputs[i];
             var state = {
@@ -142,6 +142,29 @@
             input.addEventListener('keydown', function (event) {
                 state.start = input.selectionStart;
                 state.end = input.selectionEnd;
+            });
+        }
+        var inputs2 = document.querySelectorAll('#id_nombre[data-filter]');
+        for (var x = 0; x < inputs2.length; x++) {
+            var input2 = inputs2[x];
+            var state2 = {
+                value: input2.value,
+                start: input2.selectionStart,
+                end: input2.selectionEnd,
+                pattern: RegExp('^' + input2.dataset.filter + '$')
+            };
+            input2.addEventListener('input', function (event) {
+                if (state2.pattern.test(input2.value)) {
+                    state2.value = input2.value;
+                } else {
+                    input2.value = state2.value;
+                    input2.setSelectionRange(state2.start, state2.end);
+                }
+            });
+
+            input2.addEventListener('keydown', function (event) {
+                state2.start = input2.selectionStart;
+                state2.end = input2.selectionEnd;
             });
         }
 

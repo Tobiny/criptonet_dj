@@ -47,12 +47,11 @@ def index(request):
 def dashboard(request):
     clients = Client.objects.all().count()
     invoices = Recibo.objects.all().count()
-    paidInvoices = Recibo.objects.filter(status='PAGADO').count()
+
 
     context = {}
     context['clients'] = clients
-    # context['invoices'] = invoices
-    # context['paidInvoices'] = paidInvoices
+
     return render(request, 'panel.html', context)
 
 
@@ -928,24 +927,6 @@ def reportes_productos(request):
     return render(request, 'reportes/reportes_prod.html', context)
 
 
-def reportes_clientes(request):
-    clientes = Client.objects.all()
-
-    context = {
-        'lista_clientes': clientes
-    }
-
-    return render(request, 'reportes/reportes_clientes.html', context)
-
-
-def reportes_ventas(request):
-    ventas = SaleBill.objects.all()
-    context = {
-        'bills': ventas
-    }
-    return render(request, 'reportes/reportes_ventas.html', context)
-
-
 def reportes_compras(request):
     queryset = ReciboCompra.objects.all()
     form = ReportesComprasFilter(request.POST or None)
@@ -957,7 +938,6 @@ def reportes_compras(request):
     if request.method == 'POST':
         queryset = ReciboCompra.objects.filter(
             time__range=[form['fecha_inicial'].value(), form['fecha_final'].value()]
-            # time__range=["2022-10-27", "2022-10-28"]
         )
         context = {
             'queryset': queryset,
@@ -965,3 +945,43 @@ def reportes_compras(request):
         }
 
     return render(request, 'reportes/reportes_compras.html', context)
+
+
+def reportes_ventas(request):
+    queryset = SaleBill.objects.all()
+    form = ReportesVentasFilter(request.POST or None)
+
+    context = {
+        'queryset': queryset,
+        'form': form
+    }
+    if request.method == 'POST':
+        queryset = SaleBill.objects.filter(
+            time__range=[form['fecha_inicial'].value(), form['fecha_final'].value()]
+        )
+        context = {
+            'queryset': queryset,
+            'form': form
+        }
+
+    return render(request, 'reportes/reportes_ventas.html', context)
+
+
+def reportes_clientes(request):
+    lista_clientes = Client.objects.all()
+    form = ReportesClientesFilter(request.POST or None)
+
+    context = {
+        'lista_clientes': lista_clientes,
+        'form': form
+    }
+    if request.method == 'POST':
+        lista_clientes = Client.objects.filter(
+            date_created__range=[form['fecha_inicial'].value(), form['fecha_final'].value()]
+        )
+        context = {
+            'lista_clientes': lista_clientes,
+            'form': form
+        }
+
+    return render(request, 'reportes/reportes_clientes.html', context)

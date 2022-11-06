@@ -172,9 +172,24 @@ class ComprasForm(forms.ModelForm):
 ComprasFormset = formset_factory(ComprasForm, extra=1)
 
 class ReportesComprasFilter(forms.ModelForm):
-    fecha_inicial = forms.DateTimeField(required=False, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
-    fecha_final = forms.DateTimeField(required=False, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
+    fecha_inicial = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
+    fecha_final = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
     class Meta:
         model = ReciboCompra
         fields = ['fecha_inicial', 'fecha_final']
 
+
+class ReportesVentasFilter(forms.ModelForm):
+    fecha_inicial = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
+    fecha_final = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
+    class Meta:
+        model = SaleBill
+        fields = ['fecha_inicial', 'fecha_final']
+
+
+class ReportesClientesFilter(forms.ModelForm):
+    fecha_inicial = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
+    fecha_final = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
+    class Meta:
+        model = Client
+        fields = ['fecha_inicial', 'fecha_final']

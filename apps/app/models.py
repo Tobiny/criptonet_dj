@@ -292,9 +292,9 @@ class Recibo(models.Model):
 
 
 class Producto(models.Model):
-    modelo = models.CharField(null=True, blank=True, max_length=70, verbose_name='Modelo del producto',
+    modelo = models.CharField( max_length=70, verbose_name='Modelo del producto',
                               help_text='Ingrese el modelo del producto')
-    descripcion = models.TextField(null=True, blank=True, help_text="Ingrese la descripción del producto",
+    descripcion = models.TextField( help_text="Ingrese la descripción del producto",
                                    verbose_name='Descripción'
                                                 ' del producto', max_length=250,
 

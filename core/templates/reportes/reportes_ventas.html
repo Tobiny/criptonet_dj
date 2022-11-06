@@ -14,37 +14,61 @@
         <div class="pcoded-inner-content">
             <!-- [ breadcrumb ] start -->
             <div class="page-header">
-            <div class="page-block">
-                <div class="row align-items-center">
-                    <div class="col-md-12">
-                        <div class="page-header-title">
-                            <h5 class="m-b-10">Reportes de ventas</h5>
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Reportes de ventas</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="{% url 'sales-list' %}">Ventas</a></li>
+                                <li class="breadcrumb-item"><a href="javascript:">Reportes de ventas</a></li>
+                            </ul>
                         </div>
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="{% url 'sales-list' %}">Ventas</a></li>
-                            <li class="breadcrumb-item"><a href="javascript:">Reportes de ventas</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
             <!-- [ breadcrumb ] end -->
             <div class="main-body">
                 <div class="page-wrapper">
                     <!-- [ Main Content ] start -->
                     <div class="row">
                         <!-- [ basic-table ] start -->
-                         <div class="col-xl-12">
+                        <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Ventas registradas</h5>
                                     <span class="d-block m-t-5">Ventas registradas hasta la fecha</span>
                                 </div>
-                                {% if bills %}
+
                                     <div class="card-block table-border-style">
+                                    <h5>Filtrado de rango de fechas de ventas realizadas
+                                        </h5>
+                                        <hr>
+
+                                            <form method="POST" action="" class="row">
+                                                {% csrf_token %}
+                                                {% for field in form %}
+                                                    <div class="col-md-6">
+                                                     <div class="form-group">
+                                                     {{ field.label }}
+                                                     {{ field }}
+                                                     {{ field.help_text }}
+                                                     </div>
+                                                     </div>
+
+                                                {% endfor %}
+                                            <div class="col-md-6">
+                                                <input type="submit"  class="btn btn-primary" value="Filtrar">
+                                            </div>
+                                            </form>
+                                        <hr>
+                                    {% if queryset %}
                                         <table id="tabla-vistas"
-                                               class="table table table-striped table-bordered table-sm" style="width:100%; table-layout:fixed; page-break-after: always;">
+                                               class="table table table-striped table-bordered table-sm"
+                                               style="width:100%; table-layout:fixed; page-break-after: always;">
                                             <thead>
                                             <tr>
                                                 <th width="10%">No. venta</th>
@@ -58,11 +82,13 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for sale in bills %}
-                                                <tr >
-                                                    <td  style=" word-wrap: break-word;         /* All browsers since IE 5.5+ */
-    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */"class="align-middle"><p>{{ sale.billno }}</p></td>
-                                                    <td  style="word-wrap: break-word; overflow-wrap: break-word;"class=""> {{ sale.cliente }}</td>
+                                            {% for sale in queryset %}
+                                                <tr>
+                                                    <td style=" word-wrap: break-word;         /* All browsers since IE 5.5+ */
+    overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */" class="align-middle">
+                                                        <p>{{ sale.billno }}</p></td>
+                                                    <td style="word-wrap: break-word; overflow-wrap: break-word;"
+                                                        class=""> {{ sale.cliente }}</td>
                                                     <td style="" class=""> {{ sale.notas }}</td>
                                                     <td class="align-middle">{% for item in sale.get_items_list %}
                                                         {{ item.stock.modelo }} <br> {% endfor %}</td>
@@ -70,7 +96,6 @@
                                                         {{ item.quantity }} <br> {% endfor %}</td>
                                                     <td class="align-middle">${{ sale.get_total_price }}</td>
                                                     <td class="align-middle">{{ sale.time.date }}</td>
-
 
 
                                                 </tr>
@@ -88,7 +113,7 @@
                                             <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
                                         </svg>
                                         <div>
-                                            No existen registros de productos
+                                            No existen registros de ventas
                                         </div>
                                     </div>
                                 {% endif %}
@@ -130,7 +155,7 @@
                             columns: ':visible',
                             rows: ':visible'
                         },
-                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5' },
+                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5'},
                     },
                     {
                         extend: 'csvHtml5',
@@ -138,7 +163,7 @@
                             columns: ':visible',
                             rows: ':visible'
                         },
-                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5' },
+                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5'},
                     },
                     {
                         extend: 'pdfHtml5',
@@ -146,7 +171,7 @@
                             columns: ':visible',
                             rows: ':visible'
                         },
-                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5' },
+                        attr: {class: 'btn btn-secondary buttons-copy buttons-html5'},
                     },
 
                 ],
@@ -160,8 +185,6 @@
 
     </script>
     <script>
-
-
 
 
         var tfConfig = {

@@ -93,9 +93,9 @@
                                                 {% render_field field|attr:"readonly:True" class="form-control"  %}
                                                 {% setvar False as first %}
                                             {% elif n == 1 %}
-                                                {% render_field field data-filter='^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control"  %}
+                                                {% render_field field data-filter='^$|^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control"  %}
                                             {% elif n == 2 %}
-                                                {% render_field field data-filter='^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control"  %}
+                                                {% render_field field data-filter='^$|^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control"  %}
                                             {% else %}
                                                 {% render_field field class="form-control" %}
                                             {% endif %}

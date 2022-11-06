@@ -18,8 +18,11 @@
                     </li>
                     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project"
                         class="nav-item">
-                        <a class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">{{ user.get_username }}</span></a>
-
+                        {% if user.is_superuser  %}
+                            <a href="{% url 'admin:index' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">{{ user.get_username }}</span></a>
+                        {% else %}
+                            <div class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">{{ user.get_username }}</span></div>
+                        {% endif %}
                     </li>
 
                     <li class="nav-item pcoded-menu-caption">
@@ -110,7 +113,6 @@
                     <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                         <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-tag"></i></span><span class="pcoded-mtext">Reportes</span></a>
                         <ul class="pcoded-submenu">
-                            <li class=""><a href="{% url 'reportes' %}" class="">Productos</a></li>
                             <li class=""><a href="{% url 'rep_productos' %}" class="">Productos</a></li>
                             <li class=""><a href="{% url 'rep_clientes' %}" class="">Clientes</a></li>
                             <li class=""><a href="{% url 'rep_ventas' %}" class="">Ventas</a></li>

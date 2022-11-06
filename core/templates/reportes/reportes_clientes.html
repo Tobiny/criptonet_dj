@@ -41,8 +41,30 @@
                                 <h5>Clientes registrados</h5>
                                 <span class="d-block m-t-5">Clientes registrados hasta la fecha</span>
                             </div>
-                            {% if lista_clientes %}
+
                                 <div class="card-block table-border-style">
+                                    <h5>Filtrado de rango de fechas de ingreso de clientes
+                                        </h5>
+                                        <hr>
+
+                                            <form method="POST" action="" class="row">
+                                                {% csrf_token %}
+                                                {% for field in form %}
+                                                    <div class="col-md-6">
+                                                     <div class="form-group">
+                                                     {{ field.label }}
+                                                     {{ field }}
+                                                     {{ field.help_text }}
+                                                     </div>
+                                                     </div>
+
+                                                {% endfor %}
+                                            <div class="col-md-6">
+                                                <input type="submit"  class="btn btn-primary" value="Filtrar">
+                                            </div>
+                                            </form>
+                                        <hr>
+                                    {% if lista_clientes %}
                                     <table id="tabla-vistas" style="width:100%" class="table table table-striped table-bordered table-sm"  style="width:100%; table-layout:fixed; page-break-after: always;">
                                         <thead>
                                             <tr>
