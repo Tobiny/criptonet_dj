@@ -5,31 +5,44 @@ Copyright (c) 2019 - present AppSeed.us
 from core.wsgi import *
 from django.test import TestCase
 from apps.app.models import Client, Producto, TipoProducto, Marca
+import csv
 
 # Create your tests here.
-query = Client.objects.all()
-t = Client.objects.get(uniqueId="43e459aa48ba402b907a191e4b5ffabc")
-print(t.nombreCliente)
+#Abrir el csv con el encoding UTF-8 y lo pasa a una lista (debe estar en la carpeta testcases)
+# with open('testcases/Testcases.csv', newline='', encoding="utf-8") as f:
+#     data = list(csv.reader(f, delimiter=","))
 
-publisher = Producto(modelo='si', descripcion='si', tipo_producto=TipoProducto.objects.get(id_tipo='TAR'), marca=Marca.objects.get(id_marca='NVD'))
-publisher.save()
+#For por toda la lista, insertando los datos en el modelo Producto, si necesitas insertar en
+#Otros modelos ve a apps/app/models, ahi vienen los que usamos.
+#Sino sabes que modelo es me preguntas
+# for d in data:
+#     producto = Producto(modelo=d[0], descripcion=d[1], tipo_producto=TipoProducto.objects.get(id_tipo=d[2]),
+#                         marca=Marca.objects.get(id_marca=d[3]))
+#     producto.save()
+#Cuando termines de usarlo, los comentas, no lo vayas a volver a correr, de lo contrario te va volver a insertar
+#todo
 
-# select from Tabla
+
+
+
+
+# Ignora esto, esto es de guía para hacer otras cosas
+# #select from Tabla
 # query = Cliente.objects.all()
 # print(query)
 
-# insercion
+# #insercion
 # t.Type()
 # t.name = 'Accionista"
 # t.save()
 # t.save()
 
-# edicion
-
+# #edicion
+#
 # t = Type.objects.get(pk-1)
 # t.name = 'Accionsdk19283'
 # t.save()
-# eliminacion
+# #eliminacion
 
 # try:
 #     c = Client.objects.get(uniqueId="43e459aa48ba402b907a191e4b5ffabc")
@@ -37,3 +50,8 @@ publisher.save()
 #     c.save()
 # except Exception as e:
 #     print(e)
+
+
+# query = Client.objects.all()
+# t = Client.objects.get(uniqueId="43e459aa48ba402b907a191e4b5ffabc")
+# print(t.nombreCliente)
