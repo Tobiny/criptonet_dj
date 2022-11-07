@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/apps/app/form.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/apps/app/testcases/Testcases.csv" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/app/testcases/clientes.csv" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/apps/app/testcases/empleados.csv" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/bill/bill_base.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/bill/purchase_bill.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/bill/sale_bill.html" charset="UTF-8" />

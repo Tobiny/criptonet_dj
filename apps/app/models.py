@@ -1,3 +1,4 @@
+import datetime
 from uuid import uuid4
 
 from django.contrib.auth.models import User
@@ -87,24 +88,6 @@ class TipoProducto(models.Model):
         return reverse('tipo_detalles', args=[str(self.id_tipo)])
 
 
-class Mantenimientos(models.Model):
-    id_manten = models.AutoField(primary_key=True, verbose_name='ID del Mantenimiento')
-    fecha = models.DateTimeField(null=True, blank=True, auto_now_add=False, verbose_name='Fecha del Mantenimiento', help_text="Ingrese la fecha de mantenimiento")
-    descripcion = models.TextField(help_text="Ingrese las observaciones del mantenimiento",
-                                   verbose_name='Observaciones')
-
-    def __str__(self):
-        """
-        String para representar el Objeto del Modelo
-        """
-        return '%s - %s' % (self.id_manten, self.fechaIngreso)
-
-    def get_absolute_url(self):
-        """
-        Devuelve el URL a una instancia particular de Producto
-        """
-        return reverse('mantenimientos_detalles', args=[str(self.id_manten)])
-
 
 class Client(models.Model):
     ESTADOS = [
@@ -143,19 +126,19 @@ class Client(models.Model):
     ]
 
     # Basic Fields.
-    nombreCliente = models.CharField(null=True, blank=True, max_length=50, help_text="Ingrese el nombre del cliente",
+    nombreCliente = models.CharField(max_length=50, help_text="Ingrese el nombre del cliente",
                                      verbose_name='Nombre del '
                                                   'Cliente', validators=[RegexValidator(
             regex='^[ÁÉÍÓÚA-Z][a-záéíóú]*(\s[ÁÉÍÓÚA-Z][a-záéíóú]*)*',
             message='El nombre ingresado no es válido, revise sus espacios o sintaxis',
             code='invalid_nombre')])
-    domicilio = models.CharField(null=True, blank=True, max_length=50, help_text="Ingrese el domicilio del cliente",
+    domicilio = models.CharField(max_length=50, help_text="Ingrese el domicilio del cliente",
                                  verbose_name='Domicilio del '
                                               'Cliente')
-    estado = models.CharField(choices=ESTADOS, blank=True, default="Jalisco", max_length=20,
+    estado = models.CharField(choices=ESTADOS, default="Jalisco", max_length=20,
                               help_text="Ingrese el estado", verbose_name='Estado'
                               )
-    codigoPostal = models.IntegerField(null=True, blank=True, max_length=5,
+    codigoPostal = models.IntegerField( max_length=5,
                                        help_text="Ingrese el codigo postal del cliente",
                                        verbose_name='Codigo Postal del '
                                                     'Cliente',
@@ -164,21 +147,21 @@ class Client(models.Model):
                                            message='Código postal inválido',
                                            code='invalid_PC'), ])
 
-    numTelefono = models.CharField(null=True, blank=True, max_length=10,
+    numTelefono = models.CharField( max_length=10,
                                    help_text="Ingrese el número de teléfono del cliente", verbose_name='Número de '
                                                                                                        'Teléfono',
                                    validators=[RegexValidator(
                                        regex='(\(\d{3}\)[.-]?|\d{3}[.-]?)?\d{3}[.-]?\d{4}',
                                        message='El número es inválido.',
                                        code='invalid_number'), ])
-    dirEmail = models.EmailField(null=True, blank=True, max_length=100,
+    dirEmail = models.EmailField( max_length=100,
                                  help_text="Ingrese la dirección de correo del cliente", verbose_name='Email del '
                                                                                                       'Cliente',
                                  validators=[RegexValidator(
                                      regex='[a-z0-9]+@[a-z]+\.[a-z]{2,3}',
                                      message='El correo es inválido.',
                                      code='invalid_email'), ])
-    rfcCliente = models.CharField(null=True, blank=True, max_length=13, validators=[RegexValidator(
+    rfcCliente = models.CharField(max_length=13, validators=[RegexValidator(
         regex='^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$',
         message='El RFC deberá tener el formato que la Servicio de Administración Tributaria valida',
         code='invalid_RFC'), ])
@@ -199,13 +182,37 @@ class Client(models.Model):
 
     def save(self, *args, **kwargs):
         if self.date_created is None:
-            self.date_created = timezone.localtime(timezone.now())
+            self.date_created = datetime.datetime.now()
 
         temp = str(uuid4()).split('-')[4]
         self.slug = slugify('{} {} {}'.format(self.nombreCliente, self.estado, temp))
-        self.last_updated = timezone.localtime(timezone.now())
+        self.last_updated = datetime.datetime.now()
 
         super(Client, self).save(*args, **kwargs)
+
+
+class Mantenimientos(models.Model):
+    id_manten = models.AutoField(primary_key=True, verbose_name='ID del Mantenimiento')
+    fecha = models.DateTimeField(null=True, blank=True, auto_now_add=False, verbose_name='Fecha del Mantenimiento', help_text="Ingrese la fecha de mantenimiento")
+    descripcion = models.TextField(help_text="Ingrese las observaciones del mantenimiento",
+                                   verbose_name='Observaciones')
+    cliente = models.ForeignKey(Client, on_delete=models.CASCADE,
+                                      help_text="Seleccione el cliente para su mantenimiento", verbose_name='Cliente'
+                                      )
+    empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE,
+                                help_text="Seleccione el empleado a realizar el mantenimiento", verbose_name='Empleado'
+                                )
+    def __str__(self):
+        """
+        String para representar el Objeto del Modelo
+        """
+        return '%s - %s' % (self.id_manten, self.fechaIngreso)
+
+    def get_absolute_url(self):
+        """
+        Devuelve el URL a una instancia particular de Producto
+        """
+        return reverse('mantenimientos_detalles', args=[str(self.id_manten)])
 
 
 # contains the sale bills made
@@ -305,7 +312,7 @@ class Producto(models.Model):
                                                 'Productos en Existencia', max_length=6, default=0)
     tipo_producto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE,
                                       help_text="Seleccione el tipo de producto", verbose_name='Tipo de producto'
-                                      , default='Sin tipo')
+                                     , default='Sin tipo')
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='Sin marca',
                               help_text="Ingrese la marca del producto", verbose_name='Marca del '
                                                                                       'Producto')

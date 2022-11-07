@@ -37,7 +37,7 @@ export default class FiltersVisibility extends Feature {
          * Extension's stylesheet filename
          * @type {String}
          */
-        this.stylesheet = defaultsStr(f.stylesheet , 'filtersVisibility.css');
+        this.stylesheet = defaultsStr(f.stylesheet, 'filtersVisibility.css');
 
         /**
          * Expand icon filename

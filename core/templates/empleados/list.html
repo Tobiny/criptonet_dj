@@ -45,6 +45,7 @@
                                             <tr>
                                                 <th>ID del Empleado</th>
                                                 <th>Nombre del Empleado</th>
+                                                <th>RFC del Empleado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -53,6 +54,7 @@
                                             <tr>
                                                 <th scope="row"><a href="{{ empleado.get_absolute_url }}">{{ empleado.id_empleado }}</a></th>
                                                 <td>{{empleado.nombre}}</td>
+                                                <td>{{empleado.rfc}}</td>
                                                 <td>
                                                     <button class="btn btn-info dropdown-toggle" type="button"
                                                             data-toggle="dropdown" aria-haspopup="true"

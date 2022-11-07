@@ -3758,7 +3758,7 @@ function Datepicker() {
 	this._curInst = null; // The current instance in use
 	this._keyEvent = false; // If the last event was a key event
 	this._disabledInputs = []; // List of date picker inputs that have been disabled
-	this._datepickerShowing = false; // True if the popup picker is showing , false if not
+	this._datepickerShowing = false; // True if the popup picker is showing, false if not
 	this._inDialog = false; // True if showing within a "dialog", false if not
 	this._mainDivId = "ui-datepicker-div"; // The ID of the main datepicker division
 	this._inlineClass = "ui-datepicker-inline"; // The name of the inline marker class
@@ -6817,7 +6817,7 @@ $.widget("ui.resizable", $.ui.mouse, {
 	},
 
 	_isNumber: function( value ) {
-		return !isNaN( parseInt( value , 10 ) );
+		return !isNaN( parseInt( value, 10 ) );
 	},
 
 	_hasScroll: function( el, a ) {

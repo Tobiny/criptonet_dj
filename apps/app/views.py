@@ -318,7 +318,7 @@ class MarcasCrear(UserPassesTestMixin, CreateView):
 
 class MantenimientosCrear(UserPassesTestMixin, CreateView):
     model = Mantenimientos
-    fields = ['fecha', 'descripcion']
+    fields = ['fecha', 'descripcion','cliente','empleado']
     template_name = 'mantenimientos/form.html'
 
     def test_func(self):
