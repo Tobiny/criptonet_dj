@@ -233,6 +233,7 @@ class SaleBill(models.Model):
         saleitems = SaleItem.objects.filter(billno=self)
         total = 0
         for item in saleitems:
+            print(item.totalprice)
             total += item.totalprice
         return total
 
@@ -488,12 +489,12 @@ class DetallesReciboCompra(models.Model):
 
 
 # Clase Balance, para registrar el balance que tiene la empresa
-class Balance(models.Model):
-    balance = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
-                         default_currency='MXN')
-    transaccion = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
-                         default_currency='MXN')
-    fecha_transaccion = models.DateTimeField()
-    reciboCompra = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, null=True)
-    reciboVenta = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, null=True)
-
+# class Balance(models.Model):
+#     balance = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
+#                          default_currency='MXN')
+#     transaccion = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
+#                          default_currency='MXN')
+#     fecha_transaccion = models.DateTimeField()
+#     reciboCompra = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, null=True)
+#     reciboVenta = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, null=True)
+#

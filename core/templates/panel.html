@@ -1,9 +1,12 @@
 {% extends "layouts/base.html" %}
-
+{% load humanize %}
 {% block title %} Inicio {% endblock %}
 
 <!-- Specific CSS goes HERE -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"
+          integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous"/>
+{% endblock stylesheets %}
 
 {% block content %}
 
@@ -44,32 +47,124 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4">
+                    <div class="row">
+                        <div class="col-md-6 col-xl-6">
                             <div class="card daily-sales">
                                 <div class="card-block">
                                     <div class="row align-items-center justify-content-center">
                                         <div class="col">
-                                            <h5 class="m-0">Numero de clientes registrados</h5>
+                                            <h5 class="m-0">Productos registrados</h5>
                                         </div>
                                         <div class="col-auto">
-                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{clients}}</label>
+                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{ productos }}</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-block">
                                     <div class="row align-items-center justify-content-center">
                                         <div class="col">
-                                            <h5 class="m-0">Numero de recibos registrados</h5>
+                                            <h5 class="m-0">Tipos de productos registrados</h5>
                                         </div>
                                         <div class="col-auto">
-                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{invoices}}</label>
+                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{ tipos_productos }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col">
+                                            <h5 class="m-0">Marcas registradas</h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{ marcas }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col">
+                                            <h5 class="m-0">Empleados registrados</h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{ empleados }}</label>
                                         </div>
                                     </div>
                                 </div>
 
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-6">
+                            <div class="card daily-sales">
+                                <div class="card-block">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col">
+                                            <h5 class="m-0">Clientes registrados</h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{ clients }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col">
+                                            <h5 class="m-0">Mantenimientos registrados</h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{ mantenimientos }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col">
+                                            <h5 class="m-0">Ventas registradas</h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{ ventas }}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div class="col">
+                                            <h5 class="m-0">Compras registradas</h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="label theme-bg2 text-white f-14 f-w-400 float-right">{{ compras }}</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="col-xl-12 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Ventas realizadas</h5>
+                                </div>
+                                <div class="card-block">
+                                    <div class="row align-items-center justify-content-center">
+                                        <canvas id="myChart" style="width:100%;max-width:900px"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-xl-12 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Productos en existencia</h5>
+                                </div>
+                                <div class="card-block">
+                                    <div class="row align-items-center justify-content-center">
+                                        <canvas id="myChart2" style="width:100%;max-width:900px"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- [ Main Content ] end -->
                 </div>
             </div>
@@ -79,4 +174,92 @@
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+            integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+
+    <script>
+        // jquery function
+        $(document).ready(function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [{%for data in ventasChart%}'{{data.billno}}',{%endfor%}],//loop through queryset,
+                    datasets: [{
+                        label: 'Capital obtenido por ventas',
+                        data: [{%for data in ventasChart%}
+                                {{data.get_total_price|stringformat:".2f" }},
+                        {%endfor%}],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+
+        // jquery function
+        $(document).ready(function () {
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [{%for data in productosChart %}'{{data.modelo}}',{%endfor%}],//loop through queryset,
+                    datasets: [{
+                        label: 'Productos en existencia',
+                        data: [{%for data in productosChart%}
+                                {{data.cantidad }},
+                        {%endfor%}],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    </script>
+{% endblock javascripts %}

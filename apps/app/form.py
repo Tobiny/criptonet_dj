@@ -126,7 +126,7 @@ class ReciboForm(forms.ModelForm):
 class SaleItemForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['stock'].queryset = Producto.objects.filter(cantidad__gte=0)
+        self.fields['stock'].queryset = Producto.objects.filter(cantidad__gt=0)
         self.fields['stock'].widget.attrs.update({'class': 'textinput form-control setprice stock', 'required': 'true'})
         self.fields['quantity'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '0', 'required': 'true'})
         self.fields['perprice'].widget.attrs.update({'class': 'textinput form-control setprice price', 'readonly':'true','min': '0', 'required': 'true'})

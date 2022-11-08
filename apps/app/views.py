@@ -21,7 +21,7 @@ from django.views.generic import (
     ListView,
     View,
     CreateView,
-    UpdateView
+    UpdateView, TemplateView
 )
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
@@ -30,14 +30,28 @@ from django.contrib import messages
 @login_required(login_url="/login/")
 def index(request):
     context = {'segment': 'index'}
+    productos = Producto.objects.all().count()
+    productosChart = Producto.objects.filter(cantidad__gt=0)
+    tipos_productos = TipoProducto.objects.all().count()
+    marcas = Marca.objects.all().count()
     clients = Client.objects.all().count()
-    invoices = Recibo.objects.all().count()
-    paidInvoices = Recibo.objects.filter(estado='PAGADO').count()
+    empleados = Empleado.objects.all().count()
+    mantenimientos = Mantenimientos.objects.all().count()
+    ventas = SaleBill.objects.all().count()
+    ventasChart = SaleBill.objects.all()
+    compras = ReciboCompra.objects.all().count()
 
     context = {}
     context['clients'] = clients
-    context['invoices'] = invoices
-    context['paidInvoices'] = paidInvoices
+    context['productos'] = productos
+    context['tipos_productos'] = tipos_productos
+    context['marcas'] = marcas
+    context['empleados'] = empleados
+    context['mantenimientos'] = mantenimientos
+    context['compras'] = compras
+    context['ventas'] = ventas
+    context['ventasChart'] = ventasChart
+    context['productosChart'] = productosChart
 
     html_template = loader.get_template('panel.html')
     return HttpResponse(html_template.render(context, request))
@@ -569,7 +583,7 @@ class SaleCreateView(View):
     def get(self, request):
         recibo_form = ReciboForm(request.GET or None)  # para el cliente
         formset = SaleItemFormset(request.GET or None)  # renders an empty formset
-        stocks = Producto.objects.filter(cantidad__gte=0)
+        stocks = Producto.objects.filter(cantidad__gt=0)
         context = {
             'recibo_form': recibo_form,
             'formset': formset,
@@ -587,7 +601,6 @@ class SaleCreateView(View):
             # create bill details object
             billdetailsobj = SaleBillDetails(billno=billobj)
             billdetailsobj.save()
-            print(formset)
             for form in formset:  # for loop to save each individual form as its own object
                 print(form)
                 # false saves the item and links bill to the item
@@ -783,7 +796,7 @@ class ComprasCreateView(View):
                 # saves bill item and stock
                 stock.save()
                 billitem.save()
-            balance = Balance(balance = balance+recibobj.get_total_price(), transaccion=recibobj.get_total_price(), )
+            # balance = Balance(balance = balance+recibobj.get_total_price(), transaccion=recibobj.get_total_price(), )
             print()
             messages.success(request, "Artículos comprados han sido registrados exitosamente")
             return redirect('recibo_compra', billno=recibobj.billno)
@@ -988,3 +1001,4 @@ def reportes_clientes(request):
         }
 
     return render(request, 'reportes/reportes_clientes.html', context)
+
