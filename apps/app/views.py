@@ -79,164 +79,12 @@ def invoices(request):
 
 
 @login_required
-def createInvoice(request):
-    # create a blank invoice ....
-    numero = 'INV-' + str(uuid4()).split('-')[1]
-    newInvoice = Recibo.objects.create(numero=numero)
-    newInvoice.save()
-
-    inv = Recibo.objects.get(numero=numero)
-    return redirect('create-build-invoice', slug=inv.slug)
-
-
-def createBuildInvoice(request, slug):
-    # fetch that invoice
-    try:
-        recibo = Recibo.objects.get(slug=slug)
-        pass
-    except:
-        messages.error(request, 'Something went wrong')
-        return redirect('invoices')
-
-    # fetch all the products - related to this invoice
-    products = DetalleProducto.objects.filter(recibo=recibo)
-
-    context = {}
-    context['invoice'] = recibo
-    context['products'] = products
-
-    if request.method == 'GET':
-        prod_form = ProductoDetallesForm()
-        inv_form = InvoiceForm(instance=recibo)
-        client_form = ClientSelectForm(initial_client=recibo.client)
-        context['prod_form'] = prod_form
-        context['inv_form'] = inv_form
-        context['client_form'] = client_form
-        return render(request, 'recibo/create_invoce.html', context)
-
-    if request.method == 'POST':
-        prod_form = ProductoDetallesForm(request.POST)
-        inv_form = InvoiceForm(request.POST, instance=recibo)
-        client_form = ClientSelectForm(request.POST, initial_client=recibo.client, instance=recibo)
-
-        if prod_form.is_valid():
-            obj = prod_form.save(commit=False)
-            obj.recibo = recibo
-            obj.save()
-
-            messages.success(request, "Producto agregado con exito", extra_tags='alert-success')
-            return redirect('create-build-invoice', slug=slug)
-        elif inv_form.is_valid and 'estado' in request.POST:
-            inv_form.save()
-            messages.success(request, "Recibo actualizado con exito", extra_tags='alert-success')
-            return redirect('create-build-invoice', slug=slug)
-        elif client_form.is_valid() and 'client' in request.POST:
-
-            client_form.save()
-            messages.success(request, "Cliente añadido exitosamente", extra_tags='alert-success')
-            return redirect('create-build-invoice', slug=slug)
-        else:
-            context['prod_form'] = prod_form
-            context['inv_form'] = inv_form
-            context['client_form'] = client_form
-            messages.error(request, "Problema procesando la transacción, ingreselo de nuevo", extra_tags='alert-danger')
-            return render(request, 'recibo/create_invoce.html', context)
-
-    return render(request, 'recibo/create_invoce.html', context)
-
-
-@login_required
 def invoices(request):
     context = {}
     invoices = Recibo.objects.all()
     context['invoices'] = invoices
 
     return render(request, 'recibo/invoices.html', context)
-
-
-def viewPDFInvoice(request, slug):
-    # fetch that invoice
-    try:
-        invoice = Recibo.objects.get(slug=slug)
-        pass
-    except:
-        messages.error(request, 'Something went wrong')
-        return redirect('invoices')
-
-    # fetch all the products - related to this invoice
-    products = DetalleProducto.objects.filter(recibo=invoice)
-
-    context = {}
-    context['invoice'] = invoice
-    context['products'] = products
-
-    return render(request, 'recibo/invoice-template.html', context)
-
-
-def viewDocumentInvoice(request, slug):
-    # fetch that invoice
-    try:
-        invoice = Recibo.objects.get(slug=slug)
-        pass
-    except:
-        messages.error(request, 'Something went wrong')
-        return redirect('invoices')
-
-    # fetch all the products - related to this invoice
-    products = DetalleProducto.objects.filter(recibo=invoice)
-
-    context = {}
-    context['invoice'] = invoice
-    context['products'] = products
-
-    # The name of your PDF file
-    filename = '{}.pdf'.format(invoice.uniqueId)
-
-    # HTML FIle to be converted to PDF - inside your Django directory
-    template = get_template('recibo/pdf-template.html')
-
-    # Render the HTML
-    html = template.render(context)
-
-    # Options - Very Important [Don't forget this]
-    options = {
-        'encoding': 'UTF-8',
-        'javascript-delay': '10',  # Optional
-        'enable-local-file-access': None,  # To be able to access CSS
-        'page-size': 'A4',
-        'custom-header': [
-            ('Accept-Encoding', 'gzip')
-        ],
-    }
-    # Javascript delay is optional
-
-    # Remember that location to wkhtmltopdf
-    config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
-
-    # IF you have CSS to add to template
-    css1 = os.path.join(settings.CSS_LOCATION, 'assets', 'css', 'bootstrap.min.css')
-    css2 = os.path.join(settings.CSS_LOCATION, 'assets', 'css', 'dashboard.css')
-
-    # Create the file
-    file_content = pdfkit.from_string(html, False, configuration=config, options=options)
-
-    # Create the HTTP Response
-    response = HttpResponse(file_content, content_type='application/pdf')
-    response['Content-Disposition'] = 'inline; filename = {}'.format(filename)
-
-    # Return
-    return response
-
-
-def deleteInvoice(request, slug):
-    try:
-        Recibo.objects.get(slug=slug).delete()
-    except:
-        messages.error(request, 'Something went wrong')
-        return redirect('invoices')
-
-    return redirect('invoices')
-
 
 def export(request):
     sysout = sys.stdout
@@ -577,7 +425,9 @@ class SaleView(ListView):
 
 
 # used fto generate a bill object and save items
-class SaleCreateView(View):
+class SaleCreateView(View, UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.groups.filter(name="Editor de ventas").exists()
     template_name = "sales/new_sale.html"
 
     def get(self, request):
@@ -626,6 +476,7 @@ class SaleCreateView(View):
             'formset': formset,
         }
         return render(request, self.template_name, context)
+
 
 
 # used to delete a bill object

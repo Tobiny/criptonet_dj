@@ -4,7 +4,1607 @@
   "pk": 1,
   "fields": {
     "nombre": "Guillermo Moreno Rivera",
-    "rfc": "VATL900113MW8"
+    "rfc": "MORG0105181J7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 3,
+  "fields": {
+    "nombre": "John Gracio Martin",
+    "rfc": "GAMJ091023873"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 4,
+  "fields": {
+    "nombre": "William Manit Berenice",
+    "rfc": "MABW021206FX5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 5,
+  "fields": {
+    "nombre": "James Bechameil Jules",
+    "rfc": "BEJJ320329C48"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 6,
+  "fields": {
+    "nombre": "Charles Pierr Adelie",
+    "rfc": "PIAC270913AG1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 7,
+  "fields": {
+    "nombre": "George Faustine Baptiste",
+    "rfc": "FABG7804201H9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 8,
+  "fields": {
+    "nombre": "Frank Esther Fanny",
+    "rfc": "EEFF1812142L1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 9,
+  "fields": {
+    "nombre": "Joseph Ghardard Nathan",
+    "rfc": "GANJ4905245F1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 10,
+  "fields": {
+    "nombre": "Thomas Paul Jules",
+    "rfc": "PAJT5906138R4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 11,
+  "fields": {
+    "nombre": "Henry Jules Quentin",
+    "rfc": "JUQH990701S46"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 12,
+  "fields": {
+    "nombre": "Robert Tom Tristan",
+    "rfc": "TOTR500624EY1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 13,
+  "fields": {
+    "nombre": "Edward Lylou Eloi",
+    "rfc": "LOEE170822V22"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 14,
+  "fields": {
+    "nombre": "Harry Mathis Axelle",
+    "rfc": "MAAH440603F35"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 15,
+  "fields": {
+    "nombre": "Walter Victor Tom",
+    "rfc": "VITW650327TUA"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 16,
+  "fields": {
+    "nombre": "Arthur Soane Loic",
+    "rfc": "SOLA280925R66"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 17,
+  "fields": {
+    "nombre": "Fred Dorian Hugues",
+    "rfc": "DOHF070324AU3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 18,
+  "fields": {
+    "nombre": "Albert Charles Hippolyte",
+    "rfc": "CAHA980720JF0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 19,
+  "fields": {
+    "nombre": "Samuel Shirel Isaure",
+    "rfc": "SIIS0204299F8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 20,
+  "fields": {
+    "nombre": "David Vargoz Tizia",
+    "rfc": "VATD181210HZ5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 21,
+  "fields": {
+    "nombre": "Louis Berenice Antonin",
+    "rfc": "BEAL640921TE1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 22,
+  "fields": {
+    "nombre": "Joe Guillaume Soane",
+    "rfc": "GUSJ940609H49"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 23,
+  "fields": {
+    "nombre": "Charlie Nathan Lorenzo",
+    "rfc": "NALC750115RX0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 24,
+  "fields": {
+    "nombre": "Clarence Alice Maurane",
+    "rfc": "AIMC360617L4A"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 25,
+  "fields": {
+    "nombre": "Richard Axel Alexis",
+    "rfc": "AEAR3305176V7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 26,
+  "fields": {
+    "nombre": "Andrew Nael Mathilde",
+    "rfc": "NAMA750608NV2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 27,
+  "fields": {
+    "nombre": "Daniel Bapteste Clement",
+    "rfc": "BACD1402013Q4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 28,
+  "fields": {
+    "nombre": "Ernest Eymeric Shirel",
+    "rfc": "EESE0103067A2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 29,
+  "fields": {
+    "nombre": "Will Reda Alice",
+    "rfc": "REAW220713UQ9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 30,
+  "fields": {
+    "nombre": "Jesse Axel Victor",
+    "rfc": "AEVJ331121GM2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 31,
+  "fields": {
+    "nombre": "Oscar Theo Malo",
+    "rfc": "TEMO940610UD8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 32,
+  "fields": {
+    "nombre": "Lewis Tom Alexandre",
+    "rfc": "TOAL9311015KA"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 33,
+  "fields": {
+    "nombre": "Peter Alix Emma",
+    "rfc": "AIEP771203DE2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 34,
+  "fields": {
+    "nombre": "Benjamin Nathan Lore",
+    "rfc": "NALB320729ME5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 35,
+  "fields": {
+    "nombre": "Frederick Anais Louis",
+    "rfc": "AALF190314KCA"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 36,
+  "fields": {
+    "nombre": "Willie Tan Eymeric",
+    "rfc": "TAEW9002206D3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 37,
+  "fields": {
+    "nombre": "Alfred Jerome Yael",
+    "rfc": "JEYA900814LS6"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 38,
+  "fields": {
+    "nombre": "Sam Alexandre Pierr",
+    "rfc": "AEPS3409104D4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 39,
+  "fields": {
+    "nombre": "Roy Louis Bahoua",
+    "rfc": "LOBR3704246B8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 40,
+  "fields": {
+    "nombre": "Herbert Nina Reda",
+    "rfc": "NIRH320918TF7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 41,
+  "fields": {
+    "nombre": "Jacob Lisa Theo",
+    "rfc": "LITJ980728N45"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 42,
+  "fields": {
+    "nombre": "Tom Hippolyte Lucien",
+    "rfc": "HILT480318V10"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 43,
+  "fields": {
+    "nombre": "Elmer Victor Nicolas",
+    "rfc": "VINE3804178W2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 44,
+  "fields": {
+    "nombre": "Carl Baltazar Gaetan",
+    "rfc": "BAGC841023GF0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 45,
+  "fields": {
+    "nombre": "Lee Lore Mathilde",
+    "rfc": "LOML630829AH4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 46,
+  "fields": {
+    "nombre": "Howard Mathilda Charles",
+    "rfc": "MACH420214KC3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 47,
+  "fields": {
+    "nombre": "Martin Maxime Antoine",
+    "rfc": "MAAM150907M71"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 48,
+  "fields": {
+    "nombre": "Michael Antonin Nelsey",
+    "rfc": "AONM491216GT1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 49,
+  "fields": {
+    "nombre": "Bert Amandine Ewen",
+    "rfc": "AAEB521112NK5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 50,
+  "fields": {
+    "nombre": "Herman Damien Karel",
+    "rfc": "DAKH660511L83"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 51,
+  "fields": {
+    "nombre": "Jim Emilie Gautier",
+    "rfc": "EIGJ141009TH7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 52,
+  "fields": {
+    "nombre": "Francis Stella Billie Lou",
+    "rfc": "SEBF990310K7A"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 53,
+  "fields": {
+    "nombre": "Harvey Louise Julie",
+    "rfc": "LOJH461110HC4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 54,
+  "fields": {
+    "nombre": "Earl Garance Amandine",
+    "rfc": "GAAE740220LI9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 55,
+  "fields": {
+    "nombre": "Eugene Taran Quentin",
+    "rfc": "TAQE881006E42"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 56,
+  "fields": {
+    "nombre": "Ralph Loic Guillaume",
+    "rfc": "LOGR7811035Z8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 57,
+  "fields": {
+    "nombre": "Ed Hugues Nathan",
+    "rfc": "HUNE050216A70"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 58,
+  "fields": {
+    "nombre": "Claude Theo Ines",
+    "rfc": "TEIC0511234W5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 59,
+  "fields": {
+    "nombre": "Edwin Eloi Leon",
+    "rfc": "EOLE380402EH4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 60,
+  "fields": {
+    "nombre": "Ben Donia Louise",
+    "rfc": "DOLB201107FE4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 61,
+  "fields": {
+    "nombre": "Charley Alice Olivia",
+    "rfc": "AIOC9501319J5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 62,
+  "fields": {
+    "nombre": "Paul Axelle Vencon",
+    "rfc": "AEVP801224HR1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 63,
+  "fields": {
+    "nombre": "Edgar Paul Gauthier",
+    "rfc": "PAGE240728RS6"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 64,
+  "fields": {
+    "nombre": "Isaac Annecemence Nassim",
+    "rfc": "AENI080125UK4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 65,
+  "fields": {
+    "nombre": "Otto Alexis Jeanne",
+    "rfc": "AEJO930724NA4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 66,
+  "fields": {
+    "nombre": "Luther Mateo Baptiste",
+    "rfc": "MABL0310299P9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 67,
+  "fields": {
+    "nombre": "Lawrence Apolline Mathilde",
+    "rfc": "AOML710821180"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 68,
+  "fields": {
+    "nombre": "Ira Victoire Quentin",
+    "rfc": "VIQI771116863"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 69,
+  "fields": {
+    "nombre": "Patrick Paul Esther",
+    "rfc": "PAEP59050315A"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 70,
+  "fields": {
+    "nombre": "Guy Adelie Jade",
+    "rfc": "AEJG420122RQ1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 71,
+  "fields": {
+    "nombre": "Oliver Tizia Matthias",
+    "rfc": "TIMO260705T7A"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 72,
+  "fields": {
+    "nombre": "Theodore Karel Ileana",
+    "rfc": "KAIT0411254E8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 73,
+  "fields": {
+    "nombre": "Hugh Quentin Leane",
+    "rfc": "QULH2803115D2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 74,
+  "fields": {
+    "nombre": "Clyde Maho Mathias",
+    "rfc": "MAMC231102C53"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 75,
+  "fields": {
+    "nombre": "Alexander Arnaud Clara",
+    "rfc": "AACA621102V53"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 76,
+  "fields": {
+    "nombre": "August Berenice Louis",
+    "rfc": "BELA370514HX7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 77,
+  "fields": {
+    "nombre": "Floyd Quentin Eliott",
+    "rfc": "QUEF581115593"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 78,
+  "fields": {
+    "nombre": "Homer Valentine Faustine",
+    "rfc": "VAFH6506103A1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 79,
+  "fields": {
+    "nombre": "Jack Iliana Lisa-Lou",
+    "rfc": "IILJ970201DR3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 80,
+  "fields": {
+    "nombre": "Leonard Gaby Natsuki",
+    "rfc": "GANL180701PT8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 81,
+  "fields": {
+    "nombre": "Horace Laura-Li Manon",
+    "rfc": "LAMH010815TY1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 82,
+  "fields": {
+    "nombre": "Marion Evrand Adrien",
+    "rfc": "EAAM870503FS8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 83,
+  "fields": {
+    "nombre": "Philip Titaine Gaby",
+    "rfc": "TIGP690612E49"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 84,
+  "fields": {
+    "nombre": "Allen Simon Audrey",
+    "rfc": "SIAA800830RG2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 85,
+  "fields": {
+    "nombre": "Archie Nelsey Noemie",
+    "rfc": "NENA591018920"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 86,
+  "fields": {
+    "nombre": "Stephen Julie Vargoz",
+    "rfc": "JUVS480321GY7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 87,
+  "fields": {
+    "nombre": "Chester Armand Jerome",
+    "rfc": "AAJC6609068Y5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 88,
+  "fields": {
+    "nombre": "Willis Elian Damien",
+    "rfc": "EIDW600405T9A"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 89,
+  "fields": {
+    "nombre": "Raymond Lou Paul",
+    "rfc": "LOPR070114P68"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 90,
+  "fields": {
+    "nombre": "Rufus Raphael Mathis",
+    "rfc": "RAMR791107GX0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 91,
+  "fields": {
+    "nombre": "Warren Alexandre Laura-Li",
+    "rfc": "AELW220124TF0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 92,
+  "fields": {
+    "nombre": "Jessie Elissa Nina",
+    "rfc": "EINJ630225FW6"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 93,
+  "fields": {
+    "nombre": "Milton Ileana Stella",
+    "rfc": "IESM301226MI1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 94,
+  "fields": {
+    "nombre": "Alex Alexandre Jocelyn",
+    "rfc": "AEJA421014CA5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 95,
+  "fields": {
+    "nombre": "Leo Mathilde Elian",
+    "rfc": "MAEL680412A96"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 96,
+  "fields": {
+    "nombre": "Julius Iris Pierre",
+    "rfc": "IIPJ490103UB1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 97,
+  "fields": {
+    "nombre": "Ray Mathilde Arnaud",
+    "rfc": "MAAR270109Q83"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 98,
+  "fields": {
+    "nombre": "Sidney Ophelie Michael",
+    "rfc": "OEMS880311HK8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 99,
+  "fields": {
+    "nombre": "Bernard Julie Titouan",
+    "rfc": "JUTB330820E35"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 100,
+  "fields": {
+    "nombre": "Dan Isaure Isla",
+    "rfc": "IAID5309185R0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 101,
+  "fields": {
+    "nombre": "Jerry Leane Victor",
+    "rfc": "LEVJ800829BK1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 102,
+  "fields": {
+    "nombre": "Calvin Lisa-Lou Gabriel",
+    "rfc": "LIGC900830D43"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 103,
+  "fields": {
+    "nombre": "Perry Noah Gracio",
+    "rfc": "NOGP340707HP9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 104,
+  "fields": {
+    "nombre": "Dave Clement Alexandre",
+    "rfc": "CEAD2207091A5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 105,
+  "fields": {
+    "nombre": "Anthony Clara Ambre",
+    "rfc": "CAAA121101SD8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 106,
+  "fields": {
+    "nombre": "Eddie Camille Berenice",
+    "rfc": "CABE920624SK2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 107,
+  "fields": {
+    "nombre": "Amos Hamlet Tom",
+    "rfc": "HATA1511152E1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 108,
+  "fields": {
+    "nombre": "Dennis Emma Lylou",
+    "rfc": "EALD030109U70"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 109,
+  "fields": {
+    "nombre": "Clifford Elliot Cloe",
+    "rfc": "EICC360110915"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 110,
+  "fields": {
+    "nombre": "Leroy Najat Adrien",
+    "rfc": "NAAL450702R59"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 111,
+  "fields": {
+    "nombre": "Wesley Ines Katia",
+    "rfc": "IEKW810306J71"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 112,
+  "fields": {
+    "nombre": "Alonzo Tom Alix",
+    "rfc": "TOAA191003Q24"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 113,
+  "fields": {
+    "nombre": "Garfield Fanny Paul",
+    "rfc": "FAPG040526TT5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 114,
+  "fields": {
+    "nombre": "Franklin Baptiste Mathieu",
+    "rfc": "BAMF9401283N9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 115,
+  "fields": {
+    "nombre": "Emil Olivia Theo",
+    "rfc": "OITE030711NR1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 116,
+  "fields": {
+    "nombre": "Leon Antoine Florian",
+    "rfc": "AOFL831209CU2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 117,
+  "fields": {
+    "nombre": "Nathan Titouan Axel",
+    "rfc": "TIAN280408PSA"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 118,
+  "fields": {
+    "nombre": "Harold Adrien Manit",
+    "rfc": "AIMH8010294N5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 119,
+  "fields": {
+    "nombre": "Matthew Eliott Ghardard",
+    "rfc": "EIGM531211PY6"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 120,
+  "fields": {
+    "nombre": "Levi Isla Nathan",
+    "rfc": "IANL2602155F3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 121,
+  "fields": {
+    "nombre": "Moses Lucie Quentin",
+    "rfc": "LUQM020922CMA"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 122,
+  "fields": {
+    "nombre": "Everett Jeanne Donia",
+    "rfc": "JEDE531016337"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 123,
+  "fields": {
+    "nombre": "Lester Ewen Noah",
+    "rfc": "EENL040419EX3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 124,
+  "fields": {
+    "nombre": "Winfield Noemie Maho",
+    "rfc": "NOMW5201279V8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 125,
+  "fields": {
+    "nombre": "Adam Matheo Amandine",
+    "rfc": "MAAA6101037G1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 126,
+  "fields": {
+    "nombre": "Lloyd Vencon Lucie",
+    "rfc": "VELL820301SS7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 127,
+  "fields": {
+    "nombre": "Mack Louis Baptiste",
+    "rfc": "LOBM651108S7A"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 128,
+  "fields": {
+    "nombre": "Fredrick Thomas Samuel",
+    "rfc": "TOSF820508BI8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 129,
+  "fields": {
+    "nombre": "Jay Nicolas Clemence",
+    "rfc": "NICJ010530E89"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 130,
+  "fields": {
+    "nombre": "Jess Tristan Clara",
+    "rfc": "TICJ010820EQ1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 131,
+  "fields": {
+    "nombre": "Melvin Nassim Camille",
+    "rfc": "NACM210921VEA"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 132,
+  "fields": {
+    "nombre": "Noah Adrien Apolline",
+    "rfc": "AIAN8312286G9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 133,
+  "fields": {
+    "nombre": "Aaron Adrien Eliott",
+    "rfc": "AIEA9109068U5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 134,
+  "fields": {
+    "nombre": "Alvin Samuel Mateo",
+    "rfc": "SAMA540503B69"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 135,
+  "fields": {
+    "nombre": "Norman Theodore Elliot",
+    "rfc": "TEEN230611374"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 136,
+  "fields": {
+    "nombre": "Gilbert Eliott Alice",
+    "rfc": "EIAG970207AP8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 137,
+  "fields": {
+    "nombre": "Elijah Charlotte Ophelie",
+    "rfc": "CAOE230219RR9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 138,
+  "fields": {
+    "nombre": "Victor Lucien Iris",
+    "rfc": "LUIV080324H33"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 139,
+  "fields": {
+    "nombre": "Gus Thibaud Bapteste",
+    "rfc": "TIBG440513PX7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 140,
+  "fields": {
+    "nombre": "Nelson Rihan Theodore",
+    "rfc": "RITN730808K59"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 141,
+  "fields": {
+    "nombre": "Jasper Jade Thomas",
+    "rfc": "JATJ210216410"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 142,
+  "fields": {
+    "nombre": "Silas Mateo Annecemence",
+    "rfc": "MAAS841213NQ9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 143,
+  "fields": {
+    "nombre": "Christopher Michael Julie",
+    "rfc": "MIJC250531BX6"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 144,
+  "fields": {
+    "nombre": "Jake Lucas Olivia",
+    "rfc": "LUOJ5402013A0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 145,
+  "fields": {
+    "nombre": "Mike Mathias Alexandre",
+    "rfc": "MAAM620321238"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 146,
+  "fields": {
+    "nombre": "Percy Matthias Maxime",
+    "rfc": "MAMP451014E45"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 147,
+  "fields": {
+    "nombre": "Adolph Quentin Rayanne",
+    "rfc": "QURA2911071E5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 148,
+  "fields": {
+    "nombre": "Maurice Ambre Thibaud",
+    "rfc": "AETM880804PB7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 149,
+  "fields": {
+    "nombre": "Cornelius Isaure Charlotte",
+    "rfc": "IACC770727U20"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 150,
+  "fields": {
+    "nombre": "Felix Olivia Oceane",
+    "rfc": "OIOF6012306D2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 151,
+  "fields": {
+    "nombre": "Reuben Axelle Taran",
+    "rfc": "AETR010519KQ1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 152,
+  "fields": {
+    "nombre": "Wallace Anael Tom",
+    "rfc": "AATW791219N46"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 153,
+  "fields": {
+    "nombre": "Claud Katia Camille",
+    "rfc": "KACC981214SX7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 154,
+  "fields": {
+    "nombre": "Roscoe Gautier Isaure",
+    "rfc": "GAIR240719QV5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 155,
+  "fields": {
+    "nombre": "Sylvester Anais Emilie",
+    "rfc": "AAES881015PH5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 156,
+  "fields": {
+    "nombre": "Earnest Martin Garance",
+    "rfc": "MAGE550522FZ7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 157,
+  "fields": {
+    "nombre": "Hiram Natsuki Clement",
+    "rfc": "NACH7908015T7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 158,
+  "fields": {
+    "nombre": "Otis Baptiste Nael",
+    "rfc": "BANO610210R14"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 159,
+  "fields": {
+    "nombre": "Simon Maurane Simon",
+    "rfc": "MASS0911154G8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 160,
+  "fields": {
+    "nombre": "Willard Clara Rihan",
+    "rfc": "CARW880924T52"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 161,
+  "fields": {
+    "nombre": "Irvin Yael Baltazar",
+    "rfc": "YABI160302DR2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 162,
+  "fields": {
+    "nombre": "Mark Billie Lou Iliana",
+    "rfc": "BIIM8110146Q0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 163,
+  "fields": {
+    "nombre": "Jose Emma Element",
+    "rfc": "EAEJ6406147H3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 164,
+  "fields": {
+    "nombre": "Wilbur Lisa Lucas",
+    "rfc": "LILW610112FN1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 165,
+  "fields": {
+    "nombre": "Abraham Anouk Armand",
+    "rfc": "AOAA030227I37"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 166,
+  "fields": {
+    "nombre": "Virgil Rayanne Lisa",
+    "rfc": "RALV980111G35"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 167,
+  "fields": {
+    "nombre": "Clinton Pierre Lou",
+    "rfc": "PILC060731IU3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 168,
+  "fields": {
+    "nombre": "Elbert Jules Tan",
+    "rfc": "JUTE9511304N2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 169,
+  "fields": {
+    "nombre": "Leslie Gauthier Valentine",
+    "rfc": "GAVL6701181G0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 170,
+  "fields": {
+    "nombre": "Marshall Lorenzo Yasmine",
+    "rfc": "LOYM840507F60"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 171,
+  "fields": {
+    "nombre": "Owen Yasmine Axel",
+    "rfc": "YAAO400129R55"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 172,
+  "fields": {
+    "nombre": "Wiley Florian Bechameil",
+    "rfc": "FOBW221006RS2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 173,
+  "fields": {
+    "nombre": "Anton Nathan Raphael",
+    "rfc": "NARA610722NX3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 174,
+  "fields": {
+    "nombre": "Morris Quentin Lisa",
+    "rfc": "QULM0703295H1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 175,
+  "fields": {
+    "nombre": "Manuel Lucas Leo",
+    "rfc": "LULM060203R88"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 176,
+  "fields": {
+    "nombre": "Phillip Fanny Samuel",
+    "rfc": "FASP221120D35"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 177,
+  "fields": {
+    "nombre": "Augustus Clement Axelle",
+    "rfc": "CEAA750212DZ8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 178,
+  "fields": {
+    "nombre": "Emmett Jocelyn Jules",
+    "rfc": "JOJE330412V17"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 179,
+  "fields": {
+    "nombre": "Eli Gaetan Emma",
+    "rfc": "GAEE211016LH0"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 180,
+  "fields": {
+    "nombre": "Nicholas Cloe Dorian",
+    "rfc": "CODN800526259"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 181,
+  "fields": {
+    "nombre": "Wilson Cassandre Najat",
+    "rfc": "CANW460116QKA"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 182,
+  "fields": {
+    "nombre": "Alva Camille Hugo",
+    "rfc": "CAHA750802AX5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 183,
+  "fields": {
+    "nombre": "Harley Lucile Lucas",
+    "rfc": "LULH170331QB3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 184,
+  "fields": {
+    "nombre": "Newton Jordan Mathilda",
+    "rfc": "JOMN000814DS3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 185,
+  "fields": {
+    "nombre": "Timothy Bahoua Remy",
+    "rfc": "BART461201Q40"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 186,
+  "fields": {
+    "nombre": "Marvin Manon Anais",
+    "rfc": "MAAM400509UU8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 187,
+  "fields": {
+    "nombre": "Ross Oceane Evrand",
+    "rfc": "OEER881112QC5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 188,
+  "fields": {
+    "nombre": "Curtis Audrey Cassandre",
+    "rfc": "AUCC580910T19"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 189,
+  "fields": {
+    "nombre": "Edmund Element Hamlet",
+    "rfc": "EEHE030227UQ4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 190,
+  "fields": {
+    "nombre": "Jeff Amandine Fanny",
+    "rfc": "AAFJ410711G35"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 191,
+  "fields": {
+    "nombre": "Elias Jules Adrien",
+    "rfc": "JUAE300106DCA"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 192,
+  "fields": {
+    "nombre": "Harrison Leo Lucile",
+    "rfc": "LELH771006D21"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 193,
+  "fields": {
+    "nombre": "Stanley Gabriel Anouk",
+    "rfc": "GAAS7208246M3"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 194,
+  "fields": {
+    "nombre": "Columbus Mathilde Mateo",
+    "rfc": "MAMC6401285Q8"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 195,
+  "fields": {
+    "nombre": "Lon Leon Elissa",
+    "rfc": "LEEL2507076K1"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 196,
+  "fields": {
+    "nombre": "Ora Mathieu Anais",
+    "rfc": "MAAO511220HV5"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 197,
+  "fields": {
+    "nombre": "Ollie Samuel Titaine",
+    "rfc": "SATO190131UU4"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 198,
+  "fields": {
+    "nombre": "Russell Baptiste Matheo",
+    "rfc": "BAMR641216LH7"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 199,
+  "fields": {
+    "nombre": "Pearl Remy Paul",
+    "rfc": "REPP630314IU9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 200,
+  "fields": {
+    "nombre": "Solomon Clemence Jordan",
+    "rfc": "CEJS850902BE9"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 201,
+  "fields": {
+    "nombre": "Arch Malo Victoire",
+    "rfc": "MAVA430712RF2"
+  }
+},
+{
+  "model": "app.empleado",
+  "pk": 202,
+  "fields": {
+    "nombre": "Asa Hugo Anael",
+    "rfc": "HUAA910517J86"
   }
 },
 {
@@ -16,9 +1616,170 @@
 },
 {
   "model": "app.marca",
+  "pk": "ANT",
+  "fields": {
+    "nombre": "Antminer Group"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "APP",
+  "fields": {
+    "nombre": "Apple"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "BIM",
+  "fields": {
+    "nombre": "Bitmain Corporation"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "CAN",
+  "fields": {
+    "nombre": "Canaan Inc."
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "DEL",
+  "fields": {
+    "nombre": "Dell CAC."
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "DGN",
+  "fields": {
+    "nombre": "Dragonmint"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "EBN",
+  "fields": {
+    "nombre": "Ebang International Holdings Inc"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "EMC",
+  "fields": {
+    "nombre": "eMachines"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "GEN",
+  "fields": {
+    "nombre": "Generica"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "INN",
+  "fields": {
+    "nombre": "Innosilicon"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "MBT",
+  "fields": {
+    "nombre": "MicroBT"
+  }
+},
+{
+  "model": "app.marca",
   "pk": "NVD",
   "fields": {
     "nombre": "Nvidia Corporation."
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "SGC",
+  "fields": {
+    "nombre": "Shenzhen Grizzlies Industries Co. LTD."
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "SMG",
+  "fields": {
+    "nombre": "Samsung Electronics"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "SMS",
+  "fields": {
+    "nombre": "Sun Microsystems INC."
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "SNT",
+  "fields": {
+    "nombre": "Sindicato Nacional Tempestista"
+  }
+},
+{
+  "model": "app.marca",
+  "pk": "SNY",
+  "fields": {
+    "nombre": "Sony Group Corporation"
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "ACC",
+  "fields": {
+    "nombre": "Accesorios"
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "CPU",
+  "fields": {
+    "nombre": "Microprocesador"
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "ENF",
+  "fields": {
+    "nombre": "Enfriamiento"
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "FAN",
+  "fields": {
+    "nombre": "Ventilador"
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "GEN",
+  "fields": {
+    "nombre": "Producto Genérico"
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "MBR",
+  "fields": {
+    "nombre": "Placa Madre"
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "MCN",
+  "fields": {
+    "nombre": "Microcontrolador"
   }
 },
 {
@@ -30,9 +1791,53 @@
 },
 {
   "model": "app.tipoproducto",
+  "pk": "PWR",
+  "fields": {
+    "nombre": "Fuente de Poder"
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "RAM",
+  "fields": {
+    "nombre": "Memoria RAM"
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "RGB",
+  "fields": {
+    "nombre": "Iluminación"
+  }
+},
+{
+  "model": "app.tipoproducto",
   "pk": "TAR",
   "fields": {
     "nombre": "Tarjeta de Video."
+  }
+},
+{
+  "model": "app.tipoproducto",
+  "pk": "TWR",
+  "fields": {
+    "nombre": "Gabinete"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "082ec5a1-4f16-42c1-bcd0-706021d08611",
+  "fields": {
+    "nombreCliente": "Lee Lore Mathilde ",
+    "domicilio": "Calle C SN",
+    "estado": "Ciudad de México",
+    "codigoPostal": 1010,
+    "numTelefono": "5790764225",
+    "dirEmail": "ngrant@barton.com",
+    "rfcCliente": "LOML630829AH4",
+    "slug": "lee-lore-mathilde-ciudad-de-mexico-a1c447a4f992",
+    "date_created": "2022-11-06T22:34:14.939",
+    "last_updated": "2022-11-06T22:34:14.939"
   }
 },
 {
@@ -53,6 +1858,54 @@
 },
 {
   "model": "app.client",
+  "pk": "0fd5bfd0-ba8d-44a1-92fb-8cfb982cede6",
+  "fields": {
+    "nombreCliente": "Columbus Mathilde Mateo ",
+    "domicilio": "Palabras 88",
+    "estado": "Campeche",
+    "codigoPostal": 24640,
+    "numTelefono": "3391914362",
+    "dirEmail": "thoppe@schmitt.info",
+    "rfcCliente": "MAMC6401285Q8",
+    "slug": "columbus-mathilde-mateo-campeche-9f0ac10fd2ef",
+    "date_created": "2022-11-06T22:34:15.775",
+    "last_updated": "2022-11-06T22:34:15.775"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "248a8a84-96ea-489f-9f07-1c3ea9a69286",
+  "fields": {
+    "nombreCliente": "Marvin Manon Anais ",
+    "domicilio": "Washington 121",
+    "estado": "Campeche",
+    "codigoPostal": 24640,
+    "numTelefono": "6124935936",
+    "dirEmail": "bgerlach@hotmail.com",
+    "rfcCliente": "MAAM400509UU8",
+    "slug": "marvin-manon-anais-campeche-a97b90627037",
+    "date_created": "2022-11-06T22:34:15.566",
+    "last_updated": "2022-11-06T22:34:15.566"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "3e529a71-66c8-45ab-8279-228b839b2458",
+  "fields": {
+    "nombreCliente": "Stephen Julie Vargoz ",
+    "domicilio": "Paseo de los tigres 314",
+    "estado": "Chiapas",
+    "codigoPostal": 29878,
+    "numTelefono": "2183143549",
+    "dirEmail": "zack.shields@gmail.com",
+    "rfcCliente": "JUVS480321GY7",
+    "slug": "stephen-julie-vargoz-chiapas-d3b93b04d8d1",
+    "date_created": "2022-11-06T22:34:15.670",
+    "last_updated": "2022-11-06T22:34:15.670"
+  }
+},
+{
+  "model": "app.client",
   "pk": "43e459aa-48ba-402b-907a-191e4b5ffabc",
   "fields": {
     "nombreCliente": "Luis Fernando Chávez Jiménez",
@@ -68,21 +1921,259 @@
   }
 },
 {
-  "model": "app.salebill",
-  "pk": 19,
+  "model": "app.client",
+  "pk": "5caa78e2-7115-4dba-b7cc-6a088ff742c5",
   "fields": {
-    "time": "2022-10-27T07:21:42.923",
-    "cliente": "43e459aa-48ba-402b-907a-191e4b5ffabc",
-    "notas": "Notas de la compra, etc, etc."
+    "nombreCliente": "Russell Baptiste Matheo ",
+    "domicilio": "Calle C 18",
+    "estado": "Campeche",
+    "codigoPostal": 24640,
+    "numTelefono": "6300135490",
+    "dirEmail": "mhowe@gmail.com",
+    "rfcCliente": "BAMR641216LH7",
+    "slug": "russell-baptiste-matheo-campeche-915dbf228334",
+    "date_created": "2022-11-06T22:34:14.311",
+    "last_updated": "2022-11-06T22:34:14.311"
   }
 },
 {
-  "model": "app.salebill",
-  "pk": 22,
+  "model": "app.client",
+  "pk": "650d6aa4-1b5a-46eb-8c97-f3790ba1e06b",
   "fields": {
-    "time": "2022-10-31T01:13:35.164",
-    "cliente": "43e459aa-48ba-402b-907a-191e4b5ffabc",
-    "notas": "Notas notas."
+    "nombreCliente": "Manuel Lucas Leo ",
+    "domicilio": "Rio Panuco 88",
+    "estado": "Guerrero",
+    "codigoPostal": 39300,
+    "numTelefono": "3986311478",
+    "dirEmail": "granville.rohan@robel.biz",
+    "rfcCliente": "LULM060203R88",
+    "slug": "manuel-lucas-leo-guerrero-a44c8384eee0",
+    "date_created": "2022-11-06T22:34:14.521",
+    "last_updated": "2022-11-06T22:34:14.521"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "66eb49e8-f735-4f8d-9c06-1ffd87bb675e",
+  "fields": {
+    "nombreCliente": "Maurice Ambre Thibaud ",
+    "domicilio": "Via Corsa 6",
+    "estado": "Baja California Sur",
+    "codigoPostal": 23010,
+    "numTelefono": "7173254168",
+    "dirEmail": "flittel@baumbach.net",
+    "rfcCliente": "AETM880804PB7",
+    "slug": "maurice-ambre-thibaud-baja-california-sur-dbd87e781f9a",
+    "date_created": "2022-11-06T22:34:15.358",
+    "last_updated": "2022-11-06T22:34:15.358"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "71634934-6901-4f9b-931f-e7df0024bf11",
+  "fields": {
+    "nombreCliente": "Asa Hugo Anael ",
+    "domicilio": "Calle A 87",
+    "estado": "Jalisco",
+    "codigoPostal": 49370,
+    "numTelefono": "8743939401",
+    "dirEmail": "xlueilwitz@ernser.org",
+    "rfcCliente": "HUAA910517J86",
+    "slug": "asa-hugo-anael-jalisco-1fc92640da72",
+    "date_created": "2022-11-06T22:34:13.264",
+    "last_updated": "2022-11-06T22:34:13.265"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "7452d33b-ca67-4008-9bb3-516d2ee0c6c8",
+  "fields": {
+    "nombreCliente": "Eddie Camille Berenice ",
+    "domicilio": "Perestroyka 11",
+    "estado": "Guerrero",
+    "codigoPostal": 39300,
+    "numTelefono": "6824854973",
+    "dirEmail": "opacocha@gmail.com",
+    "rfcCliente": "CABE920624SK2",
+    "slug": "eddie-camille-berenice-guerrero-937550372c86",
+    "date_created": "2022-11-06T22:34:15.879",
+    "last_updated": "2022-11-06T22:34:15.879"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "870a035c-04dd-4fa2-8b04-a4b9cc92b7bb",
+  "fields": {
+    "nombreCliente": "Rufus Raphael Mathis ",
+    "domicilio": "Il Duce 8721",
+    "estado": "Campeche",
+    "codigoPostal": 24640,
+    "numTelefono": "4605977954",
+    "dirEmail": "bernier.eusebio@hotmail.com",
+    "rfcCliente": "RAMR791107GX0",
+    "slug": "rufus-raphael-mathis-campeche-f4eb1f1152e8",
+    "date_created": "2022-11-06T22:34:16.089",
+    "last_updated": "2022-11-06T22:34:16.089"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "96cfe12b-83f5-4b4b-8613-39a254ea9848",
+  "fields": {
+    "nombreCliente": "Claude Theo Ines ",
+    "domicilio": "Reforma 33",
+    "estado": "Nuevo León",
+    "codigoPostal": 65650,
+    "numTelefono": "2131817488",
+    "dirEmail": "catherine90@tromp.org",
+    "rfcCliente": "TEIC0511234W5",
+    "slug": "claude-theo-ines-nuevo-leon-9012aa5818df",
+    "date_created": "2022-11-06T22:34:15.044",
+    "last_updated": "2022-11-06T22:34:15.044"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "992a0e67-3bab-4364-9a63-30fa487ded0d",
+  "fields": {
+    "nombreCliente": "Charlie Nathan Lorenzo ",
+    "domicilio": "Calle B 44",
+    "estado": "Chiapas",
+    "codigoPostal": 29878,
+    "numTelefono": "9622177463",
+    "dirEmail": "yadams@windler.com",
+    "rfcCliente": "NALC750115RX0",
+    "slug": "charlie-nathan-lorenzo-chiapas-2a98fea8dd68",
+    "date_created": "2022-11-06T22:34:14.207",
+    "last_updated": "2022-11-06T22:34:14.207"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "aae6d43f-d809-41e5-9a65-44227a813f89",
+  "fields": {
+    "nombreCliente": "Otis Baptiste Nael ",
+    "domicilio": "1 de octubre 22",
+    "estado": "Guerrero",
+    "codigoPostal": 39300,
+    "numTelefono": "8766902279",
+    "dirEmail": "eleanora52@reichel.org",
+    "rfcCliente": "BANO610210R14",
+    "slug": "otis-baptiste-nael-guerrero-34e51ed7772f",
+    "date_created": "2022-11-06T22:34:15.149",
+    "last_updated": "2022-11-06T22:34:15.149"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "ace75ed5-4ce4-4b5e-8b95-c31e0bba0829",
+  "fields": {
+    "nombreCliente": "Homer Valentine Faustine ",
+    "domicilio": "Deng Xiao Ping 77",
+    "estado": "Durango",
+    "codigoPostal": 34510,
+    "numTelefono": "7359911655",
+    "dirEmail": "runolfsdottir.ella@hotmail.com",
+    "rfcCliente": "VAFH6506103A1",
+    "slug": "homer-valentine-faustine-durango-1eb005a17c8b",
+    "date_created": "2022-11-06T22:34:15.253",
+    "last_updated": "2022-11-06T22:34:15.253"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "b074539b-3c21-4c80-8c8e-3d65b4860153",
+  "fields": {
+    "nombreCliente": "Moses Lucie Quentin ",
+    "domicilio": "Calle B 4",
+    "estado": "Baja California",
+    "codigoPostal": 22753,
+    "numTelefono": "9885259187",
+    "dirEmail": "fgreenholt@gmail.com",
+    "rfcCliente": "LUQM020922CMA",
+    "slug": "moses-lucie-quentin-baja-california-f0348137310b",
+    "date_created": "2022-11-06T22:34:14.835",
+    "last_updated": "2022-11-06T22:34:14.835"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "c1632b98-eec2-4749-bf56-4f7debb15450",
+  "fields": {
+    "nombreCliente": "Charley Alice Olivia ",
+    "domicilio": "Noche Triste 1711",
+    "estado": "Durango",
+    "codigoPostal": 34510,
+    "numTelefono": "1649101973",
+    "dirEmail": "kyla94@runte.com",
+    "rfcCliente": "AIOC9501319J5",
+    "slug": "charley-alice-olivia-durango-979fa12fcc45",
+    "date_created": "2022-11-06T22:34:15.983",
+    "last_updated": "2022-11-06T22:34:15.983"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "c6e4e658-2be2-434a-9dc9-842baf44ad06",
+  "fields": {
+    "nombreCliente": "Perry Noah Gracio ",
+    "domicilio": "Paseo del Tecnológico 17",
+    "estado": "Nuevo León",
+    "codigoPostal": 65650,
+    "numTelefono": "9297080576",
+    "dirEmail": "levi14@klein.com",
+    "rfcCliente": "NOGP340707HP9",
+    "slug": "perry-noah-gracio-nuevo-leon-1be75837c33c",
+    "date_created": "2022-11-06T22:34:14.415",
+    "last_updated": "2022-11-06T22:34:14.416"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "c6f1c924-e440-46bf-b59b-6028c34ece3e",
+  "fields": {
+    "nombreCliente": "Amos Hamlet Tom ",
+    "domicilio": "Calle A 9",
+    "estado": "Baja California Sur",
+    "codigoPostal": 23010,
+    "numTelefono": "9251204592",
+    "dirEmail": "odie.herman@yahoo.com",
+    "rfcCliente": "HATA1511152E1",
+    "slug": "amos-hamlet-tom-baja-california-sur-e047920e07df",
+    "date_created": "2022-11-06T22:34:14.730",
+    "last_updated": "2022-11-06T22:34:14.730"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "fa750e7f-9b53-4e61-9dc2-8fbfd3309b27",
+  "fields": {
+    "nombreCliente": "Archie Nelsey Noemie ",
+    "domicilio": "Derrota Mundial 11",
+    "estado": "Durango",
+    "codigoPostal": 34510,
+    "numTelefono": "2930742377",
+    "dirEmail": "brandi.koch@hotmail.com",
+    "rfcCliente": "NENA591018920",
+    "slug": "archie-nelsey-noemie-durango-eb31bfa96f3d",
+    "date_created": "2022-11-06T22:34:14.625",
+    "last_updated": "2022-11-06T22:34:14.625"
+  }
+},
+{
+  "model": "app.client",
+  "pk": "fc1b1896-9355-42d7-a9d6-9d9b086c1d45",
+  "fields": {
+    "nombreCliente": "Wilbur Lisa Lucas ",
+    "domicilio": "Abedul 8871",
+    "estado": "Chiapas",
+    "codigoPostal": 29878,
+    "numTelefono": "2070379944",
+    "dirEmail": "kiera.wunsch@gmail.com",
+    "rfcCliente": "LILW610112FN1",
+    "slug": "wilbur-lisa-lucas-chiapas-57dfe1dd6a11",
+    "date_created": "2022-11-06T22:34:15.462",
+    "last_updated": "2022-11-06T22:34:15.462"
   }
 },
 {
@@ -141,11 +2232,155 @@
 },
 {
   "model": "app.producto",
+  "pk": "01e63836-7128-47f1-afce-1e85db349f22",
+  "fields": {
+    "modelo": "GeForce RTX 3050 OEM",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3050 OEM de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "1000.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "2000.00",
+    "slug": "nvd-01e63836-7128-47f1-afce-1e85db349f22"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "01eb68ea-14f3-4f42-8620-1bc2f3733714",
+  "fields": {
+    "modelo": "Radeon Vega 8 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 8 Embedded de la  ;marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-01eb68ea-14f3-4f42-8620-1bc2f3733714"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "026025c8-1f0c-4dee-b307-7b7b60d56fa4",
+  "fields": {
+    "modelo": "Radeon Pro V340",
+    "descripcion": "Descripción generica de una GPU Radeon Pro V340 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-026025c8-1f0c-4dee-b307-7b7b60d56fa4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "0387e72d-6c81-4775-93b3-2827343c1bf3",
+  "fields": {
+    "modelo": "RTX A1000 Embedded",
+    "descripcion": "Descripción generica de una GPU RTX A1000 Embedded de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "555.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "555.00",
+    "slug": "nvd-0387e72d-6c81-4775-93b3-2827343c1bf3"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "04ce74dd-7580-47dd-b845-bbfceb2ca4e2",
+  "fields": {
+    "modelo": "Radeon RX 6800 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6800 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-04ce74dd-7580-47dd-b845-bbfceb2ca4e2"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "0a1b160f-ff0d-4531-8e21-c4f8f9198270",
+  "fields": {
+    "modelo": "RTX A500 Mobile",
+    "descripcion": "Descripción generica de una GPU RTX A500 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-0a1b160f-ff0d-4531-8e21-c4f8f9198270"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "0bd2776a-15b5-4368-9234-749bcaccf3fd",
+  "fields": {
+    "modelo": "Radeon Pro W5700X",
+    "descripcion": "Descripción generica de una GPU Radeon Pro W5700X de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-0bd2776a-15b5-4368-9234-749bcaccf3fd"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "0f46a489-af7e-47c4-b404-c56ad2bf978b",
+  "fields": {
+    "modelo": "Radeon Vega 3 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 3 Embedded de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-0f46a489-af7e-47c4-b404-c56ad2bf978b"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "0fdcc7d1-f83f-4704-90e1-bc9165b3bfac",
+  "fields": {
+    "modelo": "Radeon Pro Vega II Duo",
+    "descripcion": "Descripción generica de una GPU Radeon Pro Vega II Duo de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-0fdcc7d1-f83f-4704-90e1-bc9165b3bfac"
+  }
+},
+{
+  "model": "app.producto",
   "pk": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
   "fields": {
     "modelo": "Zotac GeForce RTX 2090",
     "descripcion": "Descripción del modelo.",
-    "cantidad": 810,
+    "cantidad": 100,
     "tipo_producto": "TAR",
     "marca": "NVD",
     "precioCompra_currency": "MXN",
@@ -157,18 +2392,2002 @@
 },
 {
   "model": "app.producto",
+  "pk": "118d714e-919a-47b1-8ad4-5433af82134a",
+  "fields": {
+    "modelo": "Radeon RX 5700 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 5700 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-118d714e-919a-47b1-8ad4-5433af82134a"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "134a257f-aaa2-430d-bbc0-945c86320580",
+  "fields": {
+    "modelo": "Radeon RX 580G",
+    "descripcion": "Descripción generica de una GPU Radeon RX 580G de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-134a257f-aaa2-430d-bbc0-945c86320580"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "137a4544-45a9-442d-99f0-64babae3dcb8",
+  "fields": {
+    "modelo": "GeForce RTX 3070 Ti Max-Q",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3070 Ti Max-Q de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-137a4544-45a9-442d-99f0-64babae3dcb8"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "1631d582-dd9b-4900-bb21-b2ef628267fa",
+  "fields": {
+    "modelo": "RTX A5500",
+    "descripcion": "Descripción generica de una GPU RTX A5500 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-1631d582-dd9b-4900-bb21-b2ef628267fa"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "187e3d19-ef61-4b3c-92d6-76cb312bca77",
+  "fields": {
+    "modelo": "Radeon Pro Vega II",
+    "descripcion": "Descripción generica de una GPU Radeon Pro Vega II de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-187e3d19-ef61-4b3c-92d6-76cb312bca77"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "19661402-dba8-4811-8bed-e44d46e080de",
+  "fields": {
+    "modelo": "Atari VCS 800 GPU",
+    "descripcion": "Descripción generica de una GPU Atari VCS 800 GPU de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-19661402-dba8-4811-8bed-e44d46e080de"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "1b0c4c44-7840-4013-9291-1041376dc9f0",
+  "fields": {
+    "modelo": "Radeon Vega Frontier Edition",
+    "descripcion": "Descripción generica de una GPU Radeon Vega Frontier Edition de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-1b0c4c44-7840-4013-9291-1041376dc9f0"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "1bd56562-4a41-458b-9d58-d449d93e2b40",
+  "fields": {
+    "modelo": "GeForce GT 1010 DDR4",
+    "descripcion": "Descripción generica de una GPU GeForce GT 1010 DDR4 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-1bd56562-4a41-458b-9d58-d449d93e2b40"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "1e6e708a-e91e-4a2a-a9cf-9cd5a6444792",
+  "fields": {
+    "modelo": "RTX A2000 12 GB",
+    "descripcion": "Descripción generica de una GPU RTX A2000 12 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-1e6e708a-e91e-4a2a-a9cf-9cd5a6444792"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "1fa307c5-944c-4da9-887d-49a7fa1ef849",
+  "fields": {
+    "modelo": "Radeon RX 6700 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6700 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-1fa307c5-944c-4da9-887d-49a7fa1ef849"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "20899765-912a-4a30-8df7-32d418f8e212",
+  "fields": {
+    "modelo": "GeForce RTX 4090",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 4090 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-20899765-912a-4a30-8df7-32d418f8e212"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "2385920e-f24f-4e75-aa2b-dcbb0c677cf6",
+  "fields": {
+    "modelo": "GeForce RTX 3080 Ti",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3080 Ti de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-2385920e-f24f-4e75-aa2b-dcbb0c677cf6"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "245342b6-9955-40ac-9e73-0c95c3c679ec",
+  "fields": {
+    "modelo": "Radeon Pro W6800",
+    "descripcion": "Descripción generica de una GPU Radeon Pro W6800 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-245342b6-9955-40ac-9e73-0c95c3c679ec"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "25813836-1dc5-4a8b-882d-a7ad5f740916",
+  "fields": {
+    "modelo": "Radeon Vega 11",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 11 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-25813836-1dc5-4a8b-882d-a7ad5f740916"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "25f9aa99-9a53-49c3-8c1c-41f296472b6f",
+  "fields": {
+    "modelo": "T1000",
+    "descripcion": "Descripción generica de una GPU T1000 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-25f9aa99-9a53-49c3-8c1c-41f296472b6f"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "26854be8-9867-4141-8506-cdaa91f8c760",
+  "fields": {
+    "modelo": "RTX A3000 Mobile 12 GB",
+    "descripcion": "Descripción generica de una GPU RTX A3000 Mobile 12 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-26854be8-9867-4141-8506-cdaa91f8c760"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "2759a762-95f0-4873-8c2f-df61fb0210f3",
+  "fields": {
+    "modelo": "GeForce RTX 3060 Max-Q",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3060 Max-Q de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-2759a762-95f0-4873-8c2f-df61fb0210f3"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "2762658b-e79e-4f18-87e1-6bfe230f2d60",
+  "fields": {
+    "modelo": "Radeon Pro W6400",
+    "descripcion": "Descripción generica de una GPU Radeon Pro W6400 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-2762658b-e79e-4f18-87e1-6bfe230f2d60"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "27918174-9c3e-4344-ad47-873d0ce4cb82",
+  "fields": {
+    "modelo": "GeForce RTX 3080 Mobile",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3080 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-27918174-9c3e-4344-ad47-873d0ce4cb82"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "29cc3f24-1f84-42be-9c34-5432cbe7672d",
+  "fields": {
+    "modelo": "GeForce RTX 4060 Ti",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 4060 Ti de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-29cc3f24-1f84-42be-9c34-5432cbe7672d"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "29e6462e-70c6-4f78-a2e3-04afd1bdc924",
+  "fields": {
+    "modelo": "RTX A2000 Embedded",
+    "descripcion": "Descripción generica de una GPU RTX A2000 Embedded de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-29e6462e-70c6-4f78-a2e3-04afd1bdc924"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "2d91d03a-f198-4ded-91b4-fe79bed80afb",
+  "fields": {
+    "modelo": "Radeon Instinct MI100",
+    "descripcion": "Descripción generica de una GPU Radeon Instinct MI100 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-2d91d03a-f198-4ded-91b4-fe79bed80afb"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "2fe5cd49-9b6c-4c8a-98d1-cdcb3035e2e1",
+  "fields": {
+    "modelo": "GeForce RTX 3050 Mobile",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3050 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-2fe5cd49-9b6c-4c8a-98d1-cdcb3035e2e1"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "333618a8-5f94-4f8e-99fb-4f2d22d036aa",
+  "fields": {
+    "modelo": "Radeon Pro 5700 XT",
+    "descripcion": "Descripción generica de una GPU Radeon Pro 5700 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-333618a8-5f94-4f8e-99fb-4f2d22d036aa"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "36abc562-4cc3-4b1c-ac36-a2b7bbe2de02",
+  "fields": {
+    "modelo": "GeForce RTX 4080 16 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 4080 16 GB de la marca NVD.",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-36abc562-4cc3-4b1c-ac36-a2b7bbe2de02"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "371ee90d-604a-47b3-ac16-f84811d67081",
+  "fields": {
+    "modelo": "Radeon Pro WX 8100",
+    "descripcion": "Descripción generica de una GPU Radeon Pro WX 8100 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-371ee90d-604a-47b3-ac16-f84811d67081"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "3736ef20-e465-485d-a635-f33d617a204c",
+  "fields": {
+    "modelo": "GeForce RTX 4060",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 4060 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-3736ef20-e465-485d-a635-f33d617a204c"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "378ffbf2-29cf-48c9-a030-17a66112605b",
+  "fields": {
+    "modelo": "Radeon RX 560X",
+    "descripcion": "Descripción generica de una GPU Radeon RX 560X de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-378ffbf2-29cf-48c9-a030-17a66112605b"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "395008f0-d61c-40fc-be04-7f0dec706347",
+  "fields": {
+    "modelo": "GeForce RTX 3080 Ti Mobile",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3080 Ti Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-395008f0-d61c-40fc-be04-7f0dec706347"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "3c569686-2521-4425-aa75-d1feb7210825",
+  "fields": {
+    "modelo": "GeForce RTX 3070 Ti GA102",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3070 Ti GA102 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-3c569686-2521-4425-aa75-d1feb7210825"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "3c840ff7-ccc6-4f18-b0e6-d213b4c2cd56",
+  "fields": {
+    "modelo": "GeForce RTX 3060 GA104",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3060 GA104 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-3c840ff7-ccc6-4f18-b0e6-d213b4c2cd56"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "3dfd5a4d-7f38-4c35-9814-82c343f5baa9",
+  "fields": {
+    "modelo": "GeForce RTX 3080 Max-Q",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3080 Max-Q de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-3dfd5a4d-7f38-4c35-9814-82c343f5baa9"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "3ed8a66e-1a89-4627-85ce-0697d3827273",
+  "fields": {
+    "modelo": "A40 PCIe",
+    "descripcion": "Descripción generica de una GPU A40 PCIe de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-3ed8a66e-1a89-4627-85ce-0697d3827273"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "3f74f959-fd23-42e7-afbc-f5bd4aa73acb",
+  "fields": {
+    "modelo": "Radeon RX 6600",
+    "descripcion": "Descripción generica de una GPU Radeon RX\"!! 6600 de la marca AMD!!",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-3f74f959-fd23-42e7-afbc-f5bd4aa73acb"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "3f9ba479-3762-4c8f-befd-048e750bee40",
+  "fields": {
+    "modelo": "CMP 170HX",
+    "descripcion": "Descripción generica de una GPU CMP 170HX de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-3f9ba479-3762-4c8f-befd-048e750bee40"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "401eecc6-152d-4986-aa6e-ba9dfc6f3e40",
+  "fields": {
+    "modelo": "RTX A4 Mobile",
+    "descripcion": "Descripción generica de una GPU RTX A4 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-401eecc6-152d-4986-aa6e-ba9dfc6f3e40"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "40a46815-730d-40e1-941d-e3263a650bf0",
+  "fields": {
+    "modelo": "Radeon RX Vega 64 Limited Edition",
+    "descripcion": "Descripción generica de una GPU Radeon RX Vega 64 Limited Edition de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-40a46815-730d-40e1-941d-e3263a650bf0"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "43588880-193d-4a91-b5b1-7ce4abd9e480",
+  "fields": {
+    "modelo": "Radeon Pro W5500",
+    "descripcion": "Descripción generica de una GPU Radeon Pro W5500 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-43588880-193d-4a91-b5b1-7ce4abd9e480"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "43dd92c2-d2b5-44ee-a210-d1ada2b04bba",
+  "fields": {
+    "modelo": "GeForce RTX 4080 12 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 4080 12 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-43dd92c2-d2b5-44ee-a210-d1ada2b04bba"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "460e57e5-79ef-4eb3-a97b-f4f13560d190",
+  "fields": {
+    "modelo": "Radeon RX 6750 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6750 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-460e57e5-79ef-4eb3-a97b-f4f13560d190"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "475302f9-da18-41c8-9b61-de2aa858bfd7",
+  "fields": {
+    "modelo": "T1000 8 GB",
+    "descripcion": "Descripción generica de una GPU T1000 8 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-475302f9-da18-41c8-9b61-de2aa858bfd7"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4787ca3c-b3b0-4547-9c37-17b27b4732de",
+  "fields": {
+    "modelo": "GeForce RTX 3060 Mobile",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3060 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-4787ca3c-b3b0-4547-9c37-17b27b4732de"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "47923227-502d-49a0-893b-e9b502730b39",
+  "fields": {
+    "modelo": "Radeon RX 6950 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6950 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-47923227-502d-49a0-893b-e9b502730b39"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "479bc809-e20b-4b86-a8b9-e902acfcdfaa",
+  "fields": {
+    "modelo": "Radeon RX 6800",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6800 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-479bc809-e20b-4b86-a8b9-e902acfcdfaa"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4819aba9-3099-4e27-8dae-ae8b58a9bc11",
+  "fields": {
+    "modelo": "Radeon Vega 6",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 6 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-4819aba9-3099-4e27-8dae-ae8b58a9bc11"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4a69fbe9-4af6-4a6b-afff-26bf039437f2",
+  "fields": {
+    "modelo": "RTX A2000 Mobile",
+    "descripcion": "Descripción generica de una GPU RTX A2000 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-4a69fbe9-4af6-4a6b-afff-26bf039437f2"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4d1ca055-0de8-4d7b-a510-e62f8218e2d8",
+  "fields": {
+    "modelo": "GeForce RTX 3060 Ti",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3060 Ti de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-4d1ca055-0de8-4d7b-a510-e62f8218e2d8"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4e5cf662-f9a9-415c-924a-c47b01c4dbcd",
+  "fields": {
+    "modelo": "GeForce RTX 3070 Ti",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3070 Ti de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-4e5cf662-f9a9-415c-924a-c47b01c4dbcd"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4ed2be13-9991-4c12-8642-d182cf255326",
+  "fields": {
+    "modelo": "Radeon RX 5500 OEM",
+    "descripcion": "Descripción generica de una GPU Radeon RX 5500 OEM de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-4ed2be13-9991-4c12-8642-d182cf255326"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4ed4c685-2d61-49c2-818b-9d8712dd1394",
+  "fields": {
+    "modelo": "RTX 6000 Ada",
+    "descripcion": "Descripción generica de una GPU RTX 6000 Ada de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-4ed4c685-2d61-49c2-818b-9d8712dd1394"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4f2e29e1-809c-4544-a6d7-3250bcad1b96",
+  "fields": {
+    "modelo": "Radeon RX Vega 56",
+    "descripcion": "Descripción generica de una GPU Radeon RX Vega 56 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-4f2e29e1-809c-4544-a6d7-3250bcad1b96"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4f7d18d0-990c-4079-8452-8a1b8ce93a1e",
+  "fields": {
+    "modelo": "Steam Deck GPU",
+    "descripcion": "Descripción generica de una GPU Steam Deck GPU de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-4f7d18d0-990c-4079-8452-8a1b8ce93a1e"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "4f902ca8-04cc-4f73-ab15-527ddc274968",
+  "fields": {
+    "modelo": "GeForce RTX 3070",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3070 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-4f902ca8-04cc-4f73-ab15-527ddc274968"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "5176698e-c654-4f9b-8e9a-27a52d599669",
+  "fields": {
+    "modelo": "GeForce RTX 3050 8 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3050 8 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-5176698e-c654-4f9b-8e9a-27a52d599669"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "53dea20a-a268-4900-9363-aacef4b13664",
+  "fields": {
+    "modelo": "Radeon Vega 3 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 3 Embedded de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-53dea20a-a268-4900-9363-aacef4b13664"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "587c4a1f-9034-44c9-af4e-f8b66a32c768",
+  "fields": {
+    "modelo": "RTX A4000 Mobile",
+    "descripcion": "Descripción generica de una GPU RTX A4000 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-587c4a1f-9034-44c9-af4e-f8b66a32c768"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "5a6a72fa-7dd2-49a2-baad-a2a7820529e4",
+  "fields": {
+    "modelo": "RTX A4000",
+    "descripcion": "Descripción generica de una GPU RTX A4000 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-5a6a72fa-7dd2-49a2-baad-a2a7820529e4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "5aa46fe7-dc66-431c-acc0-1d0f4e5af24b",
+  "fields": {
+    "modelo": "T400",
+    "descripcion": "Descripción generica de una GPU T400 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-5aa46fe7-dc66-431c-acc0-1d0f4e5af24b"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "5b9281fe-4232-4f17-80bb-5866942b9626",
+  "fields": {
+    "modelo": "Radeon Pro WX 9100",
+    "descripcion": "Descripción generica de una GPU Radeon Pro WX 9100 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-5b9281fe-4232-4f17-80bb-5866942b9626"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "5c4b8655-c3d4-4fb6-a1e7-f67e1b2abdb2",
+  "fields": {
+    "modelo": "Pasta térmica genérica",
+    "descripcion": "Pasta térmica genérica.",
+    "cantidad": 0,
+    "tipo_producto": "PAS",
+    "marca": "GEN",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "100.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "300.00",
+    "slug": "gen-5c4b8655-c3d4-4fb6-a1e7-f67e1b2abdb2"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "5da6593d-7a6e-4f8d-8394-c4ed4b6ddc76",
+  "fields": {
+    "modelo": "Radeon Pro 5700",
+    "descripcion": "Descripción generica de una GPU Radeon Pro 5700 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-5da6593d-7a6e-4f8d-8394-c4ed4b6ddc76"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "5e68848e-6922-4117-bb0c-5d30075fd80b",
+  "fields": {
+    "modelo": "Playstation 5 GPU",
+    "descripcion": "Descripción generica de una GPU Playstation 5 GPU de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-5e68848e-6922-4117-bb0c-5d30075fd80b"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "61b2a07d-fed8-4a2b-8006-204dcc92faf5",
+  "fields": {
+    "modelo": "Radeon RX 5300",
+    "descripcion": "Descripción generica de una GPU Radeon RX 5300 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-61b2a07d-fed8-4a2b-8006-204dcc92faf5"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "63275f78-9fbd-4a4d-ba2b-80d995c62a40",
+  "fields": {
+    "modelo": "GeForce RTX 3070 Max-Q",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3070 Max-Q de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-63275f78-9fbd-4a4d-ba2b-80d995c62a40"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "65366c07-179a-4cf9-9a57-c34719668e29",
+  "fields": {
+    "modelo": "GeForce GTX 1630",
+    "descripcion": "Descripción generica de una GPU GeForce GTX 1630 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-65366c07-179a-4cf9-9a57-c34719668e29"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "6554e54f-8a5b-4718-a875-730e839ad89c",
+  "fields": {
+    "modelo": "Radeon RX 550 640SP",
+    "descripcion": "Descripción generica de una GPU Radeon RX 550 640SP de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-6554e54f-8a5b-4718-a875-730e839ad89c"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "65707873-fdb5-4d8d-9284-3b0339b1d895",
+  "fields": {
+    "modelo": "Atari VCS 400 GPU",
+    "descripcion": "Descripción generica de una GPU Atari VCS 400 GPU de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-65707873-fdb5-4d8d-9284-3b0339b1d895"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "691c636a-4f21-47e1-a054-f28e7e11c0a8",
+  "fields": {
+    "modelo": "Radeon RX 590 GME",
+    "descripcion": "Descripción generica de una GPU Radeon RX 590 GME de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-691c636a-4f21-47e1-a054-f28e7e11c0a8"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "691cd5be-40e3-4a20-b0f8-a5f70dd924b7",
+  "fields": {
+    "modelo": "Radeon RX 6600 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6600 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-691cd5be-40e3-4a20-b0f8-a5f70dd924b7"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "6994baef-9987-4588-85fb-8b1ac4d9ea45",
+  "fields": {
+    "modelo": "Radeon RX 6650 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6650 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-6994baef-9987-4588-85fb-8b1ac4d9ea45"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "6e430188-40f4-44de-9f24-24e88cb1f444",
+  "fields": {
+    "modelo": "GeForce RTX 3070 Mobile",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3070 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-6e430188-40f4-44de-9f24-24e88cb1f444"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "6e9b5561-b0bf-4f61-a6d6-e3f1a0ae8110",
+  "fields": {
+    "modelo": "Radeon Vega 8",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 8 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-6e9b5561-b0bf-4f61-a6d6-e3f1a0ae8110"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "726292c2-9992-4128-91e4-47c82db2cb91",
+  "fields": {
+    "modelo": "Radeon Instinct MI250",
+    "descripcion": "Descripción generica de una GPU Radeon Instinct MI250 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-726292c2-9992-4128-91e4-47c82db2cb91"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "73357a7e-6b83-4b43-a72f-a3203c092fc0",
+  "fields": {
+    "modelo": "Radeon Pro 5500 XT",
+    "descripcion": "Descripción generica de una GPU Radeon Pro 5500 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-73357a7e-6b83-4b43-a72f-a3203c092fc0"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "734070f5-0b8e-4ae5-b531-b703feae3a43",
+  "fields": {
+    "modelo": "CMP 90HX",
+    "descripcion": "Descripción generica de una GPU CMP 90HX de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-734070f5-0b8e-4ae5-b531-b703feae3a43"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "73825088-67dc-4065-bac9-fc1f0b74b1eb",
+  "fields": {
+    "modelo": "Radeon Vega Frontier Edition Watercooled",
+    "descripcion": "Descripción generica de una GPU Radeon Vega Frontier Edition Watercooled de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-73825088-67dc-4065-bac9-fc1f0b74b1eb"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "739d43f4-3c7e-41ee-b63a-62cd2ac0f8ff",
+  "fields": {
+    "modelo": "Radeon Instinct MI210",
+    "descripcion": "Descripción generica de una GPU Radeon Instinct MI210 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-739d43f4-3c7e-41ee-b63a-62cd2ac0f8ff"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "751a2ea7-285f-4467-89d3-c6181fffca84",
+  "fields": {
+    "modelo": "Radeon Vega 3 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 3 Embedded de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-751a2ea7-285f-4467-89d3-c6181fffca84"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "75304d57-0c1b-4aec-86e8-656c7ab9c02c",
+  "fields": {
+    "modelo": "Radeon Pro WX 3200",
+    "descripcion": "Descripción generica de una GPU Radeon Pro WX 3200 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-75304d57-0c1b-4aec-86e8-656c7ab9c02c"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "771e32df-0bd3-47c8-b875-9d0269bb9bbf",
+  "fields": {
+    "modelo": "Zhongshan Subor Z+ GPU",
+    "descripcion": "Descripción generica de una GPU Zhongshan Subor Z+ GPU de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-771e32df-0bd3-47c8-b875-9d0269bb9bbf"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "7b22e6b0-1dce-4963-896b-19edfa1a44a3",
+  "fields": {
+    "modelo": "Radeon RX 5300 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 5300 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-7b22e6b0-1dce-4963-896b-19edfa1a44a3"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "7b6f5c94-ef1a-46bf-a079-6fa2761a9d37",
+  "fields": {
+    "modelo": "Radeon Instinct MI50",
+    "descripcion": "Descripción generica de una GPU Radeon Instinct MI50 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-7b6f5c94-ef1a-46bf-a079-6fa2761a9d37"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "7bdc48a5-a0de-4642-924f-5b4fdb26bab4",
+  "fields": {
+    "modelo": "Quadro T1200 Mobile",
+    "descripcion": "Descripción generica de una GPU Quadro T1200 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-7bdc48a5-a0de-4642-924f-5b4fdb26bab4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "7ebddf7b-fa3b-4b8c-9850-24f4ee7d6607",
+  "fields": {
+    "modelo": "Radeon Pro VII",
+    "descripcion": "Descripción generica de una GPU Radeon Pro VII de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-7ebddf7b-fa3b-4b8c-9850-24f4ee7d6607"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "80bd079c-c680-4deb-9b78-6f8892ea9b5f",
+  "fields": {
+    "modelo": "Radeon Vega 6 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 6 Embedded de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-80bd079c-c680-4deb-9b78-6f8892ea9b5f"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "80ccf0de-2ded-46e9-a3aa-fb1460f64699",
+  "fields": {
+    "modelo": "GeForce RTX 3060",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3060 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-80ccf0de-2ded-46e9-a3aa-fb1460f64699"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "80fab352-e2e4-41a2-a387-c7e863dbcf40",
+  "fields": {
+    "modelo": "Radeon RX 560DX",
+    "descripcion": "Descripción generica de una GPU Radeon RX 560DX de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-80fab352-e2e4-41a2-a387-c7e863dbcf40"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8775236f-f79b-4078-8bb9-d8b4550716a4",
+  "fields": {
+    "modelo": "RTX A3000 Mobile 12 GB",
+    "descripcion": "Descripción generica de una GPU RTX A3000 Mobile 12 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-8775236f-f79b-4078-8bb9-d8b4550716a4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "892ea0e1-3152-44f2-b36b-06d2f14a8eae",
+  "fields": {
+    "modelo": "Xbox Series S GPU",
+    "descripcion": "Descripción generica de una GPU Xbox Series S GPU de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-892ea0e1-3152-44f2-b36b-06d2f14a8eae"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8b21a3d3-8b62-4278-ad2f-e31ca1cc01f4",
+  "fields": {
+    "modelo": "A16 PCIe",
+    "descripcion": "Descripción generica de una GPU A16 PCIe de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-8b21a3d3-8b62-4278-ad2f-e31ca1cc01f4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8b5b9587-e785-42ec-a0ed-c81bf8fb08ae",
+  "fields": {
+    "modelo": "GeForce RTX 3060 Ti GA103",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3060 Ti GA103 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-8b5b9587-e785-42ec-a0ed-c81bf8fb08ae"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8b65606a-0636-466d-8b4d-7acd5c06de35",
+  "fields": {
+    "modelo": "Radeon Pro V320",
+    "descripcion": "Descripción generica de una GPU Radeon Pro V320 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-8b65606a-0636-466d-8b4d-7acd5c06de35"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8cfcb7c7-c0f4-42a6-91fc-a9eb43a7046b",
+  "fields": {
+    "modelo": "Radeon RX 560 896SP",
+    "descripcion": "Descripción generica de una GPU Radeon RX 560 896SP de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-8cfcb7c7-c0f4-42a6-91fc-a9eb43a7046b"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8e166409-98ea-4b77-bf1b-fa257a644361",
+  "fields": {
+    "modelo": "A100 PCIe 80 GB",
+    "descripcion": "Descripción generica de una GPU A100 PCIe 80 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-8e166409-98ea-4b77-bf1b-fa257a644361"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8e79330b-a11c-4265-90c0-77f3b66746d5",
+  "fields": {
+    "modelo": "GeForce RTX 2060 12 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 2060 12 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-8e79330b-a11c-4265-90c0-77f3b66746d5"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8e935bdd-b49f-4c0d-bf31-cecb88496a91",
+  "fields": {
+    "modelo": "GeForce MX570",
+    "descripcion": "Descripción generica de una GPU GeForce MX570 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-8e935bdd-b49f-4c0d-bf31-cecb88496a91"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8f1e07ee-2af2-4f2f-8835-b387ff319b17",
+  "fields": {
+    "modelo": "Radeon RX 570X",
+    "descripcion": "Descripción generica de una GPU Radeon RX 570X de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-8f1e07ee-2af2-4f2f-8835-b387ff319b17"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "8f6f8670-77ae-4f01-95ea-3ee024274f86",
+  "fields": {
+    "modelo": "CMP 30HX",
+    "descripcion": "Descripción generica de una GPU CMP 30HX de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-8f6f8670-77ae-4f01-95ea-3ee024274f86"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "907cdb47-b018-499d-be6c-ba726d773d5e",
+  "fields": {
+    "modelo": "Radeon RX Vega 64 Liquid Cooling",
+    "descripcion": "Descripción generica de una GPU Radeon RX Vega 64 Liquid Cooling de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-907cdb47-b018-499d-be6c-ba726d773d5e"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "926f76bd-ea19-4f36-acaa-0af1207ff73e",
+  "fields": {
+    "modelo": "GeForce RTX 2050 Mobile",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 2050 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-926f76bd-ea19-4f36-acaa-0af1207ff73e"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "94550356-efe0-4dd8-a3b0-1dfc853298e4",
+  "fields": {
+    "modelo": "RTX A4500",
+    "descripcion": "Descripción generica de una GPU RTX A4500 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-94550356-efe0-4dd8-a3b0-1dfc853298e4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "951f7097-55fe-4ed2-a63b-865f812b14d6",
+  "fields": {
+    "modelo": "Radeon Pro W5700",
+    "descripcion": "Descripción generica de una GPU Radeon Pro W5700 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-951f7097-55fe-4ed2-a63b-865f812b14d6"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "95709f4a-6efa-4e5a-ae88-42b25529b3a6",
+  "fields": {
+    "modelo": "Radeon RX 6900 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6900 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-95709f4a-6efa-4e5a-ae88-42b25529b3a6"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "963399b2-ab6d-4a70-baaa-e8fc85c8a099",
+  "fields": {
+    "modelo": "PG506-242",
+    "descripcion": "Descripción generica de una GPU PG506-242 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-963399b2-ab6d-4a70-baaa-e8fc85c8a099"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "9f0536dd-7427-4200-b791-7f07e515e3ad",
+  "fields": {
+    "modelo": "Radeon RX 5700",
+    "descripcion": "Descripción generica de una GPU Radeon RX 5700 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-9f0536dd-7427-4200-b791-7f07e515e3ad"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "9f9a2c66-f1f8-4729-ab3b-f976673d42df",
+  "fields": {
+    "modelo": "Radeon RX 6700",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6700 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-9f9a2c66-f1f8-4729-ab3b-f976673d42df"
+  }
+},
+{
+  "model": "app.producto",
   "pk": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
   "fields": {
     "modelo": "Ryzen 9 5950X",
     "descripcion": "Procesador.",
-    "cantidad": 109,
-    "tipo_producto": "TAR",
-    "marca": "NVD",
+    "cantidad": 100,
+    "tipo_producto": "CPU",
+    "marca": "AMD",
     "precioCompra_currency": "MXN",
     "precioCompra": "10000.00",
     "precioVenta_currency": "MXN",
     "precioVenta": "15000.00",
-    "slug": "nvd-9fb3bda8-8e15-435a-adcb-126f1f5a39fb"
+    "slug": "amd-9fb3bda8-8e15-435a-adcb-126f1f5a39fb"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "a0be7f9c-a08f-4e8c-b794-66662d02960d",
+  "fields": {
+    "modelo": "GeForce RTX 3080 Ti Max-Q",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3080 Ti Max-Q de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-a0be7f9c-a08f-4e8c-b794-66662d02960d"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "a2505221-6c6a-4627-ba11-28cf25289eb9",
+  "fields": {
+    "modelo": "Radeon Vega 8",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 8 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-a2505221-6c6a-4627-ba11-28cf25289eb9"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "a4b4bc54-7f24-4660-89ae-741db91cb28c",
+  "fields": {
+    "modelo": "Radeon Pro W6600",
+    "descripcion": "Descripción generica de una GPU Radeon Pro W6600 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-a4b4bc54-7f24-4660-89ae-741db91cb28c"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "a65d9310-f5b5-46b5-80e6-1bc0c7f6a8ca",
+  "fields": {
+    "modelo": "Radeon Vega 8",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 8 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-a65d9310-f5b5-46b5-80e6-1bc0c7f6a8ca"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "a815cc15-2f5c-4cbf-bbe9-aeb7e3c9f062",
+  "fields": {
+    "modelo": "Radeon RX Vega 11",
+    "descripcion": "Descripción generica de una GPU Radeon RX Vega 11 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-a815cc15-2f5c-4cbf-bbe9-aeb7e3c9f062"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "a9624cda-230c-46c0-9b30-65f9944fef78",
+  "fields": {
+    "modelo": "Radeon RX 580X",
+    "descripcion": "Descripción generica de una GPU Radeon RX 580X de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-a9624cda-230c-46c0-9b30-65f9944fef78"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "aa89171d-0217-4c2b-a64d-0ab6a32007b4",
+  "fields": {
+    "modelo": "RTX A4500 Mobile",
+    "descripcion": "Descripción generica de una GPU RTX A4500 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-aa89171d-0217-4c2b-a64d-0ab6a32007b4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "ac03bfb8-771a-4657-8763-53897da5ba40",
+  "fields": {
+    "modelo": "Radeon Pro 5300",
+    "descripcion": "Descripción generica de una GPU Radeon Pro 5300 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-ac03bfb8-771a-4657-8763-53897da5ba40"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "ac4d7dc2-e275-44db-b872-c99f14671ddc",
+  "fields": {
+    "modelo": "GeForce GT 1010",
+    "descripcion": "Descripción generica de una GPU GeForce GT 1010 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-ac4d7dc2-e275-44db-b872-c99f14671ddc"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "ac9183c4-0891-45e4-a9c9-8ae5df9d7c61",
+  "fields": {
+    "modelo": "GeForce RTX 3080 Ti 20 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3080 Ti 20 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-ac9183c4-0891-45e4-a9c9-8ae5df9d7c61"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "acc08118-ff2e-4e18-96e9-2578c51c4261",
+  "fields": {
+    "modelo": "Radeon Pro V620",
+    "descripcion": "Descripción generica de una GPU Radeon Pro V620 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-acc08118-ff2e-4e18-96e9-2578c51c4261"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "ad56928f-cf34-4745-bd69-26c7810b44b4",
+  "fields": {
+    "modelo": "GeForce RTX 3060 Ti GDDR6X",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3060 Ti GDDR6X de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-ad56928f-cf34-4745-bd69-26c7810b44b4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "ae084a21-bca5-431c-ae12-60942fb82801",
+  "fields": {
+    "modelo": "GeForce RTX 4070",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 4070 de la marca NVD.",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-ae084a21-bca5-431c-ae12-60942fb82801"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "af45740a-d3dd-4a48-b97f-d5971a58ab21",
+  "fields": {
+    "modelo": "Radeon RX 560 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 560 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-af45740a-d3dd-4a48-b97f-d5971a58ab21"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "af78883d-557a-4170-bdb0-1b863854464d",
+  "fields": {
+    "modelo": "T600",
+    "descripcion": "Descripción generica de una GPU T600 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-af78883d-557a-4170-bdb0-1b863854464d"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "afb4baa2-40d9-42ea-9276-5b11a26da1bc",
+  "fields": {
+    "modelo": "Radeon Pro W6900X",
+    "descripcion": "Descripción generica de una GPU Radeon Pro W6900X de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-afb4baa2-40d9-42ea-9276-5b11a26da1bc"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b1f021bb-5d6e-42c4-a993-45440902cdfa",
+  "fields": {
+    "modelo": "RTX A1000 Mobile",
+    "descripcion": "Descripción generica de una GPU RTX A1000 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-b1f021bb-5d6e-42c4-a993-45440902cdfa"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b24933db-8615-471d-a65a-fa9d182f576d",
+  "fields": {
+    "modelo": "Radeon RX 550X 640SP",
+    "descripcion": "Descripción generica de una GPU Radeon RX 550X 640SP de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-b24933db-8615-471d-a65a-fa9d182f576d"
   }
 },
 {
@@ -181,10 +4400,250 @@
     "tipo_producto": "TAR",
     "marca": "AMD",
     "precioCompra_currency": "MXN",
+    "precioCompra": "500.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "1000.00",
+    "slug": "amd-b39d3fee-73a1-410f-85f2-4a906aaa4a8a"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b47f6bba-4297-46dc-b6d2-efd0125e0645",
+  "fields": {
+    "modelo": "T500 Mobile",
+    "descripcion": "Descripción generica de una GPU T500 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
     "precioCompra": "0.00",
     "precioVenta_currency": "MXN",
     "precioVenta": "0.00",
-    "slug": "amd-b39d3fee-73a1-410f-85f2-4a906aaa4a8a"
+    "slug": "nvd-b47f6bba-4297-46dc-b6d2-efd0125e0645"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b4b61572-9ff6-4f42-b8e7-18ce3ad2fc08",
+  "fields": {
+    "modelo": "GeForce RTX 3050 4 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3050 4 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-b4b61572-9ff6-4f42-b8e7-18ce3ad2fc08"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b4fc6f61-43a0-4396-9772-24c0a5ef48b2",
+  "fields": {
+    "modelo": "CMP 70HX",
+    "descripcion": "Descripción generica de una GPU CMP 70HX de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-b4fc6f61-43a0-4396-9772-24c0a5ef48b2"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b5054020-95ff-47b6-855e-74c2ad772d1f",
+  "fields": {
+    "modelo": "Radeon Pro SSG",
+    "descripcion": "Descripción generica de una GPU Radeon Pro SSG de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-b5054020-95ff-47b6-855e-74c2ad772d1f"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b563f1ac-be7d-4c1f-a3f8-12657e56a40f",
+  "fields": {
+    "modelo": "Radeon RX 560D",
+    "descripcion": "Descripción generica de una GPU Radeon RX 560D de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-b563f1ac-be7d-4c1f-a3f8-12657e56a40f"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b75881a6-3e2a-4128-a4f7-76d556ecf5b1",
+  "fields": {
+    "modelo": "Radeon Vega 3",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 3 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-b75881a6-3e2a-4128-a4f7-76d556ecf5b1"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b7c8e28e-c992-45f0-8858-93995a06fb95",
+  "fields": {
+    "modelo": "Radeon RX 580 2048SP",
+    "descripcion": "Descripción generica de una GPU Radeon RX 580 2048SP de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-b7c8e28e-c992-45f0-8858-93995a06fb95"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b7dd4c2a-c98a-450c-a9b5-afed0800b673",
+  "fields": {
+    "modelo": "T600 Mobile",
+    "descripcion": "Descripción generica de una GPU T600 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-b7dd4c2a-c98a-450c-a9b5-afed0800b673"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b80a44a2-1b72-40f9-8d53-a50368f73aa5",
+  "fields": {
+    "modelo": "GeForce MX570",
+    "descripcion": "Descripción generica de una GPU GeForce MX570 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-b80a44a2-1b72-40f9-8d53-a50368f73aa5"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "b8420f5a-f96b-46c9-a5ad-6c488261563a",
+  "fields": {
+    "modelo": "Radeon Vega 8 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 8 Embedded de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-b8420f5a-f96b-46c9-a5ad-6c488261563a"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "bbd61af0-70e6-49c9-b30a-66ab707dba49",
+  "fields": {
+    "modelo": "Radeon Pro W6800X Duo",
+    "descripcion": "Descripción generica de una GPU Radeon Pro W6800X Duo de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-bbd61af0-70e6-49c9-b30a-66ab707dba49"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "be461373-06c8-4bd2-84f2-0e4818610387",
+  "fields": {
+    "modelo": "RTX A2000",
+    "descripcion": "Descripción generica de una GPU RTX A2000 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-be461373-06c8-4bd2-84f2-0e4818610387"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c0bcffe7-3e63-47ee-810f-4c8086f6ee58",
+  "fields": {
+    "modelo": "Radeon RX Vega 11",
+    "descripcion": "Descripción generica de una GPU Radeon RX Vega 11 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-c0bcffe7-3e63-47ee-810f-4c8086f6ee58"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c17fca37-84c9-4066-89a8-1f18702efd9c",
+  "fields": {
+    "modelo": "A30 PCIe",
+    "descripcion": "Descripción generica de una GPU A30 PCIe de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-c17fca37-84c9-4066-89a8-1f18702efd9c"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c2654510-55a4-47d6-8b10-409f9e8a70f9",
+  "fields": {
+    "modelo": "A10 PCIe",
+    "descripcion": "Descripción generica de una GPU A10 PCIe de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-c2654510-55a4-47d6-8b10-409f9e8a70f9"
   }
 },
 {
@@ -193,7 +4652,7 @@
   "fields": {
     "modelo": "NVIDIA GeForce RTX 3080",
     "descripcion": "Tarjeta gráfica NVIDIA GeForce RTF 3080",
-    "cantidad": 90,
+    "cantidad": 100,
     "tipo_producto": "TAR",
     "marca": "NVD",
     "precioCompra_currency": "MXN",
@@ -201,6 +4660,854 @@
     "precioVenta_currency": "MXN",
     "precioVenta": "15000.00",
     "slug": "nvd-c349a826-77c8-4ae3-9325-93d14b3f3139"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c39220ef-f692-4d91-85b4-4df8f6af6078",
+  "fields": {
+    "modelo": "GeForce RTX 2080 Ti 12 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 2080 Ti 12 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-c39220ef-f692-4d91-85b4-4df8f6af6078"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c43e3e2d-a3b8-4dfc-acfd-eaddea8fef5a",
+  "fields": {
+    "modelo": "Radeon Pro W6800X",
+    "descripcion": "Descripción generica de una GPU Radeon Pro W6800X de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-c43e3e2d-a3b8-4dfc-acfd-eaddea8fef5a"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c55b6850-4fc0-4e18-a005-b077404cbfa2",
+  "fields": {
+    "modelo": "GeForce RTX 3080 12 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3080 12 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-c55b6850-4fc0-4e18-a005-b077404cbfa2"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c5e0eca1-ac0a-4c77-a575-4f7d435a2ed0",
+  "fields": {
+    "modelo": "Radeon RX 5600 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 5600 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-c5e0eca1-ac0a-4c77-a575-4f7d435a2ed0"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c60b5893-1954-4932-b953-7c0cab00bebb",
+  "fields": {
+    "modelo": "Radeon RX 6400",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6400 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-c60b5893-1954-4932-b953-7c0cab00bebb"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "c6645c20-a080-4656-b903-ff893f9adcc6",
+  "fields": {
+    "modelo": "PG506-232",
+    "descripcion": "Descripción generica de una GPU PG506-232 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-c6645c20-a080-4656-b903-ff893f9adcc6"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "ca8c6b98-3911-42c3-8820-3a2c20cdcec9",
+  "fields": {
+    "modelo": "RTX A5000",
+    "descripcion": "Descripción generica de una GPU RTX A5000 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-ca8c6b98-3911-42c3-8820-3a2c20cdcec9"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "cc32a2cf-22ba-4725-8b52-a8d1c797a67f",
+  "fields": {
+    "modelo": "T400 4 GB",
+    "descripcion": "Descripción generica de una GPU T400 4 GB de la marca NVD::",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-cc32a2cf-22ba-4725-8b52-a8d1c797a67f"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "cd59bdef-dbca-4a86-a3c3-4a73f40f6462",
+  "fields": {
+    "modelo": "Radeon Instinct MI60",
+    "descripcion": "Descripción generica de una GPU Radeon Instinct MI60 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-cd59bdef-dbca-4a86-a3c3-4a73f40f6462"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "cd8374a1-a55c-4c9b-9aff-5581627b720c",
+  "fields": {
+    "modelo": "Radeon Vega 7",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 7 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-cd8374a1-a55c-4c9b-9aff-5581627b720c"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "ceee6039-76e1-452d-a016-3f6d587fcc4b",
+  "fields": {
+    "modelo": "H100 SXM5",
+    "descripcion": "Descripción generica de una GPU H100 SXM5 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-ceee6039-76e1-452d-a016-3f6d587fcc4b"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d026dbee-f733-433a-b992-d5628e803500",
+  "fields": {
+    "modelo": "GeForce MX550",
+    "descripcion": "Descripción generica de una GPU GeForce MX550 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-d026dbee-f733-433a-b992-d5628e803500"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d1093063-81d1-4a26-81d1-b05a7949e2bb",
+  "fields": {
+    "modelo": "A2",
+    "descripcion": "Descripción generica de una GPU A2 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-d1093063-81d1-4a26-81d1-b05a7949e2bb"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d234651b-913b-4c43-b853-28fc123336b6",
+  "fields": {
+    "modelo": "CMP 40HX",
+    "descripcion": "Descripción generica de una GPU CMP 40HX de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-d234651b-913b-4c43-b853-28fc123336b6"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d2643249-ae08-4a85-8c7a-573bc5fbc9c8",
+  "fields": {
+    "modelo": "Radeon Instinct MI25",
+    "descripcion": "Descripción generica de una GPU Radeon Instinct MI25 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-d2643249-ae08-4a85-8c7a-573bc5fbc9c8"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d306ff83-9526-42c3-a502-55da614e55c4",
+  "fields": {
+    "modelo": "Radeon Pro V520",
+    "descripcion": "Descripción generica de una GPU Radeon Pro V520 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-d306ff83-9526-42c3-a502-55da614e55c4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d37ca745-3ba2-427d-9396-dea9addd060b",
+  "fields": {
+    "modelo": "RTX A500 Embedded",
+    "descripcion": "Descripción generica de una GPU RTX A500 Embedded de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-d37ca745-3ba2-427d-9396-dea9addd060b"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d684e693-f954-450b-8cc3-43110c5ec2f1",
+  "fields": {
+    "modelo": "A10G",
+    "descripcion": "Descripción generica de una GPU A10G de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-d684e693-f954-450b-8cc3-43110c5ec2f1"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d6d7d8ae-2413-41d2-87a6-8328702b36bf",
+  "fields": {
+    "modelo": "Radeon RX Vega 11 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon RX Vega 11 Embedded de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-d6d7d8ae-2413-41d2-87a6-8328702b36bf"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d80292d8-5f31-448e-8ca8-e62253d24e97",
+  "fields": {
+    "modelo": "GeForce RTX 4090 Ti",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 4090 Ti de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-d80292d8-5f31-448e-8ca8-e62253d24e97"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d822d605-b816-4363-8d48-ccbf6c510e46",
+  "fields": {
+    "modelo": "Radeon RX 5700 XT 50th Anniversary",
+    "descripcion": "Descripción generica de una GPU Radeon RX 5700 XT 50th Anniversary de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-d822d605-b816-4363-8d48-ccbf6c510e46"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "d91c2788-235b-4181-822f-2111484ced01",
+  "fields": {
+    "modelo": "GeForce RTX 3050 Ti Mobile",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3050 Ti Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-d91c2788-235b-4181-822f-2111484ced01"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "da7ff7a3-8c0e-4e50-a702-469888ac2ed3",
+  "fields": {
+    "modelo": "GeForce RTX 3090 Ti",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3090 Ti de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-da7ff7a3-8c0e-4e50-a702-469888ac2ed3"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "dd7b45ba-0671-4ce4-973b-3d3f8c8103e0",
+  "fields": {
+    "modelo": "RTX A4500 Embedded",
+    "descripcion": "Descripción generica de una GPU RTX A4500 Embedded de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-dd7b45ba-0671-4ce4-973b-3d3f8c8103e0"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "dd981f96-e918-48e8-a9c8-dbeb6606905e",
+  "fields": {
+    "modelo": "Radeon RX 6500 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6500 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-dd981f96-e918-48e8-a9c8-dbeb6606905e"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "dee19364-85d4-42ff-9238-4b692b356738",
+  "fields": {
+    "modelo": "GeForce RTX 3090",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3090 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-dee19364-85d4-42ff-9238-4b692b356738"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e0422180-3af0-4122-b2d8-f74ac2750524",
+  "fields": {
+    "modelo": "RTX A5500 Mobile",
+    "descripcion": "Descripción generica de una  GPU RTX A5500 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-e0422180-3af0-4122-b2d8-f74ac2750524"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e14082c6-bcc8-44d3-b230-3e1f316da27a",
+  "fields": {
+    "modelo": "Radeon VII",
+    "descripcion": "Descripción generica de una GPU Radeon VII de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-e14082c6-bcc8-44d3-b230-3e1f316da27a"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e4786779-6676-4091-bb71-4bdc27d28275",
+  "fields": {
+    "modelo": "CMP 50HX",
+    "descripcion": "Descripción generica de una GPU CMP 50HX de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-e4786779-6676-4091-bb71-4bdc27d28275"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e48fb365-7974-4b4c-8888-276949f0cb88",
+  "fields": {
+    "modelo": "GeForce RTX 4050",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 4050 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-e48fb365-7974-4b4c-8888-276949f0cb88"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e4b86f0b-d75f-49aa-854a-eb3dceee8b45",
+  "fields": {
+    "modelo": "RTX A6000",
+    "descripcion": "Descripción generica de una GPU RTX A6000 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-e4b86f0b-d75f-49aa-854a-eb3dceee8b45"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e55295d7-a172-484c-8bdd-bdb3e69f068d",
+  "fields": {
+    "modelo": "Radeon RX 550 512SP",
+    "descripcion": "Descripción generica de una GPU Radeon RX 550 512SP de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-e55295d7-a172-484c-8bdd-bdb3e69f068d"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e6c5d583-73b3-47b7-9b97-af1507e95f38",
+  "fields": {
+    "modelo": "GeForce RTX 3080",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3080 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-e6c5d583-73b3-47b7-9b97-af1507e95f38"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e784792d-aba5-410c-9934-a53ee42ca48a",
+  "fields": {
+    "modelo": "Radeon RX 5500 XT",
+    "descripcion": "Descripción generica de una GPU Radeon RX 5500 XT de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-e784792d-aba5-410c-9934-a53ee42ca48a"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e78f6502-522c-4195-bda9-8b5706adf46a",
+  "fields": {
+    "modelo": "GeForce RTX 3050 8 GB GA107",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3050 8 GB GA107 de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-e78f6502-522c-4195-bda9-8b5706adf46a"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "e7b0b385-5995-406e-8f42-43df6ec4251e",
+  "fields": {
+    "modelo": "Xbox Series X GPU",
+    "descripcion": "Descripción generica de una GPU Xbox Series X GPU de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-e7b0b385-5995-406e-8f42-43df6ec4251e"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "ee392f70-9a14-4894-bdc7-01c0d716fd84",
+  "fields": {
+    "modelo": "RTX A5000 Mobile",
+    "descripcion": "Descripción generica de una GPU RTX A5000 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-ee392f70-9a14-4894-bdc7-01c0d716fd84"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "ef2b02dc-1f84-4eb2-afe4-2b4cba47b4a0",
+  "fields": {
+    "modelo": "Radeon RX 6900 XTX",
+    "descripcion": "Descripción generica de una GPU Radeon RX 6900 XTX de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-ef2b02dc-1f84-4eb2-afe4-2b4cba47b4a0"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f2158540-af6b-4b20-af64-c4b7c5aabc23",
+  "fields": {
+    "modelo": "Radeon RX 590",
+    "descripcion": "Descripción generica de una GPU Radeon RX 590 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-f2158540-af6b-4b20-af64-c4b7c5aabc23"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f24e1345-c19e-4663-a47d-49bd574bdd01",
+  "fields": {
+    "modelo": "GeForce RTX 3070 Ti Mobile",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3070 Ti Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-f24e1345-c19e-4663-a47d-49bd574bdd01"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f2613780-6262-4d83-881b-b8598e8bf754",
+  "fields": {
+    "modelo": "Radeon RX Vega 64",
+    "descripcion": "Descripción generica de una GPU Radeon RX Vega 64 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-f2613780-6262-4d83-881b-b8598e8bf754"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f2b48f85-3717-4ac4-9a6f-182a60bf9524",
+  "fields": {
+    "modelo": "Radeon Vega 11 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 11 Embedded de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-f2b48f85-3717-4ac4-9a6f-182a60bf9524"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f38e7b65-e31d-499d-af8a-ce8409ca755b",
+  "fields": {
+    "modelo": "RTX A3000 Mobile",
+    "descripcion": "Descripción generica de una GPU RTX A3000 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-f38e7b65-e31d-499d-af8a-ce8409ca755b"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f410d6a4-8959-48fd-8b2b-d88c9bdf1105",
+  "fields": {
+    "modelo": "GeForce RTX 4080 Ti",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 4080 Ti de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-f410d6a4-8959-48fd-8b2b-d88c9bdf1105"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f53c51f3-6091-4300-931a-ced6d077f35a",
+  "fields": {
+    "modelo": "GeForce RTX 3060 8 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3060 8 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-f53c51f3-6091-4300-931a-ced6d077f35a"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f684a7ab-caf7-4b7b-bdc6-34d84db6b0a0",
+  "fields": {
+    "modelo": "Radeon RX 5600 OEM",
+    "descripcion": "Descripción generica de una GPU Radeon RX 5600 OEM de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-f684a7ab-caf7-4b7b-bdc6-34d84db6b0a0"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f71326c5-6186-4de9-988d-ec38364732d5",
+  "fields": {
+    "modelo": "Radeon Pro WX 8200",
+    "descripcion": "Descripción generica de una GPU Radeon Pro WX 8200 de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-f71326c5-6186-4de9-988d-ec38364732d5"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f7ad2cb2-ad17-494d-b79b-faf3af17884b",
+  "fields": {
+    "modelo": "Radeon Vega 3 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 3 Embedded de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-f7ad2cb2-ad17-494d-b79b-faf3af17884b"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "f94d8dd4-577a-490f-af15-37e484089daa",
+  "fields": {
+    "modelo": "GeForce RTX 3070 Ti 16 GB",
+    "descripcion": "Descripción generica de una GPU GeForce RTX 3070 Ti 16 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-f94d8dd4-577a-490f-af15-37e484089daa"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "fa7779a4-3031-4152-9b2f-9392d20426d4",
+  "fields": {
+    "modelo": "T550 Mobile",
+    "descripcion": "Descripción generica de una GPU T550 Mobile de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-fa7779a4-3031-4152-9b2f-9392d20426d4"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "fb463154-f4f9-4da8-9cc0-e9418a5ffd79",
+  "fields": {
+    "modelo": "Radeon Vega 3 Embedded",
+    "descripcion": "Descripción generica de una GPU Radeon Vega 3 Embedded de la marca AMD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "AMD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "amd-fb463154-f4f9-4da8-9cc0-e9418a5ffd79"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "fca01e40-8ac3-48ee-aae3-fcdcc49bd022",
+  "fields": {
+    "modelo": "A100 SXM4 80 GB",
+    "descripcion": "Descripción generica de una GPU A100 SXM4 80 GB de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-fca01e40-8ac3-48ee-aae3-fcdcc49bd022"
+  }
+},
+{
+  "model": "app.producto",
+  "pk": "fd26a7e0-3ae7-4d87-8524-4e591ea18945",
+  "fields": {
+    "modelo": "H100 PCIe",
+    "descripcion": "Descripción generica de una GPU H100 PCIe de la marca NVD",
+    "cantidad": 0,
+    "tipo_producto": "TAR",
+    "marca": "NVD",
+    "precioCompra_currency": "MXN",
+    "precioCompra": "0.00",
+    "precioVenta_currency": "MXN",
+    "precioVenta": "0.00",
+    "slug": "nvd-fd26a7e0-3ae7-4d87-8524-4e591ea18945"
   }
 },
 {
@@ -238,342 +5545,6 @@
     "last_updated": "2022-10-11T12:43:37.792",
     "creacion": null
   }
-},
-{
-  "model": "app.saleitem",
-  "pk": 23,
-  "fields": {
-    "billno": 19,
-    "stock": "c349a826-77c8-4ae3-9325-93d14b3f3139",
-    "quantity": 10,
-    "perprice": 8099.0,
-    "totalprice": 80990.0
-  }
-},
-{
-  "model": "app.saleitem",
-  "pk": 27,
-  "fields": {
-    "billno": 22,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 1,
-    "perprice": 36.0,
-    "totalprice": 36.0
-  }
-},
-{
-  "model": "app.saleitem",
-  "pk": 28,
-  "fields": {
-    "billno": 22,
-    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
-    "quantity": 2,
-    "perprice": 1.0,
-    "totalprice": 2.0
-  }
-},
-{
-  "model": "app.salebilldetails",
-  "pk": 19,
-  "fields": {
-    "billno": 19,
-    "eway": null,
-    "veh": null,
-    "destination": null,
-    "po": null,
-    "cgst": null,
-    "sgst": null,
-    "igst": null,
-    "cess": null,
-    "tcs": null,
-    "total": null
-  }
-},
-{
-  "model": "app.salebilldetails",
-  "pk": 22,
-  "fields": {
-    "billno": 22,
-    "eway": null,
-    "veh": null,
-    "destination": null,
-    "po": null,
-    "cgst": null,
-    "sgst": null,
-    "igst": null,
-    "cess": null,
-    "tcs": null,
-    "total": null
-  }
-},
-{
-  "model": "app.recibocompra",
-  "pk": 10,
-  "fields": {
-    "notas": "Notas",
-    "time": "2022-10-27T06:13:02.680"
-  }
-},
-{
-  "model": "app.recibocompra",
-  "pk": 11,
-  "fields": {
-    "notas": "Notas",
-    "time": "2022-10-27T06:13:44.277"
-  }
-},
-{
-  "model": "app.recibocompra",
-  "pk": 21,
-  "fields": {
-    "notas": "Pruebas",
-    "time": "2022-10-31T02:43:36.018"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 3,
-  "fields": {
-    "billno": 10,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 4,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "10000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "1000.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "40000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 4,
-  "fields": {
-    "billno": 10,
-    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
-    "quantity": 10,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "15400.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "14540.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "154000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 5,
-  "fields": {
-    "billno": 11,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 3,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "10000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "12000.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "30000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 23,
-  "fields": {
-    "billno": 21,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 100,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "4000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "4500.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "400000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 24,
-  "fields": {
-    "billno": 21,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 100,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "4000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "4500.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "400000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 25,
-  "fields": {
-    "billno": 21,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 100,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "4000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "4500.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "400000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 26,
-  "fields": {
-    "billno": 21,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 100,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "4000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "4500.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "400000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 27,
-  "fields": {
-    "billno": 21,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 1,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "1000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "1500.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "1000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 28,
-  "fields": {
-    "billno": 21,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 100,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "4000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "4500.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "400000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 29,
-  "fields": {
-    "billno": 21,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 100,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "4000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "4500.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "400000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 30,
-  "fields": {
-    "billno": 21,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 100,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "1000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "1500.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "100000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 31,
-  "fields": {
-    "billno": 11,
-    "stock": "10d33fea-1fc8-4bb5-9fdf-4a41695d52cf",
-    "quantity": 3,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "10000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "12000.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "30000.00"
-  }
-},
-{
-  "model": "app.compras",
-  "pk": 32,
-  "fields": {
-    "billno": 11,
-    "stock": "9fb3bda8-8e15-435a-adcb-126f1f5a39fb",
-    "quantity": 1,
-    "preciocompra_currency": "MXN",
-    "preciocompra": "10000.00",
-    "precioventa_currency": "MXN",
-    "precioventa": "15000.00",
-    "totalprice_currency": "MXN",
-    "totalprice": "10000.00"
-  }
-},
-{
-  "model": "app.detallesrecibocompra",
-  "pk": 10,
-  "fields": {
-    "billno": 10,
-    "eway": null,
-    "veh": null,
-    "destino": null,
-    "po": null,
-    "cgst": null,
-    "sgst": null,
-    "igst": null,
-    "cess": null,
-    "tcs": null,
-    "total": null
-  }
-},
-{
-  "model": "app.detallesrecibocompra",
-  "pk": 11,
-  "fields": {
-    "billno": 11,
-    "eway": null,
-    "veh": null,
-    "destino": null,
-    "po": null,
-    "cgst": null,
-    "sgst": null,
-    "igst": null,
-    "cess": null,
-    "tcs": null,
-    "total": null
-  }
-},
-{
-  "model": "app.detallesrecibocompra",
-  "pk": 23,
-  "fields": {
-    "billno": 21,
-    "eway": null,
-    "veh": null,
-    "destino": null,
-    "po": null,
-    "cgst": null,
-    "sgst": null,
-    "igst": null,
-    "cess": null,
-    "tcs": null,
-    "total": null
-  }
 }
 ]
+Installed 464 object(s) from 1 fixture(s)

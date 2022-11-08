@@ -55,7 +55,7 @@
                                         {% for mantenimiento in lista_mantenimientos %}
                                             <tr>
                                                 <th scope="row"><a href="{{ mantenimiento.get_absolute_url }}">{{ mantenimiento.id_manten }}</a></th>
-                                                <td>{{mantenimiento.fecha}}</td>
+                                                <td>{{mantenimiento.fecha.date}}</td>
                                                 <td>{{mantenimiento.descripcion}}</td>
                                                 <td>{{mantenimiento.cliente}}</td>
                                                 <td>{{mantenimiento.empleado}}</td>

@@ -66,17 +66,6 @@ urlpatterns = [
     url(r'^mantenimientos/(?P<pk>\d+)/modificar/$', views.MantenimientosUpdate.as_view(), name='mantenimientos_modificar'),
     url(r'^mantenimientos/(?P<pk>\d+)/borrar/$', views.MantenimientosBorrar.as_view(), name='mantenimientos_borrar'),
 
-    path('invoices',views.invoices, name='invoices'),
-    # Create URL Paths
-    path('invoices/create', views.createInvoice, name='create-invoice'),
-    path('invoices/create-build/<slug:slug>', views.createBuildInvoice, name='create-build-invoice'),
-
-    # Delete an invoice
-    path('invoices/delete/<slug:slug>', views.deleteInvoice, name='delete-invoice'),
-
-    # PDF and EMAIL Paths
-    path('invoices/view-pdf/<slug:slug>', views.viewPDFInvoice, name='view-pdf-invoice'),
-    path('invoices/view-document/<slug:slug>', views.viewDocumentInvoice, name='view-document-invoice'),
 
     #Reportes
     path('reportes_prod', views.reportes_productos, name='rep_productos'),
