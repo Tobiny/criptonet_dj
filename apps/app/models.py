@@ -88,7 +88,6 @@ class TipoProducto(models.Model):
         return reverse('tipo_detalles', args=[str(self.id_tipo)])
 
 
-
 class Client(models.Model):
     ESTADOS = [
         ("Aguascalientes'", "Aguascalientes"),
@@ -138,7 +137,7 @@ class Client(models.Model):
     estado = models.CharField(choices=ESTADOS, default="Jalisco", max_length=20,
                               help_text="Ingrese el estado", verbose_name='Estado'
                               )
-    codigoPostal = models.IntegerField( max_length=5,
+    codigoPostal = models.IntegerField(
                                        help_text="Ingrese el codigo postal del cliente",
                                        verbose_name='Codigo Postal del '
                                                     'Cliente',
@@ -147,14 +146,14 @@ class Client(models.Model):
                                            message='Código postal inválido',
                                            code='invalid_PC'), ])
 
-    numTelefono = models.CharField( max_length=10,
+    numTelefono = models.CharField(max_length=10,
                                    help_text="Ingrese el número de teléfono del cliente", verbose_name='Número de '
                                                                                                        'Teléfono',
                                    validators=[RegexValidator(
                                        regex='(\(\d{3}\)[.-]?|\d{3}[.-]?)?\d{3}[.-]?\d{4}',
                                        message='El número es inválido.',
                                        code='invalid_number'), ])
-    dirEmail = models.EmailField( max_length=100,
+    dirEmail = models.EmailField(max_length=100,
                                  help_text="Ingrese la dirección de correo del cliente", verbose_name='Email del '
                                                                                                       'Cliente',
                                  validators=[RegexValidator(
@@ -193,15 +192,17 @@ class Client(models.Model):
 
 class Mantenimientos(models.Model):
     id_manten = models.AutoField(primary_key=True, verbose_name='ID del Mantenimiento')
-    fecha = models.DateTimeField(null=True, blank=True, auto_now_add=False, verbose_name='Fecha del Mantenimiento', help_text="Ingrese la fecha de mantenimiento")
+    fecha = models.DateTimeField(null=True, blank=True, auto_now_add=False, verbose_name='Fecha del Mantenimiento',
+                                 help_text="Ingrese la fecha de mantenimiento")
     descripcion = models.TextField(help_text="Ingrese las observaciones del mantenimiento",
                                    verbose_name='Observaciones')
     cliente = models.ForeignKey(Client, on_delete=models.CASCADE,
-                                      help_text="Seleccione el cliente para su mantenimiento", verbose_name='Cliente'
-                                      )
-    empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE,
-                                help_text="Seleccione el empleado a realizar el mantenimiento", verbose_name='Empleado'
+                                help_text="Seleccione el cliente para su mantenimiento", verbose_name='Cliente'
                                 )
+    empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE,
+                                 help_text="Seleccione el empleado a realizar el mantenimiento", verbose_name='Empleado'
+                                 )
+
     def __str__(self):
         """
         String para representar el Objeto del Modelo
@@ -299,9 +300,9 @@ class Recibo(models.Model):
 
 
 class Producto(models.Model):
-    modelo = models.CharField( max_length=70, verbose_name='Modelo del producto',
+    modelo = models.CharField(max_length=70, verbose_name='Modelo del producto',
                               help_text='Ingrese el modelo del producto')
-    descripcion = models.TextField( help_text="Ingrese la descripción del producto",
+    descripcion = models.TextField(help_text="Ingrese la descripción del producto",
                                    verbose_name='Descripción'
                                                 ' del producto', max_length=250,
 
@@ -309,10 +310,10 @@ class Producto(models.Model):
     cantidad = models.IntegerField(null=True, blank=True,
                                    help_text="Ingrese la cantidad de productos en existencia/añadir",
                                    verbose_name='Cantidad de '
-                                                'Productos en Existencia', max_length=6, default=0)
+                                                'Productos en Existencia', default=0)
     tipo_producto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE,
                                       help_text="Seleccione el tipo de producto", verbose_name='Tipo de producto'
-                                     , default='Sin tipo')
+                                      , default='Sin tipo')
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE, default='Sin marca',
                               help_text="Ingrese la marca del producto", verbose_name='Marca del '
                                                                                       'Producto')
@@ -456,9 +457,9 @@ class Compras(models.Model):
                 '[0-9]{1,6}([.][0-9]{1,2})?',
                 message="Cantidad de dígitos superada")])
     totalprice = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
-                             default_currency='MXN', help_text="Ingrese el precio del producto",
-                             verbose_name='Precio total', validators=[MinMoneyValidator(0),
-                                                                             MaxMoneyValidator(999999), RegexValidator(
+                            default_currency='MXN', help_text="Ingrese el precio del producto",
+                            verbose_name='Precio total', validators=[MinMoneyValidator(0),
+                                                                     MaxMoneyValidator(999999), RegexValidator(
                 '[0-9]{1,6}([.][0-9]{1,2})?',
                 message="Cantidad de dígitos superada")])
 
@@ -484,3 +485,15 @@ class DetallesReciboCompra(models.Model):
 
     def __str__(self):
         return "Número de recibo: " + str(self.billno.billno)
+
+
+# Clase Balance, para registrar el balance que tiene la empresa
+class Balance(models.Model):
+    balance = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
+                         default_currency='MXN')
+    transaccion = MoneyField(decimal_places=2, max_digits=9, max_length=9, default=0,
+                         default_currency='MXN')
+    fecha_transaccion = models.DateTimeField()
+    reciboCompra = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, null=True)
+    reciboVenta = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, null=True)
+

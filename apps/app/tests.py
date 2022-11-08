@@ -23,15 +23,15 @@ import csv
 
 
 #Abrir el csv con el encoding UTF-8 y lo pasa a una lista (debe estar en la carpeta testcases)
-with open('testcases/clientes.csv', newline='', encoding="utf-8") as f:
-    data = list(csv.reader(f, delimiter=","))
-
-#For por toda la lista, insertando los datos en el modelo Producto, si necesitas insertar en
-#Otros modelos ve a apps/app/models, ahi vienen los que usamos.
-#Sino sabes que modelo es me preguntas
-for d in data:
-    producto = Client(nombreCliente=d[0], domicilio=d[1], estado=d[2], codigoPostal=d[3], numTelefono=d[4], dirEmail=d[5], rfcCliente=d[6])
-    producto.save()
+# with open('testcases/clientes.csv', newline='', encoding="utf-8") as f:
+#     data = list(csv.reader(f, delimiter=","))
+#
+# #For por toda la lista, insertando los datos en el modelo Producto, si necesitas insertar en
+# #Otros modelos ve a apps/app/models, ahi vienen los que usamos.
+# #Sino sabes que modelo es me preguntas
+# for d in data:
+#     producto = Client(nombreCliente=d[0], domicilio=d[1], estado=d[2], codigoPostal=d[3], numTelefono=d[4], dirEmail=d[5], rfcCliente=d[6])
+#     producto.save()
 #Cuando termines de usarlo, los comentas, no lo vayas a volver a correr, de lo contrario te va volver a insertar
 
 # #Abrir el csv con el encoding UTF-8 y lo pasa a una lista (debe estar en la carpeta testcases)
@@ -82,3 +82,6 @@ for d in data:
 # query = Client.objects.all()
 # t = Client.objects.get(uniqueId="43e459aa48ba402b907a191e4b5ffabc")
 # print(t.nombreCliente)
+
+
+print('Antonio'=='ANTONIO')

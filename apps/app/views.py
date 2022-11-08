@@ -779,9 +779,12 @@ class ComprasCreateView(View):
                 stock.cantidad += billitem.quantity  # updates quantity
                 stock.precioVenta = billitem.precioventa
                 stock.precioCompra = billitem.preciocompra
+
                 # saves bill item and stock
                 stock.save()
                 billitem.save()
+            balance = Balance(balance = balance+recibobj.get_total_price(), transaccion=recibobj.get_total_price(), )
+            print()
             messages.success(request, "Artículos comprados han sido registrados exitosamente")
             return redirect('recibo_compra', billno=recibobj.billno)
         recibo_form = ReciboComprasForm(request.GET or None)
