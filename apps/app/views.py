@@ -695,7 +695,7 @@ class ComprasModificarView(View):
                 billitem = form.save(commit=False)
                 billitem.billno = recibobj  # links the bill object to the items
                 # gets the stock item
-                stock = get_object_or_404(Producto, modelo=billitem.stock.modelo)  # gets the item
+                stock = Producto.objects.filter(modelo=billitem.stock.modelo)
                 # calculates the total price
                 billitem.totalprice = billitem.preciocompra * billitem.quantity
                 # updates quantity in stock db

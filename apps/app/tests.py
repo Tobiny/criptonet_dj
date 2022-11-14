@@ -2,9 +2,11 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
+from datetime import date
+
 from core.wsgi import *
 from django.test import TestCase
-from apps.app.models import Client, Producto, TipoProducto, Marca, Empleado
+from apps.app.models import Client, Producto, TipoProducto, Marca, Empleado, Mantenimientos
 import csv
 
 # Create your tests here.
@@ -34,19 +36,21 @@ import csv
 #     producto.save()
 #Cuando termines de usarlo, los comentas, no lo vayas a volver a correr, de lo contrario te va volver a insertar
 
-# #Abrir el csv con el encoding UTF-8 y lo pasa a una lista (debe estar en la carpeta testcases)
-# with open('testcases/marcas.csv', newline='', encoding="utf-8") as f:
-#     data = list(csv.reader(f, delimiter=","))
-#
-# #For por toda la lista, insertando los datos en el modelo Producto, si necesitas insertar en
-# #Otros modelos ve a apps/app/models, ahi vienen los que usamos.
-# #Sino sabes que modelo es me preguntas
-# for d in data:
-#     producto = Marca(id_marca=d[0], nombre=d[1])
-#     producto.save()
-# #Cuando termines de usarlo, los comentas, no lo vayas a volver a correr, de lo contrario te va volver a insertar
-#
-#
+#Abrir el csv con el encoding UTF-8 y lo pasa a una lista (debe estar en la carpeta testcases)
+with open('testcases/mantenimientos.csv', newline='', encoding="utf-8") as f:
+    data = list(csv.reader(f, delimiter=","))
+
+
+#For por toda la lista, insertando los datos en el modelo Producto, si necesitas insertar en
+#Otros modelos ve a apps/app/models, ahi vienen los que usamos.
+#Sino sabes que modelo es me preguntas
+for d in data:
+
+    producto = Mantenimientos(descripcion=d[0], empleado=Empleado.objects.get(id_empleado=d[1]),cliente=Client.objects.get(uniqueId=d[2]))
+    producto.save()
+#Cuando termines de usarlo, los comentas, no lo vayas a volver a correr, de lo contrario te va volver a insertar
+
+
 
 
 
