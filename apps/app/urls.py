@@ -10,9 +10,6 @@ urlpatterns = [
     path('', views.index, name='home'),
 
     # Productos
-
-
-
     url(r'^productos/$', views.VistasProductosListas.as_view(), name='productos'),
     url(r'^producto/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/$',
         views.ProductoDetalles.as_view(), name='producto_detalles'),
@@ -40,7 +37,12 @@ urlpatterns = [
     url(r'^empleado/(?P<pk>\d+)/modificar/$', views.EmpleadosUpdate.as_view(), name='empleados_modificar'),
     url(r'^empleado/(?P<pk>\d+)/borrar/$', views.EmpleadosBorrar.as_view(), name='empleados_borrar'),
     # Mantenimientos
-
+    url(r'^mantenimientos/$', views.VistasMantenimientos.as_view(), name='mantenimientos'),
+    url(r'^mantenimientos/(?P<pk>\d+)/$', views.MantenimientosDetalles.as_view(), name='mantenimientos_detalles'),
+    url(r'^mantenimientos/crear/$', views.MantenimientosCrear.as_view(), name='mantenimientos_crear'),
+    url(r'^mantenimientos/(?P<pk>\d+)/modificar/$', views.MantenimientosUpdate.as_view(),
+        name='mantenimientos_modificar'),
+    url(r'^mantenimientos/(?P<pk>\d+)/borrar/$', views.MantenimientosBorrar.as_view(), name='mantenimientos_borrar'),
     # Clientes
     url(r'^clientes/$', views.VistasClientes.as_view(), name='clientes'),
     url(r'^cliente/(?P<pk>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/$', views.ClienteDetalles.as_view(), name='cliente_detalles'),
@@ -59,14 +61,6 @@ urlpatterns = [
     path('compras/<pk>/borrar', views.ComprasBorrarView.as_view(), name='compras_borrar'),
     path("compras/<billno>", views.ReciboComprasView.as_view(), name="recibo_compra"),
 
-
-    url(r'^mantenimientos/$', views.VistasMantenimientos.as_view(), name='mantenimientos'),
-    url(r'^mantenimientos/(?P<pk>\d+)/$', views.MantenimientosDetalles.as_view(), name='mantenimientos_detalles'),
-    url(r'^mantenimientos/crear/$', views.MantenimientosCrear.as_view(), name='mantenimientos_crear'),
-    url(r'^mantenimientos/(?P<pk>\d+)/modificar/$', views.MantenimientosUpdate.as_view(), name='mantenimientos_modificar'),
-    url(r'^mantenimientos/(?P<pk>\d+)/borrar/$', views.MantenimientosBorrar.as_view(), name='mantenimientos_borrar'),
-
-
     #Reportes
     path('reportes_prod', views.reportes_productos, name='rep_productos'),
     path('reportes_client', views.reportes_clientes, name='rep_clientes'),
@@ -74,10 +68,10 @@ urlpatterns = [
     path('reportes_vent', views.reportes_ventas, name='rep_ventas'),
     path('reportes', views.reportes_pivot, name='reportes'),
     path('data', views.reportes_datos, name='datos_reportes'),
-
+    #Importar y exportar
     path('exportar', views.export, name='export'),
     path('importar', views.importar, name='import'),
-    # Matches any html file
+    # Coincide con cualquier archivo html
     re_path(r'^.*\.*', views.pages, name='pages'),
-path('admin/', admin.site.urls, name='admin-site'),  # Django admin route
+    path('admin/', admin.site.urls, name='admin-site'),  # Ruta de admin Django
 ]
