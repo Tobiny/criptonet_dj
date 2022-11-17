@@ -3,15 +3,33 @@ import django_filters
 from .models import Producto
 
 
-class ProductoFilter(django_filters.FilterSet):  # Stockfilter used to filter based on name
-    name = django_filters.CharFilter(lookup_expr='icontains')  # allows filtering without entering the full name
-
+class ProductoFilter(django_filters.FilterSet):
+    modelo = django_filters.CharFilter(lookup_expr='icontains')
     class Meta:
         model = Producto
         fields = ['modelo']
 
 
-class ProductosFilter(django_filters.FilterSet):
+class ReportesComprasFilter(forms.ModelForm):
+    fecha_inicial = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
+    fecha_final = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
     class Meta:
-        model = Producto
-        fields = {'marca': ['exact'], 'tipo_producto': ['exact'], 'modelo': ['icontains']}
+        model = ReciboCompra
+        fields = ['fecha_inicial', 'fecha_final']
+
+
+class ReportesVentasFilter(forms.ModelForm):
+    fecha_inicial = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
+    fecha_final = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
+    class Meta:
+        model = ReciboVenta
+        fields = ['fecha_inicial', 'fecha_final']
+
+
+class ReportesClientesFilter(forms.ModelForm):
+    fecha_inicial = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
+    fecha_final = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
+    class Meta:
+        model = Cliente
+        fields = ['fecha_inicial', 'fecha_final']
+

@@ -34,11 +34,11 @@ def index(request):
     productosChart = Producto.objects.filter(cantidad__gt=0)
     tipos_productos = TipoProducto.objects.all().count()
     marcas = Marca.objects.all().count()
-    clients = Client.objects.all().count()
+    clients = Cliente.objects.all().count()
     empleados = Empleado.objects.all().count()
     mantenimientos = Mantenimientos.objects.all().count()
-    ventas = SaleBill.objects.all().count()
-    ventasChart = SaleBill.objects.all()
+    ventas = ReciboVenta.objects.all().count()
+    ventasChart = ReciboVenta.objects.all()
     compras = ReciboCompra.objects.all().count()
 
     context = {}
@@ -59,7 +59,7 @@ def index(request):
 
 @login_required(login_url="/login/")
 def dashboard(request):
-    clients = Client.objects.all().count()
+    clients = Cliente.objects.all().count()
     invoices = Recibo.objects.all().count()
 
 
@@ -105,7 +105,7 @@ def importar(request):
 
 class ProductoDetalles(UserPassesTestMixin, generic.DetailView):
     model = Producto
-    template_name = 'productos/details.html'
+    template_name = 'productos/detalles_producto.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de productos").exists()
@@ -143,7 +143,7 @@ class EmpleadoDetalles(UserPassesTestMixin, generic.DetailView):
 
 
 class ClienteDetalles(UserPassesTestMixin, generic.DetailView):
-    model = Client
+    model = Cliente
     template_name = 'clientes/detalles_cliente.html'
 
     def test_func(self):
@@ -198,7 +198,7 @@ class EmpleadosCrear(UserPassesTestMixin, CreateView):
 
 
 class ClientesCrear(UserPassesTestMixin, CreateView):
-    model = Client
+    model = Cliente
     fields = '__all__'
     template_name = 'clientes/crear_cliente.html'
 
@@ -253,7 +253,7 @@ class EmpleadosUpdate(UserPassesTestMixin, UpdateView):
 
 
 class ClientesUpdate(UserPassesTestMixin, UpdateView):
-    model = Client
+    model = Cliente
     fields = '__all__'
     template_name = 'clientes/modificar_cliente.html'
 
@@ -264,7 +264,7 @@ class ClientesUpdate(UserPassesTestMixin, UpdateView):
 # Borrados
 class ProductosBorrar(UserPassesTestMixin, DeleteView):
     model = Producto
-    template_name = 'productos/confirm.html'
+    template_name = 'productos/confirmar_producto.html'
     success_url = reverse_lazy('productos')
 
     def test_func(self):
@@ -298,7 +298,7 @@ class MarcasBorrar(UserPassesTestMixin, DeleteView):
 
 
 class ClientesBorrar(UserPassesTestMixin, DeleteView):
-    model = Client
+    model = Cliente
     template_name = 'clientes/confirmar_cliente.html'
     success_url = reverse_lazy('clientes')
 
@@ -352,7 +352,7 @@ class VistasMarcas(UserPassesTestMixin, generic.ListView):
 
 
 class VistasClientes(UserPassesTestMixin, generic.ListView):
-    model = Client
+    model = Cliente
     context_object_name = 'lista_clientes'  # your own name for the list as a template variable
     template_name = 'clientes/clientes.html'  # Specify your own template name/location
 
@@ -417,7 +417,7 @@ def backup(app_name, filename):
 
 # shows the list of bills of all sales
 class SaleView(ListView):
-    model = SaleBill
+    model = ReciboVenta
     template_name = "ventas/ventas.html"
     context_object_name = 'bills'
     ordering = ['-time']
@@ -449,7 +449,7 @@ class SaleCreateView(View, UserPassesTestMixin):
             billobj = recibo_form.save(commit=False)
             billobj.save()
             # create bill details object
-            billdetailsobj = SaleBillDetails(billno=billobj)
+            billdetailsobj = DetallesReciboVenta(billno=billobj)
             billdetailsobj.save()
             for form in formset:  # for loop to save each individual form as its own object
                 print(form)
@@ -481,13 +481,13 @@ class SaleCreateView(View, UserPassesTestMixin):
 
 # used to delete a bill object
 class SaleDeleteView(SuccessMessageMixin, DeleteView):
-    model = SaleBill
+    model = ReciboVenta
     template_name = "ventas/borrar_venta.html"
     success_url = reverse_lazy('ventas')
 
     def delete(self, *args, **kwargs):
         self.object = self.get_object()
-        items = SaleItem.objects.filter(billno=self.object.billno)
+        items = VenderProducto.objects.filter(billno=self.object.billno)
         for item in items:
             stock = get_object_or_404(Producto, modelo=item.stock.modelo)
             stock.cantidad += item.quantity
@@ -500,15 +500,15 @@ class SaleDeleteView(SuccessMessageMixin, DeleteView):
 
 # used to display the sale bill object
 class SaleBillView(View):
-    model = SaleBill
+    model = ReciboVenta
     template_name = "recibo/recibo_venta.html"
     bill_base = "recibo/recibo_base.html"
 
     def get(self, request, billno):
         context = {
-            'bill': SaleBill.objects.get(billno=billno),
-            'items': SaleItem.objects.filter(billno=billno),
-            'billdetails': SaleBillDetails.objects.get(billno=billno),
+            'bill': ReciboVenta.objects.get(billno=billno),
+            'items': VenderProducto.objects.filter(billno=billno),
+            'billdetails': DetallesReciboVenta.objects.get(billno=billno),
             'bill_base': self.bill_base,
         }
         return render(request, self.template_name, context)
@@ -516,7 +516,7 @@ class SaleBillView(View):
     def post(self, request, billno):
         form = SaleDetailsForm(request.POST)
         if form.is_valid():
-            billdetailsobj = SaleBillDetails.objects.get(billno=billno)
+            billdetailsobj = DetallesReciboVenta.objects.get(billno=billno)
 
             billdetailsobj.eway = request.POST.get("eway")
             billdetailsobj.veh = request.POST.get("veh")
@@ -532,9 +532,9 @@ class SaleBillView(View):
             billdetailsobj.save()
             messages.success(request, "Bill details have been modified successfully")
         context = {
-            'bill': SaleBill.objects.get(billno=billno),
-            'items': SaleItem.objects.filter(billno=billno),
-            'billdetails': SaleBillDetails.objects.get(billno=billno),
+            'bill': ReciboVenta.objects.get(billno=billno),
+            'items': VenderProducto.objects.filter(billno=billno),
+            'billdetails': DetallesReciboVenta.objects.get(billno=billno),
             'bill_base': self.bill_base,
         }
         return render(request, self.template_name, context)
@@ -664,7 +664,7 @@ class ComprasModificarView(View):
 
     def get(self, request, billno):
         recibo = ReciboCompra.objects.get(billno=billno)
-        productos = Compras.objects.filter(billno=billno)
+        productos = ComprarProducto.objects.filter(billno=billno)
         recibo_form = ReciboComprasForm(instance=recibo)
         datos = []
         for producto in productos:
@@ -723,7 +723,7 @@ class ComprasBorrarView(SuccessMessageMixin, DeleteView):
 
     def delete(self, *args, **kwargs):
         self.object = self.get_object()
-        items = Compras.objects.filter(billno=self.object.billno)
+        items = ComprarProducto.objects.filter(billno=self.object.billno)
         for item in items:
             stock = get_object_or_404(Producto, modelo=item.stock.modelo)
             stock.cantidad -= item.quantity
@@ -741,7 +741,7 @@ class ReciboComprasView(View):
     def get(self, request, billno):
         context = {
             'bill': ReciboCompra.objects.get(billno=billno),
-            'items': Compras.objects.filter(billno=billno),
+            'items': ComprarProducto.objects.filter(billno=billno),
             'billdetails': DetallesReciboCompra.objects.get(billno=billno),
             'bill_base': self.bill_base,
         }
@@ -767,7 +767,7 @@ class ReciboComprasView(View):
             messages.success(request, "Bill details have been modified successfully")
         context = {
             'bill': ReciboCompra.objects.get(billno=billno),
-            'items': Compras.objects.filter(billno=billno),
+            'items': ComprarProducto.objects.filter(billno=billno),
             'billdetails': DetallesReciboCompra.objects.get(billno=billno),
             'bill_base': self.bill_base,
         }
@@ -814,7 +814,7 @@ def reportes_compras(request):
 
 
 def reportes_ventas(request):
-    queryset = SaleBill.objects.all()
+    queryset = ReciboVenta.objects.all()
     form = ReportesVentasFilter(request.POST or None)
 
     context = {
@@ -822,7 +822,7 @@ def reportes_ventas(request):
         'form': form
     }
     if request.method == 'POST':
-        queryset = SaleBill.objects.filter(
+        queryset = ReciboVenta.objects.filter(
             time__range=[form['fecha_inicial'].value(), form['fecha_final'].value()]
         )
         context = {
@@ -834,7 +834,7 @@ def reportes_ventas(request):
 
 
 def reportes_clientes(request):
-    lista_clientes = Client.objects.all()
+    lista_clientes = Cliente.objects.all()
     form = ReportesClientesFilter(request.POST or None)
 
     context = {
@@ -842,7 +842,7 @@ def reportes_clientes(request):
         'form': form
     }
     if request.method == 'POST':
-        lista_clientes = Client.objects.filter(
+        lista_clientes = Cliente.objects.filter(
             date_created__range=[form['fecha_inicial'].value(), form['fecha_final'].value()]
         )
         context = {

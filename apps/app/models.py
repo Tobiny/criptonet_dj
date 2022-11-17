@@ -88,7 +88,7 @@ class TipoProducto(models.Model):
         return reverse('tipo_detalles', args=[str(self.id_tipo)])
 
 
-class Client(models.Model):
+class Cliente(models.Model):
     ESTADOS = [
         ("Aguascalientes'", "Aguascalientes"),
         ("Baja California", "Baja California"),
@@ -187,7 +187,7 @@ class Client(models.Model):
         self.slug = slugify('{} {} {}'.format(self.nombreCliente, self.estado, temp))
         self.last_updated = datetime.datetime.now()
 
-        super(Client, self).save(*args, **kwargs)
+        super(Cliente, self).save(*args, **kwargs)
 
 
 class Mantenimientos(models.Model):
@@ -196,7 +196,7 @@ class Mantenimientos(models.Model):
                                  help_text="Ingrese la fecha de mantenimiento")
     descripcion = models.TextField(help_text="Ingrese las observaciones del mantenimiento",
                                    verbose_name='Observaciones')
-    cliente = models.ForeignKey(Client, on_delete=models.CASCADE,
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE,
                                 help_text="Seleccione el cliente para su mantenimiento", verbose_name='Cliente'
                                 )
     empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE,
@@ -217,88 +217,25 @@ class Mantenimientos(models.Model):
 
 
 # contains the sale bills made
-class SaleBill(models.Model):
+class ReciboVenta(models.Model):
     billno = models.AutoField(primary_key=True)
     time = models.DateTimeField(auto_now=True)
-    cliente = models.ForeignKey(Client, blank=True, null=True, on_delete=models.SET_NULL)
+    cliente = models.ForeignKey(Cliente, blank=True, null=True, on_delete=models.SET_NULL)
     notas = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return "Bill no: " + str(self.billno)
 
     def get_items_list(self):
-        return SaleItem.objects.filter(billno=self)
+        return VenderProducto.objects.filter(billno=self)
 
     def get_total_price(self):
-        saleitems = SaleItem.objects.filter(billno=self)
+        saleitems = VenderProducto.objects.filter(billno=self)
         total = 0
         for item in saleitems:
             print(item.totalprice)
             total += item.totalprice
         return total
-
-
-class Recibo(models.Model):
-    STATUS = [
-        ('ACTUAL', 'ACTUAL'),
-        ('NO PAGADO', 'NO PAGADO'),
-        ('PAGADO', 'PAGADO'),
-    ]
-
-    title = models.CharField(null=True, blank=True, max_length=100, help_text="Ingrese el título del recibo",
-                             verbose_name='Título del '
-                                          'Recibo')
-    numero = models.CharField(null=True, blank=True, max_length=100)
-    fechaPago = models.DateField(null=True, blank=True)
-
-    estado = models.CharField(choices=STATUS, default='CURRENT', max_length=100)
-    notas = models.TextField(null=True, blank=True)
-    total = MoneyField(max_length=30, default=0, decimal_places=3, max_digits=27,
-                       default_currency='MXN')
-
-    # RELATED fields
-    client = models.ForeignKey(Client, blank=True, null=True, on_delete=models.SET_NULL)
-
-    # Utility fields
-    uniqueId = models.CharField(null=True, blank=True, max_length=100)
-    slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
-    fecha_creacion = models.DateTimeField(blank=True, null=True)
-    ultima_actualizacion = models.DateTimeField(blank=True, null=True)
-
-    def __str__(self):
-        return '{} {}'.format(self.numero, self.uniqueId)
-
-    def actualizar_total(self, x):
-        self.total = self.total + (x)
-
-    def get_absolute_url(self):
-        return reverse('invoice-detail', kwargs={'slug': self.slug})
-
-    def get_items_list(self):
-        return DetalleProducto.objects.filter(recibo=self)
-
-    def get_total_price(self):
-        saleitems = DetalleProducto.objects.filter(recibo=self)
-        total = 0
-        for item in saleitems:
-            total += item.preciototal
-        return total
-
-    def save(self, *args, **kwargs):
-        if self.fecha_creacion is None:
-            self.fecha_creacion = timezone.localtime(timezone.now())
-        if self.uniqueId is None:
-            self.uniqueId = str(uuid4()).split('-')[4]
-            self.slug = slugify('{} {}'.format(self.numero, self.uniqueId))
-
-        self.slug = slugify('{} {}'.format(self.numero, self.uniqueId))
-        self.ultima_actualizacion = timezone.localtime(timezone.now())
-
-        super(Recibo, self).save(*args, **kwargs)
-
-    def delete(self, *args, **kwargs):
-        super(Recibo, self).delete(*args, **kwargs)
-
 
 class Producto(models.Model):
     modelo = models.CharField(max_length=70, verbose_name='Modelo del producto',
@@ -389,8 +326,8 @@ class DetalleProducto(models.Model):
         super(DetalleProducto, self).save(*args, **kwargs)
 
 
-class SaleItem(models.Model):
-    billno = models.ForeignKey(SaleBill, on_delete=models.CASCADE, related_name='salebillno')
+class VenderProducto(models.Model):
+    billno = models.ForeignKey(ReciboVenta, on_delete=models.CASCADE, related_name='salebillno')
     stock = models.ForeignKey(Producto, on_delete=models.CASCADE, related_name='saleitem')
     quantity = models.IntegerField(default=1)
     perprice = models.FloatField(default=1)
@@ -401,8 +338,8 @@ class SaleItem(models.Model):
 
 
 # contains the other details in the sales bill
-class SaleBillDetails(models.Model):
-    billno = models.ForeignKey(SaleBill, on_delete=models.CASCADE, related_name='saledetailsbillno')
+class DetallesReciboVenta(models.Model):
+    billno = models.ForeignKey(ReciboVenta, on_delete=models.CASCADE, related_name='saledetailsbillno')
 
     eway = models.CharField(max_length=50, blank=True, null=True)
     veh = models.CharField(max_length=50, blank=True, null=True)
@@ -430,10 +367,10 @@ class ReciboCompra(models.Model):
         return "Número de recibo: " + str(self.billno)
 
     def get_items_list(self):
-        return Compras.objects.filter(billno=self)
+        return ComprarProducto.objects.filter(billno=self)
 
     def get_total_price(self):
-        articuloscomprados = Compras.objects.filter(billno=self)
+        articuloscomprados = ComprarProducto.objects.filter(billno=self)
         total = 0
         for item in articuloscomprados:
             total += item.totalprice
@@ -441,7 +378,7 @@ class ReciboCompra(models.Model):
 
 
 # contains the purchase stocks made
-class Compras(models.Model):
+class ComprarProducto(models.Model):
     billno = models.ForeignKey(ReciboCompra, on_delete=models.CASCADE, related_name='purchasebillno')
     stock = models.ForeignKey(Producto, on_delete=models.CASCADE, related_name='purchaseitem')
     quantity = models.IntegerField(default=1, help_text="Ingrese la cantidad de productos a comprar")

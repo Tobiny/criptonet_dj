@@ -6,7 +6,7 @@ from datetime import date
 
 from core.wsgi import *
 from django.test import TestCase
-from apps.app.models import Client, Producto, TipoProducto, Marca, Empleado, Mantenimientos
+from apps.app.models import Cliente, Producto, TipoProducto, Marca, Empleado, Mantenimientos
 import csv
 
 # Create your tests here.

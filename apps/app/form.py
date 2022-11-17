@@ -86,7 +86,7 @@ class ClientSelectForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.initial_client = kwargs.pop('initial_client')
-        self.CLIENT_LIST = Client.objects.all()
+        self.CLIENT_LIST = Cliente.objects.all()
         self.CLIENT_CHOICES = [('-----', '--Selecciona al cliente--')]
 
         for client in self.CLIENT_LIST:
@@ -101,7 +101,7 @@ class ClientSelectForm(forms.ModelForm):
             widget=forms.Select(attrs={'class': 'form-control mb-3'}), )
 
     class Meta:
-        model = SaleBill
+        model = ReciboVenta
         fields = ['cliente']
 
     def clean_client(self):
@@ -109,11 +109,11 @@ class ClientSelectForm(forms.ModelForm):
         if c_client == '-----':
             return self.initial_client
         else:
-            return Client.objects.get(uniqueId=c_client)
+            return Cliente.objects.get(uniqueId=c_client)
 
 class ReciboForm(forms.ModelForm):
     class Meta:
-        model = SaleBill
+        model = ReciboVenta
         fields = ['cliente', 'notas']
 
         widgets = {
@@ -131,7 +131,7 @@ class SaleItemForm(forms.ModelForm):
         self.fields['quantity'].widget.attrs.update({'class': 'textinput form-control setprice quantity', 'min': '0', 'required': 'true'})
         self.fields['perprice'].widget.attrs.update({'class': 'textinput form-control setprice price', 'readonly':'true','min': '0', 'required': 'true'})
     class Meta:
-        model = SaleItem
+        model = VenderProducto
         fields = ['stock', 'quantity', 'perprice']
 
 # formset used to render multiple 'SaleItemForm'
@@ -140,7 +140,7 @@ SaleItemFormset = formset_factory(SaleItemForm, extra=1)
 # form used to accept the other details for sales bill
 class SaleDetailsForm(forms.ModelForm):
     class Meta:
-        model = SaleBillDetails
+        model = DetallesReciboVenta
         fields = ['eway','veh', 'destination', 'po', 'cgst', 'sgst', 'igst', 'cess', 'tcs', 'total']
 
 
@@ -165,31 +165,9 @@ class ComprasForm(forms.ModelForm):
         self.fields['preciocompra'].widget.attrs.update({'class': 'textinput form-control setprice price','min': '1', 'required': 'true'})
         self.fields['precioventa'].widget.attrs.update({'class': 'textinput form-control setprice pricesale','min': '1', 'required': 'true'})
     class Meta:
-        model = Compras
+        model = ComprarProducto
         fields = ['stock', 'quantity', 'preciocompra','precioventa']
 
 # formset used to render multiple 'ComprasForm'
 ComprasFormset = formset_factory(ComprasForm, extra=1)
 
-class ReportesComprasFilter(forms.ModelForm):
-    fecha_inicial = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
-    fecha_final = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
-    class Meta:
-        model = ReciboCompra
-        fields = ['fecha_inicial', 'fecha_final']
-
-
-class ReportesVentasFilter(forms.ModelForm):
-    fecha_inicial = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
-    fecha_final = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
-    class Meta:
-        model = SaleBill
-        fields = ['fecha_inicial', 'fecha_final']
-
-
-class ReportesClientesFilter(forms.ModelForm):
-    fecha_inicial = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha inicial del filtrado")
-    fecha_final = forms.DateTimeField(required=True, widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}), help_text="Ingrese la fecha de término del filtrado")
-    class Meta:
-        model = Client
-        fields = ['fecha_inicial', 'fecha_final']
