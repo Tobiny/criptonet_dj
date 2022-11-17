@@ -136,7 +136,7 @@ class MarcaDetalles(UserPassesTestMixin, generic.DetailView):
 
 class EmpleadoDetalles(UserPassesTestMixin, generic.DetailView):
     model = Empleado
-    template_name = 'empleados/details.html'
+    template_name = 'empleados/detalles_empleado.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de empleados").exists()
@@ -144,7 +144,7 @@ class EmpleadoDetalles(UserPassesTestMixin, generic.DetailView):
 
 class ClienteDetalles(UserPassesTestMixin, generic.DetailView):
     model = Client
-    template_name = 'clientes/details.html'
+    template_name = 'clientes/detalles_cliente.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de clientes").exists()
@@ -191,7 +191,7 @@ class MantenimientosCrear(UserPassesTestMixin, CreateView):
 class EmpleadosCrear(UserPassesTestMixin, CreateView):
     model = Empleado
     fields = '__all__'
-    template_name = 'empleados/form.html'
+    template_name = 'empleados/crear_empleado.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de empleados").exists()
@@ -200,7 +200,7 @@ class EmpleadosCrear(UserPassesTestMixin, CreateView):
 class ClientesCrear(UserPassesTestMixin, CreateView):
     model = Client
     fields = '__all__'
-    template_name = 'clientes/form.html'
+    template_name = 'clientes/crear_cliente.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de clientes").exists()
@@ -246,7 +246,7 @@ class MarcasUpdate(UserPassesTestMixin, UpdateView):
 class EmpleadosUpdate(UserPassesTestMixin, UpdateView):
     model = Empleado
     fields = '__all__'
-    template_name = 'empleados/modify.html'
+    template_name = 'empleados/modificar_empleados.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de empleados").exists()
@@ -255,7 +255,7 @@ class EmpleadosUpdate(UserPassesTestMixin, UpdateView):
 class ClientesUpdate(UserPassesTestMixin, UpdateView):
     model = Client
     fields = '__all__'
-    template_name = 'clientes/modify.html'
+    template_name = 'clientes/modificar_cliente.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de clientes").exists()
@@ -299,7 +299,7 @@ class MarcasBorrar(UserPassesTestMixin, DeleteView):
 
 class ClientesBorrar(UserPassesTestMixin, DeleteView):
     model = Client
-    template_name = 'clientes/confirm.html'
+    template_name = 'clientes/confirmar_cliente.html'
     success_url = reverse_lazy('clientes')
 
     def test_func(self):
@@ -308,7 +308,7 @@ class ClientesBorrar(UserPassesTestMixin, DeleteView):
 
 class EmpleadosBorrar(UserPassesTestMixin, DeleteView):
     model = Empleado
-    template_name = 'empleados/confirm.html'
+    template_name = 'empleados/confirmar_empleado.html'
     success_url = reverse_lazy('empleados')
 
     def test_func(self):
@@ -354,7 +354,7 @@ class VistasMarcas(UserPassesTestMixin, generic.ListView):
 class VistasClientes(UserPassesTestMixin, generic.ListView):
     model = Client
     context_object_name = 'lista_clientes'  # your own name for the list as a template variable
-    template_name = 'clientes/list.html'  # Specify your own template name/location
+    template_name = 'clientes/clientes.html'  # Specify your own template name/location
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de clientes").exists()
@@ -418,7 +418,7 @@ def backup(app_name, filename):
 # shows the list of bills of all sales
 class SaleView(ListView):
     model = SaleBill
-    template_name = "sales/sales_list.html"
+    template_name = "ventas/ventas.html"
     context_object_name = 'bills'
     ordering = ['-time']
     paginate_by = 10
@@ -428,7 +428,7 @@ class SaleView(ListView):
 class SaleCreateView(View, UserPassesTestMixin):
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de ventas").exists()
-    template_name = "sales/new_sale.html"
+    template_name = "ventas/nueva_venta.html"
 
     def get(self, request):
         recibo_form = ReciboForm(request.GET or None)  # para el cliente
@@ -468,7 +468,7 @@ class SaleCreateView(View, UserPassesTestMixin):
                 stock.save()
                 billitem.save()
             messages.success(request, "Los articulos vendidos han sido vendidos correctamente")
-            return redirect('sale-bill', billno=billobj.billno)
+            return redirect('recibo-venta', billno=billobj.billno)
         recibo_form = ReciboForm(request.GET or None)
         formset = SaleItemFormset(request.GET or None)
         context = {
@@ -482,8 +482,8 @@ class SaleCreateView(View, UserPassesTestMixin):
 # used to delete a bill object
 class SaleDeleteView(SuccessMessageMixin, DeleteView):
     model = SaleBill
-    template_name = "sales/delete_sale.html"
-    success_url = reverse_lazy('sales-list')
+    template_name = "ventas/borrar_venta.html"
+    success_url = reverse_lazy('ventas')
 
     def delete(self, *args, **kwargs):
         self.object = self.get_object()
@@ -497,13 +497,12 @@ class SaleDeleteView(SuccessMessageMixin, DeleteView):
         return super(SaleDeleteView, self).delete(*args, **kwargs)
 
 
-# used to display the purchase bill object
 
 # used to display the sale bill object
 class SaleBillView(View):
     model = SaleBill
-    template_name = "bill/sale_bill.html"
-    bill_base = "bill/bill_base.html"
+    template_name = "recibo/recibo_venta.html"
+    bill_base = "recibo/recibo_base.html"
 
     def get(self, request, billno):
         context = {
@@ -736,8 +735,8 @@ class ComprasBorrarView(SuccessMessageMixin, DeleteView):
 # used to display the purchase bill object
 class ReciboComprasView(View):
     model = ReciboCompra
-    template_name = "bill/purchase_bill.html"
-    bill_base = "bill/bill_base.html"
+    template_name = "recibo/recibo_compra.html"
+    bill_base = "recibo/recibo_base.html"
 
     def get(self, request, billno):
         context = {

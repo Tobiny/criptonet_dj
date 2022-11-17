@@ -132,79 +132,6 @@
                                         </div>
                                     </form>
 
-
-                                    <!-- Log on to codeastro.com for more projects -->
-                                    {% comment %} <h5>Ingrese los datos del producto</h5>
-                                    <hr>
-                                    <form method="post" novalidate>
-                                        {% csrf_token %}
-                                        {% for field in form.hidden_fields %}
-                                            <div class="form-group">
-                                                {{ field.label_tag }}
-                                                {% if form.is_bound %}
-                                                    {% if field.errors %}
-                                                        {% render_field field class="form-control is-invalid" %}
-                                                        {% for error in field.errors %}
-                                                            <div class="invalid-feedback">
-                                                                {{ error }}
-                                                            </div>
-                                                        {% endfor %}
-                                                    {% else %}
-                                                        {% render_field field class="form-control is-valid" %}
-                                                    {% endif %}
-                                                {% else %}
-                                                    {% render_field field class="form-control" %}
-                                                {% endif %}
-                                                {% if field.help_text %}
-                                                    <small class="form-text text-muted">{{ field.help_text }}</small>
-                                                {% endif %}
-                                            </div>
-                                        {% endfor %}
-                                        {% if form.non_field_errors %}
-                                            <div class="alert alert-danger" role="alert">
-                                                {% for error in form.non_field_errors %}
-                                                    {{ error }}
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-
-                                        {% with False as first %}
-                                            {% for field in form.visible_fields %}
-                                                {% setvar forloop.counter as n %}
-                                                <div class="form-group">
-                                                    {% if n != 3 %}
-                                                        {{ field.label_tag }}
-                                                        {% if form.is_bound %}
-                                                            {% if field.errors %}
-                                                                {% render_field field class="form-control is-invalid" %}
-                                                                {% for error in field.errors %}
-                                                                    <div class="invalid-feedback">
-                                                                        {{ error }}
-                                                                    </div>
-                                                                {% endfor %}
-                                                            {% else %}
-                                                                {% render_field field class="form-control is-valid" %}
-                                                            {% endif %}
-                                                        {% elif first %}
-                                                            {% render_field field|attr:"readonly:True" class="form-control" %}
-                                                            {% setvar False as first %}
-                                                        {% elif n == 1 %}
-                                                            {% render_field field data-filter='^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control" %}
-                                                        {% elif n == 2 %}
-                                                            {% render_field field data-filter='^[a-zA-ZÀ-ÖØ-öø-ÿ0-9]+(\s?($|[a-zA-ZÀ-ÖØ-öø-ÿ0-9][,|.]?))*([a-zA-ZÀ-ÖØ-öø-ÿ0-9]?)$' class="form-control" %}
-                                                        {% else %}
-                                                            {% render_field field class="form-control" %}
-                                                        {% endif %}
-                                                        {% if field.help_text %}
-                                                            <small class="form-text text-muted">{{ field.help_text }}</small>
-                                                        {% endif %}
-                                                    {% endif %}
-
-                                                </div>
-                                            {% endfor %}
-                                        {% endwith %}
-                                        <button type="submit" class="btn btn-primary">Agregar</button>
-                                    </form>{% endcomment %}
                                 </div>
                             </div>
                         </div>
@@ -219,56 +146,6 @@
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
-    {#    <script>#}
-    {#        var inputs = document.querySelectorAll('input[data-filter]');#}
-    {#        var inputs2 = document.querySelectorAll('textarea[data-filter]');#}
-    {#        for (var i = 0; i < inputs.length; i++) {#}
-    {#            var input = inputs[i];#}
-    {#            var state = {#}
-    {#                value: input.value,#}
-    {#                start: input.selectionStart,#}
-    {#                end: input.selectionEnd,#}
-    {#                pattern: RegExp('^' + input.dataset.filter + '$')#}
-    {#            };#}
-    {##}
-    {#            input.addEventListener('input', function (event) {#}
-    {#                if (state.pattern.test(input.value)) {#}
-    {#                    state.value = input.value;#}
-    {#                } else {#}
-    {#                    input.value = state.value;#}
-    {#                    input.setSelectionRange(state.start, state.end);#}
-    {#                }#}
-    {#            });#}
-    {##}
-    {#            input.addEventListener('keydown', function (event) {#}
-    {#                state.start = input.selectionStart;#}
-    {#                state.end = input.selectionEnd;#}
-    {#            });#}
-    {#        }#}
-    {#        for (var i = 0; i < inputs2.length; i++) {#}
-    {#            var textarea = inputs2[i];#}
-    {#            var state = {#}
-    {#                value: textarea.value,#}
-    {#                start: textarea.selectionStart,#}
-    {#                end: textarea.selectionEnd,#}
-    {#                pattern: RegExp('^' + textarea.dataset.filter + '$')#}
-    {#            };#}
-    {##}
-    {#            textarea.addEventListener('input', function (event) {#}
-    {#                if (state.pattern.test(textarea.value)) {#}
-    {#                    state.value = textarea.value;#}
-    {#                } else {#}
-    {#                    textarea.value = state.value;#}
-    {#                    textarea.setSelectionRange(state.start, state.end);#}
-    {#                }#}
-    {#            });#}
-    {##}
-    {#            textarea.addEventListener('keydown', function (event) {#}
-    {#                state.start = textarea.selectionStart;#}
-    {#                state.end = textarea.selectionEnd;#}
-    {#            });#}
-    {#        }#}
-    {#    </script>#}
     <script type="text/javascript" src="{% static 'js/sweetalert2.all.min.js' %}"></script>
     <script type="text/javascript">
 
@@ -343,20 +220,6 @@
             return false;
         });
 
-
-        {% comment %}  //stores pk and quantity of all stocks into a js object 'stocks'
-          var stocks = [
-              {% for stock in stocks %}
-                  {% if not forloop.first %},{% endif %}
-                  {
-                      pk: "{{ stock.pk }}",
-                      precio_venta: "{{ stock.precioVenta.amount }}",
-                      quantity: {{ stock.cantidad }}
-                  }
-              {% endfor %}
-          ];
-  {% endcomment %}
-        //updates the total price by multiplying 'price per item' and 'quantity'
         $(document).on('change', '.setprice', function (e) {
 
             e.preventDefault();
@@ -396,7 +259,6 @@
                             footer: 'Revise el campo'
                         })
                         precioven = 1
-                        {#element.parents('.form-row').find('.pricesale').val(precioven);#}
             }
             if (perprice <= 0) {
                 Swal.fire({
@@ -409,61 +271,6 @@
                         element.parents('.form-row').find('.price').val(perprice);
             }
 
-            //checks if stocks are available
-            {% comment %}stocks.forEach(function (stockSummary, i) {
-
-                var pk = stocks[i].pk;
-                var squantity = stocks[i].quantity;
-
-                if (stock === pk) {
-                    perprice = stocks[i].precio_venta.replace(',', '.');
-                    element.parents('.form-row').find('.price').val(perprice);
-                    if (quantity < 0) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error...',
-                            text: 'No se aceptan números negativos',
-                            footer: 'Revise el campo'
-                        })
-                        quantity = 0
-
-                        element.parents('.form-row').find('.quantity').val(0);
-                        element.parents('.form-row').find('.totalprice').val(0);
-                    }
-                    //checks if ordered stock is more than available stock
-                    if (quantity > squantity) {
-                        quantity = quantity - 1;
-                        if (quantity <= 1) {
-                            //no stocks are available. Attempts to delete field
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error...',
-                                text: 'Los productos no se encuentran disponibles',
-                                footer: 'El campo será removido'
-                            })
-
-                            //Sets quantity to 0 as failsafe for when the total no of item forms are 1
-                            element.parents('.form-row').find('.quantity').val(1);
-                            deleteForm('form', element);
-                        } else {
-                            element.parents('.form-row').find('.quantity').val(squantity - 1);
-                            quantity = squantity - 1;
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error...',
-                                text: 'Cantidad de productos no disponible',
-                                footer: 'Revise el campo'
-                            })
-                            quantity = 0
-
-                            element.parents('.form-row').find('.quantity').val(0);
-                            element.parents('.form-row').find('.price').val(0);
-                            element.parents('.form-row').find('.totalprice').val(0);
-
-                        }
-                    }
-                }
-            });{% endcomment %}
             //calculates the total
             var tprice = quantity * perprice;
             //sets it to field

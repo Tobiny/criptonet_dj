@@ -20,7 +20,7 @@
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="feather icon-home"></i></a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{% url 'sales-list' %}">Ventas</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'ventas' %}">Ventas</a></li>
                                 <li class="breadcrumb-item"><a href="javascript:">Registros de ventas</a></li>
                             </ul>
                         </div>
@@ -72,8 +72,8 @@
                                                             aria-expanded="false">Acciones
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="{% url 'sale-bill' sale.billno %}">Ver detalles</a>
-                                                        <a class="dropdown-item" href="{% url 'delete-sale' sale.pk %}">Eliminar</a>
+                                                        <a class="dropdown-item" href="{% url 'recibo-venta' sale.billno %}">Ver detalles</a>
+                                                        <a class="dropdown-item" href="{% url 'ventas-borrar' sale.pk %}">Eliminar</a>
                                                     </div>
                                                 </td>
 

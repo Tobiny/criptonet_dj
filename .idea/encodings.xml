@@ -5,9 +5,9 @@
     <file url="file://$PROJECT_DIR$/apps/app/testcases/Testcases.csv" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/apps/app/testcases/clientes.csv" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/apps/app/testcases/empleados.csv" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/core/templates/bill/bill_base.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/core/templates/bill/purchase_bill.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/core/templates/bill/sale_bill.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/templates/bill/recibo_base.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/templates/bill/recibo_compra.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/templates/bill/recibo_venta.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/compras/compras.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/compras/list.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/mantenimientos/details.html" charset="UTF-8" />
@@ -17,7 +17,8 @@
     <file url="file://$PROJECT_DIR$/core/templates/reportes/reportes_clientes.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/reportes/reportes_compras.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core/templates/reportes/reportes_ventas.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/core/templates/sales/sales_list.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/templates/sales/ventas.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core/templates/usuarios/login.html" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1252" />
   </component>
 </project>

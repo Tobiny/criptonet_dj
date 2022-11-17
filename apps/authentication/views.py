@@ -23,7 +23,7 @@ def login_view(request):
         else:
             msg = 'Error al validar el formulario'
 
-    return render(request, "accounts/login.html", {"form": form, "msg": msg})
+    return render(request, "usuarios/login.html", {"form": form, "msg": msg})
 
 
 def editor_usuarios(user):
@@ -54,4 +54,4 @@ def register_user(request):
     else:
         form = SignUpForm()
 
-    return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
+    return render(request, "usuarios/register.html", {"form": form, "msg": msg, "success": success})
