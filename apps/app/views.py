@@ -112,7 +112,7 @@ class ProductoDetalles(UserPassesTestMixin, generic.DetailView):
 
 class MantenimientosDetalles(UserPassesTestMixin, generic.DetailView):
     model = Mantenimientos
-    template_name = 'mantenimientos/details.html'
+    template_name = 'mantenimientos/detalles_mantenimiento.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de productos").exists()
@@ -128,7 +128,7 @@ class TipoDetalles(UserPassesTestMixin, generic.DetailView):
 
 class MarcaDetalles(UserPassesTestMixin, generic.DetailView):
     model = Marca
-    template_name = 'marcas/details.html'
+    template_name = 'marcas/detalles_marca.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de marcas").exists()
@@ -173,7 +173,7 @@ class TiposCrear(UserPassesTestMixin, CreateView):
 class MarcasCrear(UserPassesTestMixin, CreateView):
     model = Marca
     fields = '__all__'
-    template_name = 'marcas/form.html'
+    template_name = 'marcas/crear_marca.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de marcas").exists()
@@ -181,7 +181,7 @@ class MarcasCrear(UserPassesTestMixin, CreateView):
 class MantenimientosCrear(UserPassesTestMixin, CreateView):
     model = Mantenimientos
     fields = ['fecha', 'descripcion','cliente','empleado']
-    template_name = 'mantenimientos/form.html'
+    template_name = 'mantenimientos/crear_mantenimiento.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de mantenimientos").exists()
@@ -228,7 +228,7 @@ class TiposUpdate(UserPassesTestMixin, UpdateView):
 class MantenimientosUpdate(UserPassesTestMixin, UpdateView):
     model = Mantenimientos
     fields = '__all__'
-    template_name = 'mantenimientos/modify.html'
+    template_name = 'mantenimientos/modificar_mantenimiento.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de tipos").exists()
@@ -237,7 +237,7 @@ class MantenimientosUpdate(UserPassesTestMixin, UpdateView):
 class MarcasUpdate(UserPassesTestMixin, UpdateView):
     model = Marca
     fields = '__all__'
-    template_name = 'marcas/modify.html'
+    template_name = 'marcas/modificar_marcas.html'
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de marcas").exists()
@@ -272,7 +272,7 @@ class ProductosBorrar(UserPassesTestMixin, DeleteView):
 
 class MantenimientosBorrar(UserPassesTestMixin, DeleteView):
     model = Mantenimientos
-    template_name = 'mantenimientos/confirm.html'
+    template_name = 'mantenimientos/confirmar_mantenimiento.html'
     success_url = reverse_lazy('mantenimientos')
 
     def test_func(self):
@@ -290,7 +290,7 @@ class TiposBorrar(UserPassesTestMixin, DeleteView):
 
 class MarcasBorrar(UserPassesTestMixin, DeleteView):
     model = Marca
-    template_name = 'marcas/confirm.html'
+    template_name = 'marcas/confirmar_marca.html'
     success_url = reverse_lazy('marcas')
 
     def test_func(self):
@@ -336,7 +336,7 @@ class VistasTiposProductos(UserPassesTestMixin, generic.ListView):
 class VistasMantenimientos(UserPassesTestMixin, generic.ListView):
     model = Mantenimientos
     context_object_name = 'lista_mantenimientos'  # your own name for the list as a template variable
-    template_name = 'mantenimientos/list.html'  # Specify your own template name/location
+    template_name = 'mantenimientos/mantenimientos.html'  # Specify your own template name/location
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de tipos").exists()
@@ -345,7 +345,7 @@ class VistasMantenimientos(UserPassesTestMixin, generic.ListView):
 class VistasMarcas(UserPassesTestMixin, generic.ListView):
     model = Marca
     context_object_name = 'lista_marcas'  # your own name for the list as a template variable
-    template_name = 'marcas/list.html'  # Specify your own template name/location
+    template_name = 'marcas/marcas.html'  # Specify your own template name/location
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de marcas").exists()
@@ -363,7 +363,7 @@ class VistasClientes(UserPassesTestMixin, generic.ListView):
 class VistasEmpleados(UserPassesTestMixin, generic.ListView):
     model = Empleado
     context_object_name = 'lista_empleados'  # your own name for the list as a template variable
-    template_name = 'empleados/list.html'  # Specify your own template name/location
+    template_name = 'empleados/empleados.html'  # Specify your own template name/location
 
     def test_func(self):
         return self.request.user.groups.filter(name="Editor de empleados").exists()
