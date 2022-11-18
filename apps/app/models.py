@@ -220,8 +220,8 @@ class Mantenimientos(models.Model):
 class SaleBill(models.Model):
     billno = models.AutoField(primary_key=True)
     time = models.DateTimeField(auto_now=True)
-    cliente = models.ForeignKey(Client, blank=True, null=True, on_delete=models.SET_NULL)
-    notas = models.TextField(null=True, blank=True)
+    cliente = models.ForeignKey(Client, on_delete=models.CASCADE)
+    notas = models.TextField(null=True, blank=True, default="Sin notas")
 
     def __str__(self):
         return "Bill no: " + str(self.billno)
